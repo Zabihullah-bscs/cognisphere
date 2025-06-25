@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,10 +10,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.youtube.com/watch?v=fhmkqXy0eHo') no-repeat center center fixed;
-      background-size: cover;
       color: #A0AEC0;
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
@@ -62,43 +22,39 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       z-index: -100;
     }
-    .video-background iframe {
+    .video-background .video-wrapper {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%);
-    }
-    body {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.youtube.com/watch?v=fhmkqXy0eHo') no-repeat center center fixed;
-      background-size: cover;
-      color: #A0AEC0;
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      overflow-x: hidden;
-    }
-    .video-background {
-      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: -100;
     }
     .video-background iframe {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 0;
+      left: -10%;
+      width: 100vw;
+      height: 100vh;
+      min-width: 130vw;
+      min-height: 120vh;
+      transform: scale(1.1);
+      border: none;
+    }
+    .video-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
     h1, h2, h3 {
       font-family: 'Orbitron', sans-serif;
@@ -115,34 +71,48 @@
     .text-purple { color: #7B3FE4; }
     .text-gray { color: #A0AEC0; }
     .text-gradient {
-      color: #00b4d8; /* Fallback */
+      color: #00b4d8;
       background: linear-gradient(to right, #00b4d8, #fcfcfd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .bg-neon-blue { background-color: #00D4FF; }
     .bg-purple { background-color: #7B3FE4; }
+    .text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .text-base { font-size: 1rem; line-height: 1.5rem; }
+    .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
     .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
     .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
     .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
     .text-5xl { font-size: 3rem; line-height: 1.2; }
     .text-6xl { font-size: 3.75rem; line-height: 1.2; }
     .font-bold { font-weight: 700; }
     .font-semibold { font-weight: 600; }
+    .p-2 { padding: 0.5rem; }
     .p-4 { padding: 1rem; }
     .p-6 { padding: 1.5rem; }
+    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
     .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+    .py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+    .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
     .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
     .mb-4 { margin-bottom: 1rem; }
     .mb-8 { margin-bottom: 2rem; }
     .mb-12 { margin-bottom: 3rem; }
+    .mt-4 { margin-top: 1rem; }
     .mt-8 { margin-top: 2rem; }
+    .space-x-2 > * + * { margin-left: 0.5rem; }
     .space-x-4 > * + * { margin-left: 1rem; }
     .space-x-6 > * + * { margin-left: 1.5rem; }
+    .space-y-2 > * + * { margin-top: 0.5rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
     .flex { display: flex; }
-    .justify-between { justify-content: space-between; }
     .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
     .items-center { align-items: center; }
     .flex-col { flex-direction: column; }
     .text-center { text-align: center; }
@@ -150,6 +120,7 @@
     .w-full { width: 100%; }
     .top-0 { top: 0; }
     .z-20 { z-index: 20; }
+    .z-30 { z-index: 30; }
     .shadow-lg { box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
     .shadow-glow { box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
     .rounded-lg { border-radius: 0.75rem; }
@@ -160,14 +131,19 @@
     .absolute { position: absolute; }
     .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
     .z-10 { z-index: 10; }
+    .h-10 { height: 2.5rem; }
     .h-12 { height: 3rem; }
-    .h-40 { height: 10rem; }
     .h-32 { height: 8rem; }
+    .h-40 { height: 10rem; }
+    .max-w-sm { max-width: 24rem; }
     .max-w-md { max-width: 28rem; }
+    .max-w-lg { max-width: 32rem; }
     .mx-auto { margin-left: auto; margin-right: auto; }
     .transition { transition: all 0.3s ease; }
     .hover\:text-neon-blue:hover { color: #00D4FF; }
     .hover\:bg-purple:hover { background-color: #7B3FE4; }
+    .hover\:text-purple:hover { color: #7B3FE4; }
+    .hover\:shadow-glow:hover { box-shadow: 0 0 15px rgba(0, 212, 255, 0.7); }
     .animate-pulse {
       animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
@@ -190,7 +166,7 @@
     }
     @keyframes pan {
       0% { background-position: 0% 0%; }
-      100% { background-position: -200% 0%; } /* Pan further to the left */
+      100% { background-position: -200% 0%; }
     }
     .moving-map {
       position: absolute;
@@ -204,10 +180,10 @@
         radial-gradient(circle at 50% 40%, rgba(0, 212, 255, 0.1) 2px, transparent 3px),
         radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.1) 2px, transparent 3px),
         radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.1) 2px, transparent 3px);
-      background-size: 200px 200px; /* Adjust size for dot density */
+      background-size: 200px 200px;
       background-repeat: repeat;
-      opacity: 0.3; /* Make it subtle */
-      animation: pan 60s linear infinite; /* Slower animation for background */
+      opacity: 0.3;
+      animation: pan 60s linear infinite;
       z-index: -1;
     }
     .moving-map-contact {
@@ -215,8 +191,8 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       background: #00D4FF radial-gradient(circle at 10% 10%, #00D4FF 2%, transparent 2%) 0 0,
                   radial-gradient(circle at 30% 20%, #00D4FF 2%, transparent 2%) 20px 20px,
@@ -229,11 +205,11 @@
     }
     .moving-map-linkedin {
       position: absolute;
-      bottom: -100px; /* Position below LinkedIn link with some spacing */
+      bottom: -100px;
       left: 50%;
       transform: translateX(-50%);
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       background: #00D4FF radial-gradient(circle at 10% 10%, #00D4FF 2%, transparent 2%) 0 0,
                   radial-gradient(circle at 30% 20%, #00D4FF 2%, transparent 2%) 20px 20px,
@@ -244,31 +220,11 @@
       animation: pan 30s linear infinite;
       z-index: -1;
     }
-    @media (max-width: 768px) {
-      .moving-map {
-        width: 600px;
-        height: 600px;
-      }
-      .moving-map-contact,
-      .moving-map-linkedin {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .md\:flex-row { flex-direction: row; }
-      .md\:flex-row-reverse { flex-direction: row-reverse; }
-      .md\:w-1\/2 { width: 50%; }
-      .md\:pr-8 { padding-right: 2rem; }
-      .md\:pl-8 { padding-left: 2rem; }
-      .md\:mb-0 { margin-bottom: 0; }
-      .md\:gap-8 { gap: 2rem; }
-    }
     .carousel-container {
       overflow: hidden;
       position: relative;
       width: 100%;
+      touch-action: pan-y;
     }
     .carousel-track {
       display: flex;
@@ -295,7 +251,7 @@
     .carousel-item, .services-item {
       flex: 0 0 auto;
       width: 380px;
-      margin-right: 1.5rem;
+      margin-right: 1rem;
     }
     .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.5); }
     [data-aos="slide-down"] {
@@ -376,16 +332,210 @@
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+    }
+    .logo-container {
+      position: absolute;
+      left: 0;
+    }
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-input {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      color: #A0AEC0;
+      padding: 0.5rem 2rem 0.5rem 0.75rem;
+      border-radius: 9999px;
+      width: 150px;
+      transition: all 0.3s ease;
+    }
+    .search-input:focus {
+      border-color: #00D4FF;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    }
+    .search-icon {
+      position: absolute;
+      right: 0.75rem;
+      color: #00D4FF;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #00D4FF;
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+    }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 17, 39, 0.9);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 1rem;
+      z-index: 20;
+    }
+    .mobile-nav.active {
+      display: flex;
+    }
+    .footer-glass {
+      background: rgba(10, 17, 39, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 0;
+    }
+    .social-icon {
+      font-size: 1.5rem;
+      color: #00D4FF;
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      color: #7B3FE4;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    }
+    /* Media Queries */
+    @media (max-width: 576px) {
+      .text-6xl { font-size: 2rem; }
+      .text-5xl { font-size: 1.75rem; }
+      .text-4xl { font-size: 1.5rem; }
+      .text-2xl { font-size: 1.25rem; }
+      .text-xl { font-size: 1rem; }
+      .text-lg { font-size: 0.875rem; }
+      .py-20 { padding-top: 3rem; padding-bottom: 3rem; }
+      .py-10 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .p-6 { padding: 1rem; }
+      .carousel-item, .services-item {
+        width: 280px;
+        margin-right: 0.5rem;
+      }
+      .carousel-track, .services-track {
+        animation-duration: 15s;
+      }
+      .h-40 { height: 8rem; }
+      .h-12 { height: 2rem; }
+      .max-w-md { max-width: 20rem; }
+      .moving-map-contact, .moving-map-linkedin {
+        width: 100px;
+        height: 100px;
+      }
+      .container { padding: 0 0.5rem; }
+      .footer-columns {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .social-icon { font-size: 1.25rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .search-container { display: none; }
+      .hamburger { display: block; }
+      .mobile-nav .search-container {
+        display: flex;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .mobile-nav .search-input {
+        width: 100%;
+        padding: 0.5rem 2rem 0.5rem 0.75rem;
+      }
+      .moving-map { width: 100%; height: 100%; }
+      .md\:flex-row { flex-direction: column; }
+      .md\:w-1\/2 { width: 100%; }
+      .md\:pr-8, .md\:pl-8 { padding: 0; }
+      .md\:mb-0 { margin-bottom: 1rem; }
+    }
+    @media (min-width: 576px) and (max-width: 768px) {
+      .text-6xl { font-size: 2.5rem; }
+      .text-5xl { font-size: 2rem; }
+      .text-4xl { font-size: 1.75rem; }
+      .text-2xl { font-size: 1.25rem; }
+      .carousel-item, .services-item { width: 320px; }
+      .footer-columns { flex-direction: column; gap: 1.5rem; }
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+      .text-6xl { font-size: 3rem; }
+      .text-5xl { font-size: 2.5rem; }
+      .text-4xl { font-size: 2rem; }
+      .carousel-item, .services-item { width: 340px; }
+      .search-input { width: 120px; }
+      .footer-columns { flex-wrap: wrap; gap: 2rem; }
+      .footer-column { flex: 1 1 40%; }
+    }
+    @media (min-width: 992px) {
+      .md\:flex-row { flex-direction: row; }
+      .md\:flex-row-reverse { flex-direction: row-reverse; }
+      .md\:w-1\/2 { width: 50%; }
+      .md\:pr-8 { padding-right: 2rem; }
+      .md\:pl-8 { padding-left: 2rem; }
+      .md\:mb-0 { margin-bottom: 0; }
+      .md\:gap-8 { gap: 2rem; }
+      .footer-columns { flex-direction: row; gap: 2rem; }
+    }
   </style>
 </head>
 <body>
   <div id="scroll-progress" class="scroll-progress"></div>
   <div class="video-background">
-    <iframe src="https://www.youtube.com/embed/fhmkqXy0eHo?autoplay=1&loop=1&playlist=fhmkqXy0eHo&controls=0&showinfo=0&modestbranding=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/cR1FyHv_rJE?autoplay=1&loop=1&playlist=cR1FyHv_rJE&controls=0&showinfo=0&modestbranding=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/2Gg6Seob5Mg?autoplay=1&loop=1&playlist=2Gg6Seob5Mg&controls=0&showinfo=0&modestbranding=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
   </div>
   <div id="root"></div>
   <div id="error" class="hidden text-red-500 text-center p-4"></div>
+  <script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+      return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+      if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+        try {
+          var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+          var firstSheetName = workbook.SheetNames[0];
+          var worksheet = workbook.Sheets[firstSheetName];
+          var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+          var filteredData = jsonData.filter(row => row.some(filledCell));
+          var headerRowIndex = filteredData.findIndex((row, index) =>
+            row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+          );
+          if (headerRowIndex === -1 || headerRowIndex > 25) {
+            headerRowIndex = 0;
+          }
+          var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+          csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+          return csv;
+        } catch (e) {
+          console.error(e);
+          return "";
+        }
+      }
+      return gk_fileData[filename] || "";
+    }
+  </script>
   <script>
     let lastScrollTop = 0;
     let scrollDirection = 'down';
@@ -393,104 +543,137 @@
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
       lastScrollTop = scrollTop;
-
       const scrollProgress = document.getElementById('scroll-progress');
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (scrollTop / scrollHeight) * 100;
       scrollProgress.style.width = `${scrolled}%`;
-
       document.querySelectorAll('[data-aos]').forEach(el => {
         if (!el.classList.contains('aos-animate')) {
           el.setAttribute('data-aos', scrollDirection === 'down' ? 'slide-down' : 'slide-up');
         }
       });
     });
-
-    AOS.init({ once: false, duration: 800 });
-
-    const Navbar = () => React.createElement(
-      'nav',
-      { className: 'glass-nav p-4 fixed w-full top-0 z-20 shadow-lg' },
-      React.createElement(
-        'div',
-        { className: 'container flex justify-between items-center' },
+    AOS.init({ once: false, duration: 600, disable: 'mobile' });
+    const Navbar = () => {
+      const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
+      const toggleMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
+      return React.createElement(
+        'nav',
+        { className: 'glass-nav p-4 fixed w-full top-0 z-20 shadow-lg' },
         React.createElement(
           'div',
-          { className: 'flex items-center space-x-4' },
-          React.createElement('img', {
-            src: 'https://picsum.photos/50/50?random=1',
-            alt: 'CogniSphere Logo',
-            className: 'h-12 animate-pulse'
+          { className: 'container nav-container' },
+          React.createElement(
+            'div',
+            { className: 'logo-container flex items-center space-x-2' },
+            React.createElement('img', {
+              src: 'logo1.png',
+              alt: 'CogniSphere Logo',
+              className: 'h-10'
+            }),
+            React.createElement('span', { className: 'text-xl font-bold text-neon-blue' }, 'CogniSphere')
+          ),
+          React.createElement(
+            'div',
+            { className: 'nav-links space-x-4' },
+            ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) =>
+              React.createElement('a', {
+                href: `#${item.toLowerCase()}`,
+                className: 'text-gray nav-link hover:text-neon-blue transition text-base',
+                onClick: () => setIsMobileNavOpen(false)
+              }, item)
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'search-container' },
+            React.createElement('input', {
+              type: 'text',
+              placeholder: 'Search...',
+              className: 'search-input'
+            }),
+            React.createElement('i', { className: 'fas fa-search search-icon' })
+          ),
+          React.createElement('i', {
+            className: 'fas fa-bars hamburger',
+            onClick: toggleMobileNav
           }),
-          React.createElement('span', { className: 'text-2xl font-bold text-neon-blue' }, 'CogniSphere')
-        ),
-        React.createElement(
-          'div',
-          { className: 'space-x-6' },
-          ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) =>
-            React.createElement('a', {
-              href: `#${item.toLowerCase()}`,
-              className: 'text-gray nav-link hover:text-neon-blue transition'
-            }, item)
+          React.createElement(
+            'div',
+            { className: `mobile-nav ${isMobileNavOpen ? 'active' : ''} space-y-4` },
+            ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) =>
+              React.createElement('a', {
+                href: `#${item.toLowerCase()}`,
+                className: 'text-gray nav-link hover:text-neon-blue transition text-lg',
+                onClick: () => setIsMobileNavOpen(false)
+              }, item)
+            ),
+            React.createElement(
+              'div',
+              { className: 'search-container' },
+              React.createElement('input', {
+                type: 'text',
+                placeholder: 'Search...',
+                className: 'search-input'
+              }),
+              React.createElement('i', { className: 'fas fa-search search-icon' })
+            )
           )
         )
-      )
-    );
-
+      );
+    };
     const Hero = () => React.createElement(
       'section',
       { id: 'home', className: 'min-h-screen flex items-center justify-center bg-navy animate-bg relative overflow-hidden', 'data-aos': 'slide-down' },
       React.createElement('div', { className: 'moving-map' }),
       React.createElement(
         'div',
-        { className: 'container text-center px-4 z-10' },
-        React.createElement('h1', { className: 'text-5xl md:text-6xl font-bold mb-4 text-gradient' }, 'AI-Driven Innovation for Your Future'),
-        React.createElement('p', { className: 'text-xl md:text-2xl mb-8 text-gray' }, 'Unleashing transformative AI solutions with cutting-edge machine learning and automation.'),
+        { className: 'container text-center px-2 z-10' },
+        React.createElement('h1', { className: 'text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gradient' }, 'AI-Driven Innovation for Your Future'),
+        React.createElement('p', { className: 'text-lg md:text-xl mb-8 text-gray' }, 'Unleashing transformative AI solutions with cutting-edge machine learning and automation.'),
         React.createElement('a', {
           href: '#contact',
-          className: 'bg-neon-blue hover:bg-purple text-gradient py-3 px-8 rounded-lg text-xl transition shadow-glow cta-glow'
+          className: 'bg-neon-blue hover:bg-purple text-gradient py-2 px-6 rounded-lg text-lg transition shadow-glow cta-glow'
         }, 'Get Started')
       )
     );
-
     const About = () => React.createElement(
       'section',
-      { id: 'about', className: 'py-20 bg-dark relative overflow-hidden', 'data-aos': 'slide-down' },
+      { id: 'about', className: 'py-10 md:py-20 bg-dark relative overflow-hidden', 'data-aos': 'slide-down' },
       React.createElement('div', { className: 'moving-map' }),
       React.createElement(
         'div',
-        { className: 'container px-4 z-10' },
-        React.createElement('h2', { className: 'text-4xl font-bold text-center mb-12 text-neon-blue' }, 'About CogniSphere'),
+        { className: 'container px-2 z-10' },
+        React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-8 text-neon-blue' }, 'About CogniSphere'),
+        React.createElement(
+          'div',
+          { className: 'flex flex-col md:flex-row items-center md:gap-8' },
           React.createElement(
             'div',
-            { className: 'flex flex-col md:flex-row items-center md:gap-8' },
-          React.createElement(
-            'div',
-            { className: 'md:w-1/2 mb-8 md:mb-0 md:pr-8' },
+            { className: 'md:w-1/2 mb-4 md:mb-0' },
             React.createElement('img', {
-              src: 'https://picsum.photos/400/400?random=3',
+              src: 'logo1.png',
               alt: 'AI Innovation',
-              className: 'rounded-lg shadow-lg max-w-xs md:max-w-md mx-auto'
+              className: 'rounded-lg shadow-lg w-full max-w-sm mx-auto'
             })
           ),
           React.createElement(
             'div',
-            { className: 'md:w-1/2 md:pl-8' },
-            React.createElement('p', { className: 'text-xl text-gray mb-4' }, 'CogniSphere, led by Data Scientist Zabih Ullah, delivers innovative AI solutions with 3+ years of experience in machine learning, LLMs, and MLOps.'),
-            React.createElement('p', { className: 'text-xl text-gray' }, 'Specializing in scalable, data-driven products, we empower businesses with tools like LangChain, FastAPI, and Streamlit, driving real-world impact.')
+            { className: 'md:w-1/2' },
+            React.createElement('p', { className: 'text-base md:text-xl text-gray mb-4' }, 'CogniSphere, led by Data Scientist Zabih Ullah, delivers innovative AI solutions with 3+ years of experience in machine learning, LLMs, and MLOps.'),
+            React.createElement('p', { className: 'text-base md:text-xl text-gray' }, 'Specializing in scalable, data-driven products, we empower businesses with tools like LangChain, FastAPI, and Streamlit, driving real-world impact.')
           )
         )
       )
     );
-
     const Services = () => React.createElement(
       'section',
-      { id: 'services', className: 'py-20 bg-navy relative overflow-hidden', 'data-aos': 'slide-down' },
+      { id: 'services', className: 'py-10 md:py-20 bg-navy relative overflow-hidden', 'data-aos': 'slide-down' },
       React.createElement('div', { className: 'moving-map' }),
       React.createElement(
         'div',
-        { className: 'container px-4 z-10' },
-        React.createElement('h2', { className: 'text-4xl font-bold text-center mb-12 text-neon-blue' }, 'Our Services'),
+        { className: 'container px-2 z-10' },
+        React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-8 text-neon-blue' }, 'Our Services'),
         React.createElement(
           'div',
           { className: 'carousel-container' },
@@ -524,23 +707,22 @@
               }
             ].map((service, index) => React.createElement(
               'div',
-              { key: index, className: 'services-item bg-card p-6 rounded-lg shadow-lg', 'data-aos': 'scale-in', 'data-aos-delay': index * 100, 'data-tilt': true },
-              React.createElement('h3', { className: 'text-2xl font-semibold mb-4 text-gradient' }, service.title),
-              React.createElement('p', { className: 'text-gray' }, service.desc)
+              { key: index, className: 'services-item bg-card p-4 rounded-lg shadow-lg', 'data-aos': 'scale-in', 'data-aos-delay': index * 100, 'data-tilt': true },
+              React.createElement('h3', { className: 'text-xl md:text-2xl font-semibold mb-2 text-gradient' }, service.title),
+              React.createElement('p', { className: 'text-sm md:text-base text-gray' }, service.desc)
             ))
           )
         )
       )
     );
-
     const Portfolio = () => React.createElement(
       'section',
-      { id: 'portfolio', className: 'py-20 bg-dark relative overflow-hidden', 'data-aos': 'slide-down' },
+      { id: 'portfolio', className: 'py-10 md:py-20 bg-dark relative overflow-hidden', 'data-aos': 'slide-down' },
       React.createElement('div', { className: 'moving-map' }),
       React.createElement(
         'div',
-        { className: 'container px-4 z-10' },
-        React.createElement('h2', { className: 'text-4xl font-bold text-center mb-12 text-neon-blue' }, 'Our Work'),
+        { className: 'container px-2 z-10' },
+        React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold text-center mb-8 text-neon-blue' }, 'Our Work'),
         React.createElement(
           'div',
           { className: 'carousel-container' },
@@ -610,20 +792,20 @@
               }
             ].map((project, index) => React.createElement(
               'div',
-              { key: index, className: 'carousel-item bg-card p-6 rounded-lg shadow-lg', 'data-tilt': true },
+              { key: index, className: 'carousel-item bg-card p-4 rounded-lg shadow-lg', 'data-tilt': true },
               React.createElement('img', {
                 src: project.img,
                 alt: project.title,
-                className: 'w-full h-40 object-cover rounded-t-lg mb-4'
+                className: 'w-full h-32 md:h-40 object-cover rounded-t-lg mb-2'
               }),
-              React.createElement('h3', { className: 'text-2xl font-semibold mb-4 text-gradient' }, project.title),
-              React.createElement('p', { className: 'text-gray mb-4' }, project.desc),
+              React.createElement('h3', { className: 'text-xl md:text-2xl font-semibold mb-2 text-gradient' }, project.title),
+              React.createElement('p', { className: 'text-sm md:text-base text-gray mb-2' }, project.desc),
               React.createElement(
                 'div',
                 { className: 'flex flex-wrap' },
                 project.tech.map((tech) => React.createElement(
                   'span',
-                  { key: tech, className: 'tech-badge' },
+                  { key: tech, className: 'tech-badge text-xs md:text-sm' },
                   tech
                 ))
               )
@@ -632,42 +814,104 @@
         )
       )
     );
-
     const Contact = () => React.createElement(
       'section',
-      { id: 'contact', className: 'py-20 bg-navy relative overflow-hidden', 'data-aos': 'slide-down' },
+      { id: 'contact', className: 'py-10 md:py-20 bg-navy relative overflow-hidden', 'data-aos': 'slide-down' },
       React.createElement('div', { className: 'moving-map' }),
       React.createElement('div', { className: 'moving-map-contact' }),
       React.createElement(
         'div',
-        { className: 'container px-4 text-center z-10 relative' }, /* Added relative for positioning context */
-        React.createElement('h2', { className: 'text-4xl font-bold mb-12 text-neon-blue' }, 'Contact Us'),
-        React.createElement('p', { className: 'text-xl text-gray mb-8' }, 'Ready to revolutionize your business with AI? Let’s connect!'),
+        { className: 'container px-2 text-center z-10 relative' },
+        React.createElement('h2', { className: 'text-3xl md:text-4xl font-bold mb-8 text-neon-blue' }, 'Contact Us'),
+        React.createElement('p', { className: 'text-base md:text-xl text-gray mb-4' }, 'Ready to revolutionize your business with AI? Let’s connect!'),
         React.createElement(
           'div',
-          { className: 'max-w-md mx-auto' },
-          React.createElement('input', { type: 'text', placeholder: 'Name', className: 'w-full mb-4 p-3 bg-dark rounded-lg text-gradient input-glow' }),
-          React.createElement('input', { type: 'email', placeholder: 'Email', className: 'w-full mb-4 p-3 bg-dark rounded-lg text-gradient input-glow' }),
-          React.createElement('textarea', { placeholder: 'Message', className: 'w-full mb-4 p-3 bg-dark rounded-lg text-gradient h-32 input-glow' }),
-          React.createElement('button', { className: 'bg-neon-blue hover:bg-purple text-gradient py-3 px-8 rounded-lg text-xl transition shadow-glow cta-glow' }, 'Send Message')
+          { className: 'max-w-sm mx-auto' },
+          React.createElement('input', { type: 'text', placeholder: 'Name', className: 'w-full mb-2 p-2 bg-dark rounded-lg text-base text-gradient input-glow' }),
+          React.createElement('input', { type: 'email', placeholder: 'Email', className: 'w-full mb-2 p-2 bg-dark rounded-lg text-base text-gradient input-glow' }),
+          React.createElement('textarea', { placeholder: 'Message', className: 'w-full mb-2 p-2 bg-dark rounded-lg text-base text-gradient h-24 input-glow' }),
+          React.createElement('button', { className: 'bg-neon-blue hover:bg-purple text-gradient py-2 px-6 rounded-lg text-lg transition shadow-glow cta-glow' }, 'Send Message')
         ),
-        React.createElement('p', { className: 'mt-8 text-gray' }, 'Email: zabihullahbscs@gmail.com'),
-        React.createElement('p', { className: 'text-gray' }, 'Phone: +92306-8952115'),
-        React.createElement('p', { className: 'text-gray' }, React.createElement('a', { href: 'https://linkedin.com/in/zabihullahbscs', className: 'text-neon-blue hover:text-purple transition' }, 'LinkedIn: zabihullahbscs')),
-        React.createElement('div', { className: 'moving-map-linkedin' }) /* Added new world map below LinkedIn */
+        React.createElement('p', { className: 'mt-4 text-base text-gray' }, 'Email: zabihullahbscs@gmail.com'),
+        React.createElement('p', { className: 'text-base text-gray' }, 'Phone: +92306-8952115'),
+        React.createElement('p', { className: 'text-base text-gray' }, React.createElement('a', { href: 'https://linkedin.com/in/zabihullahbscs', className: 'text-neon-blue hover:text-purple transition' }, 'LinkedIn: zabihullahbscs')),
+        React.createElement('div', { className: 'moving-map-linkedin' })
       )
     );
-
     const Footer = () => React.createElement(
       'footer',
-      { className: 'bg-dark py-6', 'data-aos': 'slide-down' },
+      { className: 'footer-glass py-10', 'data-aos': 'slide-down' },
       React.createElement(
         'div',
-        { className: 'container px-4 text-center text-gradient' },
-        React.createElement('p', null, '© 2025 CogniSphere. All rights reserved.')
+        { className: 'container px-2' },
+        React.createElement(
+          'div',
+          { className: 'footer-columns flex flex-col md:flex-row md:gap-8' },
+          React.createElement(
+            'div',
+            { className: 'footer-column mb-8 md:mb-0' },
+            React.createElement('div', { className: 'flex items-center space-x-2 mb-4' },
+              React.createElement('img', {
+                src: 'https://picsum.photos/50/50?random=1',
+                alt: 'CogniSphere Logo',
+                className: 'h-10'
+              }),
+              React.createElement('span', { className: 'text-xl font-bold text-neon-blue' }, 'CogniSphere')
+            ),
+            React.createElement('p', { className: 'text-sm md:text-base text-gray' }, 'Empowering businesses with cutting-edge AI solutions for a smarter future.')
+          ),
+          React.createElement(
+            'div',
+            { className: 'footer-column mb-8 md:mb-0' },
+            React.createElement('h3', { className: 'text-lg md:text-xl font-semibold text-neon-blue mb-4' }, 'Quick Links'),
+            React.createElement(
+              'ul',
+              { className: 'space-y-2' },
+              ['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) =>
+                React.createElement(
+                  'li',
+                  { key: item },
+                  React.createElement('a', {
+                    href: `#${item.toLowerCase()}`,
+                    className: 'text-gray hover:text-neon-blue transition text-sm md:text-base'
+                  }, item)
+                )
+              )
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'footer-column mb-8 md:mb-0' },
+            React.createElement('h3', { className: 'text-lg md:text-xl font-semibold text-neon-blue mb-4' }, 'Contact Info'),
+            React.createElement('p', { className: 'text-sm md:text-base text-gray mb-2' }, 'Email: info@cognisphere.com'),
+            React.createElement('p', { className: 'text-sm md:text-base text-gray mb-2' }, 'Phone: +1-555-123-4567'),
+            React.createElement('p', { className: 'text-sm md:text-base text-gray' }, 'Address: 123 AI Avenue, Tech City, USA')
+          ),
+          React.createElement(
+            'div',
+            { className: 'footer-column' },
+            React.createElement('h3', { className: 'text-lg md:text-xl font-semibold text-neon-blue mb-4' }, 'Follow Us'),
+            React.createElement(
+              'div',
+              { className: 'flex space-x-4' },
+              [
+                { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/zabihullahbscs' },
+                { icon: 'fab fa-twitter', href: 'https://x.com/cognisphere' },
+                { icon: 'fab fa-github', href: 'https://github.com/cognisphere' },
+                { icon: 'fab fa-instagram', href: 'https://instagram.com/cognisphere' }
+              ].map((social) =>
+                React.createElement(
+                  'a',
+                  { key: social.icon, href: social.href, target: '_blank', rel: 'noopener noreferrer', className: 'social-icon hover:shadow-glow' },
+                  React.createElement('i', { className: social.icon })
+                )
+              )
+            )
+          )
+        ),
+        React.createElement('div', { className: 'mt-8 text-center text-sm text-gray' }, '© 2025 CogniSphere. All rights reserved.')
       )
     );
-
     const App = () => React.createElement(
       'div',
       null,
@@ -679,11 +923,10 @@
       React.createElement(Contact),
       React.createElement(Footer)
     );
-
     const ErrorBoundary = class extends React.Component {
       state = { hasError: false, error: null };
       static getDerivedStateFromError(error) {
-        return { hasError: true, error };
+        return { hasError: true, error: error };
       }
       render() {
         if (this.state.hasError) {
@@ -694,31 +937,27 @@
         return this.props.children;
       }
     };
-
     ReactDOM.render(
       React.createElement(ErrorBoundary, null, React.createElement(App)),
       document.getElementById('root')
     );
-
     if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
       document.getElementById('root').innerHTML = `
-        <div class="text-center p-10">
-          <h1 class="text-4xl font-bold mb-4 text-gradient">CogniSphere</h1>
-          <p class="text-xl text-gray">AI-Driven Innovation for Your Future</p>
-          <p class="text-red-500 mt-4">Error: Unable to load interactive content. Please ensure JavaScript is enabled and try again.</p>
+        <div class="text-center p-4">
+          <h1 class="text-3xl font-bold mb-2 text-gradient">CogniSphere</h1>
+          <p class="text-base text-gray mb-2">AI-Driven Innovation for Your Future</p>
+          <p class="text-red-500 mt-2">Error: Unable to load interactive content. Please ensure JavaScript is enabled and try again.</p>
         </div>
       `;
     }
-
     document.querySelectorAll('[data-tilt]').forEach(el => {
-      VanillaTilt.init(el, { max: 15, speed: 400, glare: true, 'max-glare': 0.3 });
+      VanillaTilt.init(el, { max: 10, speed: 400, glare: true, 'max-glare': 0.2, scale: 1.05 });
     });
   </script>
-  <script>
+    <script>
   if (location.protocol !== 'https:') {
     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
   }
 </script>
-
 </body>
 </html>
