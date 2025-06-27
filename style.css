@@ -1,8 +1,16 @@
+
+body {
+    overflow-x: hidden;
+}
+
 body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: lightgray;
+   
+    position: relative; 
+    width: 100%;
 }
 
 html{
@@ -12,7 +20,7 @@ html{
 .container{
     position: relative;
     width: 100%;
-    height: 100%;
+   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,7 +151,8 @@ header ul li a:hover {
     justify-content: center;
     z-index: -1;
     mix-blend-mode: lighten;
-  }
+    overflow: hidden; 
+}
 
 .blackhole-box video{
     width: 100%;
@@ -222,6 +231,7 @@ header ul li a:hover {
 .section-title{
     font-size: 40px;
     font-weight: 700;
+    text-align: center; 
     background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
     background-size: 200%;
     background-clip: text;
@@ -286,7 +296,7 @@ header ul li a:hover {
     }
   }
 
-/* --- START: UPDATED STYLES FOR ABOUT SECTION --- */
+
 .info-section{
     display: flex;
     align-items: center;
@@ -317,6 +327,9 @@ header ul li a:hover {
     border-radius: 20px;
     transition: 0.5s;
     padding: 30px;
+   
+    backdrop-filter: blur(5px);
+    
 }
 
 .about-text-card p{
@@ -338,7 +351,7 @@ header ul li a:hover {
 .card h1, .card video, .card button {
     display: none;
 }
-/* --- END: UPDATED STYLES FOR ABOUT SECTION --- */
+
 
 .my-project{
     display: flex;
@@ -465,7 +478,7 @@ header ul li a:hover {
   }
 }
 
-/* --- START: NEW SERVICES SECTION STYLES --- */
+/* --- SERVICES SECTION STYLES --- */
 .services-section {
     width: 100%;
     padding: 100px 0;
@@ -490,18 +503,24 @@ header ul li a:hover {
 
 .services-track {
     display: flex;
-    width: calc(300px * 8); 
-    animation: scroll-animation 40s linear infinite;
+    width: calc(340px * 8); 
+    animation: vertical-scroll-animation 40s ease-in-out infinite; 
 }
 
-@keyframes scroll-animation {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-300px * 4));
-    }
+@keyframes vertical-scroll-animation {
+    0%   { transform: translate3d(0, 0, 0); }
+    3%   { transform: translate3d(0, -10px, 0); }
+    20%  { transform: translate3d(0, -10px, 0); }
+    25%  { transform: translate3d(calc(-340px * 1), -10px, 0); }
+    28%  { transform: translate3d(calc(-340px * 1), 0, 0); }
+    45%  { transform: translate3d(calc(-340px * 1), 0, 0); }
+    50%  { transform: translate3d(calc(-340px * 2), 0, 0); }
+    70%  { transform: translate3d(calc(-340px * 2), 0, 0); }
+    75%  { transform: translate3d(calc(-340px * 3), 0, 0); }
+    95%  { transform: translate3d(calc(-340px * 3), 0, 0); }
+    100% { transform: translate3d(calc(-340px * 4), 0, 0); }
 }
+
 
 .service-card {
     flex: 0 0 300px;
@@ -560,13 +579,12 @@ header ul li a:hover {
 .learn-more-link:hover i {
     transform: translateX(5px);
 }
-/* --- END: NEW SERVICES SECTION STYLES --- */
 
-/* --- START: NEW CONTACT FORM STYLES (V3) --- */
 .final-contact-section {
     width: 100%;
     padding: 100px 5%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -577,8 +595,8 @@ header ul li a:hover {
 .form-card {
     width: 100%;
     max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(10px);
     padding: 40px 50px;
     border-radius: 20px;
     border: 1px solid rgba(114, 161, 222, 0.2);
@@ -586,10 +604,7 @@ header ul li a:hover {
 }
 
 .form-title {
-    text-align: center;
-    color: #72a1de;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
+    display: none; 
 }
 
 .form-grid {
@@ -663,18 +678,17 @@ header ul li a:hover {
 }
 
 .form-group button[type="submit"]:hover {
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    background-color: #72a1de;
+    box-shadow: none;
+    filter: brightness(1.15);
 }
-/* --- END: NEW CONTACT FORM STYLES (V3) --- */
-
-/* --- START: FOOTER STYLES --- */
+/* --- FOOTER STYLES --- */
 .site-footer {
     position: relative;
     width: 100%;
     background-color: #080020;
     color: #a9a9a9;
-    padding: 80px 0 20px 0;
+    padding: 120px 0 20px 0;
     margin-top: 150px;
 }
 
@@ -685,13 +699,13 @@ header ul li a:hover {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: translateY(-100%);
+    transform: translateY(1px);
 }
 
 .footer-wave svg {
     position: relative;
     display: block;
-    width: calc(100% + 1.3px);
+    width: 100%;
     height: 120px;
 }
 
@@ -796,12 +810,11 @@ header ul li a:hover {
     font-size: 0.8rem;
     color: #6c757d;
 }
-/* --- END: FOOTER STYLES --- */
 
+/* --- ANIMATIONS AND SIDEBAR --- */
 .autoBlur{
     animation: autoBlurAnimation linear both;
     animation-timeline: view();
-
 }
 @keyframes autoBlurAnimation{
     0%{
@@ -820,7 +833,6 @@ header ul li a:hover {
 .autoDisplay{
     animation: autoDisplayAnimation both;
     animation-timeline: view();
-
 }
 
 @keyframes autoDisplayAnimation{
@@ -942,6 +954,7 @@ header ul li a:hover {
     }
 }
 
+
 @media (max-aspect-ratio: 16/9){
     .back-vid{
         width: auto;
@@ -964,11 +977,12 @@ header ul li a:hover {
     .hero-info h1{
         font-size: 40px;
         max-width: 400px;
-        line-height: 40px;
+        line-height: 50px;
     }
 
-    .hero-info P{
-        max-width: 300px;
+    .hero-info p{
+        max-width: 350px;
+        font-size: 18px;
     }
 
     .skills-video-box{
@@ -976,7 +990,7 @@ header ul li a:hover {
     }
 
     .skills-video-box video{
-        height: 500px;
+        height: 600px;
     }
 
     .info-cards{
@@ -991,13 +1005,41 @@ header ul li a:hover {
 
     .my-project{
         margin-bottom: 200px;
-        scale: 0.8;
+        scale: 0.9;
     }
 }
 
+@media screen and (max-width: 992px) {
+    .my-project {
+        scale: 1;
+        flex-direction: column;
+        height: auto;
+        gap: 100px;
+        margin-bottom: 100px;
+    }
+    .project-card {
+        flex-direction: column;
+        gap: 30px;
+        height: auto;
+    }
+    .project-vidbox {
+        width: 100%;
+        max-width: 500px;
+        min-width: unset;
+    }
+    .project-info {
+        width: 100%;
+        max-width: 500px;
+        padding-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
 @media screen and (max-width: 768px) {
     .final-contact-section {
-        padding: 80px 3%;
+        padding: 80px 5%;
     }
 
     .form-card {
@@ -1010,25 +1052,33 @@ header ul li a:hover {
     }
 
     .services-track {
-        width: calc(300px * 8); 
-        animation-duration: 50s; 
+        animation-duration: 60s;
     }
     .service-card {
-        flex: 0 0 300px; 
+        flex: 0 0 280px;
+    }
+
+    .hero-info {
+        left: 5%;
+        right: 5%;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 }
 
 @media screen and (max-width: 700px){
+    .container {
+        gap: 50px;
+    }
+
     header {
         position: fixed;
-        height: 50px;
+        height: 60px;
     }
 
-    header .logo-bar-buttons{
-        display: none;
-    }
-
-    header .box-icons{
+    header .logo-bar-buttons, header .box-icons{
         display: none;
     }
 
@@ -1047,96 +1097,51 @@ header ul li a:hover {
 
     .hero{
         flex-direction: column;
-        top:0;
-        bottom: 0;
-        left: 0;
-        right:0;
+        justify-content: center;
+        padding-top: 60px;
+        height: 80vh;
     }
     .hero-info{
-        bottom: 5%;
+        position: static;
+        bottom: auto;
+        left: auto;
     }
 
     .scroll-down{
-        bottom: 5%;
+        display: none;
     }
 
     .hero .skills-video-box{
-        height: 200px;
-        top: 5%;
+        display: none;
     }
     
     .card {
         width: 90%;
         min-height: auto;
-        padding: 20px;
+        padding: 25px;
     }
 
     .about-text-card p {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 
-    .container{
-        height: 100%;
+    .my-project {
+        width: 90%;
+        gap: 80px;
+        margin-bottom: 100px;
     }
-
-    .project-vidbox video{
-        width: 250px;
-        margin-left: -100px;
+    
+    .project-card {
+        margin-left: 0;
     }
-
-    .project-info{
-        overflow: hidden;
-        padding-left: 0;
-        margin-left: -50px;
-    }
-
     .project-info h1{
-        font-size: 20px;
-        max-width: 200px;
         text-wrap: wrap;
-    }
-
-    .project-info p{
-        font-size: 10px;
-        text-wrap: wrap;
-        max-width: 200px;
-        min-width: 0;
-    }
-
-    .project-info button{
-        padding: 5px 10px;
-    }
-
-    .my-project{
-        margin-bottom: 600px;
-    }
-
-    .project-card{
-        flex-direction: column;
-        margin-left: 25%;
-        gap: 30px;
-    }
-
-    .project-vidbox{
-        min-width: 200px;
-    }
-
-    .project-info{
-        width: 85%;
-    }
-
-    .project-info h1{
-        text-wrap: nowrap;
-    }
-
-    .project-info p{
-        max-width: 300px;
     }
 
     .site-footer {
         margin-top: 100px;
-        padding-top: 60px;
+        padding-top: 80px;
     }
     .footer-wave svg {
         height: 80px;
@@ -1161,15 +1166,8 @@ header ul li a:hover {
 
 @media screen and (max-width: 480px) {
 
-    .hero .skills-video-box {
-        display: none;
-    }
-
-    .blackhole-box {
-        overflow: hidden;
-    }
-
     .blackhole-box video {
+       
         width: 140%;
         margin-top: -27%;
     }
@@ -1184,40 +1182,20 @@ header ul li a:hover {
     }
 
     .hero {
-        scale: 0.9;
-    }
-
-    .hero-info{
-        bottom: 15%;
+        scale: 1;
+        padding: 60px 5% 0 5%;
     }
 
     .hero-info h1{
         font-size: 35px;
-    }
-
-    .scroll-down{
-        bottom: 15%;
-        left: 60%;
+        line-height: 1.3;
     }
 
     .section-title {
-        font-size: 25px;
-    }
-
-    .info-cards{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .project-card {
-        height: 50%;
+        font-size: 30px;
     }
 
     .project-info p{
-        margin-bottom: 15px;
-    }
-
-    .project-info{
-        margin-left: -80px;
+        margin-bottom: 25px;
     }
 }
