@@ -54,44 +54,40 @@ header{
     margin: 0 15px;
 }
 
-/* --- START OF CHANGES --- */
-
 .logo-bar-buttons{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Gap kam kiya gaya */
-    list-style: none; /* list-style yahan move kiya gaya */
-    padding: 0; /* Extra padding hatayi gayi */
-    margin: 0; /* Extra margin hataya gaya */
+    gap: 10px; 
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
 }
 
-/* Nav items ke beech ki extra space hatane ke liye margin nikal diya */
 header ul li {
     margin: 0; 
 }
 
 header ul li a {
     display: block;
-    padding: 8px 15px; /* Padding thodi kam ki gayi */
+    padding: 8px 15px;
     border-radius: 50px;
-    transition: all 0.3s ease; /* Transition ko smooth kiya gaya */
+    transition: all 0.3s ease; 
     text-decoration: none;
     color: white;
     font-weight: 700;
 }
 
-/* Hover effect ko icons jaisa banaya gaya */
 header ul li a:hover {
     background-color: #72a1de;
     color: black;
     box-shadow: 0 0 10px #72a1de;
-    text-shadow: none; /* Hover par text-shadow hata diya */
+    text-shadow: none; 
 }
 
 .box-icons{
     display: flex;
-    gap: 20px; /* Icons ke beech ka gap kam kiya gaya */
+    gap: 20px;
 }
 
 .box-icons p{
@@ -105,7 +101,7 @@ header ul li a:hover {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
-    margin: 0; /* Default paragraph margin hataya gaya */
+    margin: 0;
 }
 
 .box-icons p:hover{
@@ -113,10 +109,6 @@ header ul li a:hover {
     color: black;
     box-shadow: 0 0 15px #72a1de;
 }
-
-/* Original rules jo ab upar combine ho gaye hain, unhe hata diya gaya hai. */
-
-/* --- END OF CHANGES --- */
 
 .search-bar {
     display: flex;
@@ -294,119 +286,67 @@ header ul li a:hover {
     }
   }
 
+/* --- START: UPDATED STYLES FOR ABOUT SECTION --- */
 .info-section{
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 80%;
+    width: 90%; 
     margin-top: 100px;
 }
 
 .info-cards{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 20px;
+    display: flex; /* Flexbox ka istemal */
+    justify-content: center; /* Center align items */
+    align-items: stretch; /* Cards ki height barabar rakhega */
+    
+    gap: 40px; 
     width: 100%;
-    height: 100%;
     margin-top: 30px;
 }
 
 .card{
     display: flex;
-    align-items:flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     position: relative;
-    width: auto;
-    height: 40vh;
+    width: 45%; 
+    max-width: 500px;
+    min-height: 380px; /* Ek minimum height */
     overflow: hidden;
-    border: 1px solid gray;
-    background-color: #080020b7;
+  
+    
     border-radius: 20px;
     transition: 0.5s;
+    padding: 30px; /* Andar se spacing */
 }
 
-.card h1{
-    position: absolute;
-    margin: 0;
-    bottom: 40%;
-    left: 5%;
-    font-size: 25px;
-    z-index: 1;
+
+/* Text wale card ke paragraph ki styling */
+.about-text-card p{
+    position: static;
     color: lightgray;
+
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0;
 }
 
-.card p{
-    position: absolute;
-    bottom: 3%;
-    left: 5%;
-    z-index: 1;
-    max-width: 300px;
-    color: gray;
-    font-size: 13px;
-    line-height: 20px;
-}
-
-.card img{
+/* Logo wale card ke image ki styling */
+.about-logo-card img{
     width: 80%;
-    height: 50%;
-    object-fit: cover;
+    max-width: 400px; /* Logo ka max size */
+    height: auto;
+    object-fit: contain; /* Logo poora dikhega */
 }
 
-.card video{
-    margin-top: 10%;
-    width: 70%;
-    height: 50%;
-    object-fit: cover;
-    mix-blend-mode: lighten;
+/* Purane, ab zaroori na hone wale styles */
+.card h1, .card video, .card button {
+    display: none; /* Inhe hide kar diya kyonki ab ye is section me nahi hain */
 }
-
-.card button{
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    padding: 10px 25px;
-    border: 1px solid gray;
-    background-color: #0f1217;
-    color: gray;
-    border-radius: 20px;
-    box-shadow: 0 0 5px lightgray;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card button:hover{
-    box-shadow: 0 0 15px lightgray;
-    opacity: 0.7;
-}
-
-.card:hover{
-    box-shadow: 0 0 15px rgb(211, 211, 211);
-}
-
-.card:nth-child(3){
-    grid-row: span 2;
-    height: 83vh;
-}
-
-.card:nth-child(3) p{
-    bottom: 12%;
-}
-
-.card:nth-child(3) h1{
-    bottom: 21%;
-}
-
-.card:nth-child(4){
-    grid-column: span 2;
-}
-
-.card:nth-child(4) p{
-    max-width: 650px;
-}
-
-.card:nth-child(4) h1{
-    bottom: 35%;
-}
+/* --- END: UPDATED STYLES FOR ABOUT SECTION --- */
 
 .my-project{
     display: flex;
@@ -921,26 +861,13 @@ header ul li a:hover {
     }
 
     .info-cards{
-        grid-template-columns: auto;
+        flex-direction: column;
+        align-items: center;
     }
-
-    .card:nth-child(3){
-        grid-column: span 2;
-        height: 70vh;
-    }
-
-    .info-cards .card h1{
-        font-size: 20px;
-    }
-
-    .info-cards .card:nth-child(3) h1{
-        bottom: 25%;
-    }
-
-    .card video{
-        height: 60%;
-
-        margin-top: 5%;
+    
+    .card {
+        width: 80%;
+        max-width: 600px;
     }
 
     .my-project{
@@ -959,7 +886,7 @@ header ul li a:hover {
         height: 50px;
     }
 
-    header .logo-bar-buttons{ /* Changed from header ul */
+    header .logo-bar-buttons{
         display: none;
     }
 
@@ -1000,18 +927,16 @@ header ul li a:hover {
         height: 200px;
         top: 5%;
     }
-
-    .info-cards{
-        grid-template-columns: auto;
+    
+    .card {
+        width: 90%;
+        min-height: auto;
+        padding: 20px;
     }
 
-    .card:nth-child(3){
-        grid-column: span 2;
-        height: 70vh;
-    }
-
-    .card video{
-        width: 100%;
+    .about-text-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
 
     .container{
@@ -1161,16 +1086,7 @@ header ul li a:hover {
         display: flex;
         flex-direction: column;
     }
-
-    .card {
-        min-height: 20rem;
-    }
-
-    .card h1{
-        bottom: 30%;
-        font-size: 5px;
-    }
-
+    
     .project-card {
         height: 50%;
     }
