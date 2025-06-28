@@ -1,4 +1,3 @@
-
 body {
     overflow-x: hidden;
 }
@@ -504,23 +503,18 @@ header ul li a:hover {
 .services-track {
     display: flex;
     width: calc(340px * 8); 
-    animation: vertical-scroll-animation 40s ease-in-out infinite; 
+    /* UPDATED: Faster animation with ~2s stay */
+    animation: vertical-scroll-animation 12s ease-in-out infinite; 
 }
 
+/* UPDATED: Faster keyframes for desktop */
 @keyframes vertical-scroll-animation {
-    0%   { transform: translate3d(0, 0, 0); }
-    3%   { transform: translate3d(0, -10px, 0); }
-    20%  { transform: translate3d(0, -10px, 0); }
-    25%  { transform: translate3d(calc(-340px * 1), -10px, 0); }
-    28%  { transform: translate3d(calc(-340px * 1), 0, 0); }
-    45%  { transform: translate3d(calc(-340px * 1), 0, 0); }
-    50%  { transform: translate3d(calc(-340px * 2), 0, 0); }
-    70%  { transform: translate3d(calc(-340px * 2), 0, 0); }
-    75%  { transform: translate3d(calc(-340px * 3), 0, 0); }
-    95%  { transform: translate3d(calc(-340px * 3), 0, 0); }
-    100% { transform: translate3d(calc(-340px * 4), 0, 0); }
+    0%, 20%   { transform: translate3d(0, 0, 0); }
+    25%, 45%  { transform: translate3d(calc(-340px * 1), 0, 0); }
+    50%, 70%  { transform: translate3d(calc(-340px * 2), 0, 0); }
+    75%, 95%  { transform: translate3d(calc(-340px * 3), 0, 0); }
+    100%      { transform: translate3d(calc(-340px * 4), 0, 0); }
 }
-
 
 .service-card {
     flex: 0 0 300px;
@@ -580,6 +574,7 @@ header ul li a:hover {
     transform: translateX(5px);
 }
 
+/* --- FINAL CONTACT SECTION --- */
 .final-contact-section {
     width: 100%;
     padding: 100px 5%;
@@ -664,49 +659,69 @@ header ul li a:hover {
     min-height: 140px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* This rule centers the button inside the form */
+.form-grid .form-group:last-child {
+    display: flex;
+    justify-content: center !important;
+}
+
 .form-group button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    background-color: #72a1de;
-    color: #080020;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    /* Styles copied from the hero button */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    border: 1px solid #72a1de81;
+    background-color: #2200493d;
+    box-shadow: 0 0 5px #72a1de81;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
+    
+    /* Remove full-width and set font styles to match */
+    width: auto; 
+    font-size: 1rem;
+    font-weight: normal;
+
+    /* Added to align the icon and text properly */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .form-group button[type="submit"]:hover {
+    /* Hover style copied from the hero button */
+    
+
+    /* Resetting old hover effects */
     background-color: #72a1de;
-    box-shadow: none;
-    filter: brightness(1.15);
+    filter: none;
 }
+
+
+
+
+
 /* --- FOOTER STYLES --- */
 .site-footer {
     position: relative;
     width: 100%;
     background-color: #080020;
     color: #a9a9a9;
-    padding: 120px 0 20px 0;
+    padding: 60px 0 20px 0; /* Wave hatane ke baad padding kam kar di gayi hai */
     margin-top: 150px;
-}
-
-.footer-wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: translateY(1px);
-}
-
-.footer-wave svg {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 120px;
 }
 
 .footer-main {
@@ -810,6 +825,7 @@ header ul li a:hover {
     font-size: 0.8rem;
     color: #6c757d;
 }
+
 
 /* --- ANIMATIONS AND SIDEBAR --- */
 .autoBlur{
@@ -954,6 +970,15 @@ header ul li a:hover {
     }
 }
 
+/* ADDED: Keyframes for mobile carousel */
+@keyframes mobile-scroll-animation {
+    0%, 20%   { transform: translateX(calc(-12.5% * 0)); }
+    25%, 45%  { transform: translateX(calc(-12.5% * 1)); }
+    50%, 70%  { transform: translateX(calc(-12.5% * 2)); }
+    75%, 95%  { transform: translateX(calc(-12.5% * 3)); }
+    100%      { transform: translateX(calc(-12.5% * 4)); }
+}
+
 
 @media (max-aspect-ratio: 16/9){
     .back-vid{
@@ -1038,6 +1063,22 @@ header ul li a:hover {
 
 
 @media screen and (max-width: 768px) {
+    /* UPDATED: Services section for mobile */
+    .services-carousel-wrapper {
+        mask-image: none;
+    }
+    .services-track {
+        width: 800%; /* 8 cards * 100% wrapper width */
+        animation: mobile-scroll-animation 12s ease-in-out infinite;
+    }
+    .service-card {
+        flex-basis: 12.5%; /* A card is 1/8 of the track */
+        flex-shrink: 0;
+        margin: 0;
+        padding: 30px; /* Add padding back since margin is gone */
+    }
+
+    /* UPDATED: Contact form responsiveness */
     .final-contact-section {
         padding: 80px 5%;
     }
@@ -1049,13 +1090,6 @@ header ul li a:hover {
     .form-grid {
         grid-template-columns: 1fr;
         gap: 20px 0;
-    }
-
-    .services-track {
-        animation-duration: 60s;
-    }
-    .service-card {
-        flex: 0 0 280px;
     }
 
     .hero-info {
@@ -1197,5 +1231,10 @@ header ul li a:hover {
 
     .project-info p{
         margin-bottom: 25px;
+    }
+
+    /* ADDED: Improved spacing for form on very small screens */
+    .form-card {
+        padding: 25px 15px;
     }
 }
