@@ -1,3 +1,4 @@
+
 body {
     overflow-x: hidden;
 }
@@ -7,9 +8,14 @@ body{
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: lightgray;
-   
-    position: relative; 
+
+    position: relative;
     width: 100%;
+    overflow-x: hidden; /* Remove horizontal scroll */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    * { /* Apply box-sizing to all elements */
+        box-sizing: border-box;
+    }
 }
 
 html{
@@ -19,11 +25,15 @@ html{
 .container{
     position: relative;
     width: 100%;
-   
+    max-width: 100%; /* Ensure no overflow */
+    margin: 0 auto; /* Center the container */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    padding: 0; /* Remove any padding that might cause overflow */
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 80px; /* Standardized gap for all sections */
     background-color: #001f7c38;
 }
 
@@ -95,7 +105,6 @@ header ul li a:hover {
 .box-icons{
     display: flex;
     gap: 20px;
-    
 }
 
 .box-icons p{
@@ -105,39 +114,17 @@ header ul li a:hover {
     font-size: 20px;
     width: 30px;
     height: 30px;
-    border: 2px solid white;
+    border: 2px solid #72a1de;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
     margin: 0;
-   
 }
-
-
-
-
-
-
-
-
-
-.footer-column.contact p a {
-    color: inherit !important; 
-    text-decoration: none !important; 
-    transition: color 0.3s ease !important;
-}
-
-.footer-column.contact p a:hover {
-    color: #fff !important; 
-}
-
-
-
 
 .box-icons p:hover{
-    background-color: white;
+    background-color: #72a1de;
     color: black;
-    box-shadow: 0 0 15px white;
+    box-shadow: 0 0 15px #72a1de;
 }
 
 .search-bar {
@@ -323,8 +310,8 @@ header ul li a:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 90%; 
-    margin-top: 100px;
+    width: 90%;
+    margin-top: 80px; /* Standardized margin for all sections */
 }
 
 .info-cards{
@@ -378,13 +365,13 @@ header ul li a:hover {
 .my-project{
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    gap: 80px; /* Standardized gap for all sections */
     align-items: center;
     position: relative;
     width: 80%;
-    height: 100vh;
-    margin-top: 200px;
-    margin-bottom: 700px;
+    height: auto; /* Changed to auto to allow content to determine height */
+    margin-top: 80px; /* Standardized margin for all sections */
+    margin-bottom: 80px; /* Standardized margin for all sections */
 }
 
 .project-card {
@@ -600,14 +587,14 @@ header ul li a:hover {
 /* --- FINAL CONTACT SECTION --- */
 .final-contact-section {
     width: 100%;
-    padding: 100px 5%;
+    padding: 80px 5%; /* Standardized padding for all sections */
     display: flex;
     flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
+    justify-content: center;
+    align-items: center;
     height: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 80px; /* Standardized margin for all sections */
+    margin-bottom: 80px; /* Standardized margin for all sections */
 }
 
 .form-card {
@@ -634,32 +621,7 @@ header ul li a:hover {
 .form-group {
     display: flex;
     flex-direction: column;
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .form-group.full-width {
     grid-column: 1 / -1;
@@ -725,6 +687,8 @@ header ul li a:hover {
 .form-grid .form-group:last-child {
     display: flex;
     justify-content: center !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-group button[type="submit"] {
@@ -766,10 +730,11 @@ header ul li a:hover {
 .site-footer {
     position: relative;
     width: 100%;
-    background-color: #080020;
+    background-color: rgba(10, 25, 47, 0.6); /* Matching Our Services card background */
     color: #a9a9a9;
-    padding: 60px 0 20px 0; /* Wave hatane ke baad padding kam kar di gayi hai */
+    padding: 60px 0 20px 0;
     margin-top: 150px;
+    overflow: hidden; /* Remove scroll bar */
 }
 
 .footer-main {
