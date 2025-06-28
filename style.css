@@ -95,6 +95,7 @@ header ul li a:hover {
 .box-icons{
     display: flex;
     gap: 20px;
+    
 }
 
 .box-icons p{
@@ -104,17 +105,39 @@ header ul li a:hover {
     font-size: 20px;
     width: 30px;
     height: 30px;
-    border: 2px solid #72a1de;
+    border: 2px solid white;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
     margin: 0;
+   
 }
 
+
+
+
+
+
+
+
+
+.footer-column.contact p a {
+    color: inherit !important; 
+    text-decoration: none !important; 
+    transition: color 0.3s ease !important;
+}
+
+.footer-column.contact p a:hover {
+    color: #fff !important; 
+}
+
+
+
+
 .box-icons p:hover{
-    background-color: #72a1de;
+    background-color: white;
     color: black;
-    box-shadow: 0 0 15px #72a1de;
+    box-shadow: 0 0 15px white;
 }
 
 .search-bar {
@@ -580,8 +603,8 @@ header ul li a:hover {
     padding: 100px 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
     height: auto;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -611,7 +634,32 @@ header ul li a:hover {
 .form-group {
     display: flex;
     flex-direction: column;
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .form-group.full-width {
     grid-column: 1 / -1;

@@ -1,36 +1,73 @@
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
+document.addEventListener("DOMContentLoaded", function() {
 
-// Sidebar elements //
-const sideBar = document.querySelector('.sidebar');
-const menu = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon')
+    // --- Dynamic Project Video Hover ---
+    const projectVideos = document.querySelectorAll('.project-vidbox video');
+    const hoverSign = document.querySelector('.hover-sign');
 
+    projectVideos.forEach(video => {
+        video.addEventListener("mouseover", function() {
+            video.play();
+            if (hoverSign) {
+                hoverSign.classList.add("active");
+            }
+        });
+        video.addEventListener("mouseout", function() {
+            video.pause();
+            if (hoverSign) {
+                hoverSign.classList.remove("active");
+            }
+        });
+    });
 
-const hoverSign = document.querySelector('.hover-sign');
+    // --- Sidebar Functionality ---
+    const sideBar = document.querySelector('.sidebar');
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
 
-const videoList =[video1, video2, video3];
+    // Open sidebar
+    if (menuIcon) {
+        menuIcon.addEventListener("click", function() {
+            sideBar.classList.remove("close-sidebar");
+            sideBar.classList.add("open-sidebar");
+        });
+    }
 
-videoList.forEach (function(video){
-    video.addEventListener("mouseover", function(){
-        video.play()
-        hoverSign.classList.add("active")
-    })
-    video.addEventListener("mouseout", function(){
-    video.pause();
-    hoverSign.classList.remove("active")
-})
-})
+    // Close sidebar with 'X' icon
+    if (closeIcon) {
+        closeIcon.addEventListener("click", function() {
+            sideBar.classList.remove("open-sidebar");
+            sideBar.classList.add("close-sidebar");
+        });
+    }
 
-// Sidebar elements //
-menu.addEventListener("click", function(){
-    sideBar.classList.remove("close-sidebar")
-    sideBar.classList.add("open-sidebar")
+    // Close sidebar when a link is clicked
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            sideBar.classList.remove("open-sidebar");
+            sideBar.classList.add("close-sidebar");
+        });
+    });
+
+    // --- Contact Form Submission ---
+    const contactForm = document.querySelector('.final-contact-section form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+
+            // Show success message
+            submitButton.innerHTML = '<i class="bx bx-check-circle"></i> Message Sent!';
+            submitButton.disabled = true;
+
+            // Optional: Reset form and button after a few seconds
+            setTimeout(() => {
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+                contactForm.reset(); // Clears all form fields
+            }, 4000); // 4 seconds
+        });
+    }
 });
-
-closeIcon.addEventListener("click", function(){
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
-    
-})
