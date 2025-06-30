@@ -1,7 +1,3 @@
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
-
 // Sidebar elements //
 const sideBar = document.querySelector('.sidebar');
 const menu = document.querySelector('.menu-icon');
@@ -9,17 +5,9 @@ const closeIcon = document.querySelector('.close-icon');
 
 const hoverSign = document.querySelector('.hover-sign');
 
-const videoList = [video1, video2, video3];
-
-videoList.forEach(function(video) {
-    video.addEventListener("mouseover", function() {
-        video.play();
-        hoverSign.classList.add("active");
-    });
-    video.addEventListener("mouseout", function() {
-        video.pause();
-        hoverSign.classList.remove("active");
-    });
+// Contact Us button functionality
+document.getElementById('contactUsButton').addEventListener('click', function() {
+    document.querySelector('.final-contact-section').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Sidebar elements //
@@ -102,3 +90,50 @@ document.querySelectorAll('.box-icons p').forEach(function(icon) {
         }
     });
 });
+
+// Services carousel functionality //
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const servicesTrack = document.querySelector('.services-track');
+const serviceCards = document.querySelectorAll('.service-card');
+const cardWidth = serviceCards[0].offsetWidth + 20; // card width + margin
+const totalWidth = cardWidth * serviceCards.length;
+const containerWidth = document.querySelector('.services-carousel-wrapper').offsetWidth;
+const maxPosition = -(totalWidth - containerWidth);
+
+let currentPosition = 0;
+let autoScroll;
+
+const startAutoScroll = () => {
+    servicesTrack.style.animation = 'vertical-scroll-animation 12s ease-in-out infinite';
+};
+
+const stopAutoScroll = () => {
+    servicesTrack.style.animation = 'none';
+};
+
+servicesTrack.style.transition = 'transform 0.5s ease-in-out';
+
+leftArrow.addEventListener('click', () => {
+    stopAutoScroll();
+    currentPosition += cardWidth;
+    if (currentPosition > 0) {
+        currentPosition = 0;
+    }
+    servicesTrack.style.transform = `translate3d(${currentPosition}px, 0, 0)`;
+    clearTimeout(autoScroll);
+    autoScroll = setTimeout(startAutoScroll, 5000); // Restart after 5 seconds
+});
+
+rightArrow.addEventListener('click', () => {
+    stopAutoScroll();
+    currentPosition -= cardWidth;
+    if (currentPosition < maxPosition) {
+        currentPosition = maxPosition;
+    }
+    servicesTrack.style.transform = `translate3d(${currentPosition}px, 0, 0)`;
+    clearTimeout(autoScroll);
+    autoScroll = setTimeout(startAutoScroll, 5000); // Restart after 5 seconds
+});
+
+startAutoScroll();
