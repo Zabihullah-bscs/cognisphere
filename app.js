@@ -22,10 +22,14 @@ closeIcon.addEventListener("click", function() {
 });
 
 // Ribbon bar buttons functionality //
-document.querySelectorAll('.logo-bar-buttons li a').forEach(function(button) {
+document.querySelectorAll('.logo-bar-buttons > li > a').forEach(function(button) {
     button.addEventListener('click', function(event) {
-        event.preventDefault();
         const targetSection = this.textContent.trim();
+
+        // Only prevent default for links that are meant to scroll
+        if (['Home', 'About Us', 'Our Work', 'Contact Us'].includes(targetSection)) {
+            event.preventDefault();
+        }
 
         switch (targetSection) {
             case 'Home':
@@ -37,13 +41,11 @@ document.querySelectorAll('.logo-bar-buttons li a').forEach(function(button) {
             case 'Our Work':
                 document.querySelector('.my-project').scrollIntoView({ behavior: 'smooth' });
                 break;
-            case 'Our Services':
-                document.querySelector('.my-project').scrollIntoView({ behavior: 'smooth' });
-                break;
             case 'Contact Us':
                 document.querySelector('.final-contact-section').scrollIntoView({ behavior: 'smooth' });
                 break;
             default:
+                // For "Our Services" and dropdown links, do nothing and let the default link behavior occur.
                 break;
         }
     });
@@ -137,3 +139,64 @@ rightArrow.addEventListener('click', () => {
 });
 
 startAutoScroll();
+
+// Stats counter animation for circle-progress elements
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.circle-progress');
+    const circumference = 2 * Math.PI * 72; // Circumference of the circle with radius 72 (updated for larger size)
+
+    counters.forEach(counter => {
+        const value = parseFloat(counter.getAttribute('data-value'));
+        const unit = counter.getAttribute('data-unit');
+        const progressBar = counter.querySelector('.progress-bar');
+        const counterText = counter.querySelector('.counter');
+        let currentValue = 0;
+        const increment = value / 50; // Adjust speed of animation
+
+        progressBar.style.strokeDasharray = circumference;
+        progressBar.style.strokeDashoffset = circumference;
+
+        // Immediately set the final value on page load to ensure display
+        currentValue = value;
+        const progressOffset = circumference - (currentValue / value) * circumference;
+        progressBar.style.strokeDashoffset = progressOffset;
+        counterText.textContent = currentValue.toFixed(1) + unit;
+
+        function animateCounter() {
+            if (currentValue < value) {
+                currentValue += increment;
+                if (currentValue > value) currentValue = value;
+                const progressOffset = circumference - (currentValue / value) * circumference;
+                progressBar.style.strokeDashoffset = progressOffset;
+                counterText.textContent = currentValue.toFixed(1) + unit;
+                requestAnimationFrame(animateCounter);
+            }
+        }
+
+        // Animation can still run if needed
+        setTimeout(animateCounter, 100);
+    });
+
+    // Counting animation for percentage texts in .circle h2 elements
+    const percentageCounters = document.querySelectorAll('.circle h2[data-target]');
+    percentageCounters.forEach(counter => {
+        const targetValue = parseInt(counter.getAttribute('data-target'));
+        let currentValue = 0;
+        const increment = Math.ceil(targetValue / 50); // Adjust speed of animation
+
+        // Reset the counter to 0 on page load
+        counter.textContent = '0%';
+
+        function animatePercentageCounter() {
+            if (currentValue < targetValue) {
+                currentValue += increment;
+                if (currentValue > targetValue) currentValue = targetValue;
+                counter.textContent = currentValue + '%';
+                setTimeout(animatePercentageCounter, 20);
+            }
+        }
+
+        // Start animation immediately
+        animatePercentageCounter();
+    });
+});
