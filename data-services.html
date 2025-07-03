@@ -6,22 +6,21 @@
     <title>Data Services - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
-        <header>
+        <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="images/logo.png" alt="logo">
                 <h2><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about-us">About Us</a></li>
-                <li><a href="index.html#our-work">Our Work</a></li>
                 <li class="active">
-                    <a href="#">Our Services</a>
+                    <a href="#">Services</a>
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -30,6 +29,25 @@
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
                 </li>
+                <li>
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>All Solutions</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>AI & Machine Learning</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Data & Analysis</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Cloud & Infrastructure</h4>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
                 <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
             <div class="box-icons">
@@ -40,7 +58,7 @@
         </header>
 
 
-<section class="hero">
+<section class="hero" data-aos="fade-right" data-aos-duration="3000">
     <div class="hero-info">
         <h1 class="gradient">Data Services</h1>
         <p>Drive business transformation with data-driven insights, advanced AI, and robust security solutions that optimize decision-making and protect your enterprise.</p>
@@ -50,12 +68,12 @@
         
       
 
-        <section class="stats-section">
+        <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="85">85%</h2>
                 </div>
@@ -65,7 +83,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="40">42%</h2>
                 </div>
@@ -75,7 +93,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="60">60%</h2>
                 </div>
@@ -100,8 +118,8 @@
 
 
 
-          <section class="strategic-edge">
-        <h2 class="section-title">The Strategic Edge of Data</h2>
+          <section class="strategic-edge" data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="section-title autoDisplay" style="color: #72a1dea2;">The Strategic Edge of Data</h2>
         <p class="edge">In the modern enterprise, data is more than a resource—it’s a critical asset that drives growth, innovation, and competitive differentiation. At CogniSphere, we help organizations turn data into actionable insights through our holistic data services, combining strategy, engineering, AI, and security to enable intelligent decision-making and future-proofing.</p>
         <a href="index.html#contact-us" class="cta-button">Let’s Discuss Your Data Goals</a>
     </section>
@@ -109,12 +127,12 @@
 
 
 
-               <section class="services-portfolio">
-            <h2 class="section-title">Our Data Services Portfolio</h2>
+               <section class="services-portfolio" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Services Portfolio</h2>
             <div class="service-cards-container">
                 
                 <!-- Card 1: Data Strategy -->
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000">
                     <!-- NOTE: Icon ko is div mein wrap kiya gaya hai behtar styling ke liye -->
                     <div class="icon-wrapper">
                         <!-- NOTE: Inline style hata diya gaya hai -->
@@ -126,7 +144,7 @@
                 </div>
                 
                 <!-- Card 2: Data Engineering -->
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                     <div class="icon-wrapper">
                         <i class='bx bxs-cog'></i>
                     </div>
@@ -136,7 +154,7 @@
                 </div>
 
                 <!-- Card 3: Cloud Data & AI -->
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                     <div class="icon-wrapper">
                         <i class='bx bxs-cloud'></i>
                     </div>
@@ -146,7 +164,7 @@
                 </div>
 
                 <!-- Card 4: Data Privacy & Security -->
-                <div class="service-card">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <div class="icon-wrapper">
                         <i class='bx bxs-lock-alt'></i>
                     </div>
@@ -162,49 +180,49 @@
 
 
 
-        <section class="industry-solutions">
-            <h2 class="section-title">Industry-Specific Solutions</h2>
+        <section class="industry-solutions" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Industry-Specific Solutions</h2>
             <div class="industry-cards-container">
-                <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/mobility_6cd10f786b.webp');">
+                <div class="industry-card" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/mobility_6cd10f786b.webp');">
                     <h3>Mobility & Logistics</h3>
                     <p>Leverage IoT and analytics to streamline logistics and fleet management for greater efficiency.</p>
                 </div>
-                <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/financial_e4d5ce8d04.webp');">
+                <div class="industry-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/financial_e4d5ce8d04.webp');">
                     <h3>Financial Services</h3>
                     <p>Improve risk management and customer personalization with predictive analytics that boost profitability.</p>
                 </div>
-                <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/healthcare_c270e859c9.webp');">
+                <div class="industry-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/healthcare_c270e859c9.webp');">
                     <h3>Healthcare</h3>
                     <p>Use real-time analytics to improve patient outcomes and operational efficiency.</p>
                 </div>
                 
-                <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/government_5a385785ed.webp');">
+                <div class="industry-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/government_5a385785ed.webp');">
                     <h3>Government & Public Sector</h3>
                     <p>Optimize resource allocation and improve service delivery with data-backed decision-making.</p>
                 </div>
             </div>
         </section>
 
-        <section class="why-choose-us">
-            <h2 class="section-title">Why Choose Us?</h2>
+        <section class="why-choose-us" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Why Choose Us?</h2>
             <div class="reasons-container">
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_data_security_inverted_fc227c0749.webp" alt="Strong Data Ethics">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bxs-shield' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Strong Data Ethics</h3>
                     <p>Data security and confidentiality are central to our values. We prioritize ethical data practices that comply with industry regulations through robust protection measures.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_deep_knowledge_inverted_c53555fe1c.webp" alt="Deep Expertise">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bxs-brain' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Deep Expertise</h3>
                     <p>Our data consultants specialize in data strategy, covering governance, architecture, quality management, integration, and analytics throughout the data lifecycle.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_expand_inverted_eb4047cf4a.webp" alt="Scalability & Flexibility">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bxs-up-arrow-circle' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Scalability & Flexibility</h3>
                     <p>We design scalable data strategies that adapt to future demands and evolving technologies, providing flexible solutions that integrate with emerging data sources.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_heart_inverted_e258ff2c90.webp" alt="Strong Change Management">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                    <i class='bx bxs-group' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Strong Change Management</h3>
                     <p>CogniSphere’s change management includes comprehensive training programs to enhance data literacy, reduce resistance, and cultivate a data-driven culture.</p>
                 </div>
@@ -260,5 +278,9 @@
         </footer>
     </div>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

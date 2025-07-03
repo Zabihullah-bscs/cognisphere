@@ -6,22 +6,21 @@
     <title>Cloud, Data & AI - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
-        <header>
+        <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="images/logo.png" alt="logo">
                 <h2><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about-us">About Us</a></li>
-                <li><a href="index.html#our-work">Our Work</a></li>
                 <li class="active">
-                    <a href="#">Our Services</a>
+                    <a href="#">Services</a>
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -30,6 +29,25 @@
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
                 </li>
+                <li>
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>All Solutions</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>AI & Machine Learning</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Data & Analysis</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Cloud & Infrastructure</h4>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
                 <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
             <div class="box-icons">
@@ -39,7 +57,7 @@
             </div>
         </header>
 
-        <section class="hero">
+        <section class="hero" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info">
                 <h1 class="gradient">Cloud, Data & AI</h1>
                 <p>Tap into AI and cloud technologies to streamline data access, reduce operational overhead, and improve decision-making.</p>
@@ -48,18 +66,18 @@
         </section>
 
              <!-- Is section ki class name badal di hai -->
-        <section class="value-proposition">
-            <h2 class="section-title">Unlock Value with Cloud, Data & AI</h2>
+        <section class="value-proposition" data-aos="fade-right" data-aos-duration="1000">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Unlock Value with Cloud, Data & AI</h2>
             <p>We help businesses harness the power of cloud, data, and AI technologies to drive innovation, improve efficiency, and gain a competitive edge. Our comprehensive solutions enable you to transform your data into actionable insights, automate processes, and deliver personalized experiences.</p>
         </section>
 
 
-        <section class="stats-section">
+        <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="85">85%</h2>
                 </div>
@@ -69,7 +87,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="42">42%</h2>
                 </div>
@@ -79,7 +97,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="60">60%</h2>
                 </div>
@@ -92,28 +110,28 @@
 
 
                 <!-- Is section ki class name badal di hai taake conflict na ho -->
-        <section class="cda-solutions">
-            <h2 class="section-title">Comprehensive Cloud, Data & AI Solutions</h2>
+        <section class="cda-solutions" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Comprehensive Cloud, Data & AI Solutions</h2>
             <p>Our comprehensive approach ensures scalable, secure, and high-quality data management that drives growth and innovation.</p>
             
             <!-- Container ki class name bhi badal di hai -->
             <div class="cda-cards-wrapper">
 
                 <!-- Har card ki class name badal di hai -->
-                <div class="cda-card">
-                    <img src="https://www.venturedive.com/static/media/cloud-icon.4a977842.svg" alt="Cloud Migration">
+                <div class="cda-card" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bx-cloud-upload' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Cloud Migration</h3>
                     <p>Seamlessly migrate your data and applications to the cloud, ensuring minimal disruption and maximum performance.</p>
                 </div>
 
-                <div class="cda-card">
-                    <img src="https://www.venturedive.com/static/media/data-icon.1789c791.svg" alt="Data Analytics">
+                <div class="cda-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bx-bar-chart-alt-2' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Analytics</h3>
                     <p>Transform your data into actionable insights with our advanced analytics solutions, enabling data-driven decision-making.</p>
                 </div>
 
-                <div class="cda-card">
-                    <img src="https://www.venturedive.com/static/media/ai-icon.7b5e832f.svg" alt="AI Solutions">
+                <div class="cda-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bx-brain' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>AI Solutions</h3>
                     <p>Leverage the power of artificial intelligence to automate processes, improve customer experiences, and drive innovation.</p>
                 </div>
@@ -125,40 +143,32 @@
 
 
 
-
-
-        <section class="workflow-section">
-            <h2 class="section-title">Our Cloud, Data & AI Workflow</h2>
-            <div class="workflow-steps">
-                <div class="step">
-                    <h3>Assessment and Planning</h3>
-                    <p>Evaluate your current infrastructure and develop a comprehensive plan for cloud migration and AI implementation.</p>
+        <section class="workflow-section" data-aos="fade-up" data-aos-duration="1500" style="padding: 60px 20px; background: rgba(0, 0, 0, 0.6); margin: 40px 0;">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2; font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Our Cloud, Data & AI Workflow</h2>
+            <div class="workflow-steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto;">
+                <div class="step" data-aos="zoom-in" data-aos-duration="1000" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+                    <h3 style="color: #72a1dea2; font-size: 1.5rem; margin-bottom: 15px;">Assessment and Planning</h3>
+                    <p style="color: #ffffff; line-height: 1.6;">Evaluate your current infrastructure and develop a comprehensive plan for cloud migration and AI implementation.</p>
                 </div>
-                <div class="step">
-                    <h3>Cloud Migration</h3>
-                    <p>Migrate your data and applications to the cloud, ensuring seamless integration and minimal disruption.</p>
+                <div class="step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+                    <h3 style="color: #72a1dea2; font-size: 1.5rem; margin-bottom: 15px;">Cloud Migration</h3>
+                    <p style="color: #ffffff; line-height: 1.6;">Migrate your data and applications to the cloud, ensuring seamless integration and minimal disruption.</p>
                 </div>
-                <div class="step">
-                    <h3>Data Integration</h3>
-                    <p>Integrate data from various sources to create a unified view of your business, enabling better decision-making.</p>
+                <div class="step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+                    <h3 style="color: #72a1dea2; font-size: 1.5rem; margin-bottom: 15px;">Data Integration</h3>
+                    <p style="color: #ffffff; line-height: 1.6;">Integrate data from various sources to create a unified view of your business, enabling better decision-making.</p>
                 </div>
-                <div class="step">
-                    <h3>AI Implementation</h3>
-                    <p>Implement AI solutions to automate processes, improve customer experiences, and drive innovation.</p>
+                <div class="step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+                    <h3 style="color: #72a1dea2; font-size: 1.5rem; margin-bottom: 15px;">AI Implementation</h3>
+                    <p style="color: #ffffff; line-height: 1.6;">Implement AI solutions to automate processes, improve customer experiences, and drive innovation.</p>
                 </div>
-                <div class="step">
-                    <h3>Monitoring and Optimization</h3>
-                    <p>Continuously monitor and optimize your cloud and AI solutions to ensure maximum performance and efficiency.</p>
+                <div class="step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center;">
+                    <h3 style="color: #72a1dea2; font-size: 1.5rem; margin-bottom: 15px;">Monitoring and Optimization</h3>
+                    <p style="color: #ffffff; line-height: 1.6;">Continuously monitor and optimize your cloud and AI solutions to ensure maximum performance and efficiency.</p>
                 </div>
             </div>
         </section>
 
-        <section class="video-section">
-            <video controls style="width: 80%; border-radius: 15px;">
-                <source src="https://www.venturedive.com/static/media/cloud-data-ai.4a009892.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
 
         <footer class="site-footer">
             <div class="footer-main">
@@ -209,5 +219,9 @@
         </footer>
     </div>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

@@ -6,22 +6,22 @@
     <title>Data Privacy & Security Services - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
-        <header>
+        <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="images/logo.png" alt="logo">
                 <h2><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about-us">About Us</a></li>
-                <li><a href="index.html#our-work">Our Work</a></li>
                 <li class="active">
-                    <a href="#">Our Services</a>
+                    <a href="#">Services</a>
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -30,6 +30,25 @@
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
                 </li>
+                <li>
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>All Solutions</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>AI & Machine Learning</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Data & Analysis</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Cloud & Infrastructure</h4>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
                 <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
             <div class="box-icons">
@@ -39,20 +58,20 @@
             </div>
         </header>
         <br><br>
-        <section class="hero" style="background-image: none; height: 60vh; display: flex; justify-content: center; align-items: center;">
+        <section class="hero" style="background-image: none; height: 60vh; display: flex; justify-content: center; align-items: center;" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info" style="text-align: center;">
-                <h1 class="gradient">Data Privacy & Security Services</h1>
+<h1 class="gradient">Data Privacy<br>& Security</h1>
                 <p>Safeguard your enterprise with robust data privacy and security solutions that ensure compliance, protect sensitive information, and mitigate risks in an evolving threat landscape.</p>
                 <a href="index.html#contact-us" class="cta-button">Get in Touch</a>
             </div>
         </section>
 
-        <section class="stats-section">
+        <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="90">85%</h2>
                 </div>
@@ -62,7 +81,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="75">42%</h2>
                 </div>
@@ -72,7 +91,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="80">60%</h2>
                 </div>
@@ -80,35 +99,35 @@
             </div>
         </section>
 
-        <section class="strategic-edge">
-            <h2 class="section-title">Fortifying Your Data Landscape</h2>
+        <section class="strategic-edge" data-aos="fade-right" data-aos-duration="1000">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Fortifying Your Data Landscape</h2>
             <p>In today's digital era, data privacy and security are paramount to maintaining trust and operational integrity. At CogniSphere, we provide end-to-end data protection services, from risk assessments to compliance with global regulations like GDPR and HIPAA. Our solutions are designed to safeguard your sensitive data against breaches while ensuring your organization remains agile and innovative.</p>
             <a href="index.html#contact-us" class="cta-button">Secure Your Data Today</a>
         </section>
 
-        <section class="services-portfolio">
-            <h2 class="section-title">Our Data Privacy & Security Offerings</h2>
+        <section class="services-portfolio" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Privacy & Security Offerings</h2>
             <div class="service-cards-container">
-                <div class="service-card">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/data_privacy_compliance_7e4f12b3c9.webp" alt="Data Privacy Compliance">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000">
+<i class="fas fa-shield-alt" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Privacy Compliance</h3>
                     <p>Navigate complex regulatory landscapes with our tailored compliance programs for GDPR, CCPA, HIPAA, and more. We conduct thorough assessments, develop policies, and ensure continuous adherence to protect your organization from legal and financial risks.</p>
                     <a href="#">Learn more</a>
                 </div>
-                <div class="service-card">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/data_security_management_2c1e8f9a5b.webp" alt="Data Security Management">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+<i class="fas fa-lock" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Security Management</h3>
                     <p>Implement robust security frameworks to protect data at rest and in transit. Our services include encryption, access controls, intrusion detection, and regular security audits to fortify your defenses against cyber threats.</p>
                     <a href="#">Learn more</a>
                 </div>
-                <div class="service-card">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/risk_assessment_mitigation_4d9c3e2a1f.webp" alt="Risk Assessment & Mitigation">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+<i class="fas fa-exclamation-triangle" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Risk Assessment & Mitigation</h3>
                     <p>Identify vulnerabilities and mitigate risks with our comprehensive risk assessment services. We provide actionable insights and remediation strategies to address potential threats before they impact your business.</p>
                     <a href="#">Learn more</a>
                 </div>
-                <div class="service-card">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/incident_response_recovery_8b2a5c7d3e.webp" alt="Incident Response & Recovery">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+<i class="fas fa-ambulance" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Incident Response & Recovery</h3>
                     <p>Prepare for and respond to data breaches with our incident response plans. We help minimize damage, recover critical systems, and implement lessons learned to prevent future incidents.</p>
                     <a href="#">Learn more</a>
@@ -116,36 +135,36 @@
             </div>
         </section>
 
-                 <section class="security-showcase">
-            <h2 class="section-title">Tailored Security for Every Industry</h2>
+                 <section class="security-showcase" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Tailored Security for Every Industry</h2>
             <div class="showcase-grid">
 
                 <!-- NOTE: 'style' attribute yahan se hata diya gaya hai -->
-                <div class="showcase-card">
+                <div class="showcase-card" data-aos="zoom-in" data-aos-duration="1000">
                     <h3>Financial Services</h3>
                     <p>Protect sensitive financial data and ensure compliance with PCI DSS and other regulations.</p>
                 </div>
 
                 <!-- NOTE: 'style' attribute yahan se hata diya gaya hai -->
-                <div class="showcase-card">
+                <div class="showcase-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                     <h3>Healthcare</h3>
                     <p>Safeguard patient information with HIPAA-compliant solutions and advanced security measures.</p>
                 </div>
 
                 <!-- NOTE: 'style' attribute yahan se hata diya gaya hai -->
-                <div class="showcase-card">
+                <div class="showcase-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                     <h3>Retail & E-Commerce</h3>
                     <p>Secure customer data and transactions to build trust and prevent costly breaches.</p>
                 </div>
 
                 <!-- NOTE: 'style' attribute yahan se hata diya gaya hai -->
-                <div class="showcase-card">
+                <div class="showcase-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <h3>Technology</h3>
                     <p>Protect intellectual property and user data with cutting-edge cybersecurity solutions.</p>
                 </div>
 
                 <!-- NOTE: 'style' attribute yahan se hata diya gaya hai -->
-                <div class="showcase-card">
+                <div class="showcase-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800">
                     <h3>Government & Public Sector</h3>
                     <p>Ensure national security and citizen privacy with robust data protection frameworks.</p>
                 </div>
@@ -153,64 +172,68 @@
             </div>
         </section>
 
-        <section class="why-choose-us">
-            <h2 class="section-title">Why Partner with CogniSphere?</h2>
+        <section class="why-choose-us" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Why Partner with CogniSphere?</h2>
             <div class="reasons-container">
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_proactive_threat_5b6c7d8e9f.webp" alt="Proactive Threat Management">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000">
+<i class="fas fa-shield-alt" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Proactive Threat Management</h3>
                     <p>We stay ahead of emerging threats with continuous monitoring, threat intelligence, and preemptive strategies to protect your data before issues arise.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_global_compliance_0a1b2c3d4e.webp" alt="Global Compliance Expertise">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+<i class="fas fa-globe" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Global Compliance Expertise</h3>
                     <p>Our deep knowledge of international privacy laws ensures your organization meets regulatory requirements across jurisdictions without disruption.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_custom_solutions_5f6g7h8i9j.webp" alt="Customized Solutions">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+<i class="fas fa-cogs" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Customized Solutions</h3>
                     <p>We tailor our security and privacy services to your specific industry, business size, and risk profile for maximum effectiveness and efficiency.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://dcqo78ws06z9a.cloudfront.net/icon_247_support_1k2l3m4n5o.webp" alt="24/7 Support & Monitoring">
+                <div class="reason" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+<i class="fas fa-headset" style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>24/7 Support & Monitoring</h3>
                     <p>Our dedicated team provides round-the-clock support and real-time monitoring to address security incidents and ensure uninterrupted protection.</p>
                 </div>
             </div>
         </section>
 
-      <section class="workflow-section">
-    <h2 class="section-title">Our Data Security Workflow</h2>
+      <section class="workflow-section" data-aos="fade-up" data-aos-duration="1500">
+    <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Security Workflow</h2>
     
     <!-- Yeh container cards ko hold karega -->
     <div class="workflow-steps">
         
-        <div class="workflow-card">
-            <div class="step-number">1</div>
-            <img src="https://dcqo78ws06z9a.cloudfront.net/assessment_3a4b5c6d7e.webp" alt="Assessment">
+        <div class="workflow-card" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="icon-wrapper">
+                <i class="fas fa-search" style="font-size: 50px; color: #72a1dea2;"></i>
+            </div>
             <h3>Assessment</h3>
-            <p>We begin with a comprehensive evaluation of your current data privacy and security posture, identifying vulnerabilities and compliance gaps.</p>
+            <p>Uncover hidden risks with a thorough audit of your data privacy and security landscape, pinpointing vulnerabilities and compliance gaps.</p>
         </div>
 
-        <div class="workflow-card">
-            <div class="step-number">2</div>
-            <img src="https://dcqo78ws06z9a.cloudfront.net/strategy_8f9g0h1i2j.webp" alt="Strategy Development">
+        <div class="workflow-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+            <div class="icon-wrapper">
+                <i class="fas fa-chess-knight" style="font-size: 50px; color: #72a1dea2;"></i>
+            </div>
             <h3>Strategy Development</h3>
-            <p>Based on the assessment, we craft a customized strategy that addresses identified risks and aligns with your business goals and regulatory needs.</p>
+            <p>Build a robust defense with a tailored strategy that mitigates risks and aligns seamlessly with your business objectives and regulations.</p>
         </div>
 
-        <div class="workflow-card">
-            <div class="step-number">3</div>
-            <img src="https://dcqo78ws06z9a.cloudfront.net/implementation_4k5l6m7n8o.webp" alt="Implementation">
+        <div class="workflow-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+            <div class="icon-wrapper">
+                <i class="fas fa-tools" style="font-size: 50px; color: #72a1dea2;"></i>
+            </div>
             <h3>Implementation</h3>
-            <p>We deploy advanced security technologies, policies, and training programs to fortify your data environment and empower your team.</p>
+            <p>Strengthen your defenses with cutting-edge security tech, policies, and training to protect your data and empower your workforce.</p>
         </div>
 
-        <div class="workflow-card">
-            <div class="step-number">4</div>
-            <img src="https://dcqo78ws06z9a.cloudfront.net/monitoring_9p0q1r2s3t.webp" alt="Monitoring & Optimization">
+        <div class="workflow-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+            <div class="icon-wrapper">
+                <i class="fas fa-desktop" style="font-size: 50px; color: #72a1dea2;"></i>
+            </div>
             <h3>Monitoring & Optimization</h3>
-            <p>Continuous monitoring and periodic reviews ensure your security measures remain effective, adapting to new threats and business changes.</p>
+            <p>Stay ahead of threats with 24/7 monitoring and regular updates, ensuring your security evolves with new challenges and business needs.</p>
         </div>
         
     </div>   
@@ -265,5 +288,9 @@
         </footer>
     </div>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

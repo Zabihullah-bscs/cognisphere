@@ -6,22 +6,21 @@
     <title>Data Strategy - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
-        <header>
+        <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="images/logo.png" alt="logo">
                 <h2><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about-us">About Us</a></li>
-                <li><a href="index.html#our-work">Our Work</a></li>
                 <li class="active">
-                    <a href="#">Our Services</a>
+                    <a href="#">Services</a>
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -30,6 +29,25 @@
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
                 </li>
+                <li>
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>All Solutions</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>AI & Machine Learning</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Data & Analysis</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Cloud & Infrastructure</h4>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
                 <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
             <div class="box-icons">
@@ -39,7 +57,7 @@
             </div>
         </header>
 
-        <section class="hero">
+        <section class="hero" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info">
                 <h1 class="gradient">Data Strategy</h1>
                 <p>Bridge the gap between data and strategy with our tailored solutions that drive informed decision-making, improve efficiency, and foster growth.</p>
@@ -48,18 +66,18 @@
         </section>
 
               <!-- Is section ki class name badal di hai -->
-        <section class="value-proposition">
-            <h2 class="section-title">Unlock Value with Cloud, Data & AI</h2>
+        <section class="value-proposition" data-aos="fade-right" data-aos-duration="1000">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Unlock Value with Cloud, Data & AI</h2>
             <p>We help businesses harness the power of cloud, data, and AI technologies to drive innovation, improve efficiency, and gain a competitive edge. Our comprehensive solutions enable you to transform your data into actionable insights, automate processes, and deliver personalized experiences.</p>
         </section>
 
 
-        <section class="stats-section">
+        <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="85">85%</h2>
                 </div>
@@ -69,7 +87,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="42">42%</h2>
                 </div>
@@ -79,7 +97,7 @@
                 <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
                     </svg>
                     <h2 data-target="60">60%</h2>
                 </div>
@@ -93,28 +111,28 @@
 
 
         <!-- Is section ki class name badal di hai -->
-        <section class="strategy-solutions">
-            <h2 class="section-title">Comprehensive Data Strategy Solutions</h2>
+        <section class="strategy-solutions" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Comprehensive Data Strategy Solutions</h2>
             <p>Our comprehensive approach ensures scalable, secure, and high-quality data management that drives growth and innovation.</p>
             
             <!-- Container ki class name bhi badal di hai -->
             <div class="strategy-cards-wrapper">
 
                 <!-- Har card ki class name badal di hai -->
-                <div class="strategy-card">
-                    <img src="https://www.venturedive.com/static/media/assessment-icon.f729899d.svg" alt="Data Assessment">
+                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bx-search-alt-2' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Assessment</h3>
                     <p>Evaluate your current data infrastructure and identify opportunities for improvement.</p>
                 </div>
 
-                <div class="strategy-card">
-                    <img src="https://www.venturedive.com/static/media/governance-icon.39c4990f.svg" alt="Data Governance">
+                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bx-shield-alt-2' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Governance</h3>
                     <p>Establish policies and procedures to ensure data quality, security, and compliance.</p>
                 </div>
 
-                <div class="strategy-card">
-                    <img src="https://www.venturedive.com/static/media/monetization-icon.db9189f5.svg" alt="Data Monetization">
+                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bx-money' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Monetization</h3>
                     <p>Develop strategies to generate revenue from your data assets.</p>
                 </div>
@@ -123,29 +141,30 @@
         </section>
 
              <!-- Is section ki class name badal di hai -->
-        <section class="strategy-workflow">
-            <h2 class="section-title">Our Data Strategy Workflow</h2>
+        <section class="strategy-workflow" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Strategy Workflow</h2>
+            <p>Explore the key components of our approach to data strategy, designed to align with your business goals.</p>
             
             <!-- Container ki class name bhi badal di hai -->
             <div class="workflow-grid">
 
                 <!-- Har step ki class name badal di hai -->
-                <div class="workflow-step">
+                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000">
                     <h3>Data Discovery</h3>
                     <p>Identify and assess your current data assets.</p>
                 </div>
 
-                <div class="workflow-step">
+                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                     <h3>Strategy Development</h3>
                     <p>Develop a comprehensive data strategy aligned with your business goals.</p>
                 </div>
 
-                <div class="workflow-step">
+                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                     <h3>Implementation Planning</h3>
                     <p>Create a detailed plan for implementing your data strategy.</p>
                 </div>
 
-                <div class="workflow-step">
+                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <h3>Execution and Monitoring</h3>
                     <p>Execute your data strategy and continuously monitor its performance.</p>
                 </div>
@@ -153,12 +172,6 @@
         </section>
 
         
-        <section class="video-section">
-            <video controls style="width: 80%; border-radius: 15px;">
-                <source src="https://www.venturedive.com/static/media/data-strategy.945a044f.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
 
         <footer class="site-footer">
             <div class="footer-main">
@@ -209,5 +222,9 @@
         </footer>
     </div>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

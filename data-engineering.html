@@ -6,22 +6,21 @@
     <title>Data Engineering - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="videos/galaxy.mp4"></video>
 
-        <header>
+        <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="images/logo.png" alt="logo">
                 <h2><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about-us">About Us</a></li>
-                <li><a href="index.html#our-work">Our Work</a></li>
                 <li class="active">
-                    <a href="#">Our Services</a>
+                    <a href="#">Services</a>
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -30,6 +29,25 @@
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
                 </li>
+                <li>
+                    <a href="#">Solutions</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>All Solutions</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>AI & Machine Learning</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Data & Analysis</h4>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Cloud & Infrastructure</h4>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="index.html#our-work">Our Work</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
                 <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
             <div class="box-icons">
@@ -39,7 +57,7 @@
             </div>
         </header>
 
-        <section class="hero" style="height: 60vh;">
+        <section class="hero" style="height: 60vh;" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info">
                 <h1 class="gradient">Data Engineering</h1>
                 <p>With a focus on scalability, data quality, and governance, our comprehensive Data Engineering services ensure actionable insights fueling growth</p>
@@ -61,36 +79,34 @@
 
 
 
-        <section class="stats-section">
+        <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
-                <div class="circle-progress" data-value="91" data-unit="%">
-                    <br>
-                    <br>
+                <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 127, 165)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="113.10" transform="rotate(-90 130 130)" />
                     </svg>
-                    <div class="counter">85%</div>
+                    <h2 data-target="85">85%</h2>
                 </div>
                 <p>Improvement in data accuracy for electrical utility and industrial supply companies</p>
             </div>
             <div class="stat">
-                <div class="circle-progress" data-value="34" data-unit="%">
+                <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(41, 214, 77)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="437.31" transform="rotate(-90 130 130)" />
                     </svg>
-                    <div class="counter">42%</div>
+                    <h2 data-target="42">42%</h2>
                 </div>
                 <p>Reduction in default rates for one of the fastest-growing digital lending platforms in South Asia</p>
             </div>
             <div class="stat">
-                <div class="circle-progress" data-value="2.7" data-unit="%">
+                <div class="circle">
                     <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
-                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="rgb(77, 218, 206)" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
+                        <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="301.59" transform="rotate(-90 130 130)" />
                     </svg>
-                    <div class="counter">60%</div>
+                    <h2 data-target="60">60%</h2>
                 </div>
                 <p>Decline in report generation time for a leading online marketplace through data engineering and BI</p>
             </div>
@@ -116,16 +132,17 @@
 
 
 
-        <section class="strategic-edge">
-            <h2 class="section-title">Streamline Data Operations with Expert Data Engineering</h2>
-            <p >Our data engineering services help enterprises manage vast datasets, streamlining operations and unlocking insights. Using technologies like Hadoop, Spark, and machine learning, we ensure seamless data processing, storage, and analysis while focusing on governance, security, and scalability for informed decision-making.</p>
-        </section>
-
-        <section class="video-section">
-            <video controls style="width: 80%; border-radius: 15px;">
-                <source src="https://www.venturedive.com/static/media/data-engineering.b629936c.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <section class="strategic-edge" data-aos="fade-right" data-aos-duration="1000" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 40px; margin: 0 auto; max-width: 1200px; padding: 50px 20px;">
+            <div style="flex: 1; min-width: 400px; text-align: left;">
+                <h2 class="section-title autoDisplay" style="color: #72a1dea2; text-align: left; margin: 0 0 15px 0; font-size: 2.2rem;">Streamline Data Operations<br>with Expert Data Engineering</h2>
+                <p style="margin: 0; line-height: 1.6; font-size: 1.1rem; color: #ffffff; padding-right: 20px;">Our data engineering services help enterprises manage vast datasets, streamlining operations and unlocking insights. Using technologies like Hadoop, Spark, and machine learning, we ensure seamless data processing, storage, and analysis while focusing on governance, security, and scalability for informed decision-making.</p>
+            </div>
+            <div style="flex: 1; min-width: 400px; display: flex; justify-content: center; align-items: center;">
+                <video controls style="width: 85%; border-radius: 15px; height: auto; max-height: 280px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+                    <source src="https://www.venturedive.com/static/media/data-engineering.b629936c.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </section>
 
 
@@ -135,43 +152,43 @@
 
 
         <!-- Is section ki class name badal di hai -->
-        <section class="engineering-solutions">
-            <h2 class="section-title">Comprehensive Data Engineering Solutions That Make a Difference</h2>
+        <section class="engineering-solutions" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Comprehensive Data Engineering Solutions That Make a Difference</h2>
             <p>Our comprehensive approach ensures scalable, secure, and high-quality data management that drives growth and innovation.</p>
             
             <!-- Is container ki class name badal di hai -->
             <div class="solutions-grid">
 
                 <!-- Har card ki class name badal di hai -->
-                <div class="solution-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000">
                     <i class='bx bx-data'></i>
                     <h3>Data Warehousing</h3>
                     <p>We design and implement scalable data warehouses, enabling businesses to store, organize, and retrieve information efficiently for analytics.</p>
                     <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="solution-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                     <i class='bx bx-timer'></i>
                     <h3>Real-time Data Processing</h3>
                     <p>Our real-time data processing solutions analyze data as it is generated, allowing companies to react immediately to business events.</p>
                     <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="solution-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                     <i class='bx bx-link'></i>
                     <h3>Data Integration</h3>
                     <p>Our data integration services connect disparate data sources, ensuring seamless data flow across systems for unified analytics.</p>
                     <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="solution-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <i class='bx bx-git-compare'></i>
                     <h3>Data Pipeline Development</h3>
                     <p>We build robust data pipelines to automate data collection, transformation, and loading, ensuring efficient data movement for analysis.</p>
                     <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="solution-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800">
                     <i class='bx bx-cloud'></i>
                     <h3>Big Data Solutions</h3>
                     <p>Our big data solutions leverage technologies like Hadoop and Spark to process and analyze massive datasets, uncovering valuable insights.</p>
@@ -202,57 +219,62 @@
 
 
 
-        <section class="workflow-section">
-            <h2 class="section-title">Our Data Engineering Workflow</h2>
-            <div class="workflow-steps">
-                <div class="workflow-card autoDisplay">
+        <section class="workflow-section" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Engineering Workflow</h2>
+            <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bx-list-check' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Requirements Gathering</h3>
                     <p>Identify business needs by defining data sources, types, and quality requirements, focusing on desired outcomes to ensure alignment with stakeholder goals.</p>
                 </div>
-                <div class="workflow-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bx-download' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Ingestion</h3>
                     <p>Collect structured and unstructured data from various sources like databases, APIs, and streaming platforms to centralize it for processing.</p>
                 </div>
-                <div class="workflow-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bx-brush' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Cleaning</h3>
                     <p>Eliminate duplicates, fill in missing values, and standardize formats to ensure the data is accurate, consistent, and ready for analysis and decision-making.</p>
                 </div>
-                <div class="workflow-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                    <i class='bx bx-data' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Storage</h3>
                     <p>Store processed data in relational databases, data lakes, or cloud-based solutions to ensure accessibility and scalability.</p>
                 </div>
-                <div class="workflow-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800" style="grid-column: 2 / 3;">
+                    <i class='bx bx-transfer' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Transformation and ETL</h3>
                     <p>Convert data into usable formats and perform extraction, transformation, and loading (ETL) into target systems for reporting and analytics.</p>
                 </div>
-                <div class="workflow-card autoDisplay">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000" style="grid-column: 3 / 4;">
+                    <i class='bx bx-export' style="font-size: 50px; color: #72a1dea2;"></i>
                     <h3>Data Serving</h3>
                     <p>Deliver data to end users like analysts, ML engineers, and managers, enabling them to generate insights and optimize business processes.</p>
                 </div>
-               
             </div>
         </section>
 
-        <section class="why-choose-us">
-            <h2 class="section-title">What’s Different About CogniSphere?</h2>
+        <section class="why-choose-us" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">What’s Different About CogniSphere?</h2>
             <p>We stand out by delivering tailored data engineering solutions that drive measurable business impact. Our approach combines innovation, expertise, and a commitment to excellence.</p>
             <div class="reasons-container">
-                <div class="reason autoDisplay">
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000">
                     <i class='bx bx-bulb' style="font-size: 50px; color: #72a1de;"></i>
                     <h3>Innovation-Driven</h3>
                     <p>We leverage cutting-edge technologies and methodologies to build future-ready data ecosystems that keep you ahead of the curve.</p>
                 </div>
-                <div class="reason autoDisplay">
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                     <i class='bx bx-brain' style="font-size: 50px; color: #72a1de;"></i>
                     <h3>Deep Expertise</h3>
                     <p>Our team of data engineers and architects brings extensive experience across industries, ensuring solutions that address your unique challenges.</p>
                 </div>
-                <div class="reason autoDisplay">
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                     <i class='bx bx-target-lock' style="font-size: 50px; color: #72a1de;"></i>
                     <h3>Results-Oriented</h3>
                     <p>We focus on delivering tangible outcomes, from improved data accuracy to faster insights, aligning our success with your business goals.</p>
                 </div>
-                <div class="reason autoDisplay">
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <i class='bx bx-group' style="font-size: 50px; color: #72a1de;"></i>
                     <h3>Collaborative Partnership</h3>
                     <p>We work closely with your team, fostering transparency and trust to ensure seamless integration and long-term success.</p>
@@ -309,5 +331,9 @@
         </footer>
     </div>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
