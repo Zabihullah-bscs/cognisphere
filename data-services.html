@@ -38,14 +38,17 @@
                 <p><i class='bx bxl-linkedin-square'></i></p>
             </div>
         </header>
+
+
+<section class="hero">
+    <div class="hero-info">
+        <h1 class="gradient">Data Services</h1>
+        <p>Drive business transformation with data-driven insights, advanced AI, and robust security solutions that optimize decision-making and protect your enterprise.</p>
+        <a href="index.html#contact-us" class="cta-button">Get in Touch</a>
+    </div>
+</section>
         
-        <section class="hero" style="background-image: none; height: 60vh; display: flex; justify-content: center; align-items: center;">
-            <div class="hero-info" style="text-align: center;">
-                <h1 class="gradient">Data Services</h1>
-                <p>Drive business transformation with data-driven insights, advanced AI, and robust security solutions that optimize decision-making and protect your enterprise.</p>
-                <a href="index.html#contact-us" class="cta-button">Get in Touch</a>
-            </div>
-        </section>
+      
 
         <section class="stats-section">
             <div class="stat">
@@ -80,41 +83,84 @@
             </div>
         </section>
 
-        <section class="strategic-edge">
-            <h2 class="section-title">The Strategic Edge of Data</h2>
-            <p>In the modern enterprise, data is more than a resource—it’s a critical asset that drives growth, innovation, and competitive differentiation. At CogniSphere, we help organizations turn data into actionable insights through our holistic data services, combining strategy, engineering, AI, and security to enable intelligent decision-making and future-proofing.</p>
-            <a href="index.html#contact-us" class="cta-button">Let’s Discuss Your Data Goals</a>
-        </section>
 
-        <section class="services-portfolio">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <section class="strategic-edge">
+        <h2 class="section-title">The Strategic Edge of Data</h2>
+        <p class="edge">In the modern enterprise, data is more than a resource—it’s a critical asset that drives growth, innovation, and competitive differentiation. At CogniSphere, we help organizations turn data into actionable insights through our holistic data services, combining strategy, engineering, AI, and security to enable intelligent decision-making and future-proofing.</p>
+        <a href="index.html#contact-us" class="cta-button">Let’s Discuss Your Data Goals</a>
+    </section>
+
+
+
+
+               <section class="services-portfolio">
             <h2 class="section-title">Our Data Services Portfolio</h2>
             <div class="service-cards-container">
+                
+                <!-- Card 1: Data Strategy -->
                 <div class="service-card">
-                    <i class='bx bxs-map' style="font-size: 50px; color: #72a1de; margin-bottom: 20px;"></i>
+                    <!-- NOTE: Icon ko is div mein wrap kiya gaya hai behtar styling ke liye -->
+                    <div class="icon-wrapper">
+                        <!-- NOTE: Inline style hata diya gaya hai -->
+                        <i class='bx bxs-map'></i>
+                    </div>
                     <h3>Data Strategy</h3>
-                    <p>Tailored data roadmaps that align with your business objectives, ensuring data initiatives drive tangible value and ROI. From data governance to architecture design, we ensure your data landscape is scalable and future-ready.</p>
+                    <p>Tailored data roadmaps that align with your business objectives, ensuring data initiatives drive tangible value and ROI.</p>
                     <a href="data-strategy.html">Learn more</a>
                 </div>
+                
+                <!-- Card 2: Data Engineering -->
                 <div class="service-card">
-                    <i class='bx bxs-cog' style="font-size: 50px; color: #72a1de; margin-bottom: 20px;"></i>
+                    <div class="icon-wrapper">
+                        <i class='bx bxs-cog'></i>
+                    </div>
                     <h3>Data Engineering</h3>
-                    <p>Building and optimizing your data infrastructure to efficiently collect, store, and process massive datasets. Whether you're migrating legacy systems to modern data warehouses or engineering scalable pipelines, our solutions power real-time insights.</p>
+                    <p>Building and optimizing your data infrastructure to efficiently collect, store, and process massive datasets.</p>
                     <a href="data-engineering.html">Learn more</a>
                 </div>
+
+                <!-- Card 3: Cloud Data & AI -->
                 <div class="service-card">
-                    <i class='bx bxs-cloud' style="font-size: 50px; color: #72a1de; margin-bottom: 20px;"></i>
+                    <div class="icon-wrapper">
+                        <i class='bx bxs-cloud'></i>
+                    </div>
                     <h3>Cloud Data & AI</h3>
-                    <p>Leverage cloud-native architectures and advanced AI models to extract intelligence from your data at scale. From predictive analytics to machine learning models, we enable faster decision-making and increased automation through cutting-edge AI tools.</p>
+                    <p>Leverage cloud-native architectures and advanced AI models to extract intelligence from your data at scale.</p>
                     <a href="cloud-data-ai.html">Learn more</a>
                 </div>
+
+                <!-- Card 4: Data Privacy & Security -->
                 <div class="service-card">
-                    <i class='bx bxs-lock-alt' style="font-size: 50px; color: #72a1de; margin-bottom: 20px;"></i>
+                    <div class="icon-wrapper">
+                        <i class='bx bxs-lock-alt'></i>
+                    </div>
                     <h3>Data Privacy & Security</h3>
-                    <p>Ensure data integrity and compliance with industry standards like GDPR, HIPAA, and more. Our comprehensive approach covers encryption, access control, risk assessment, and proactive threat management to safeguard your critical data assets.</p>
+                    <p>Ensure data integrity and compliance with industry standards like GDPR, HIPAA, and more, to safeguard your critical data assets.</p>
                     <a href="data-privacy-security.html">Learn more</a>
                 </div>
+                
             </div>
         </section>
+
+
+
+
 
         <section class="industry-solutions">
             <h2 class="section-title">Industry-Specific Solutions</h2>
@@ -131,10 +177,7 @@
                     <h3>Healthcare</h3>
                     <p>Use real-time analytics to improve patient outcomes and operational efficiency.</p>
                 </div>
-                <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/retail_090d4af75e.webp');">
-                    <h3>Retail & E-Commerce</h3>
-                    <p>Enhance customer engagement and inventory optimization with advanced analytics.</p>
-                </div>
+                
                 <div class="industry-card" style="background-image: url('https://dcqo78ws06z9a.cloudfront.net/government_5a385785ed.webp');">
                     <h3>Government & Public Sector</h3>
                     <p>Optimize resource allocation and improve service delivery with data-backed decision-making.</p>
@@ -217,23 +260,5 @@
         </footer>
     </div>
     <script src="app.js"></script>
-
-    <!-- Chatbot Interface -->
-    <div class="chatbot-icon" id="chatbotIcon">
-        <i class='bx bx-message-square-detail'></i>
-    </div>
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <h3>CogniSphere Assistant</h3>
-            <i class='bx bx-x' id="closeChatbot"></i>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot">Hello! How can I assist you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="userInput" placeholder="Type your message...">
-            <button id="sendMessage"><i class='bx bx-send'></i></button>
-        </div>
-    </div>
 </body>
 </html>

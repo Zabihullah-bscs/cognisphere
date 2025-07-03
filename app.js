@@ -93,6 +93,10 @@ document.querySelectorAll('.box-icons p').forEach(function(icon) {
     });
 });
 
+
+
+
+
 // Services carousel functionality //
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
@@ -246,93 +250,4 @@ document.addEventListener('DOMContentLoaded', function() {
             animateCounter(counter, index);
         });
     }, 500);
-});
-
-// Chatbot Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const chatbotIcon = document.getElementById('chatbotIcon');
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const closeChatbot = document.getElementById('closeChatbot');
-    const userInput = document.getElementById('userInput');
-    const sendMessage = document.getElementById('sendMessage');
-    const chatbotMessages = document.getElementById('chatbotMessages');
-
-    // Open chatbot with animation
-    chatbotIcon.addEventListener('click', function() {
-        chatbotIcon.classList.add('active');
-        setTimeout(function() {
-            chatbotContainer.classList.add('active');
-            chatbotIcon.style.display = 'none';
-            chatbotIcon.classList.remove('active');
-        }, 500); // Match the duration of the CSS animation for icon
-    });
-
-    // Close chatbot
-    closeChatbot.addEventListener('click', function() {
-        chatbotContainer.classList.remove('active');
-        setTimeout(function() {
-            chatbotIcon.style.display = 'flex';
-        }, 400); // Match the duration of the CSS transition for container
-    });
-
-    // Send message on button click
-    sendMessage.addEventListener('click', function() {
-        sendUserMessage();
-    });
-
-    // Send message on Enter key press
-    userInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendUserMessage();
-        }
-    });
-
-    function sendUserMessage() {
-        const messageText = userInput.value.trim();
-        if (messageText !== '') {
-            // Add user message to chat
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'user');
-            userMessage.textContent = messageText;
-            chatbotMessages.appendChild(userMessage);
-
-            // Clear input
-            userInput.value = '';
-
-            // Scroll to the bottom of the chat
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-            // Simulate bot response
-            setTimeout(botResponse, 500, messageText);
-        }
-    }
-
-    function botResponse(userMessage) {
-        let responseText = '';
-        const lowerMessage = userMessage.toLowerCase();
-
-        // Predefined responses based on user input
-        if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-            responseText = 'Hello! How can I help you with CogniSphere today?';
-        } else if (lowerMessage.includes('company') || lowerMessage.includes('about')) {
-            responseText = 'CogniSphere is a forward-thinking technology company dedicated to empowering businesses through cutting-edge AI solutions. We specialize in intelligent, scalable, and data-driven systems to optimize operations and drive innovation.';
-        } else if (lowerMessage.includes('service') || lowerMessage.includes('offer')) {
-            responseText = 'We offer services in AI Transformation, Data Analytics & Insights, Machine Learning Solutions, and Custom Automation. How can I provide more details about these services?';
-        } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
-            responseText = 'You can contact us at +92 306-8952115 or email us at info@cogni-sphere.com. We are located in Block - D PIA Housing Society, Lahore, Punjab, Pakistan.';
-        } else if (lowerMessage.includes('website') || lowerMessage.includes('site')) {
-            responseText = 'Our website provides information about our company, services, and projects. You can navigate through sections like Home, About Us, Our Work, Our Services, and Contact Us. Is there a specific section you want to know about?';
-        } else {
-            responseText = 'I\'m not sure how to help with that. Could you provide more details or ask about our company, services, or website?';
-        }
-
-        // Add bot response to chat
-        const botMessage = document.createElement('div');
-        botMessage.classList.add('message', 'bot');
-        botMessage.textContent = responseText;
-        chatbotMessages.appendChild(botMessage);
-
-        // Scroll to the bottom of the chat
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
 });

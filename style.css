@@ -183,23 +183,28 @@ header ul li a:hover {
     text-shadow: none;
 }
 
+
+
+
+
+
 .stats-section {
     display: flex;
     justify-content: space-around;
     width: 80%;
-    max-width: 1200px;
-    margin: 50px auto;
+    margin: 50px 0;
     text-align: center;
-    background-color: rgba(10, 25, 47, 0.6);
+
+    
     border-radius: 15px;
     padding: 30px 0;
-    box-shadow: 0 0 20px rgba(114, 161, 222, 0.3);
+    
 }
 
 .stat {
     flex: 1;
     padding: 20px;
-    border-right: 1px solid rgba(114, 161, 222, 0.2);
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,6 +232,7 @@ header ul li a:hover {
     margin-bottom: 20px;
     box-shadow: 0 0 20px rgba(114, 161, 222, 0.5);
     position: relative;
+   
 }
 
 .progress-circle {
@@ -253,7 +259,7 @@ header ul li a:hover {
     position: relative;
     width: 160px;
     height: 160px;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
 }
 
 .circle-progress svg {
@@ -278,23 +284,92 @@ header ul li a:hover {
     text-shadow: 0 0 5px rgba(114, 161, 222, 0.5); /* Add a subtle glow for better visibility */
 }
 
+
+
+.edge{
+    color:#9ea0a4 !important;
+}
+
+
+
+
+
+
+
+
+
+
 .strategic-edge {
-    width: 80%;
-    max-width: 1200px;
+    /* Sab kuch center karne ke liye Flexbox ka istemal */
+    display: flex;
+    flex-direction: column; /* Items ko upar se neeche rakhta hai */
+    align-items: center;   /* Horizontally sab kuch center karta hai */
+    
+    /* Paragraph ke text ko center-align karne ke liye */
     text-align: center;
-    margin: 50px auto;
+    
+    /* Section ke andar thodi spacing */
+    padding: 60px 20px;
+
+    /* Optional: Background color */
+    
 }
 
-.strategic-edge h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+/* --- SECTION KE ANDAR KE ELEMENTS KI STYLING --- */
+/* (Baqi styling upar wale code se copy kar sakte hain) */
+
+.section-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 16px;
+}/* --- BEHTAR AUR SAAF CODE --- */
+.strategic-edge p {
+    max-width: 650px;    /* Yeh zaroori hai taake text zyada na phaile */
+    font-size: 1.1rem;
+    color: whitesmoke;
+    line-height: 1.7;
+    margin-bottom: 30px; /* Sirf neeche se margin den */
 }
 
+.cta-button {
+    display: inline-block;
+
+    color: #ffffff;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SERVICES PORTFOLIO (UPDATED FOR 4 CARDS IN A ROW & MODERN STYLE) --- */
 .services-portfolio {
-    width: 80%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1400px;
     text-align: center;
-    margin: 50px auto;
+    margin-bottom: 50px;
+}
+
+.service-cards-container {
+    display: grid;
+    /* Yeh line 4 cards ko ek row mein rakhegi */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px; /* Cards ke darmiyan behtar fasla */
 }
 
 .services-portfolio h2 {
@@ -302,52 +377,68 @@ header ul li a:hover {
     margin-bottom: 40px;
 }
 
-.service-cards-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 0 20px;
-}
-
 .service-cards-container .service-card {
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
+     background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(8px);
     border-radius: 15px;
     border: 1px solid rgba(114, 161, 222, 0.2);
     padding: 30px;
-    width: 23%;
-    min-width: 250px;
-    max-width: 300px;
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+
+
+
+
 .service-cards-container .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.4);
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+}
+
+
+
+
+.service-cards-container .service-card .icon-wrapper {
+    /* Icon ke gird ek khoobsurat circle */
+    width: 70px;
+    height: 70px;
+   
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+}
+
+
+.service-cards-container .service-card:hover .icon-wrapper {
+    
 }
 
 .service-cards-container .service-card i {
-    margin-bottom: 20px;
-    display: inline-block;
-}
-
-.service-cards-container .service-card:hover i {
-    transform: scale(1.2);
+    font-size: 36px;
+    color: #72a1de;
+    margin: 0; /* Inline style ko override karne ke liye */
 }
 
 .service-cards-container .service-card h3 {
-    font-size: 1.5em;
+    font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .service-cards-container .service-card p {
-    font-size: 1em;
+    font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 20px;
-    color: #b0b0b0;
+    color: #c5c5c5;
+    flex-grow: 1; /* Yeh 'Learn more' link ko neeche push karega */
+    margin-bottom: 25px;
 }
 
 .service-cards-container .service-card a {
@@ -358,37 +449,77 @@ header ul li a:hover {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+    margin-top: auto; /* Hamesha card ke bottom mein rahega */
+    align-self: flex-start;
 }
-
 .service-cards-container .service-card a:hover {
     color: #fff;
-    gap: 12px;
+    padding-left: 5px;
 }
 
+/* --- Responsive Behavior for Service Cards --- */
+@media screen and (max-width: 1200px) {
+    .service-cards-container {
+        /* Tablets par 2 cards per row */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .service-cards-container {
+        /* Mobiles par 1 card per row */
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- INDUSTRY SOLUTIONS (UPDATED FOR 4 CENTERED CARDS) --- */
 .industry-solutions {
-    width: 80%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1500px !important;
     text-align: center;
-    margin: 50px auto;
+    margin-bottom: 50px;
 }
 
 .industry-cards-container {
+    /* Grid ki jagah Flexbox ka istemal */
     display: flex;
+    /* YEH LINE CARDS KO HORIZONTALLY CENTER KAREGI */
     justify-content: center;
+    /* Agar screen choti ho to cards agli line mein chale jayein */
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px; /* Cards ke darmiyan behtar fasla */
     margin-top: 40px;
-    padding: 0 20px;
 }
 
 .industry-card {
+    /* Hum har card ko ek fix width denge taake woh stretch na hon */
+    width: 320px; 
+    height: 320px; /* Height thori adjust ki hai */
+    
+    /* Baaki styles wese hi rahenge */
     background-size: cover;
     background-position: center;
-    border-radius: 15px;
-    width: 30%;
-    min-width: 280px;
-    max-width: 380px;
-    height: 300px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -396,6 +527,14 @@ header ul li a:hover {
     color: white;
     text-align: left;
     position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
 .industry-card::before {
@@ -405,43 +544,55 @@ header ul li a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    border-radius: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 75%);
+    border-radius: 10px;
+    z-index: 0;
 }
 
-.industry-card h3 {
-    position: relative;
-    z-index: 1;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
+.industry-card h3,
 .industry-card p {
     position: relative;
     z-index: 1;
-    font-size: 1em;
 }
+
+.industry-card h3 {
+    font-size: 1.3rem; 
+    margin-bottom: 8px;
+}
+
+.industry-card p {
+    font-size: 0.9rem; 
+    line-height: 1.5;
+}
+
+/* 
+  NOTE: Ab humein is section ke liye alag se media queries ki zaroorat nahi
+  kyunke `flex-wrap: wrap` khud hi responsiveness ko handle kar lega.
+  Jab screen choti hogi, cards khud ba khud neeche wali line mein aa jayenge.
+*/
+
+
+
+
+
 
 .why-choose-us {
     width: 80%;
-    max-width: 1200px;
     text-align: center;
-    margin: 50px auto;
+    margin-bottom: 50px;
 }
 
 .reasons-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
     margin-top: 40px;
-    padding: 0 20px;
 }
 
 .reason {
     width: 22%;
     min-width: 250px;
-    max-width: 300px;
 }
 
 .reason img {
@@ -580,19 +731,50 @@ header ul li a:hover {
     margin-top: -23.5%;
 }
 
-.hero{
+
+/* --- HERO SECTION (FIXED FOR CENTERING) --- */
+.hero {
     position: relative;
-    display: flex;
     width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: space-between;
+    /* Aapki marzi ki height */
+    height: 70vh; 
+    
+    /* YEH TEEN LINES CONTENT KO CENTER KARENGI */
+    display: flex;
+    align-items: center;      /* Vertically center */
+    justify-content: center;  /* Horizontally center */
+    
+    text-align: center; /* Text ko center align karega */
 }
 
-.hero-info{
-    position: absolute;
-    left: 5%;
+.hero-info {
+    /* Absolute position hata diya taake flexbox kaam kar sake */
+    position: static; 
+    
+    /* Width ko control karne ke liye */
+    width: 90%; 
+    max-width: 900px;
 }
+
+.hero-info .gradient {
+    /* Font size ko behtar banaya */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    margin: 0 auto 20px auto;
+}
+
+.hero-info p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    margin: 0 auto 30px auto;
+    color: #e0e0e0;
+}
+
+
+
+
+
+
+
 
 .hero-info .hero-info-title{
     color: #72a1de;
@@ -613,12 +795,7 @@ header ul li a:hover {
     margin-bottom: 30px;
 }
 
-.hero-info p{
-    max-width: 550px;
-    line-height: 25px;
-    margin-bottom: 40px;
-    font-size: 20px;
-}
+
 
 .hero-info button{
     color: white;
@@ -643,6 +820,7 @@ header ul li a:hover {
 }
 
 .gradient{
+    margin-top: 80px !important;
     background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
     background-size: 200%;
     background-clip: text;
@@ -724,60 +902,112 @@ header ul li a:hover {
     }
   }
 
-.info-section{
+
+
+
+
+
+
+
+
+  .info-section {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 90%;
-    margin-top: 80px; /* Standardized margin for all sections */
+    align-items: center;
+    width: 90%; /* Section ko thora chota kiya takay side se space ho */
+    max-width: 1800px; /* Bohat bari screens par zayada na phaile */
+    margin: 80px auto; /* Section ko page ke center mein laane ke liye */
 }
 
-.info-cards{
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 40px;
+/* Container for the two cards */
+.info-cards {
+    display: flex; /* Sabse zaroori: cards ko side-by-side laane ke liye */
+    align-items: center; /* Dono cards ko vertically center mein rakhne ke liye */
+    justify-content: space-between; /* Dono ke beech space daalne ke liye */
+    gap: 40px; /* Cards ke darmiyan fasla */
     width: 100%;
     margin-top: 30px;
 }
 
-.card{
+
+
+
+/* General card styles (yahan se width hata di hai) */
+.card {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     position: relative;
-    width: 45%;
-    max-width: 500px;
-    min-height: 380px;
+    min-height: 300px; /* Height thori kam ki, aap adjust kar sakti hain */
     overflow: hidden;
     border-radius: 20px;
-    transition: 0.5s;
     padding: 30px;
-
     backdrop-filter: blur(5px);
+    transition: 0.5s;
+
+
+   
+
+
 
 }
 
-.about-text-card p{
-    position: static;
-    color: lightgray;
-    font-size: 1rem;
-    line-height: 1.7;
-    text-align: justify;
+.about-text-card {
+    flex-basis: 60%; /* Isko 60% jagah di gayi hai */
+    align-items: flex-start; /* Iska content left se shuru ho */
+}
+
+.about-text-card p {
+    color:lightgray;
+  background: transparent;  /* ← Yeh likho */
+
+
+
+    font-size: 1rem; 
+    line-height: 1.9;
+    text-align: justify; /* Text ko left-align kiya, 'justify' nahi */
     margin: 0;
 }
+.about-logo-card {
+    flex-basis: 35%; /* Isko 35% jagah di gayi hai */
+    align-items: center; /* Logo ko apne card ke center mein rakha */
+}
 
-.about-logo-card img{
-    width: 80%;
-    max-width: 400px;
+.about-logo-card img {
+    width: 100%; /* Image ko responsive banaya */
+    max-width: 350px; /* Max width set ki */
     height: auto;
     object-fit: contain;
 }
 
+
+
+/* --- Mobile Responsive ke liye --- */
+@media (max-width: 768px) {
+    .info-cards {
+        flex-direction: column; /* Choti screen par cards ko ek ke neeche ek lana */
+        align-items: center;
+    }
+    
+    .about-text-card, .about-logo-card {
+        flex-basis: 100%; /* Choti screen par dono cards poori width lein */
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
 .card h1, .card video, .card button {
     display: none;
 }
+
+
+
 
 .my-project{
     display: flex;
@@ -1687,204 +1917,710 @@ header ul li a:hover {
     }
 }
 
-/* Chatbot Styles */
-.chatbot-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 30px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #72a1de;
-    color: black;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 15px #72a1de, 0 0 0 3px rgba(114, 161, 222, 0.5), 0 0 10px 5px rgba(255, 255, 255, 0.5);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1000;
-    animation: whiteGlow 2s ease-in-out infinite;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- CSS FOR "DATA ENGINEERING" SECTION (NEW UNIQUE CLASSES) --- */
+.engineering-solutions {
+    width: 95%;
+    max-width: 1500px;
+    text-align: center;
+    margin: 0 auto 80px auto;
 }
 
-@keyframes whiteGlow {
-    0%, 100% {
-        box-shadow: 0 0 15px #72a1de, 0 0 0 3px rgba(114, 161, 222, 0.5), 0 0 10px 5px rgba(255, 255, 255, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 15px #72a1de, 0 0 0 3px rgba(114, 161, 222, 0.5), 0 0 20px 10px rgba(255, 255, 255, 0.6);
-    }
+.engineering-solutions > p {
+    max-width: 800px;
+    margin: -20px auto 40px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
 }
 
-.chatbot-icon:hover {
-    transform: scale(1.1);
-    background-color: #5a8ac3;
-    box-shadow: 0 0 20px #72a1de, 0 0 0 6px rgba(114, 161, 222, 0.3), 0 0 25px 12px rgba(255, 255, 255, 0.5);
+.solutions-grid {
+    display: grid;
+    /* 5 cards in one row */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
 }
 
-.chatbot-icon:active, .chatbot-icon.active {
-    animation: moveUp 0.5s ease-out forwards, whiteGlow 2s ease-in-out infinite;
-}
-
-@keyframes moveUp {
-    0% {
-        transform: scale(1);
-        bottom: 20px;
-    }
-    50% {
-        transform: scale(1.2);
-        bottom: 40px;
-    }
-    100% {
-        transform: scale(1);
-        bottom: 20px;
-        display: none;
-    }
-}
-
-.chatbot-container {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 350px;
-    max-height: 500px;
-    background-color: rgba(10, 25, 47, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(114, 161, 222, 0.3);
+.solution-card {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
     border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.chatbot-container.active {
-    display: flex;
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    animation: chatOpen 0.4s ease-out forwards;
-}
-
-@keyframes chatOpen {
-    0% {
-        opacity: 0;
-        transform: scale(0.8) translateY(20px);
-    }
-    50% {
-        opacity: 0.7;
-        transform: scale(1.05) translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.chatbot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
-}
-
-.chatbot-header h3 {
-    color: #72a1de;
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.chatbot-header i {
-    font-size: 24px;
-    color: lightgray;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.chatbot-header i:hover {
-    color: #72a1de;
-}
-
-.chatbot-messages {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
+    padding: 25px;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.message {
-    max-width: 80%;
-    padding: 10px 15px;
-    border-radius: 10px;
-    line-height: 1.4;
-    font-size: 0.9rem;
+.solution-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.4);
 }
 
-.message.bot {
-    background-color: rgba(114, 161, 222, 0.2);
-    color: lightgray;
+.solution-card i {
+    font-size: 40px; 
+    color: #72a1de;
+    margin-bottom: 20px;
     align-self: flex-start;
 }
 
-.message.user {
-    background-color: #72a1de;
-    color: black;
-    align-self: flex-end;
+.solution-card h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
 }
 
-.chatbot-input {
-    display: flex;
-    padding: 15px 20px;
-    border-top: 1px solid rgba(114, 161, 222, 0.2);
+.solution-card p {
+    color: #c5c5c5;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    flex-grow: 1; 
+    margin-bottom: 20px;
+}
+
+.solution-card .learn-more-link {
+    color: #72a1de;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    margin-top: auto; 
+    align-self: flex-start;
+}
+
+.solution-card .learn-more-link:hover {
+    color: #fff;
     gap: 10px;
 }
 
-.chatbot-input input {
-    flex-grow: 1;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(114, 161, 222, 0.3);
-    border-radius: 8px;
-    padding: 10px;
-    color: white;
-    outline: none;
-    transition: border-color 0.3s ease;
+/* --- Responsive Behavior for this specific section --- */
+@media screen and (max-width: 1200px) {
+    .solutions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-.chatbot-input input:focus {
-    border-color: #72a1de;
+@media screen and (max-width: 992px) {
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.chatbot-input button {
+@media screen and (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+/* --- CSS FOR "UNLOCK VALUE" SECTION (NEW UNIQUE CLASS) --- */
+.value-proposition {
+    width: 90%;
+    /* Max-width set ki taake paragraph bohat zyada na phaile */
+    max-width: 900px; 
+    
+    /* Section ko page ke center mein laane ke liye */
+    margin: 0 auto 80px auto; 
+    
+    /* Section ke andar har cheez ko center align karega */
+    text-align: center; 
+}
+
+/* Yeh rule khaas tor par paragraph ko style karega */
+.value-proposition p {
+    color: #c5c5c5; /* Text ka rang thora behtar kiya */
+    font-size: 1.1rem; /* Font size thora barhaya */
+    line-height: 1.8; /* Lines ke darmiyan fasla barhaya taake parhne mein aasani ho */
+    
+    /* Heading ke neeche thori si space dega */
+    margin-top: -15px; 
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media screen and (max-width: 768px) {
+    .value-proposition p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+
+
+
+
+
+
+
+/* --- CSS FOR "CLOUD, DATA & AI" SECTION (NEW UNIQUE CLASSES) --- */
+.cda-solutions {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto 80px auto;
+}
+
+.cda-solutions > p {
+    max-width: 800px;
+    margin: -20px auto 40px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
+}
+
+.cda-cards-wrapper {
+    /* YEH DO LINES CARDS KO CENTER MEIN LAYENGI */
+    display: flex;
+    justify-content: center;
+    
+    /* Agar screen choti ho to cards neeche aa jayein */
+    flex-wrap: wrap; 
+    
+    /* Cards ke darmiyan gap kam kar diya hai */
+    gap: 30px; 
+}
+
+.cda-card {
+    /* Har card ki max width set ki hai taake woh be-tartib na lagein */
+    flex: 0 1 320px; /* Grow:0, Shrink:1, Basis:320px */
+    
+    /* Aapka original background istemal kiya hai */
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    
+    /* Card ke andar content ko center align karne ke liye */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cda-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+}
+
+.cda-card img {
+    height: 70px; /* Image ki height fix kar di hai */
+    margin-bottom: 25px; /* Image aur heading ke darmiyan fasla */
+}
+
+.cda-card h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.cda-card p {
+    color: #c5c5c5;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+
+
+/* --- CSS FOR "DATA STRATEGY" SECTION (NEW UNIQUE CLASSES) --- */
+.strategy-solutions {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto 80px auto;
+}
+
+.strategy-solutions > p {
+    max-width: 800px;
+    margin: -20px auto 40px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
+}
+
+.strategy-cards-wrapper {
+    /* YEH DO LINES CARDS KO CENTER MEIN LAYENGI */
+    display: flex;
+    justify-content: center;
+    
+    /* Agar screen choti ho to cards neeche aa jayein */
+    flex-wrap: wrap; 
+    
+    /* Cards ke darmiyan munasib gap */
+    gap: 30px; 
+}
+
+.strategy-card {
+    /* Har card ki max width set ki hai */
+    flex: 0 1 320px; /* Grow:0, Shrink:1, Basis:320px */
+    
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    
+    /* Card ke andar content ko center align karne ke liye */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.strategy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+}
+
+.strategy-card img {
+    height: 70px; 
+    margin-bottom: 25px;
+}
+
+.strategy-card h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.strategy-card p {
+    color: #c5c5c5;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+
+/* --- CSS FOR "DATA STRATEGY WORKFLOW" SECTION (NEW UNIQUE CLASSES) --- */
+.strategy-workflow {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto 80px auto;
+}
+
+.workflow-grid {
+    display: grid;
+    /* 4 steps ko ek row mein rakhega */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 40px; /* Vertical | Horizontal gap */
+    margin-top: 60px; /* Heading se fasla */
+    
+    /* Yeh CSS Counter ke liye zaroori hai */
+    counter-reset: workflow-counter;
+}
+
+.workflow-step {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 10px;
+    padding: 50px 20px 25px 20px; /* Upar se zyada padding taake number fit ho */
+    
+    position: relative; /* Yeh number circle ke liye zaroori hai */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.workflow-step:hover {
+    transform: translateY(-8px);
+}
+
+/* YEH CSS NUMBER CIRCLE BANAYEGA */
+.workflow-step::before {
+    counter-increment: workflow-counter; /* Har step par counter barhayega */
+    content: counter(workflow-counter); /* Counter ki value dikhayega */
+    
+    position: absolute;
+    /* Card ke upar, center mein */
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 50px;
+    height: 50px;
     background-color: #72a1de;
-    border: none;
-    border-radius: 8px;
-    padding: 0 15px;
-    cursor: pointer;
+    color: black;
+    border-radius: 50%;
+    
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 3px solid rgba(10, 25, 47, 0.8);
+    box-shadow: 0 0 15px rgba(114, 161, 222, 0.4);
+}
+
+.workflow-step h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.workflow-step p {
+    color: #c5c5c5;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --- Responsive Behavior for this section --- */
+@media screen and (max-width: 992px) {
+    .workflow-grid {
+        /* Tablets par 2 steps per row */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .workflow-grid {
+        /* Mobiles par 1 step per row */
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+/* --- CSS FOR MAIN HERO SECTION (NEW UNIQUE CLASSES & LEFT ALIGNMENT) --- */
+
+.main-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Poori screen ki height lega */
+    
+    /* YEH DO LINES CONTENT KO LEFT AUR RIGHT SIDES PAR SET KARENGI */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Left aur right content ke darmiyan space dega */
+    
+    padding: 0 5%; /* Side se thori space */
+    overflow: hidden; /* Zaroori hai taake videos bahar na niklein */
+}
+
+/* Content (Heading, Para, Button) ko style karne ke liye */
+.main-hero-content {
+    /* Yeh content ko left side par rakhega */
+    flex: 1; 
+    max-width: 600px; /* Content ki max width */
+    text-align: left; /* Text ko left align karega */
+    z-index: 2; /* Content ko video ke upar rakhega */
+}
+
+.main-hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.main-hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #c5c5c5;
+    margin-bottom: 40px;
+}
+
+.main-hero-content button {
+    /* Aapke .cta-button se milti julti styling */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 1px solid #72a1de81;
+    background-color: #2200493d;
+    box-shadow: 0 0 5px #72a1de81;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.main-hero-content button:hover {
+    background-color: #72a1de;
     color: black;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #72a1de;
 }
 
-.chatbot-input button:hover {
-    background-color: #5a8ac3;
+/* Right side wali video ko style karne ke liye */
+.main-hero-video-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Video ko right side par rakhega */
+    z-index: 2;
 }
 
-.chatbot-input button i {
-    font-size: 18px;
+.main-hero-video-box .skills-video {
+    max-width: 100%;
+    height: 80vh; /* Video ki height adjust ki */
+    mix-blend-mode: lighten;
 }
 
-@media screen and (max-width: 480px) {
-    .chatbot-container {
-        width: calc(100% - 40px);
-        bottom: 80px;
-        right: 20px;
+/* Background Blackhole Video ko style karne ke liye */
+.main-hero .blackhole-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 0; /* Isay sab se neeche rakha hai */
+    mix-blend-mode: lighten;
+}
+
+.main-hero .blackhole-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video ko poora cover karega */
+}
+
+/* Scroll down icon ko adjust karne ke liye */
+.main-hero .scroll-down {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- CSS FOR "TAILORED SECURITY" SECTION (WITH ORIGINAL CARD BACKGROUND) --- */
+.security-showcase {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 0 auto 80px auto;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.showcase-card {
+    /* YAHAN AAPKA ORIGINAL BACKGROUND WAPAS LAGA DIYA GAYA HAI */
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    
+    /* Content ko align karne ke liye */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.4);
+}
+
+/* NOTE: Ab humein '::before' (overlay) ki zaroorat nahi hai, isliye woh hata diya hai */
+
+.showcase-card h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.showcase-card p {
+    color: #c5c5c5;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    /* Yeh text ko card mein jagah dega */
+    flex-grow: 1;
+}
+
+/* --- Responsive Behavior for this section --- */
+@media screen and (max-width: 1200px) {
+    .showcase-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .showcase-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+/* ============================================= */
+/*       Workflow Section Styling                */
+/* ============================================= */
+
+/* --- Poore Section ki Basic Styling --- */
+.workflow-section {
+    padding: 80px 20px;
+   
+    text-align: center;
+}
+
+.workflow-section .section-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 60px; /* Title aur cards ke beech zyada gap */
+}
+
+
+/* --- Cards ke Parent Container ki Styling (YAHAN JADOO HOGA) --- */
+.workflow-steps {
+    display: flex;         /* Isse cards ek line mein aayenge */
+    justify-content: center; /* Cards ko center mein rakhega */
+    gap: 30px;             /* Cards ke beech mein 30px ka gap dega */
+    flex-wrap: wrap;       /* Agar screen choti ho to cards neeche aa jayenge */
+}
+
+
+/* --- Har ek Card ki Styling (.workflow-card) --- */
+.workflow-card {
+    /* Flexbox: Card ke andar ki cheezon ko align karne ke liye */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+   
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    
+    /* Important: Yeh har card ko barabar width dega aur use flexible banayega */
+    flex: 1; 
+    min-width: 250px; /* Card ki minimum width taake bohot na sikude */
+    max-width: 300px; /* Card ki maximum width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Card ke Andar ke Elements ki Styling --- */
+.workflow-card .step-number {
+    width: 45px;
+    height: 45px;
+   
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50%; /* Isse bilkul goal circle banega */
+    
+    /* Number ko circle ke center mein laane ke liye */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 20px;
+}
+
+.workflow-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.workflow-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.workflow-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* --- Responsive Design (Choti Screens ke liye) --- */
+@media (max-width: 992px) {
+    .workflow-steps {
+        /* Tablet par 2x2 grid jaisa dikhega */
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .workflow-steps {
+        /* Mobile par cards ek ke neeche ek aayenge */
+        flex-direction: column;
+        align-items: center;
     }
 }

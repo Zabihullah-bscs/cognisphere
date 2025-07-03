@@ -47,10 +47,12 @@
             </div>
         </section>
 
-        <section class="unlock-value">
+             <!-- Is section ki class name badal di hai -->
+        <section class="value-proposition">
             <h2 class="section-title">Unlock Value with Cloud, Data & AI</h2>
             <p>We help businesses harness the power of cloud, data, and AI technologies to drive innovation, improve efficiency, and gain a competitive edge. Our comprehensive solutions enable you to transform your data into actionable insights, automate processes, and deliver personalized experiences.</p>
         </section>
+
 
         <section class="stats-section">
             <div class="stat">
@@ -85,27 +87,45 @@
             </div>
         </section>
 
-        <section class="services-portfolio">
+
+
+
+
+                <!-- Is section ki class name badal di hai taake conflict na ho -->
+        <section class="cda-solutions">
             <h2 class="section-title">Comprehensive Cloud, Data & AI Solutions</h2>
             <p>Our comprehensive approach ensures scalable, secure, and high-quality data management that drives growth and innovation.</p>
-            <div class="service-cards-container">
-                <div class="service-card">
+            
+            <!-- Container ki class name bhi badal di hai -->
+            <div class="cda-cards-wrapper">
+
+                <!-- Har card ki class name badal di hai -->
+                <div class="cda-card">
                     <img src="https://www.venturedive.com/static/media/cloud-icon.4a977842.svg" alt="Cloud Migration">
                     <h3>Cloud Migration</h3>
                     <p>Seamlessly migrate your data and applications to the cloud, ensuring minimal disruption and maximum performance.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="cda-card">
                     <img src="https://www.venturedive.com/static/media/data-icon.1789c791.svg" alt="Data Analytics">
                     <h3>Data Analytics</h3>
                     <p>Transform your data into actionable insights with our advanced analytics solutions, enabling data-driven decision-making.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="cda-card">
                     <img src="https://www.venturedive.com/static/media/ai-icon.7b5e832f.svg" alt="AI Solutions">
                     <h3>AI Solutions</h3>
                     <p>Leverage the power of artificial intelligence to automate processes, improve customer experiences, and drive innovation.</p>
                 </div>
+
             </div>
         </section>
+
+
+
+
+
+
 
         <section class="workflow-section">
             <h2 class="section-title">Our Cloud, Data & AI Workflow</h2>
@@ -189,23 +209,5 @@
         </footer>
     </div>
     <script src="app.js"></script>
-
-    <!-- Chatbot Interface -->
-    <div class="chatbot-icon" id="chatbotIcon">
-        <i class='bx bx-message-square-detail'></i>
-    </div>
-    <div class="chatbot-container" id="chatbotContainer">
-        <div class="chatbot-header">
-            <h3>CogniSphere Assistant</h3>
-            <i class='bx bx-x' id="closeChatbot"></i>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-            <div class="message bot">Hello! How can I assist you today?</div>
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="userInput" placeholder="Type your message...">
-            <button id="sendMessage"><i class='bx bx-send'></i></button>
-        </div>
-    </div>
 </body>
 </html>
