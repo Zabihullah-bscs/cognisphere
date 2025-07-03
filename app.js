@@ -176,27 +176,74 @@ document.addEventListener('DOMContentLoaded', function() {
         // Animation can still run if needed
         setTimeout(animateCounter, 100);
     });
+});
 
-    // Counting animation for percentage texts in .circle h2 elements
+// Counting animation for percentage texts and progress bars in .circle elements
+document.addEventListener('DOMContentLoaded', function() {
     const percentageCounters = document.querySelectorAll('.circle h2[data-target]');
-    percentageCounters.forEach(counter => {
+    console.log('Found percentage counters:', percentageCounters.length);
+
+    function animateCounter(counter, index) {
         const targetValue = parseInt(counter.getAttribute('data-target'));
         let currentValue = 0;
-        const increment = Math.ceil(targetValue / 50); // Adjust speed of animation
+        const increment = Math.ceil(targetValue / 100); // Slower increment for more visible steps
+        const circle = counter.parentElement;
+        const progressBar = circle.querySelector('.progress-fg');
+        const circumference = 2 * Math.PI * 100; // Circumference for radius 100
+        console.log('Animating counter to target:', targetValue);
 
-        // Reset the counter to 0 on page load
-        counter.textContent = '0%';
+        // For the first circle, set initial value to 85% immediately
+        if (index === 0 && targetValue === 85) {
+            currentValue = 85;
+            counter.textContent = '85%';
+            if (progressBar) {
+                progressBar.style.strokeDasharray = circumference;
+                const progressOffset = circumference - (85 / 100) * circumference;
+                progressBar.style.strokeDashoffset = progressOffset;
+                progressBar.style.stroke = `rgb(77, ${Math.round(255 - ((85 - 50) / 50) * 183)}, ${Math.round(222 - ((85 - 50) / 50) * 81)})`; // Blue for 85%
+                progressBar.style.transition = 'none'; // No animation for initial set
+            }
+            return; // Skip animation for this circle
+        } else {
+            // Explicitly reset the counter and progress bar to 0 before starting animation for other circles
+            counter.textContent = '0%';
+            if (progressBar) {
+                progressBar.style.strokeDasharray = circumference;
+                progressBar.style.strokeDashoffset = circumference;
+                progressBar.style.stroke = '#ff4d4d'; // Start with red for low values
+                progressBar.style.transition = 'stroke-dashoffset 0.05s ease-out, stroke 0.05s ease-out'; // Smooth transition for fill and color
+            }
+        }
 
         function animatePercentageCounter() {
             if (currentValue < targetValue) {
                 currentValue += increment;
                 if (currentValue > targetValue) currentValue = targetValue;
                 counter.textContent = currentValue + '%';
-                setTimeout(animatePercentageCounter, 20);
+                if (progressBar) {
+                    const progressOffset = circumference - (currentValue / 100) * circumference;
+                    progressBar.style.strokeDashoffset = progressOffset;
+                    // Change color based on current value: red (0%) to yellow (50%) to blue (100%)
+                    let color;
+                    if (currentValue < 50) {
+                        color = `rgb(${Math.round(255 - (currentValue / 50) * 255)}, ${Math.round((currentValue / 50) * 255)}, 77)`; // Red to Yellow
+                    } else {
+                        color = `rgb(77, ${Math.round(255 - ((currentValue - 50) / 50) * 183)}, ${Math.round(222 - ((currentValue - 50) / 50) * 81)})`; // Yellow to Blue (#72a1de)
+                    }
+                    progressBar.style.stroke = color;
+                }
+                setTimeout(animatePercentageCounter, 30); // Slower animation speed for better visibility
             }
         }
 
-        // Start animation immediately
-        animatePercentageCounter();
-    });
+        // Start animation with a delay to ensure page is loaded
+        setTimeout(animatePercentageCounter, 500);
+    }
+
+    // Trigger animation for all counters after a short delay on page load
+    setTimeout(() => {
+        percentageCounters.forEach((counter, index) => {
+            animateCounter(counter, index);
+        });
+    }, 500);
 });

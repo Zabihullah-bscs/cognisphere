@@ -216,15 +216,28 @@ header ul li a:hover {
 }
 
 .circle {
-    width: 160px;
-    height: 160px;
-    border: 4px solid #72a1de;
+    width: 200px;
+    height: 200px;
+    border: 6px solid transparent; /* Changed to transparent to avoid overlap with progress bar */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
     box-shadow: 0 0 20px rgba(114, 161, 222, 0.5);
+    position: relative;
+}
+
+.progress-circle {
+    position: absolute;
+    top: -6px; /* Adjusted to align with the circle border */
+    left: -6px;
+    width: 212px; /* Adjusted to match the circle size including border */
+    height: 212px;
+}
+
+.progress-bg, .progress-fg {
+    stroke-linecap: round;
 }
 
 .stat p {
