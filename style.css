@@ -336,7 +336,7 @@ header ul li a:hover {
 
     z-index: 1000;
 
-    background-color: rgba(255, 255, 255, 0.121);
+    background-color: rgba(10, 25, 47, 0.6);
     backdrop-filter: blur(5px);
     box-shadow: 0 0 15px #72a1dea2;
 
@@ -350,6 +350,17 @@ header ul li a:hover {
     flex-wrap: wrap;
     box-sizing: border-box;
 }
+
+.services-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300vw;
+    max-width: 2000px;
+    justify-content: center;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+}
+
 
 
 
@@ -3003,13 +3014,3 @@ header {
         align-items: center;
     }
 }
-
-
-
-
-
-
-
-
-
-
