@@ -491,54 +491,119 @@ header ul li a:hover {
 .logo-bar-buttons li.active:hover {
     height: auto;
     min-height: 70px;
-    transition: height 0.3s ease;
+    transition: none !important; /* Force remove transition */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding-top: 0 !important; /* Force prevent padding changes */
+    top: 0 !important; /* Force position */
+    transform: none !important; /* Force no transform */
 }
 
 header {
-    transition: height 0.3s ease;
+    transition: none !important; /* Force remove transition */
+    height: 70px !important; /* Force set height */
+    min-height: 70px !important; /* Force no height reduction */
+    position: fixed !important; /* Ensure header stays fixed */
+    top: 0 !important; /* Force header to top */
 }
 
 .logo-bar-buttons li.active:hover ~ .dropdown-menu {
-    position: static;
-    width: 100%;
-    min-width: 0;
-    border-radius: 0;
-    padding: 20px 30px;
+    position: absolute;
+    width: 300vw;
+    max-width: 2000px;
+    border-radius: 16px;
+    padding: 30px 40px;
     justify-content: center;
     flex-wrap: wrap;
-    box-shadow: none;
+    box-shadow: 0 0 15px #72a1dea2;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100% !important; /* Force consistent positioning */
+    margin-top: 0 !important; /* Force prevent vertical shift */
 }
 
 .logo-bar-buttons {
-    transition: all 0.3s ease;
+    transition: none !important; /* Force remove transition */
+    height: 70px !important; /* Force match header height */
+    min-height: 70px !important; /* Force no height changes */
+    display: flex !important; /* Force layout */
+    align-items: center !important; /* Force alignment */
 }
 
 .logo-bar-buttons li.active:hover ~ .logo-bar-buttons li:not(.active) {
-    display: none;
+    display: flex !important; /* Force other buttons visible */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    top: 0 !important; /* Force position */
 }
 
 .logo-bar-buttons li.active:hover ~ .logo-bar-buttons {
-    width: 100%;
+    width: auto;
     justify-content: center;
     flex-direction: row;
-    align-items: center;
+    align-items: center !important; /* Force alignment */
+    height: 70px !important; /* Force match header height */
+    min-height: 70px !important; /* Force no height changes */
 }
 
 .logo-bar-buttons li {
-    transition: all 0.3s ease;
+    transition: none !important; /* Force remove transition */
+    position: relative !important; /* Force positioning */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding-top: 0 !important; /* Force prevent padding changes */
+    top: 0 !important; /* Force position */
+    transform: none !important; /* Force no transform */
+}
+
+.logo-bar-buttons li.active {
+    position: relative !important; /* Force no movement */
+    top: 0 !important; /* Force prevent vertical shift */
+    transform: none !important; /* Force prevent transform changes */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding-top: 0 !important; /* Force prevent padding changes */
+}
+
+.logo-bar-buttons li.active:hover {
+    position: relative !important; /* Force no movement on hover */
+    top: 0 !important; /* Force prevent vertical shift */
+    transform: none !important; /* Force prevent transform changes */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding-top: 0 !important; /* Force prevent padding changes */
 }
 
 .logo-bar-buttons li.active:hover ~ .logo-bar-buttons li.active {
     width: auto;
     text-align: center;
+    position: relative !important; /* Force no movement */
+    top: 0 !important; /* Force prevent vertical shift */
+    transform: none !important; /* Force prevent transform changes */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding-top: 0 !important; /* Force prevent padding changes */
 }
 
 .logo-bar-buttons li a {
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important; /* Force limit transitions */
+    position: relative !important; /* Force no movement */
+    top: 0 !important; /* Force prevent vertical shift */
+    transform: none !important; /* Force prevent transform changes */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding: 8px 15px !important; /* Force consistent padding */
+    line-height: normal !important; /* Force prevent line height changes */
+    display: block !important; /* Force display */
 }
 
 .logo-bar-buttons li.active:hover ~ .logo-bar-buttons li.active a {
     width: auto;
+    position: relative !important; /* Force no movement */
+    top: 0 !important; /* Force prevent vertical shift */
+    transform: none !important; /* Force prevent transform changes */
+    height: auto !important; /* Force prevent height changes */
+    margin-top: 0 !important; /* Force prevent vertical shift */
+    padding: 8px 15px !important; /* Force consistent padding */
 }
 
 .dropdown-menu a {
@@ -3258,4 +3323,81 @@ header {
 .stat-item p {
     font-size: 1rem;
     color: #b0b0b0;
+}
+
+/* Styles for Circular Progress Bars */
+:root {
+    --progress-color: #72a1dea2;
+    --track-color: #333;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px 0;
+    text-align: center;
+    border-radius: 15px;
+    padding: 30px 0;
+}
+
+.stat {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 260px;
+}
+
+.progress-bg, .progress-fg {
+    stroke-linecap: round;
+}
+
+.progress-fg {
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter h2 {
+    font-size: 2em;
+    color: #72a1de;
+    margin: 0;
+    font-weight: bold;
+}
+
+.stat p {
+    font-size: 1em;
+    color: lightgray;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-top: 20px;
 }
