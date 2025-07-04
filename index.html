@@ -20,8 +20,18 @@
 
 <ul class="logo-bar-buttons">
                 <li><a href="#">Home</a></li>
+
+
+
+
+
+
                 <li>
                     <a href="#">Services</a>
+
+
+
+
                     <div class="dropdown-menu">
                         <a href="data-services.html">Data Services</a>
                         <a href="data-engineering.html">Data Engineering</a>
@@ -29,7 +39,42 @@
                         <a href="data-strategy.html">Data Strategy</a>
                         <a href="data-privacy-security.html">Data Privacy & Security Services</a>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <li>
                     <a href="#">Solutions</a>
                     <div class="dropdown-menu">
@@ -473,7 +518,27 @@
 
 
 
+  <script>
+        // Wait for the document to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select the necessary elements
+            const header = document.querySelector('header');
+            const navItemsWithDropdown = document.querySelectorAll('.dropdown-container');
 
+            // Add event listener to each nav item that has a dropdown
+            navItemsWithDropdown.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    header.classList.add('header-expanded');
+                });
+            });
+
+            // Add event listener to the header itself
+            // When the mouse leaves the entire header area, the menu closes
+            header.addEventListener('mouseleave', () => {
+                header.classList.remove('header-expanded');
+            });
+        });
+    </script>
 
 
 
