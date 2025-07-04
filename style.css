@@ -3014,3 +3014,106 @@ header {
         align-items: center;
     }
 }
+
+/* --- TAILORED SOLUTIONS SECTION STYLES --- */
+.tailored-solutions {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 80px auto;
+}
+
+.solutions-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.solution-card {
+    flex: 0 0 250px;
+    margin: 0 15px;
+    padding: 20px;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+}
+
+.solution-card .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.solution-card i {
+    font-size: 30px;
+    color: #72a1de;
+    margin: 0;
+}
+
+.solution-card h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.solution-card p {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.solution-card a {
+    color: #72a1de;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.solution-card a:hover {
+    color: #fff;
+    gap: 12px;
+}
+
+.solution-card a i {
+    transition: transform 0.3s ease;
+}
+
+.solution-card a:hover i {
+    transform: translateX(5px);
+}
+
+/* --- Responsive Behavior for Tailored Solutions Cards --- */
+@media screen and (max-width: 1200px) {
+    .solutions-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .solutions-cards {
+        grid-template-columns: 1fr;
+    }
+}
