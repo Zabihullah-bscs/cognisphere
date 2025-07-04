@@ -251,3 +251,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 500);
 });
+
+// Counting animation for result-card h2 elements in "Delivering Results that Matter" section
+document.addEventListener('DOMContentLoaded', function() {
+    const resultCounters = document.querySelectorAll('.result-card h2[data-target]');
+    let hasAnimated = false;
+
+    function animateResultCounter(counter) {
+        const targetValue = parseInt(counter.getAttribute('data-target'));
+        let currentValue = 0;
+        const increment = Math.ceil(targetValue / 50); // Adjust speed of animation
+
+        function updateCounter() {
+            if (currentValue < targetValue) {
+                currentValue += increment;
+                if (currentValue > targetValue) currentValue = targetValue;
+                counter.textContent = currentValue + '%';
+                setTimeout(updateCounter, 20); // Animation speed
+            }
+        }
+
+        updateCounter();
+    }
+
+    function checkIfInView() {
+        const resultsSection = document.querySelector('.results-section');
+        if (resultsSection) {
+            const rect = resultsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.75 && !hasAnimated) {
+                hasAnimated = true;
+                resultCounters.forEach(counter => animateResultCounter(counter));
+                window.removeEventListener('scroll', checkIfInView);
+            }
+        }
+    }
+
+    if (resultCounters.length > 0) {
+        window.addEventListener('scroll', checkIfInView);
+        checkIfInView(); // Check on load in case the section is already in view
+    }
+});

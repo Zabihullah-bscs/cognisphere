@@ -675,19 +675,28 @@ header {
 
 
 .strategic-edge {
-    /* Sab kuch center karne ke liye Flexbox ka istemal */
     display: flex;
-    flex-direction: column; /* Items ko upar se neeche rakhta hai */
-    align-items: center;   /* Horizontally sab kuch center karta hai */
-    
-    /* Paragraph ke text ko center-align karne ke liye */
-    text-align: center;
-    
-    /* Section ke andar thodi spacing */
-    padding: 60px 20px;
+    align-items: center;
+    gap: 50px;
+}
 
-    /* Optional: Background color */
-    
+.strategic-edge-content {
+    flex: 1.5;
+    text-align: left;
+}
+
+.strategic-edge-video {
+    flex: 1;
+    max-width: 500px;
+}
+
+.strategic-edge-video {
+    flex: 1;
+}
+
+.strategic-edge-video img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 /* --- SECTION KE ANDAR KE ELEMENTS KI STYLING --- */
@@ -3116,4 +3125,120 @@ header {
     .solutions-cards {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- Results Section Styling --- */
+.results-section {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 80px auto;
+}
+
+.results-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.result-card {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    padding: 30px;
+    width: calc(33.33% - 60px);
+    min-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.result-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+}
+
+.result-card h2 {
+    font-size: 2.5rem;
+    color: #72a1de;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+
+.result-card p {
+    font-size: 1rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* --- Responsive Behavior for Results Cards --- */
+@media screen and (max-width: 992px) {
+    .result-card {
+        width: calc(50% - 60px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .result-card {
+        width: 100%;
+    }
+}
+
+/* --- Delivering Results Section --- */
+.delivering-results {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+    align-items: center;
+    gap: 50px;
+}
+
+.results-content {
+    flex: 1;
+    text-align: left;
+}
+
+.results-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.results-content .highlight {
+    color: #72a1de;
+}
+
+.results-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.results-stats {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #b0b0b0;
 }
