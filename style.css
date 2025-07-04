@@ -351,7 +351,7 @@ header ul li a:hover {
     box-sizing: border-box;
 }
 
-.services-dropdown {
+.services-dropdown, .solutions-dropdown {
     left: 50%;
     transform: translateX(-50%);
     width: 300vw;
