@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Strategy - CogniSphere</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .strategic-edge {
+            padding: 0 5%; /* Add space on left and right sides */
+            max-width: 1200px; /* Limit the width to center the content */
+            margin: 0 auto; /* Center the section */
+        }
+        .strategic-edge-video {
+            max-width: 450px; /* Adjusted to balance with text and new padding */
+        }
+        .strategic-edge-content p {
+            max-width: 650px; /* Constrained to match text width in other pages */
+        }
+    </style>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
@@ -57,7 +70,7 @@
             </div>
         </header>
 
-        <section class="hero" data-aos="fade-right" data-aos-duration="3000">
+        <section class="hero" style="height: 60vh;" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info">
                 <h1 class="gradient">Data Strategy</h1>
                 <p>Bridge the gap between data and strategy with our tailored solutions that drive informed decision-making, improve efficiency, and foster growth.</p>
@@ -65,12 +78,16 @@
             </div>
         </section>
 
-              <!-- Is section ki class name badal di hai -->
-        <section class="value-proposition" data-aos="fade-right" data-aos-duration="1000">
-            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Unlock Value with Cloud, Data & AI</h2>
-            <p>We help businesses harness the power of cloud, data, and AI technologies to drive innovation, improve efficiency, and gain a competitive edge. Our comprehensive solutions enable you to transform your data into actionable insights, automate processes, and deliver personalized experiences.</p>
+        <section class="strategic-edge" data-aos="fade-right" data-aos-duration="1000">
+            <div class="strategic-edge-content">
+                <h2 class="section-title autoDisplay" style="color: #72a1dea2; text-align: left;">Transform Data into <span class="highlight">Strategic Advantage</span></h2>
+                <p>Our Data Strategy services empower organizations to align data initiatives with business goals. We help you define a clear roadmap for data management, governance, and utilization, ensuring your data becomes a powerful asset for decision-making and innovation.</p>
+                <a href="index.html#contact-us" class="cta-button">Let’s Discuss Your Strategy</a>
+            </div>
+            <div class="strategic-edge-video">
+                <img src="images/p3.png" alt="Data Strategy Illustration">
+            </div>
         </section>
-
 
         <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
@@ -81,7 +98,7 @@
                     </svg>
                     <h2 data-target="85">85%</h2>
                 </div>
-                <p>Increase in revenue through data-driven product innovation</p>
+                <p>Increase in revenue through data-driven product innovation for a global tech firm</p>
             </div>
             <div class="stat">
                 <div class="circle">
@@ -91,7 +108,7 @@
                     </svg>
                     <h2 data-target="42">42%</h2>
                 </div>
-                <p>Reduction in operational costs with optimized data processes</p>
+                <p>Reduction in operational costs with optimized data processes for a financial institution</p>
             </div>
             <div class="stat">
                 <div class="circle">
@@ -101,77 +118,109 @@
                     </svg>
                     <h2 data-target="60">60%</h2>
                 </div>
-                <p>Improvement in customer satisfaction with personalized data experiences</p>
+                <p>Improvement in customer satisfaction with personalized data experiences for a retail chain</p>
             </div>
         </section>
 
-
-
-
-
-
-        <!-- Is section ki class name badal di hai -->
         <section class="strategy-solutions" data-aos="fade-up" data-aos-duration="1500">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Comprehensive Data Strategy Solutions</h2>
-            <p>Our comprehensive approach ensures scalable, secure, and high-quality data management that drives growth and innovation.</p>
+            <p>Our tailored approach ensures your data strategy aligns with business objectives, driving growth and competitive advantage.</p>
             
-            <!-- Container ki class name bhi badal di hai -->
-            <div class="strategy-cards-wrapper">
-
-                <!-- Har card ki class name badal di hai -->
-                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000">
-                    <i class='bx bx-search-alt-2' style="font-size: 50px; color: #72a1dea2;"></i>
-                    <h3>Data Assessment</h3>
-                    <p>Evaluate your current data infrastructure and identify opportunities for improvement.</p>
+            <div class="solutions-grid">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bx-search-alt-2'></i>
+                    <h3>Data Assessment & Maturity</h3>
+                    <p>We evaluate your current data capabilities, identifying gaps and opportunities to enhance maturity across data processes and systems.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                    <i class='bx bx-shield-alt-2' style="font-size: 50px; color: #72a1dea2;"></i>
-                    <h3>Data Governance</h3>
-                    <p>Establish policies and procedures to ensure data quality, security, and compliance.</p>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bx-shield-alt-2'></i>
+                    <h3>Data Governance Framework</h3>
+                    <p>Establish robust policies for data quality, security, and compliance, ensuring trust and accountability in data management.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
-                <div class="strategy-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                    <i class='bx bx-money' style="font-size: 50px; color: #72a1dea2;"></i>
-                    <h3>Data Monetization</h3>
-                    <p>Develop strategies to generate revenue from your data assets.</p>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bx-money'></i>
+                    <h3>Data Monetization Strategies</h3>
+                    <p>Unlock new revenue streams by leveraging data assets through innovative business models and partnerships.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
 
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                    <i class='bx bx-target-lock'></i>
+                    <h3>Data-Driven Decision Making</h3>
+                    <p>Enable actionable insights with frameworks that integrate data into strategic planning and operational decisions.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800">
+                    <i class='bx bx-line-chart'></i>
+                    <h3>Data Culture & Transformation</h3>
+                    <p>Foster a data-centric culture through training and change management, aligning teams with strategic data goals.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
             </div>
         </section>
 
-             <!-- Is section ki class name badal di hai -->
-        <section class="strategy-workflow" data-aos="fade-up" data-aos-duration="1500">
+        <section class="workflow-section" data-aos="fade-up" data-aos-duration="1500" style="padding: 60px 20px; background: #0a192f; margin: 40px 0;">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Data Strategy Workflow</h2>
-            <p>Explore the key components of our approach to data strategy, designed to align with your business goals.</p>
-            
-            <!-- Container ki class name bhi badal di hai -->
-            <div class="workflow-grid">
-
-                <!-- Har step ki class name badal di hai -->
-                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000">
-                    <h3>Data Discovery</h3>
-                    <p>Identify and assess your current data assets.</p>
+            <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" style="background-color: rgba(10, 25, 47, 0.6); backdrop-filter: blur(8px); border-radius: 15px; border: 1px solid rgba(114, 161, 222, 0.2); padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-align: left;">
+                    <i class='bx bx-search-alt' style="font-size: 50px; color: #72a1dea2; margin-bottom: 20px; display: block;"></i>
+                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Data Discovery</h3>
+                    <p style="color: #c5c5c5; line-height: 1.6; font-size: 0.95rem;">Identify and catalog existing data assets, assessing quality, sources, and usage to establish a baseline for strategy.</p>
                 </div>
-
-                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                    <h3>Strategy Development</h3>
-                    <p>Develop a comprehensive data strategy aligned with your business goals.</p>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" style="background-color: rgba(10, 25, 47, 0.6); backdrop-filter: blur(8px); border-radius: 15px; border: 1px solid rgba(114, 161, 222, 0.2); padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-align: left;">
+                    <i class='bx bx-bulb' style="font-size: 50px; color: #72a1dea2; margin-bottom: 20px; display: block;"></i>
+                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Vision & Goals Setting</h3>
+                    <p style="color: #c5c5c5; line-height: 1.6; font-size: 0.95rem;">Define a clear vision for data utilization aligned with business objectives, setting measurable goals for success.</p>
                 </div>
-
-                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                    <h3>Implementation Planning</h3>
-                    <p>Create a detailed plan for implementing your data strategy.</p>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400" style="background-color: rgba(10, 25, 47, 0.6); backdrop-filter: blur(8px); border-radius: 15px; border: 1px solid rgba(114, 161, 222, 0.2); padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-align: left;">
+                    <i class='bx bx-sitemap' style="font-size: 50px; color: #72a1dea2; margin-bottom: 20px; display: block;"></i>
+                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Roadmap Development</h3>
+                    <p style="color: #c5c5c5; line-height: 1.6; font-size: 0.95rem;">Create a detailed roadmap outlining initiatives, timelines, and resources needed to achieve strategic data goals.</p>
                 </div>
-
-                <div class="workflow-step" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
-                    <h3>Execution and Monitoring</h3>
-                    <p>Execute your data strategy and continuously monitor its performance.</p>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600" style="background-color: rgba(10, 25, 47, 0.6); backdrop-filter: blur(8px); border-radius: 15px; border: 1px solid rgba(114, 161, 222, 0.2); padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-align: left;">
+                    <i class='bx bx-rocket' style="font-size: 50px; color: #72a1dea2; margin-bottom: 20px; display: block;"></i>
+                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Implementation</h3>
+                    <p style="color: #c5c5c5; line-height: 1.6; font-size: 0.95rem;">Execute the strategy with focus on governance, technology adoption, and process alignment across the organization.</p>
+                </div>
+                <div class="solution-card autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800" style="background-color: rgba(10, 25, 47, 0.6); backdrop-filter: blur(8px); border-radius: 15px; border: 1px solid rgba(114, 161, 222, 0.2); padding: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-align: left;">
+                    <i class='bx bx-line-chart' style="font-size: 50px; color: #72a1dea2; margin-bottom: 20px; display: block;"></i>
+                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Monitoring & Optimization</h3>
+                    <p style="color: #c5c5c5; line-height: 1.6; font-size: 0.95rem;">Continuously track performance metrics, refining the strategy to adapt to evolving business needs and data landscapes.</p>
                 </div>
             </div>
         </section>
 
-        
+        <section class="why-choose-us" data-aos="fade-up" data-aos-duration="1500">
+            <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Why Choose CogniSphere for Data Strategy?</h2>
+            <p>We deliver customized data strategies that transform raw data into actionable business value, ensuring alignment with your long-term vision.</p>
+            <div class="reasons-container">
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000">
+                    <i class='bx bx-bulb' style="font-size: 50px; color: #72a1de;"></i>
+                    <h3>Strategic Vision</h3>
+                    <p>We align data initiatives with your business objectives, ensuring every step drives measurable value and growth.</p>
+                </div>
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <i class='bx bx-brain' style="font-size: 50px; color: #72a1de;"></i>
+                    <h3>Expert Guidance</h3>
+                    <p>Our team of data strategists brings deep industry knowledge to craft frameworks tailored to your unique challenges.</p>
+                </div>
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <i class='bx bx-target-lock' style="font-size: 50px; color: #72a1de;"></i>
+                    <h3>Actionable Roadmaps</h3>
+                    <p>We provide clear, phased plans to implement data strategies, minimizing risks and maximizing impact.</p>
+                </div>
+                <div class="reason autoDisplay" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                    <i class='bx bx-group' style="font-size: 50px; color: #72a1de;"></i>
+                    <h3>Collaborative Approach</h3>
+                    <p>We partner closely with your team to ensure buy-in, alignment, and seamless execution of data strategies.</p>
+                </div>
+            </div>
+        </section>
 
         <footer class="site-footer">
             <div class="footer-main">
