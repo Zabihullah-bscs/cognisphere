@@ -460,15 +460,32 @@ header ul li a:hover {
 
 
 
-.logo-bar-buttons li.active:hover .dropdown-menu {
-    position: static;
-    width: 100%;
-    min-width: 0;
-    border-radius: 0;
-    padding: 20px 30px;
+.logo-bar-buttons li.active .dropdown-menu {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300vw;
+    max-width: 2000px;
+    border-radius: 16px;
+    padding: 30px 40px;
     justify-content: center;
     flex-wrap: wrap;
-    box-shadow: none;
+    box-shadow: 0 0 15px #72a1dea2;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    min-height: 50vh;
+    box-sizing: border-box;
+}
+
+.logo-bar-buttons li.active:hover .dropdown-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .logo-bar-buttons li.active:hover {
