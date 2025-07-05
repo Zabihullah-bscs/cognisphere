@@ -445,24 +445,131 @@
         <button class="cta-button">Contact Us</button>
     </div>
     <div class="results-stats">
-        <div class="stat-item">
-            <h3>1,000+</h3>
+        <div class="stat-item" data-progress="100" data-value="1,000+" data-aos="fade-up" data-aos-duration="1000">
+            <h3>0</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
             <p>Global clients served</p>
         </div>
-        <div class="stat-item">
-            <h3>65%</h3>
+        <div class="stat-item" data-progress="65" data-value="65%" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h3>0%</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
             <p>Reduction in cost</p>
         </div>
-        <div class="stat-item">
-            <h3>300M+</h3>
+        <div class="stat-item" data-progress="100" data-value="300M+" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <h3>0</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
             <p>Consumers served globally</p>
         </div>
-        <div class="stat-item">
-            <h3>40%</h3>
+        <div class="stat-item" data-progress="40" data-value="40%" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <h3>0%</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
             <p>Growth in customer retention</p>
         </div>
     </div>
 </section>
+<style>
+    :root {
+        --progress-color: #72a1dea2;
+        --track-color: #333333;
+    }
+    .delivering-results .results-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        max-width: 600px; /* Limit width to ensure 2x2 layout */
+    }
+    .stat-item {
+        text-align: center;
+        min-width: 150px;
+        flex: 1 1 calc(50% - 40px); /* Force 2 items per row */
+    }
+    .stat-item h3 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
+        color: #ffffff;
+    }
+    .stat-item p {
+        font-size: 1rem;
+        margin: 5px 0 0;
+        color: #c5c5c5;
+    }
+    .progress-bar {
+        width: 80%;
+        height: 5px;
+        background-color: var(--track-color);
+        margin: 10px auto;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .progress-fill {
+        height: 100%;
+        width: 0;
+        background-color: var(--progress-color);
+        transition: width 1.5s ease-out;
+    }
+    @media (max-width: 768px) {
+        .delivering-results .results-stats {
+            gap: 20px;
+            max-width: 300px; /* Adjust for smaller screens if needed */
+        }
+        .stat-item {
+            flex: 1 1 calc(50% - 20px); /* Maintain 2x2 layout on mobile if possible */
+        }
+        .stat-item h3 {
+            font-size: 2rem;
+        }
+        .stat-item p {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const progressFill = entry.target.querySelector('.progress-fill');
+                const statNumber = entry.target.querySelector('h3');
+                const progressValue = parseInt(entry.target.getAttribute('data-progress'));
+                const finalValue = entry.target.getAttribute('data-value');
+                if (entry.isIntersecting) {
+                    progressFill.style.width = `${progressValue}%`;
+                    // Start counting animation for the number
+                    let start = 0;
+                    const isPercentage = finalValue.includes('%');
+                    const end = parseInt(finalValue.replace('+', '').replace('%', ''));
+                    const duration = 1500; // 1.5 seconds to match progress bar animation
+                    const stepTime = Math.abs(Math.floor(duration / end));
+                    let timer = setInterval(() => {
+                        start += 1;
+                        statNumber.textContent = isPercentage ? `${start}%` : start + (finalValue.includes('+') ? '+' : '');
+                        if (start >= end) {
+                            statNumber.textContent = finalValue;
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                } else {
+                    progressFill.style.width = '0';
+                    statNumber.textContent = finalValue.includes('%') ? '0%' : '0';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
 
 <section class="final-contact-section">
 
