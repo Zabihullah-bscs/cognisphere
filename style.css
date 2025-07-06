@@ -318,7 +318,6 @@ header ul li a:hover {
 
 
 
-
 .dropdown-menu {
     display: none;
     opacity: 0;
@@ -327,12 +326,11 @@ header ul li a:hover {
     position: absolute;
     top: 100%;
 
-    /* ✅ Ye teen lines se perfect center */
     left: 50%;
     transform: translateX(-50%);
-    
-    width: 200vw;      /* 👈 Almost full screen width */
-    max-width: 1600px;    /* 👈 Optional: Wide but responsive */
+
+    width: 100vw;
+    max-width: 1600px;
 
     z-index: 1000;
 
@@ -351,12 +349,21 @@ header ul li a:hover {
     box-sizing: border-box;
 }
 
+
+
+
+
+
+
+
+
+
 .services-dropdown, .solutions-dropdown {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300vw;
-    max-width: 2000px;
-    justify-content: center;
+    margin-left: 150px !important;
+    transform: translateX(-50%) !important;
+    width: 300vw !important;
+    max-width: 2000px !important;
+    justify-content: center !important;
     background-color: rgba(10, 25, 47, 0.6);
     backdrop-filter: blur(5px);
 }
