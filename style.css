@@ -2206,6 +2206,26 @@ header {
         margin-bottom: 200px;
         scale: 0.9;
     }
+
+    .project-card {
+        gap: 20px;
+    }
+
+    .project-info h1 {
+        font-size: 22px;
+        max-width: 350px;
+    }
+
+    .delivering-results {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .results-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -2341,9 +2361,18 @@ header {
 
     .project-card {
         margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     .project-info h1{
         text-wrap: wrap;
+        font-size: 20px;
+    }
+
+    .project-info p {
+        width: 100%;
+        max-width: 300px;
     }
 
     .site-footer {
@@ -2368,6 +2397,23 @@ header {
     .footer-column.contact p {
         justify-content: center;
         text-align: left;
+    }
+
+    .solutions-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .solution-card {
+        margin: 0;
+    }
+
+    .final-contact-section {
+        padding: 50px 5%;
+    }
+
+    .form-card {
+        padding: 20px 15px;
     }
 }
 
