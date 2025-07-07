@@ -3535,6 +3535,79 @@ header {
 
 
 
+/* Main Dropdown Container - YAHAN PAR ASAL CHANGES HAIN */
+.aboutus-rightlinks-dropdown {
+  position: absolute;
+  top: 100%;
+ margin-right: 80px !important;
+  width: 100% ;
+  background-color: #111111;
+  backdrop-filter: blur(8px);
+  /* === PADDING SE CONTROL KIYA HAI === */
+  /* 60px ooper-neeche se space dega (Top Margin) */
+  /* 80px dayen-bayen se space dega (Left Space) */
 
+  box-sizing: border-box;
+  z-index: 999;
+  border-top: 1px solid #333;
+}
 
+/* Wrapper: Ab yeh center nahi hoga */
+.aboutus-content-wrapper {
+  display: flex;
+  align-items: flex-start; 
+  gap: 80px; /* Dono columns ke beech mein faasla */
+  /* Faltu properties hata di hain (justify-content, max-width, margin) */
+}
 
+/* Left Column: Image (Is mein koi change nahi) */
+.aboutus-image {
+  width: 400px; 
+  flex-shrink: 0;
+  margin-top: 40px;
+}
+
+.aboutus-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.aboutus-image h4 {
+  color: white; 
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 15px; 
+  line-height: 1.4;
+}
+
+/* Right Column: Links (Is mein koi change nahi) */
+.aboutus-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  padding-top: 10px; 
+  text-align: left;
+  margin-top: 80px;
+}
+
+.aboutus-links h4 {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.aboutus-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 0;
+  transition: color 0.2s ease;
+}
+
+.aboutus-links a:hover {
+  color: #ffffff;
+}
