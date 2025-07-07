@@ -3611,3 +3611,111 @@ header {
 .aboutus-links a:hover {
   color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* === Universal Mobile Optimization === */
+@media screen and (max-width: 768px) {
+  .solutions-grid,
+  .service-cards-container,
+  .results-cards,
+  .workflow-grid,
+  .solutions-cards,
+  .showcase-grid,
+  .industry-cards-container {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .aboutus-content-wrapper,
+  .info-cards,
+  .project-card,
+  .delivering-results,
+  .strategic-edge {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+
+  .main-hero-content h1 {
+    font-size: 28px !important;
+  }
+
+  .main-hero-content p,
+  .section-title,
+  .solution-card p {
+    font-size: 1rem !important;
+  }
+
+  .dropdown-menu.services-dropdown,
+  .dropdown-menu.aboutus-dropdown,
+  .aboutus-rightlinks-dropdown {
+    width: 100vw !important;
+    padding: 20px !important;
+  }
+
+  .dropdown-image,
+  .dropdown-links,
+  .aboutus-links {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .aboutus-links {
+    margin-top: 20px !important;
+    text-align: center !important;
+  }
+
+  .dropdown-content-wrapper {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero {
+    padding: 40px 20px !important;
+  }
+
+  .cta-button {
+    padding: 12px 25px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .about-logo-card img {
+    max-width: 250px !important;
+  }
+
+  .blackhole-box video {
+    width: 100% !important;
+  }
+}
+
+/* === Medium Screens/Tablets (Samsung Tabs, etc.) === */
+@media screen and (max-width: 1024px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .service-cards-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .project-card,
+  .workflow-grid {
+    flex-direction: column !important;
+  }
+
+  .strategy-card,
+  .cda-card {
+    flex: 0 1 100% !important;
+  }
+}
