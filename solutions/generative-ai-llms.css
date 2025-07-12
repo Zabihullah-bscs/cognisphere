@@ -12,6 +12,8 @@ body {
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
+    font-size: 16px; /* Consistent font size */
+    line-height: 1.6; /* Consistent line height */
 }
 
 html {
@@ -278,7 +280,8 @@ header ul li a:hover {
 }
 
 .section-title {
-    font-size: 40px;
+    font-size: 28px; /* Reduced font size */
+    line-height: 1.2; /* Adjust line height for better alignment */
     font-weight: 700;
     text-align: center;
     background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
