@@ -101,7 +101,7 @@ header ul li a {
     overflow: hidden; /* Hide the pseudo-element overflow */
 }
 
-header ul li a::before {
+.logo-bar-buttons li a::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -113,16 +113,14 @@ header ul li a::before {
     transition: transform 0.3s ease; /* Animation for the slide effect */
 }
 
-header ul li a:hover::before {
+.logo-bar-buttons li a:hover::before {
     transform: translateX(0); /* Slide in from the left on hover */
 }
-
-header ul li a:hover {
-    background-color: #72a1de;
-    color: black;
-    box-shadow: 0 0 10px #72a1de;
-    text-shadow: none;
+.logo-bar-buttons li a:hover {
+    color: #72a1de;
+    background-color: transparent !important;
 }
+
 
 .box-icons{
     display: flex;
@@ -441,8 +439,8 @@ header ul li a:hover {
 
 /* Hover effect for links */
 .dropdown-menu.services-dropdown .dropdown-links a:hover {
-  color: white !important;
-
+  color: #72a1de !important;
+  padding-left: 5px;
 }
 
 /* Layout: side-by-side image and links for About Us */
