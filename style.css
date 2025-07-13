@@ -53,7 +53,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    height: 70px;
+    height: 90px;
     background-color: transparent;
     backdrop-filter: none;
     box-shadow: none;
@@ -88,13 +88,33 @@ header ul li {
 }
 
 header ul li a {
-    display: block;
+    display: flex; /* Use flex to align content and pseudo-element */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
     padding: 8px 15px;
     border-radius: 50px;
     transition: all 0.3s ease;
     text-decoration: none;
     color: white;
     font-weight: 700;
+    position: relative; /* Needed for absolute positioning of pseudo-element */
+    overflow: hidden; /* Hide the pseudo-element overflow */
+}
+
+header ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Height of the status bar effect */
+    background-color: #72a1de; /* Color of the status bar */
+    transform: translateX(-100%); /* Start off-screen to the left */
+    transition: transform 0.3s ease; /* Animation for the slide effect */
+}
+
+header ul li a:hover::before {
+    transform: translateX(0); /* Slide in from the left on hover */
 }
 
 header ul li a:hover {
@@ -637,8 +657,8 @@ header ul li a:hover {
 
 header {
     transition: none !important; /* Force remove transition */
-    height: 70px !important; /* Force set height */
-    min-height: 70px !important; /* Force no height reduction */
+    height: 90px !important; /* Force set height */
+    min-height: 90px !important; /* Force no height reduction */
     position: fixed !important; /* Ensure header stays fixed */
     top: 0 !important; /* Force header to top */
 }
@@ -660,8 +680,8 @@ header {
 
 .logo-bar-buttons {
     transition: none !important; /* Force remove transition */
-    height: 70px !important; /* Force match header height */
-    min-height: 70px !important; /* Force no height changes */
+    height: 90px !important; /* Force match header height */
+    min-height: 90px !important; /* Force no height changes */
     display: flex !important; /* Force layout */
     align-items: center !important; /* Force alignment */
 }
@@ -678,8 +698,8 @@ header {
     justify-content: center;
     flex-direction: row;
     align-items: center !important; /* Force alignment */
-    height: 70px !important; /* Force match header height */
-    min-height: 70px !important; /* Force no height changes */
+    height: 90px !important; /* Force match header height */
+    min-height: 90px !important; /* Force no height changes */
 }
 
 .logo-bar-buttons li {
