@@ -83,22 +83,6 @@ header ul li {
     position: relative;
 }
 
-header ul li a {
-    display: block;
-    padding: 8px 15px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-}
-
-header ul li a:hover {
-    background-color: #72a1de;
-    color: black;
-    box-shadow: 0 0 10px #72a1de;
-    text-shadow: none;
-}
 
 .dropdown-menu {
     display: none;
