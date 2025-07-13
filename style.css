@@ -219,49 +219,44 @@ font-size: 20px;
 /* ================================================ */
 
 /* Yeh woh <li> hai jis par hover karna hai (e.g., Solutions, Services) */
-.dropdown-container {
-    /* IMPORTANT: Isko static rakhein taake dropdown navbar ke hisaab se position ho, na ke is <li> ke. */
-    position: static;
-}
 
 
 
 
 .dropdown-menu{
-    display: none;
+    display: flex;
     position: absolute;
     top: 100%;
     z-index: 1000;
-
     width: 100vw;
-    left: 0;
+    left: 50%;
     transform: translateX(-50%);
-
-
-
-
-
-
-    min-height: 50vh; /* 👈 Yeh line add ki gayi hai */
-
-    background-color: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-
+    max-width: 1600px;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px #72a1dea2;
     list-style: none;
-    
+    padding: 0 40px;
     border-radius: 16px;
-
-    flex-wrap: nowrap;
     justify-content: space-around;
     gap: 20px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out, visibility 0.4s;
 }
 
 /* Jab parent element (e.g., li.dropdown-container) par hover ho to menu dikhao */
-.dropdown-container:hover .dropdown-menu {
-    display: flex; /* Dikhane ke liye 'flex' ka istemal karein */
+.logo-bar-buttons > li:hover > .dropdown-menu {
+    max-height: 50vh;
+    opacity: 1;
+    visibility: visible;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 
@@ -316,12 +311,6 @@ font-size: 20px;
 
 
 
-.logo-bar-buttons li:hover .dropdown-menu {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
 
 
 
@@ -337,36 +326,6 @@ font-size: 20px;
 
 
 
-.dropdown-menu {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-
-    position: absolute;
-    top: 100%;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 100vw;
-    max-width: 1600px;
-
-    z-index: 1000;
-
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px #72a1dea2;
-
-    list-style: none;
-    padding: 30px 40px;
-    border-radius: 16px;
-
-    min-height: 50vh;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
 
 
 
