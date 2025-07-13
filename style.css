@@ -53,7 +53,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    height: 90px;
+    height: 110px;
     background-color: transparent;
     backdrop-filter: none;
     box-shadow: none;
@@ -91,12 +91,13 @@ header ul li a {
     display: flex; /* Use flex to align content and pseudo-element */
     align-items: center; /* Vertically center content */
     justify-content: center; /* Horizontally center content */
-    padding: 8px 15px;
+    padding: 15px 25px;
     border-radius: 50px;
     transition: all 0.3s ease;
     text-decoration: none;
     color: white;
-    font-weight: 700;
+font-size: 20px;
+    font-weight: 300;
     position: relative; /* Needed for absolute positioning of pseudo-element */
     overflow: hidden; /* Hide the pseudo-element overflow */
 }
@@ -740,7 +741,7 @@ header {
 }
 
 .logo-bar-buttons li a {
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important; /* Force limit transitions */
+    transition: background-color 0.3s ease, color 0.3s ease !important; /* Force limit transitions */
     position: relative !important; /* Force no movement */
     top: 0 !important; /* Force prevent vertical shift */
     transform: none !important; /* Force prevent transform changes */
@@ -779,7 +780,7 @@ header {
     border-radius: 50px;
     border: 1px solid #72a1de81;
     background-color: #2200493d;
-    box-shadow: 0 0 5px #72a1de81;
+    box-shadow: none;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
@@ -791,7 +792,7 @@ header {
 .cta-button:hover {
     background-color: #72a1de;
     color: black;
-    box-shadow: 0 0 10px #72a1de;
+    box-shadow: none;
     text-shadow: none;
 }
 
@@ -1445,7 +1446,7 @@ header {
     border-radius: 50px; /* Changed to match ribbon bar buttons */
     border: 1px solid #72a1de81;
     background-color: #2200493d;
-    box-shadow: 0 0 5px #72a1de81;
+    box-shadow: none;
     cursor: pointer;
     transition: all 0.3s ease; /* Updated to match ribbon bar buttons */
 
@@ -1457,7 +1458,7 @@ header {
 .hero-info button:hover{
     background-color: #72a1de;
     color: black;
-    box-shadow: 0 0 10px #72a1de; /* Updated to match ribbon bar buttons */
+    box-shadow: none; /* Updated to match ribbon bar buttons */
     text-shadow: none; /* Added to match ribbon bar buttons */
 }
 
@@ -1729,14 +1730,14 @@ header {
     border-radius: 10px;
     border: 1px solid #72a1de81;
     background-color: #2200493d;
-    box-shadow: 0 0 5px #72a1de81;
+    box-shadow: none;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .project-info button:hover{
     opacity: 0.8;
-    box-shadow: 0 0 15px #72a1de81;
+    box-shadow: none;
 }
 
 .project-vidbox .hover-sign{
@@ -2014,7 +2015,7 @@ header {
     border-radius: 10px;
     border: 1px solid #72a1de81;
     background-color: #2200493d;
-    box-shadow: 0 0 5px #72a1de81;
+    box-shadow: none;
     cursor: pointer;
     transition: 0.3s;
 
