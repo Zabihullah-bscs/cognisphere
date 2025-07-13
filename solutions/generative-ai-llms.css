@@ -186,13 +186,13 @@ header ul li {
 }
 
 .dropdown-menu.services-dropdown .dropdown-links a {
-    color: white !important;
+    color: white;
     text-decoration: none !important;
     padding: 5px 0 !important;
 }
 
 .dropdown-menu.services-dropdown .dropdown-links a:hover {
-    color: white !important;
+    color: #72a1de !important;
 }
 
 .aboutus-rightlinks-dropdown {
