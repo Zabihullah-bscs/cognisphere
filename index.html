@@ -670,60 +670,81 @@
     });
 </script>
 
-<section class="final-contact-section">
-
-            <h1 class="section-title autoDisplay" style="color: #72a1dea2; margin-bottom: 40px;">Contact Us</h1>
-
-            <div class="form-card autoBlur">
-                <form action="#" method="POST">
-                    <div class="form-grid">
-
-                        <!-- Full Name -->
-                        <div class="form-group">
-                            <label for="full-name">Full Name <span>*</span></label>
-                            <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
-                        </div>
-
-                        <!-- Company Name -->
-                        <div class="form-group">
-                            <label for="company-name">Company Name</label>
-                            <input type="text" id="company-name" name="company-name" placeholder="Your company name">
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="form-group">
-                            <label for="email">Email Address <span>*</span></label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                        </div>
-
-                        <!-- Phone Number -->
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+44 123 456 7890">
-                        </div>
-
-                        <!-- Message -->
-                        <div class="form-group full-width">
-                            <label for="message">Message <span>*</span></label>
-                            <textarea id="message" name="message" rows="6" placeholder="Please describe how we can help you..." required></textarea>
-                        </div>
-
-                        <!-- Submit Button-->
-                         <!--
-                        <div class="form-group full-width">
-                            <button type="submit">Send Message</button>
-                        </div>
-                    -->
-
-<!-- Submit Button -->
-<div class="form-group full-width">
-    <button type="submit"><i class='bx bx-send'></i> Send Message</button>
-</div>
-
-                    </div>
-                </form>
+<section class="contact-us-section">
+    <div class="contact-container">
+        <!-- Left Section: Book a Meeting -->
+        <div class="book-meeting-card">
+            <h3>BOOK A MEETING</h3>
+            <div class="profile-image-wrapper">
+                <img src="images/zabih.png" alt="Zabih Ullah">
+                <div class="profile-icons">
+                    <i class='bx bx-message-dots'></i>
+                    <i class='bx bx-phone'></i>
+                    <i class='bx bx-bulb'></i>
+                    <i class='bx bx-question-mark'></i>
+                </div>
             </div>
-        </section>
+            <h4>ZABIH ULLAH</h4>
+            <p class="title">CEO</p>
+            <p class="description">Do you have questions related to your AI-Powered project?</p>
+            <p class="description">Talk to ZABIH. He will make sure that all is covered. Don't waste time on googling - get all answers from relevant expert in under one hour.</p>
+            <button class="book-meeting-button"><i class='bx bx-calendar'></i> BOOK A MEETING</button>
+        </div>
+
+        <div class="or-separator">OR</div>
+
+        <!-- Right Section: Send Us a Note Form -->
+        <div class="send-note-form-card">
+            <h3>SEND US A NOTE</h3>
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" name="name" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">COMPANY</label>
+                        <input type="text" id="company" name="company" placeholder="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" placeholder="admin@cogni-sphere.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">PHONE <span>Optional</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="idea">DESCRIBE YOUR IDEA</label>
+                    <textarea id="idea" name="idea" rows="6" placeholder=""></textarea>
+                </div>
+                <div class="form-group full-width upload-file-group">
+                    <button type="button" class="upload-button"><i class='bx bx-upload'></i> UPLOAD FILE</button>
+                    <span class="file-requirements">File requirements pdf, docx, pptx</span>
+                    <input type="file" id="upload-file" name="upload-file" accept=".pdf,.docx,.pptx" style="display: none;">
+                </div>
+                <div class="form-group full-width checkbox-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        I am informed about processing of my personal data and the right to withdraw my consent.
+                    </label>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        I agree to be included into DataRoot Labs's IT systems for the purpose of being contacted.
+                    </label>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="send-now-button">SEND NOW</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
              <!-- Corrected Footer Starts Here -->
         <footer class="site-footer">
