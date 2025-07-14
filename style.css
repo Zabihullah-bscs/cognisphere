@@ -71,6 +71,12 @@ header{
     margin: 0 15px;
 }
 
+.left h2 {
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 700;
+    text-shadow: 0 0 10px #72a1dea2;
+}
+
 .logo-bar-buttons{
     display: flex;
     align-items: center;
@@ -2999,10 +3005,13 @@ header {
 }
 
 .main-hero-content h1 {
+    font-family: 'Audiowide', sans-serif;
     font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 25px;
+    text-shadow: 0 0 15px #72a1dea2;
+    text-transform: uppercase;
 }
 
 .main-hero-content p {
