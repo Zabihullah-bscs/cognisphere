@@ -1430,12 +1430,12 @@ header {
 
 .gradient{
     margin-top: 80px !important;
-    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
+    background: linear-gradient(to right, #ADD8E6, #4682B4, #1E90FF, #FFFFFF, #1E90FF, #4682B4, #ADD8E6); /* Blue and white gradient */
     background-size: 200%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
+    animation: animate-gradient 5s linear infinite;
 }
 @keyframes animate-gradient {
     to{
@@ -3005,12 +3005,11 @@ header {
 }
 
 .main-hero-content h1 {
-    font-family: 'Audiowide', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 25px;
-    text-shadow: 0 0 15px #72a1dea2;
     text-transform: uppercase;
 }
 
