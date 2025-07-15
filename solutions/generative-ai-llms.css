@@ -491,7 +491,7 @@ header ul li {
 
 .stage-details h3 {
     font-size: 1.8rem;
-    color: #ffffff;
+    color: #72a1de;
     margin-bottom: 15px;
 }
 
@@ -499,20 +499,51 @@ header ul li {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 30px;
+}
+
+/* Style for process text elements */
+.process-text {
+    background-color: #72a1de;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Previous attempt - can be removed if not needed */
+.process-container p,
+.process-stage p,
+.stage-details p {
+    background-color: #72a1de;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px 0;
 }
 
 .step {
     padding: 10px 15px;
     border-radius: 8px;
-    color: #c5c5c5;
+    color: #ffffff;
     font-size: 1.1rem;
+    font-weight: bold;
     text-align: center;
+    background-color: rgba(10, 25, 47, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+.step:hover {
+    background-color: #0077b6;
+    color: white;
 }
 
 .arrow, .down-arrow {
-    color: #72a1dea2;
-    font-size: 36px;
+    color: #72a1de;
+    font-size: 48px;
+    padding: 10px 15px;
+    text-align: center;
 }
 
 .down-arrow {
