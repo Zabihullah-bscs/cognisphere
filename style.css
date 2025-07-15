@@ -3863,6 +3863,199 @@ header {
 
 
 
+/* --- AI Development Services Section --- */
+.ai-development-services {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 80px auto;
+}
+
+.ai-development-services .section-description {
+    max-width: 800px;
+    margin: -20px auto 40px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.ai-service-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.ai-service-card {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ai-service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+}
+
+.ai-service-card .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    background-color: rgba(114, 161, 222, 0.1); /* Light background for icon */
+}
+
+.ai-service-card i {
+    font-size: 36px;
+    color: #72a1de;
+}
+
+.ai-service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.ai-service-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c5c5c5;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.ai-service-card .learn-more-link {
+    color: #72a1de;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.ai-service-card .learn-more-link:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+/* Responsive for AI Development Services */
+@media screen and (max-width: 1200px) {
+    .ai-service-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ai-service-cards-container {
+        grid-template-columns: 1fr;
+    }
+    .ai-development-services .section-description {
+        font-size: 1rem;
+    }
+}
+
+/* --- Our Areas of Expertise Section --- */
+.expertise-section {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 80px auto;
+}
+
+.expertise-section .section-description {
+    max-width: 800px;
+    margin: -20px auto 40px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.expertise-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.expertise-card {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.expertise-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+}
+
+.expertise-card .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    background-color: rgba(114, 161, 222, 0.1); /* Light background for icon */
+}
+
+.expertise-card i {
+    font-size: 36px;
+    color: #72a1de;
+}
+
+.expertise-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.expertise-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c5c5c5;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+/* Responsive for Our Areas of Expertise Section */
+@media screen and (max-width: 1200px) {
+    .expertise-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .expertise-cards-container {
+        grid-template-columns: 1fr;
+    }
+    .expertise-section .section-description {
+        font-size: 1rem;
+    }
+}
+
 /* === Universal Mobile Optimization === */
 @media screen and (max-width: 768px) {
   .solutions-grid,
@@ -3947,6 +4140,10 @@ header {
   }
 
   .service-cards-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .ai-service-cards-container {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
