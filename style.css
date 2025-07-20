@@ -33,7 +33,7 @@ html{
     flex-direction: column;
     align-items: center;
     gap: 80px; /* Standardized gap for all sections */
-    background-color: #001f7c38;
+    background-color: #170b03cd;
 }
 
 .back-vid{
@@ -41,7 +41,6 @@ html{
     right: 0;
     bottom: 0;
     z-index: -1;
-    mix-blend-mode:overlay;
 }
 
 header{
