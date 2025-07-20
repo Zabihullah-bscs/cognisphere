@@ -46,41 +46,33 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(circle);
     });
 
-    // Image Slider Logic
-    const sliderImages = document.querySelectorAll('.hero-image-slider .slider-image');
-    let currentImageIndex = 0;
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    let currentSlide = 0;
 
-    function showImage(index) {
-        // Remove 'active' from all images
-        sliderImages.forEach(img => {
-            img.classList.remove('active');
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
         });
-        // Add 'active' to the current image
-        sliderImages[index].classList.add('active');
     }
 
-    function nextImage() {
-        const prevImage = sliderImages[currentImageIndex]; // The image currently active
-        currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
-        const nextImage = sliderImages[currentImageIndex]; // The image that will become active
-
-        // 1. Make the current active image start leaving
-        prevImage.classList.add('leaving');
-        prevImage.classList.remove('active'); // Remove active immediately so 'leaving' transition can start
-
-        // 2. Make the next image active (it will slide in from -100% to 0)
-        nextImage.classList.add('active');
-
-        // 3. After the transition, clean up the 'leaving' class from the old image
-        // This is crucial for the next cycle, so the image can reset its transform
-        setTimeout(() => {
-            prevImage.classList.remove('leaving');
-        }, 1000); // Match CSS transition duration
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
     }
 
-    // Initial display
-    showImage(currentImageIndex);
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
 
-    // Auto-advance images every 2 seconds
-    setInterval(nextImage, 2000);
+    nextArrow.addEventListener('click', nextSlide);
+    prevArrow.addEventListener('click', prevSlide);
+
+    // Auto-play the slider
+    setInterval(nextSlide, 7000); // Change slide every 7 seconds to allow for animation
 });

@@ -3340,41 +3340,14 @@ header {
     object-fit: cover; /* Video ko poora cover karega */
 }
 
-/* Image Slider Styling */
-.hero-image-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Hide overflowing images */
-    z-index: 1; /* Behind content, above blackhole video */
-    perspective: 1000px; /* Create 3D space for rotation */
-}
-
-.hero-image-slider img {
+.hero-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    backface-visibility: hidden; /* Hide back of the image during rotation */
-    transform-origin: right center; /* Set rotation origin to the right edge */
-    opacity: 0; /* Hidden by default */
-    transform: rotateY(90deg); /* Start rotated 90 degrees on Y-axis */
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Smooth transition for roll effect and fade */
-}
-
-.hero-image-slider img.active {
-    opacity: 1; /* Active image is visible */
-    transform: rotateY(0deg); /* Active image rolls in to flat position */
-}
-
-.hero-image-slider img.leaving {
-    transform-origin: left center; /* Set rotation origin to the left edge for leaving */
-    opacity: 0; /* Leaving image fades out */
-    transform: rotateY(-90deg); /* Leaving image rolls out to the left */
+    z-index: 1;
 }
 
 /* Scroll down icon ko adjust karne ke liye */
@@ -4192,4 +4165,73 @@ header {
   .cda-card {
     flex: 0 1 100% !important;
   }
+}
+
+/* Hero Slider Styles */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Smoother fade transition */
+    transform: scale(1.05); /* Start slightly zoomed in */
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+    transform: scale(1); /* Zoom out to normal size */
+    animation: kenburns 20s infinite; /* Apply Ken Burns effect */
+}
+
+.hero-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8); /* Slightly darken images for better text contrast */
+}
+
+/* Keyframes for the Ken Burns effect */
+@keyframes kenburns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.1) translate(-5%, 5%);
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 24px;
+}
+
+.prev-arrow {
+    left: 20px;
+}
+
+.next-arrow {
+    right: 20px;
 }

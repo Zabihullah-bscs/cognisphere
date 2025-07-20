@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CogniSphere</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -256,12 +256,21 @@
         <!-- Is section ki class name badal di hai -->
         <section class="main-hero">
             <!-- Image Slider for Hero Section -->
-            <div class="hero-image-slider">
-                <img src="images/1.png" alt="AI Image 1" class="slider-image active">
-                <img src="images/2.png" alt="AI Image 2" class="slider-image">
-                <img src="images/3.webp" alt="AI Image 3" class="slider-image">
-                <img src="images/4.webp" alt="AI Image 4" class="slider-image">
-                <img src="images/5.png" alt="AI Image 5" class="slider-image">
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="images/slider/Screenshot 2025-07-20 142344.png" alt="Slider Image 1">
+                </div>
+                <div class="slide">
+                    <img src="images/slider/Screenshot 2025-07-20 142717.png" alt="Slider Image 2">
+                </div>
+                <div class="slide">
+                    <img src="images/slider/Screenshot 2025-07-20 143853.png" alt="Slider Image 3">
+                </div>
+                <div class="slide">
+                    <img src="images/slider/Screenshot 2025-07-20 143953.png" alt="Slider Image 4">
+                </div>
+                <button class="slider-arrow prev-arrow"><i class='bx bx-chevron-left'></i></button>
+                <button class="slider-arrow next-arrow"><i class='bx bx-chevron-right'></i></button>
             </div>
             
             <!-- Blackhole video ko hero section ke andar le aaye hain behtar control ke liye -->
@@ -1009,7 +1018,7 @@
 
 
 
-    <script src="app.js"></script>
+    <script src="app.js?v=1.1"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script >
       AOS.init();
