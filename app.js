@@ -45,4 +45,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.stat-circle-wrapper').forEach((circle) => {
         observer.observe(circle);
     });
+
+    // Image Slider Logic
+    const sliderImages = document.querySelectorAll('.hero-image-slider .slider-image');
+    let currentImageIndex = 0;
+
+    function showImage(index) {
+        // Remove 'active' from all images
+        sliderImages.forEach(img => {
+            img.classList.remove('active');
+        });
+        // Add 'active' to the current image
+        sliderImages[index].classList.add('active');
+    }
+
+    function nextImage() {
+        const prevImage = sliderImages[currentImageIndex]; // The image currently active
+        currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
+        const nextImage = sliderImages[currentImageIndex]; // The image that will become active
+
+        // 1. Make the current active image start leaving
+        prevImage.classList.add('leaving');
+        prevImage.classList.remove('active'); // Remove active immediately so 'leaving' transition can start
+
+        // 2. Make the next image active (it will slide in from -100% to 0)
+        nextImage.classList.add('active');
+
+        // 3. After the transition, clean up the 'leaving' class from the old image
+        // This is crucial for the next cycle, so the image can reset its transform
+        setTimeout(() => {
+            prevImage.classList.remove('leaving');
+        }, 1000); // Match CSS transition duration
+    }
+
+    // Initial display
+    showImage(currentImageIndex);
+
+    // Auto-advance images every 2 seconds
+    setInterval(nextImage, 2000);
 });
