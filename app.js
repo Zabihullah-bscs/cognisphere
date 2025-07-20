@@ -52,12 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
 
     function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
+        const currentActiveSlide = document.querySelector('.hero-slider .slide.active');
+        if (currentActiveSlide) {
+            currentActiveSlide.classList.remove('active');
+            currentActiveSlide.classList.add('slide-out');
+        }
+
+        const nextSlideToShow = slides[index];
+        nextSlideToShow.classList.remove('slide-out'); // Ensure it's not sliding out
+        nextSlideToShow.classList.add('active');
     }
 
     function nextSlide() {
@@ -74,5 +77,5 @@ document.addEventListener('DOMContentLoaded', () => {
     prevArrow.addEventListener('click', prevSlide);
 
     // Auto-play the slider
-    setInterval(nextSlide, 7000); // Change slide every 7 seconds to allow for animation
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
 });
