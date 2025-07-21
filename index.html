@@ -269,6 +269,9 @@
                 <div class="slide">
                     <img src="images/slider/Screenshot 2025-07-20 143953.png" alt="Slider Image 4">
                 </div>
+                <div class="slide">
+                    <img src="images/slider/Screenshot 2025-07-21 142300.png" alt="Slider Image 5">
+                </div>
                 <button class="slider-arrow prev-arrow"><i class='bx bx-chevron-left'></i></button>
                 <button class="slider-arrow next-arrow"><i class='bx bx-chevron-right'></i></button>
             </div>
@@ -1019,13 +1022,17 @@
     <script src="app.js?v=1.1"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <style>
-      .hero-fade {
+      .hero-flip-out {
         opacity: 0;
-        transition: opacity 0.5s;
+        transform: rotateX(90deg) scaleY(0.8);
+        transition: opacity 0.4s, transform 0.4s;
+        will-change: transform, opacity;
       }
-      .hero-fade-in {
+      .hero-flip-in {
         opacity: 1 !important;
-        transition: opacity 0.5s;
+        transform: rotateX(0deg) scaleY(1);
+        transition: opacity 0.4s, transform 0.4s;
+        will-change: transform, opacity;
       }
     </style>
     <script>
@@ -1033,7 +1040,7 @@
     </script>
 
     <script>
-    // Hero slider text effect: synchronize text with image and fade effect, always in sync with active slide
+    // Hero slider text effect: synchronize text with image and flip-up effect, always in sync with active slide
     document.addEventListener('DOMContentLoaded', function() {
       const heroTexts = [
         {
@@ -1051,6 +1058,10 @@
         {
           headline: 'Innovate Ahead with Intelligent AI',
           subheadline: 'Driving business transformation using state-of-the-art machine learning and automation.'
+        },
+        {
+          headline: 'Experience the Next Level of AI Excellence',
+          subheadline: 'Pioneering intelligent solutions for tomorrow’s challenges with visionary AI and automation.'
         }
       ];
 
@@ -1061,19 +1072,26 @@
       const subheadlineEl = document.getElementById('hero-subheadline');
       let currentSlide = 0;
 
-      function fadeTextOutIn(newIndex) {
-        headlineEl.classList.remove('hero-fade-in');
-        subheadlineEl.classList.remove('hero-fade-in');
-        headlineEl.classList.add('hero-fade');
-        subheadlineEl.classList.add('hero-fade');
+      function flipTextOutIn(newIndex) {
+        // Remove in class, add out class
+        headlineEl.classList.remove('hero-flip-in');
+        subheadlineEl.classList.remove('hero-flip-in');
+        // Force reflow to restart animation
+        void headlineEl.offsetWidth;
+        void subheadlineEl.offsetWidth;
+        headlineEl.classList.add('hero-flip-out');
+        subheadlineEl.classList.add('hero-flip-out');
         setTimeout(() => {
           headlineEl.textContent = heroTexts[newIndex].headline;
           subheadlineEl.textContent = heroTexts[newIndex].subheadline;
-          headlineEl.classList.remove('hero-fade');
-          subheadlineEl.classList.remove('hero-fade');
-          headlineEl.classList.add('hero-fade-in');
-          subheadlineEl.classList.add('hero-fade-in');
-        }, 500);
+          // Force reflow again before adding in class
+          void headlineEl.offsetWidth;
+          void subheadlineEl.offsetWidth;
+          headlineEl.classList.remove('hero-flip-out');
+          subheadlineEl.classList.remove('hero-flip-out');
+          headlineEl.classList.add('hero-flip-in');
+          subheadlineEl.classList.add('hero-flip-in');
+        }, 400);
       }
 
       function getActiveSlideIndex() {
@@ -1084,9 +1102,9 @@
       }
 
       // Initial text effect
-      headlineEl.classList.add('hero-fade-in');
-      subheadlineEl.classList.add('hero-fade-in');
-      fadeTextOutIn(getActiveSlideIndex());
+      headlineEl.classList.add('hero-flip-in');
+      subheadlineEl.classList.add('hero-flip-in');
+      flipTextOutIn(getActiveSlideIndex());
 
       // Arrow navigation (keep for manual click)
       if (prevArrow && nextArrow) {
@@ -1094,20 +1112,20 @@
           let idx = getActiveSlideIndex();
           idx = (idx - 1 + slides.length) % slides.length;
           slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
-          fadeTextOutIn(idx);
+          flipTextOutIn(idx);
         });
         nextArrow.addEventListener('click', function() {
           let idx = getActiveSlideIndex();
           idx = (idx + 1) % slides.length;
           slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
-          fadeTextOutIn(idx);
+          flipTextOutIn(idx);
         });
       }
 
       // MutationObserver to sync text with any change to active slide (auto-slide, swipe, etc.)
       const observer = new MutationObserver(() => {
         const idx = getActiveSlideIndex();
-        fadeTextOutIn(idx);
+        flipTextOutIn(idx);
       });
       slides.forEach(slide => {
         observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
