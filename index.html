@@ -280,13 +280,10 @@
 
             <!-- Content container ki class name badal di hai -->
             <div class="main-hero-content" data-aos="fade-right" data-aos-duration="1000">
-
                 <h1 data-aos="fade-right" data-aos-duration="3000">
-                    <span class="gradient">AI Driven Innovation For Your Future</span>
+                    <span class="gradient" id="hero-headline">AI Driven Innovation For Your Future</span>
                 </h1>
-
-                <p>Unleashing transformative AI solutions with cutting-edge machine learning and automation.</p>
-
+                <p id="hero-subheadline">Unleashing transformative AI solutions with cutting-edge machine learning and automation.</p>
                 <button type="button" id="contactUsButton"><i class='bx bx-send'></i> Contact Me</button>
             </div>
 
@@ -1018,10 +1015,104 @@
 
 
 
+
     <script src="app.js?v=1.1"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script >
+    <style>
+      .hero-fade {
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .hero-fade-in {
+        opacity: 1 !important;
+        transition: opacity 0.5s;
+      }
+    </style>
+    <script>
       AOS.init();
+    </script>
+
+    <script>
+    // Hero slider text effect: synchronize text with image and fade effect, always in sync with active slide
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroTexts = [
+        {
+          headline: 'AI Driven Innovation For Your Future',
+          subheadline: 'Unleashing transformative AI solutions with cutting-edge machine learning and automation.'
+        },
+        {
+          headline: 'Empowering Your Tomorrow with AI',
+          subheadline: 'Delivering next-gen machine learning and automation to transform your business.'
+        },
+        {
+          headline: 'Shaping the Future Through AI',
+          subheadline: 'Harnessing advanced AI and automation for breakthrough business results.'
+        },
+        {
+          headline: 'Innovate Ahead with Intelligent AI',
+          subheadline: 'Driving business transformation using state-of-the-art machine learning and automation.'
+        }
+      ];
+
+      const slides = document.querySelectorAll('.hero-slider .slide');
+      const prevArrow = document.querySelector('.hero-slider .prev-arrow');
+      const nextArrow = document.querySelector('.hero-slider .next-arrow');
+      const headlineEl = document.getElementById('hero-headline');
+      const subheadlineEl = document.getElementById('hero-subheadline');
+      let currentSlide = 0;
+
+      function fadeTextOutIn(newIndex) {
+        headlineEl.classList.remove('hero-fade-in');
+        subheadlineEl.classList.remove('hero-fade-in');
+        headlineEl.classList.add('hero-fade');
+        subheadlineEl.classList.add('hero-fade');
+        setTimeout(() => {
+          headlineEl.textContent = heroTexts[newIndex].headline;
+          subheadlineEl.textContent = heroTexts[newIndex].subheadline;
+          headlineEl.classList.remove('hero-fade');
+          subheadlineEl.classList.remove('hero-fade');
+          headlineEl.classList.add('hero-fade-in');
+          subheadlineEl.classList.add('hero-fade-in');
+        }, 500);
+      }
+
+      function getActiveSlideIndex() {
+        for (let i = 0; i < slides.length; i++) {
+          if (slides[i].classList.contains('active')) return i;
+        }
+        return 0;
+      }
+
+      // Initial text effect
+      headlineEl.classList.add('hero-fade-in');
+      subheadlineEl.classList.add('hero-fade-in');
+      fadeTextOutIn(getActiveSlideIndex());
+
+      // Arrow navigation (keep for manual click)
+      if (prevArrow && nextArrow) {
+        prevArrow.addEventListener('click', function() {
+          let idx = getActiveSlideIndex();
+          idx = (idx - 1 + slides.length) % slides.length;
+          slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
+          fadeTextOutIn(idx);
+        });
+        nextArrow.addEventListener('click', function() {
+          let idx = getActiveSlideIndex();
+          idx = (idx + 1) % slides.length;
+          slides.forEach((slide, i) => slide.classList.toggle('active', i === idx));
+          fadeTextOutIn(idx);
+        });
+      }
+
+      // MutationObserver to sync text with any change to active slide (auto-slide, swipe, etc.)
+      const observer = new MutationObserver(() => {
+        const idx = getActiveSlideIndex();
+        fadeTextOutIn(idx);
+      });
+      slides.forEach(slide => {
+        observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
+      });
+    });
     </script>
 
 
