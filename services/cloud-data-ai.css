@@ -29,7 +29,7 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 80px;
-    background-color: #001f7c38;
+    background-color: #170b03cd; /* Dark layer for consistency with Home page */
 }
 
 .back-vid {
@@ -38,6 +38,7 @@ html {
     bottom: 0;
     z-index: -1;
     mix-blend-mode: overlay;
+    background-color: #170b03cd; /* Dark layer for consistency with Home page */
 }
 
 header {
@@ -82,7 +83,6 @@ header ul li {
     margin: 0;
     position: relative;
 }
-
 
 .dropdown-menu {
     display: none;
