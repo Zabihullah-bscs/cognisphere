@@ -297,6 +297,312 @@
     }
 }
 
+/* Our Proprietary Innovation Pipeline Section */
+.innovation-pipeline {
+    width: 95%;
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.pipeline-header {
+    margin-bottom: 60px;
+}
+
+.pipeline-header .section-subtitle {
+    font-size: 1.1rem;
+    color: #72a1de;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.pipeline-header .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.pipeline-header .section-description {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    color: #c5c5c5;
+    line-height: 1.7;
+}
+
+.pipeline-header .section-description-bold {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.pipeline-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.pipeline-step {
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pipeline-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.4);
+}
+
+.pipeline-step .step-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: rgba(114, 161, 222, 0.2);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 0;
+}
+
+.pipeline-step h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Our Process Section */
+.our-process-section {
+    width: 95%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    display: flex;
+    gap: 40px;
+    min-height: 600px; /* Ensure enough height for content */
+}
+
+.process-container {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+}
+
+.process-sidebar {
+    flex: 0 0 280px; /* Fixed width for sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.process-sidebar .phase-title {
+    font-size: 1.1rem;
+    color: #72a1de;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.process-sidebar .phase-title:first-child {
+    margin-top: 0;
+}
+
+.process-button {
+    background-color: transparent;
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    color: #c5c5c5;
+    padding: 15px 20px;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.process-button i {
+    font-size: 1.5rem;
+    color: #72a1de;
+}
+
+.process-button:hover {
+    background-color: rgba(114, 161, 222, 0.1);
+    border-color: rgba(114, 161, 222, 0.4);
+    color: #fff;
+}
+
+.process-button.active {
+    background-color: #72a1de;
+    color: black;
+    border-color: #72a1de;
+    font-weight: bold;
+}
+
+.process-button.active i {
+    color: black;
+}
+
+.process-content-display {
+    flex: 1;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    overflow-y: auto; /* Enable scrolling for long content */
+}
+
+.process-content {
+    display: none;
+}
+
+.process-content.active {
+    display: block;
+}
+
+.process-content .content-title {
+    font-size: 2.2rem;
+    color: #72a1de;
+    margin-bottom: 10px;
+}
+
+.process-content .content-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.process-content p {
+    font-size: 1rem;
+    color: #c5c5c5;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.process-content ul, .process-content ol {
+    color: #c5c5c5;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.process-content ul li, .process-content ol li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.process-content strong {
+    color: #fff;
+}
+
+.process-content .tools-used {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.process-content .tool-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.process-content .tool-icons img {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+}
+
+/* Responsive adjustments for Our Process Section */
+@media screen and (max-width: 992px) {
+    .our-process-section {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .process-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .process-sidebar {
+        flex: none;
+        width: 100%;
+        flex-direction: row; /* Make buttons horizontal on smaller screens */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .process-sidebar .phase-title {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .process-button {
+        flex: 1 1 auto; /* Allow buttons to wrap */
+        justify-content: center;
+    }
+    .process-content-display {
+        padding: 20px;
+    }
+    .process-content .content-title {
+        font-size: 1.8rem;
+    }
+    .process-content .content-subtitle {
+        font-size: 1rem;
+    }
+    .process-content p, .process-content ul, .process-content ol {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .process-sidebar {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+    }
+    .process-button {
+        width: 100%;
+    }
+}
+
+.pipeline-step p {
+    font-size: 1rem;
+    color: #c5c5c5;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments for pipeline steps */
+@media screen and (max-width: 768px) {
+    .pipeline-steps {
+        grid-template-columns: 1fr;
+    }
+    .pipeline-step .step-number {
+        font-size: 3rem;
+    }
+    .pipeline-step h3 {
+        font-size: 1.3rem;
+    }
+    .pipeline-step p {
+        font-size: 0.9rem;
+    }
+}
+
 /* Our Work Section (my-project) */
 .my-project {
     width: 95%;
