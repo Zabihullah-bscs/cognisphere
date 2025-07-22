@@ -296,3 +296,121 @@
         font-size: 2rem;
     }
 }
+
+/* Our Work Section (my-project) */
+.my-project {
+    width: 95%;
+    max-width: 1200px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.my-project .section-title {
+    margin-bottom: 60px;
+}
+
+.my-project .project-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    background-color: transparent; /* Removed background color */
+    backdrop-filter: none; /* Removed backdrop filter */
+    border: none; /* Removed border */
+    border-radius: 0; /* Removed border radius */
+    padding: 0; /* Removed padding */
+    transition: none; /* Removed transition */
+    box-shadow: none; /* Removed box shadow */
+}
+
+.my-project .project-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: none;
+}
+
+.my-project .project-imgbox {
+    flex: 1;
+    max-width: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.my-project .project-imgbox img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.my-project .project-info {
+    flex: 1;
+    text-align: left;
+}
+
+.my-project .project-info .project-title {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Added uppercase */
+    font-weight: bold; /* Added bold */
+}
+
+.my-project .project-info .project-description {
+    font-size: 1.1rem;
+    color: #c5c5c5;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.my-project .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.my-project .project-tags .tag {
+    background-color: #72a1de;
+    color: black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Reverse layout for alternating cards */
+.my-project .project-card-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Responsive adjustments for project cards */
+@media screen and (max-width: 992px) {
+    .my-project .project-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .my-project .project-card-reverse {
+        flex-direction: column; /* Reset for smaller screens */
+    }
+    .my-project .project-imgbox {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .my-project .project-info {
+        text-align: center;
+    }
+    .my-project .project-tags {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .my-project .project-info .project-title {
+        font-size: 1.8rem;
+    }
+    .my-project .project-info .project-description {
+        font-size: 1rem;
+    }
+}
