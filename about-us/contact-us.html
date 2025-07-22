@@ -12,7 +12,6 @@
 <body>
     <div class="container">
         <video class="back-vid" autoplay loop muted plays-inline src="../videos/galaxy.mp4"></video>
-
         <header data-aos="fade-down" data-aos-duration="2000">
             <div class="left">
                 <img src="../images/logo.png" alt="logo">
@@ -20,7 +19,7 @@
             </div>
             <ul class="logo-bar-buttons">
                 <li><a href="../index.html">Home</a></li>
-                <li class="active">
+                <li>
                     <a href="#">Services</a>
                     <div class="dropdown-menu services-dropdown">
                         <div class="dropdown-content-wrapper">
@@ -46,7 +45,7 @@
                             <h4>All Solutions</h4>
                             <a href="../solutions/artificial-intelligence.html">AI & Machine Learning</a>
                             <a href="../solutions/microsoft-azure.html">Cloud & Infrastructure</a>
-                            <a href="../solutions/ai-powered-contact-center.html">Data & Analytics</a>
+                            <a href="../solutions/business-intelligence.html">Data & Analytics</a>
                         </div>
                         <div class="dropdown-column">
                             <h4>AI & Machine Learning</h4>
@@ -86,7 +85,7 @@
                       </div>
                     </div>
                 </li>
-                <li><a href="../index.html#contact-us">Contact Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
             </ul>
             <div class="box-icons">
                 <p><i class='bx bxs-phone'></i></p>
@@ -95,7 +94,6 @@
             </div>
         </header>
         <br><br><br>
-
         <section class="hero" style="height: 60vh;" data-aos="fade-right" data-aos-duration="3000">
             <div class="hero-info">
                 <h1 class="gradient">Contact Us</h1>
@@ -103,7 +101,6 @@
                 <a href="../index.html#contact-us" class="cta-button">Send a Message</a>
             </div>
         </section>
-
         <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle stat-circle-wrapper" data-percentage="100">
@@ -136,9 +133,7 @@
                 <p>Successful project initiations</p>
             </div>
         </section>
-
         <br><br><br><br><br><br>
-
         <section class="strategic-edge" data-aos="fade-right" data-aos-duration="1000">
             <div class="strategic-edge-content">
                 <h2 class="section-title autoDisplay" style="color: #72a1dea2; text-align: left;">Let's Connect and <span class="highlight">Build Together</span></h2>
@@ -149,9 +144,7 @@
                 <img src="../images/contact-hero.jpg" alt="Contact Us Image">
             </div>
         </section>
-
         <br><br><br><br><br><br>
-
         <section class="engineering-solutions" data-aos="fade-up" data-aos-duration="1500">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Global Presence</h2>
             <p>We serve clients worldwide with our expert AI and data solutions. Find our offices or reach out to our global team.</p>
@@ -188,9 +181,7 @@
                 </div>
             </div>
         </section>
-
         <br><br><br><br><br><br>
-
         <section class="workflow-section" data-aos="fade-up" data-aos-duration="1500">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Frequently Asked Questions</h2>
             <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px; max-width: 800px; margin: 0 auto;">
@@ -212,7 +203,6 @@
                 </div>
             </div>
         </section>
-
         <footer class="site-footer">
             <div class="footer-main">
                 <div class="footer-column about">
@@ -275,17 +265,14 @@
                 const circumference = 2 * Math.PI * radius;
                 circle.style.strokeDasharray = `${circumference} ${circumference}`;
                 circle.style.strokeDashoffset = circumference;
-
                 const counter = stat.querySelector('.counter h2');
                 const isPercentage = counter.textContent.includes('%');
                 const finalValue = isPercentage ? percentage : parseInt(counter.textContent);
-
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const offset = circumference - (percentage / 100) * circumference;
                             circle.style.strokeDashoffset = offset;
-
                             let start = 0;
                             const duration = 1500; // 1.5 seconds
                             const stepTime = Math.abs(Math.floor(duration / finalValue));
@@ -303,7 +290,6 @@
                         }
                     });
                 }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
-
                 observer.observe(stat);
             });
         });
