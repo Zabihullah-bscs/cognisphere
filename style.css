@@ -4375,11 +4375,12 @@ header {
     color: #72a1de;
 }
 
-.data-point.image { top: 0; left: 50%; transform: translateX(-50%); }
-.data-point.text { top: 70px; right: 70px; }
-.data-point.speech { top: 70px; left: 70px; }
-.data-point.structured-data { bottom: 0; left: 50%; transform: translateX(-50%); }
-.data-point.signals { bottom: 70px; right: 70px; }
+/* Position icons in a circle */
+.data-point.image { top: 20px; left: 210px; } /* Top */
+.data-point.text { top: 144px; left: 381px; } /* Top-Right */
+.data-point.speech { top: 144px; left: 39px; } /* Top-Left */
+.data-point.structured-data { top: 346px; left: 104px; } /* Bottom-Left */
+.data-point.signals { top: 346px; left: 316px; } /* Bottom-Right */
 
 .adaptation-list {
     display: flex;
@@ -4441,3 +4442,4 @@ header {
         transform: translateX(0);
     }
 }
+
