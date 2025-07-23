@@ -79,3 +79,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-play the slider
     setInterval(nextSlide, 5000); // Change slide every 5 seconds
 });
+
+// Animate the custom AI solutions section on scroll
+    const solutionsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    const solutionsSection = document.querySelector('.custom-ai-solutions');
+    if (solutionsSection) {
+        solutionsObserver.observe(solutionsSection);
+    }
+
+// Curved text animation
+    const trainingText = document.querySelector('.training-text');
+    if (trainingText) {
+        const letters = trainingText.querySelectorAll('span');
+        const radius = 150; // Adjust this value to control the circle's radius
+        const circumference = 2 * Math.PI * radius;
+        const letterWidth = 15; // Approximate width of each letter, adjust as needed
+        const totalLettersWidth = letters.length * letterWidth;
+        const anglePerLetter = (totalLettersWidth / circumference) * 360;
+        const startAngle = -90 - (anglePerLetter * letters.length / 2); // Adjust start angle to center the text
+
+        letters.forEach((letter, i) => {
+            letter.style.position = 'absolute';
+            letter.style.top = '50%';
+            letter.style.left = '50%';
+            letter.style.transformOrigin = `0 ${radius}px`;
+            letter.style.transform = `rotate(${startAngle + (i * anglePerLetter)}deg) translateY(-50%)`;
+        });
+    }
+
