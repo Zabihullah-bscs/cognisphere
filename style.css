@@ -1429,7 +1429,7 @@ header {
 
 .gradient{
     margin-top: 80px !important;
-    background: linear-gradient(to right, #ADD8E6, #4682B4, #1E90FF, #FFFFFF, #1E90FF, #4682B4, #ADD8E6); /* Blue and white gradient */
+    background: linear-gradient(to left, #ADD8E6, #4682B4, #1E90FF, #FFFFFF, #1E90FF, #4682B4, #ADD8E6); /* Blue and white gradient */
     background-size: 200%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -3275,7 +3275,7 @@ header {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 25px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .main-hero-content p {
