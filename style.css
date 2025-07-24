@@ -276,6 +276,7 @@ font-size: 20px;
     display: block;
     text-align: left;
     border-radius: 0; /* Gol corners ki zaroorat nahi */
+
     background: none !important; /* Forcefully background hataya */
     box-shadow: none !important; /* Forcefully shadow hataya */
     transition: color 0.2s, padding-left 0.2s;
@@ -4444,3 +4445,209 @@ header {
 }
 
 
+
+/* --- Predictive Model Section --- */
+.predictive-model-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.predictive-model-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.predictive-model-left {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the diagram */
+    position: relative;
+    min-height: 600px; /* Give it some height */
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #c5c5c5;
+    font-size: 1.2rem;
+    margin-right: 40px; /* More space */
+    white-space: nowrap;
+    align-self: stretch; /* Make it take full height */
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.predictive-diagram {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diagram-center {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8e9eab, #eef2f3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: #333;
+    border: 1px solid #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.diagram-center span {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #4a5568;
+}
+
+.diagram-center strong {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.diagram-center .bx-cog {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #2d3748;
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.diagram-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    --radius: 250px;
+    --angle: calc(var(--i) * 40deg); /* 360 / 9 items = 40deg */
+    transform: rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+    text-align: center;
+}
+
+.diagram-item .icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #72a1de;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.diagram-item .icon i {
+    font-size: 2.5rem;
+    color: #72a1de;
+}
+
+.diagram-item span {
+    font-size: 0.9rem;
+    color: #c5c5c5;
+    width: 100px; /* Prevent text from becoming too wide */
+}
+
+.diagram-line-text {
+    position: absolute;
+    color: #c5c5c5;
+    font-size: 0.9rem;
+    background-color: #020f1cd1;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.subset-1 {
+    top: 120px;
+    left: 150px;
+}
+
+.subset-2 {
+    top: 120px;
+    right: 150px;
+}
+
+.prediction {
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.predictive-model-right {
+    flex: 1;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.predictive-model-right h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.predictive-model-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.predictive-model-right ul li {
+    font-size: 1.1rem;
+    color: #c5c5c5;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 1200px) {
+    .predictive-model-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .predictive-model-left {
+        min-height: auto;
+    }
+    .vertical-text {
+        writing-mode: horizontal-tb;
+        transform: none;
+        margin-bottom: 40px;
+        margin-right: 0;
+    }
+    .predictive-model-right {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .predictive-diagram {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .predictive-diagram {
+        transform: scale(0.6);
+    }
+}
