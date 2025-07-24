@@ -4651,3 +4651,192 @@ header {
         transform: scale(0.6);
     }
 }
+
+/* --- Natural Language Processing Section --- */
+.nlp-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.nlp-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.nlp-left {
+    flex: 1;
+    text-align: left;
+}
+
+.nlp-left h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.nlp-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nlp-left ul li {
+    font-size: 1.1rem;
+    color: #c5c5c5;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.nlp-right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 500px;
+}
+
+.nlp-diagram {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nlp-diagram-center {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: #333;
+    border: 1px solid #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.nlp-diagram-center .nlp-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a5568;
+    background: linear-gradient(to right, #6a82fb, #fc5c7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nlp-diagram-center span {
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+.nlp-diagram-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    --radius: 220px;
+    --angle: calc(var(--i) * 72deg + 18deg); /* 360 / 5 items = 72deg, offset by 18deg */
+    transform: rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+    text-align: center;
+}
+
+.nlp-diagram-item .icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #72a1de;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.nlp-diagram-item .icon i {
+    font-size: 2.5rem;
+    color: #72a1de;
+}
+
+.nlp-diagram-item span {
+    font-size: 0.9rem;
+    color: #c5c5c5;
+    width: 120px;
+}
+
+.nlp-input-source {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.nlp-input-source span {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.nlp-input-source .arrow {
+    width: 50px;
+    height: 2px;
+    background-color: #c5c5c5;
+    position: relative;
+    margin-left: 10px;
+}
+
+.nlp-input-source .arrow::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid #c5c5c5;
+}
+
+@media screen and (max-width: 1200px) {
+    .nlp-container {
+        flex-direction: column-reverse; /* Diagram will be on top */
+        text-align: center;
+    }
+    .nlp-left {
+        text-align: center;
+    }
+    .nlp-right {
+        min-height: auto;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nlp-diagram {
+        transform: scale(0.8);
+    }
+    .nlp-input-source {
+        display: none; /* Hide input sources on smaller screens for simplicity */
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nlp-diagram {
+        transform: scale(0.7);
+    }
+}
