@@ -4311,7 +4311,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -4504,25 +4504,25 @@ header {
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #fff;
+    color: #000;
 }
 
 .diagram-center span {
     font-size: 1.5rem;
     font-weight: 300;
-    color: #fff;
+    color: #000;
 }
 
 .diagram-center strong {
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: #000;
 }
 
 .diagram-center .bx-cog {
     font-size: 2rem;
     margin-top: 10px;
-    color: #fff;
+    color: #000;
     animation: spin 8s linear infinite;
 }
 
@@ -4614,8 +4614,8 @@ header {
 .predictive-model-right ul li {
     font-size: 1.1rem;
     color: #c5c5c5;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 @media screen and (max-width: 1200px) {
@@ -4687,8 +4687,8 @@ header {
 .nlp-left ul li {
     font-size: 1.1rem;
     color: #c5c5c5;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 .nlp-right {
@@ -4721,13 +4721,13 @@ header {
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #fff;
+    color: #000;
 }
 
 .nlp-diagram-center .nlp-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
+    color: #000;
     background: none;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
@@ -4735,7 +4735,7 @@ header {
 
 .nlp-diagram-center span {
     font-size: 1rem;
-    color: #fff;
+    color: #000;
 }
 
 .nlp-diagram-item {
@@ -5052,8 +5052,8 @@ header {
 .computer-vision-right ul li {
     font-size: 1.1rem;
     color: #c5c5c5;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 /* --- Responsive for Computer Vision Section --- */
@@ -5152,19 +5152,19 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 
 .mlops-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
+    color: #000;
 }
 
 .lifecycle-text {
     font-size: 1.5rem;
     font-weight: 300;
-    color: #c5c5c5;
+    color: #000;
 }
 
 .mlops-item {
@@ -5248,8 +5248,8 @@ header {
 .mlops-right ul li {
     font-size: 1.1rem;
     color: #c5c5c5;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 @media screen and (max-width: 1200px) {
@@ -5308,8 +5308,8 @@ header {
 .recommendation-left ul li {
     font-size: 1.1rem;
     color: #c5c5c5;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 .recommendation-right {
