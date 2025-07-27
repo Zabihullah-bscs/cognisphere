@@ -4493,10 +4493,10 @@ header {
 }
 
 .diagram-center {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8e9eab, #eef2f3);
+    background: linear-gradient(135deg, #72a1de, #4682b4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4504,27 +4504,25 @@ header {
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #333;
-    border: 1px solid #fff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    color: #fff;
 }
 
 .diagram-center span {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 300;
-    color: #4a5568;
+    color: #fff;
 }
 
 .diagram-center strong {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #2d3748;
+    color: #fff;
 }
 
 .diagram-center .bx-cog {
     font-size: 2rem;
     margin-top: 10px;
-    color: #2d3748;
+    color: #fff;
     animation: spin 8s linear infinite;
 }
 
@@ -4546,8 +4544,8 @@ header {
 }
 
 .diagram-item .icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #72a1de;
     border-radius: 50%;
     display: flex;
@@ -4558,13 +4556,13 @@ header {
 }
 
 .diagram-item .icon i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #72a1de;
 }
 
 .diagram-item span {
-    font-size: 0.9rem;
-    color: #c5c5c5;
+    font-size: 1rem;
+    color: #fff;
     width: 100px; /* Prevent text from becoming too wide */
 }
 
@@ -4715,7 +4713,7 @@ header {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    background: linear-gradient(135deg, #72a1de, #4682b4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4723,23 +4721,21 @@ header {
     text-align: center;
     position: relative;
     z-index: 2;
-    color: #333;
-    border: 1px solid #fff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    color: #fff;
 }
 
 .nlp-diagram-center .nlp-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #4a5568;
-    background: linear-gradient(to right, #6a82fb, #fc5c7d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
 }
 
 .nlp-diagram-center span {
     font-size: 1rem;
-    color: #4a5568;
+    color: #fff;
 }
 
 .nlp-diagram-item {
@@ -4755,8 +4751,8 @@ header {
 }
 
 .nlp-diagram-item .icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #72a1de;
     border-radius: 50%;
     display: flex;
@@ -4767,13 +4763,13 @@ header {
 }
 
 .nlp-diagram-item .icon i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #72a1de;
 }
 
 .nlp-diagram-item span {
-    font-size: 0.9rem;
-    color: #c5c5c5;
+    font-size: 1rem;
+    color: #fff;
     width: 120px;
 }
 
@@ -4913,9 +4909,7 @@ header {
 
 .cv-object-icons .icon-bg i {
     font-size: 2rem;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #72a1de;
 }
 
 .cv-input-objects span {
@@ -4959,9 +4953,7 @@ header {
 }
 
 .cv-title span {
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #72a1de;
 }
 
 .cv-diagram-boxes {
@@ -4985,9 +4977,7 @@ header {
 
 .cv-box i {
     font-size: 3rem;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #72a1de;
     margin-bottom: 10px;
 }
 
@@ -5006,7 +4996,7 @@ header {
 }
 
 .cv-output-box {
-    background: linear-gradient(45deg, #72a1de, #c472de);
+    background: linear-gradient(135deg, #72a1de, #4682b4);
     color: #fff;
     padding: 20px;
     border-radius: 15px;
@@ -5156,8 +5146,7 @@ header {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(114, 161, 222, 0.2);
+    background: linear-gradient(135deg, #72a1de, #4682b4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -5169,9 +5158,7 @@ header {
 .mlops-title {
     font-size: 2.5rem;
     font-weight: 700;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 
 .lifecycle-text {
@@ -5188,8 +5175,8 @@ header {
 }
 
 .mlops-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: rgba(10, 25, 47, 0.8);
     border: 1px solid #72a1de;
@@ -5199,10 +5186,8 @@ header {
 }
 
 .mlops-icon i {
-    font-size: 2.5rem;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    color: #72a1de;
 }
 
 .mlops-label {
@@ -5352,9 +5337,7 @@ header {
 .rec-title {
     font-size: 2.5rem;
     font-weight: 700;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 
 .rec-subtitle {
@@ -5374,9 +5357,7 @@ header {
 
 .rec-box i {
     font-size: 3rem;
-    background: -webkit-linear-gradient(45deg, #72a1de, #c472de);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #72a1de;
     margin-bottom: 10px;
 }
 
