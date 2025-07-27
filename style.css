@@ -4601,8 +4601,11 @@ header {
 .predictive-model-right h3 {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .predictive-model-right ul {
@@ -4674,8 +4677,11 @@ header {
 .nlp-left h3 {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .nlp-left ul {
@@ -5039,8 +5045,11 @@ header {
 .computer-vision-right h3 {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .computer-vision-right ul {
@@ -5235,8 +5244,11 @@ header {
 .mlops-right h3 {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .mlops-right ul {
@@ -5295,8 +5307,11 @@ header {
 .recommendation-left h3 {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .recommendation-left ul {
@@ -5337,13 +5352,14 @@ header {
 .rec-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
+    color: #72a1dea2;
 }
 
 .rec-subtitle {
     font-size: 2rem;
     font-weight: 300;
     display: block;
+    color: #fff;
 }
 
 .rec-box {
