@@ -261,8 +261,9 @@ header ul li {
     color: #ffffff;
 }
 
+/* Update section-title class */
 .section-title {
-    font-size: 40px;
+    font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
     background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
@@ -270,9 +271,48 @@ header ul li {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
+    margin-bottom: 16px;
 }
 
+/* Remove the hero section specific styles to keep original */
+.hero-info h1.gradient {
+    margin-top: 80px !important;
+    background: linear-gradient(to left, #ADD8E6, #4682B4, #1E90FF, #FFFFFF, #1E90FF, #4682B4, #ADD8E6);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 5s linear infinite;
+}
+
+.strategic-edge-content h2.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: left;
+    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+}
+
+.services-portfolio h2.section-title,
+.industry-solutions h2.section-title,
+.why-choose-us h2.section-title,
+.custom-data-solutions h1.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+}
+
+/* Keep the animation keyframes only for hero section */
 @keyframes animate-gradient {
     to {
         background-position: 200%;
