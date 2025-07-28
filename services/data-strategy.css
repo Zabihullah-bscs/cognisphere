@@ -440,3 +440,149 @@ header ul li {
         flex: 0 1 100% !important;
     }
 }
+/* --- Custom Data Solutions We Offer --- */
+.custom-data-solutions {
+    width: 90%;
+    max-width: 1400px;
+    text-align: center;
+    margin: 80px auto;
+    color: #fff;
+}
+
+.custom-data-solutions .solutions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+.data-services-list {
+    text-align: left;
+    flex-basis: 20%;
+}
+
+.data-services-list h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.data-services-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.data-services-list ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #c5c5c5;
+}
+
+.data-services-model {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-services-model .center-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #72a1de, #4682b4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.data-services-model .gen-ai-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.data-services-model .model-text {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.data-services-model .training-text {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #c5c5c5;
+    letter-spacing: 5px;
+    font-weight: 300;
+    top: 50%;
+    left: -100px; /* Further left */
+    transform: translateY(-50%) rotate(-90deg);
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.data-services-model .adaptation-text {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #c5c5c5;
+    letter-spacing: 5px;
+    font-weight: 300;
+    top: 50%;
+    right: -100px; /* Further right */
+    transform: translateY(-50%) rotate(90deg);
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.data-services-model .data-point {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.data-services-model .data-point .icon {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #72a1de;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(10, 25, 47, 0.8);
+}
+
+.data-services-model .data-point .icon i {
+    font-size: 2rem;
+    color: #72a1de;
+}
+
+.data-services-model .data-point span {
+    font-size: 0.8rem;
+}
+
+/* Position icons in a circle */
+.data-services-model .data-point.image { top: 20px; left: 210px; } /* Top */
+.data-services-model .data-point.text { top: 144px; left: 381px; } /* Top-Right */
+.data-services-model .data-point.speech { top: 144px; left: 39px; } /* Top-Left */
+.data-services-model .data-point.structured-data { top: 346px; left: 104px; } /* Bottom-Left */
+.data-services-model .data-point.signals { top: 346px; left: 316px; } /* Bottom-Right */
+
+.adaptation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-basis: 20%;
+}
+
+.adaptation-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
