@@ -261,7 +261,7 @@ header ul li {
     color: #ffffff;
 }
 
-/* Update section-title class */
+/* Update section-title class - Standardized for all headings */
 .section-title {
     font-size: 2.2rem;
     font-weight: 700;
@@ -285,26 +285,18 @@ header ul li {
     animation: animate-gradient 5s linear infinite;
 }
 
-.strategic-edge-content h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #ffffff;
-}
-
+/* Remove duplicate heading styles and use the standardized .section-title */
+.strategic-edge-content h2.section-title,
 .cda-solutions h2.section-title,
 .workflow-section h2.section-title,
 .why-choose-us h2.section-title,
 .custom-data-solutions h1.section-title {
-    font-size: 2.2rem;
-    font-weight: 700;
     text-align: center;
-    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 16px;
+}
+
+/* Strategic edge content specific alignment */
+.strategic-edge-content .section-title {
+    text-align: left;
 }
 
 /* Keep the animation keyframes only for hero section */
@@ -787,18 +779,6 @@ header ul li {
         padding: 12px 25px;
         font-size: 1rem;
     }
-}
-
-.strategic-edge-content h2.section-title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    text-align: left;
-    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 16px;
 }
 
 .strategic-edge-content h2.section-title span {
