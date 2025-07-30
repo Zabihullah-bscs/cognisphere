@@ -1,3 +1,44 @@
+/* Loader Styles */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a192f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 45px;
+    height: 40px;
+    background: linear-gradient(#0000 calc(1*100%/6),#72a1de 0 calc(3*100%/6),#0000 0),
+                linear-gradient(#0000 calc(2*100%/6),#72a1de 0 calc(4*100%/6),#0000 0),
+                linear-gradient(#0000 calc(3*100%/6),#72a1de 0 calc(5*100%/6),#0000 0);
+    background-size: 10px 400%;
+    background-repeat: no-repeat;
+    animation: matrix 1s infinite linear;
+}
+
+@keyframes matrix {
+    0% {
+        background-position: 0% 100%, 50% 100%, 100% 100%
+    }
+
+    100% {
+        background-position: 0% 0%, 50% 0%, 100% 0%
+    }
+}
+
 body {
     overflow-x: hidden;
 }
@@ -2178,28 +2219,103 @@ header {
     transform: rotate(45deg);
 }
 
-.send-now-button {
-    color: white;
-    padding: 15px 35px;
-    border-radius: 10px;
-    border: 1px solid #72a1de81;
-    background-color: #2200493d;
-    box-shadow: none;
-    cursor: pointer;
-    transition: 0.3s;
-    width: auto;
-    font-size: 1rem;
-    font-weight: normal;
-    display: inline-flex;
+/* Light Button Effect for Send Now Button - Matching Book Meeting Button */
+.light-button button.bt {
+    position: relative;
+    height: auto;
+    display: flex;
     align-items: center;
-    justify-content: center; /* Center the text and icon */
-    gap: 8px;
-    align-self: center; /* Center the button within its flex container */
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.send-now-button:hover {
+.light-button button.bt .button-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    padding: 12px 25px;
+    background-color: #2200493d;
+    border-radius: 50px;
+    border: 1px solid #72a1de81;
+    color: #72a1de;
+    font-weight: normal;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: #72a1de81 2px solid;
+    outline-offset: 20;
+    box-shadow: 0 0 5px #72a1de81;
+}
+
+.light-button button.bt .light-holder {
+    position: absolute;
+    height: 150px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #2200493d;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+    background: transparent;
+}
+
+.light-button button.bt:hover .button-holder {
     background-color: #72a1de;
-    filter: none;
+    color: black;
+    box-shadow: 0 0 10px #72a1de;
+    outline: #72a1de 2px solid;
+    outline-offset: 2px;
+}
+
+.light-button button.bt:hover .light-holder .light {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        180deg,
+        #72a1de 0%,
+        rgba(255, 255, 255, 0) 75%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* Responsive adjustments for light button */
+@media screen and (max-width: 768px) {
+    .light-button button.bt {
+        height: auto;
+    }
+    
+    .light-button button.bt .button-holder {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .light-button button.bt .light-holder {
+        height: 120px;
+        width: 80px;
+    }
+    
+    .light-button button.bt .light-holder .light {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 /* Responsive adjustments for contact section */
