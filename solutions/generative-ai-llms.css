@@ -407,11 +407,13 @@ header ul li {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-top: 100px; /* Move content down more from the top */
 }
 
 .hero-info {
     width: 90%;
     max-width: 900px;
+    margin-top: 60px; /* Additional downward spacing */
 }
 
 .hero-info p {
