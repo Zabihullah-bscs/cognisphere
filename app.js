@@ -148,3 +148,27 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Header scroll effect
+const header = document.querySelector('header');
+const heroSection = document.querySelector('.hero');
+
+window.addEventListener('scroll', () => {
+    if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.pageYOffset + window.innerHeight;
+        
+        if (window.pageYOffset > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    } else {
+        // Fallback if hero section is not found
+        if (window.pageYOffset > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+});
+
