@@ -363,6 +363,440 @@
     margin-bottom: 16px;
 }
 
+/* Keep the animation keyframes only for hero section */
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+/* Calendar Booking Section Styles */
+.calendar-booking-section {
+    width: 95%;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(10, 25, 47, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(114, 161, 222, 0.1);
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calendar-header h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ffffff, #72a1dea2, #ffffff);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 5s linear infinite;
+}
+
+.calendar-header p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.booking-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Sidebar Styles */
+.calendar-sidebar {
+    background: rgba(114, 161, 222, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(114, 161, 222, 0.1);
+}
+
+.meeting-types h3,
+.timezone-info h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.meeting-type-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.meeting-type-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.meeting-type-option input[type="radio"] {
+    display: none;
+}
+
+.option-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(114, 161, 222, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.meeting-type-option input[type="radio"]:checked + .option-content {
+    background: rgba(114, 161, 222, 0.15);
+    border-color: #72a1de;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(114, 161, 222, 0.2);
+}
+
+.option-content i {
+    font-size: 24px;
+    color: #72a1de;
+    padding: 10px;
+    background: rgba(114, 161, 222, 0.1);
+    border-radius: 50%;
+}
+
+.option-content h4 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.option-content p {
+    color: #c5c5c5;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.timezone-info {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(114, 161, 222, 0.2);
+}
+
+.timezone-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(114, 161, 222, 0.1);
+    border-radius: 8px;
+}
+
+.timezone-display i {
+    color: #72a1de;
+    font-size: 18px;
+}
+
+.timezone-display span {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+/* Calendar Main Styles */
+.calendar-main {
+    background: rgba(114, 161, 222, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(114, 161, 222, 0.1);
+}
+
+.calendar-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.nav-btn {
+    background: rgba(114, 161, 222, 0.1);
+    border: 1px solid rgba(114, 161, 222, 0.3);
+    color: #72a1de;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: rgba(114, 161, 222, 0.2);
+    transform: translateY(-1px);
+}
+
+.nav-btn i {
+    font-size: 18px;
+}
+
+#currentMonth {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.calendar-grid {
+    margin-bottom: 25px;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.calendar-weekdays div {
+    text-align: center;
+    color: #72a1de;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(114, 161, 222, 0.05);
+    border: 1px solid rgba(114, 161, 222, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.calendar-day:hover {
+    background: rgba(114, 161, 222, 0.1);
+    transform: translateY(-1px);
+}
+
+.calendar-day.selected {
+    background: #72a1de;
+    color: #000;
+    border-color: #72a1de;
+    box-shadow: 0 3px 10px rgba(114, 161, 222, 0.3);
+}
+
+.calendar-day.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day.today {
+    border-color: #72a1de;
+    background: rgba(114, 161, 222, 0.1);
+}
+
+/* Time Slots Styles */
+.time-slots h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.time-slot {
+    background: rgba(114, 161, 222, 0.05);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    color: #e0e0e0;
+    padding: 12px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.time-slot:hover {
+    background: rgba(114, 161, 222, 0.1);
+    border-color: #72a1de;
+    transform: translateY(-1px);
+}
+
+.time-slot.selected {
+    background: #72a1de;
+    color: #000;
+    border-color: #72a1de;
+    box-shadow: 0 3px 10px rgba(114, 161, 222, 0.3);
+}
+
+.time-slot.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Booking Summary Styles */
+.booking-summary {
+    background: rgba(114, 161, 222, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(114, 161, 222, 0.1);
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
+}
+
+.summary-header h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.summary-header i {
+    color: #72a1de;
+    font-size: 24px;
+}
+
+.summary-details {
+    margin-bottom: 25px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(114, 161, 222, 0.1);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item .label {
+    color: #c5c5c5;
+    font-size: 0.9rem;
+}
+
+.summary-item .value {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(114, 161, 222, 0.05);
+    border: 1px solid rgba(114, 161, 222, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #72a1de;
+    background: rgba(114, 161, 222, 0.1);
+    box-shadow: 0 0 0 3px rgba(114, 161, 222, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.book-meeting-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #72a1de, #4682b4);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.book-meeting-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(114, 161, 222, 0.3);
+}
+
+.book-meeting-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(114, 161, 222, 0.3);
+}
+
+.book-meeting-btn i {
+    font-size: 18px;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 1200px) {
     .solutions-grid {
@@ -473,11 +907,56 @@
         padding: 12px 25px;
         font-size: 1rem;
     }
-}
-
-/* Keep the animation keyframes only for hero section */
-@keyframes animate-gradient {
-    to {
-        background-position: 200%;
+    
+    /* Calendar Booking Responsive */
+    .calendar-booking-section {
+        width: 95%;
+        padding: 25px 20px;
+        margin: 40px auto;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2rem;
+    }
+    
+    .calendar-header p {
+        font-size: 1rem;
+    }
+    
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .calendar-sidebar {
+        order: 1;
+    }
+    
+    .calendar-main {
+        order: 2;
+    }
+    
+    .booking-summary {
+        order: 3;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .meeting-type-options {
+        gap: 10px;
+    }
+    
+    .option-content {
+        padding: 12px;
+    }
+    
+    .option-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .option-content p {
+        font-size: 0.8rem;
     }
 }

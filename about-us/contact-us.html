@@ -175,6 +175,156 @@
             </div>
         </section>
         <br><br><br><br><br><br>
+        
+        <!-- Calendar Booking Section -->
+        <section class="calendar-booking-section" data-aos="fade-up" data-aos-duration="1500">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h2 class="section-title">Schedule a <span style="color: #72a1dea2;">Meeting</span></h2>
+                    <p>Book a consultation with our AI experts. Choose a convenient time and we'll send you a meeting link.</p>
+                </div>
+                
+                <div class="booking-wrapper">
+                    <div class="calendar-sidebar">
+                        <div class="meeting-types">
+                            <h3>Meeting Types</h3>
+                            <div class="meeting-type-options">
+                                <label class="meeting-type-option">
+                                    <input type="radio" name="meetingType" value="consultation" checked>
+                                    <div class="option-content">
+                                        <i class='bx bx-conversation'></i>
+                                        <div>
+                                            <h4>Free Consultation</h4>
+                                            <p>30 min • Discuss your AI needs</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="meeting-type-option">
+                                    <input type="radio" name="meetingType" value="project">
+                                    <div class="option-content">
+                                        <i class='bx bx-rocket'></i>
+                                        <div>
+                                            <h4>Project Discussion</h4>
+                                            <p>60 min • Deep dive into your project</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="meeting-type-option">
+                                    <input type="radio" name="meetingType" value="technical">
+                                    <div class="option-content">
+                                        <i class='bx bx-code-alt'></i>
+                                        <div>
+                                            <h4>Technical Review</h4>
+                                            <p>45 min • Technical architecture review</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="timezone-info">
+                            <h3>Timezone</h3>
+                            <div class="timezone-display">
+                                <i class='bx bx-time'></i>
+                                <span>Pakistan Standard Time (PST)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-main">
+                        <div class="calendar-navigation">
+                            <button class="nav-btn" id="prevMonth">
+                                <i class='bx bx-chevron-left'></i>
+                            </button>
+                            <h3 id="currentMonth">December 2024</h3>
+                            <button class="nav-btn" id="nextMonth">
+                                <i class='bx bx-chevron-right'></i>
+                            </button>
+                        </div>
+                        
+                        <div class="calendar-grid">
+                            <div class="calendar-weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days" id="calendarDays">
+                                <!-- Calendar days will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="time-slots" id="timeSlots">
+                            <h3>Available Times</h3>
+                            <div class="time-grid">
+                                <button class="time-slot" data-time="09:00">9:00 AM</button>
+                                <button class="time-slot" data-time="10:00">10:00 AM</button>
+                                <button class="time-slot" data-time="11:00">11:00 AM</button>
+                                <button class="time-slot" data-time="12:00">12:00 PM</button>
+                                <button class="time-slot" data-time="14:00">2:00 PM</button>
+                                <button class="time-slot" data-time="15:00">3:00 PM</button>
+                                <button class="time-slot" data-time="16:00">4:00 PM</button>
+                                <button class="time-slot" data-time="17:00">5:00 PM</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary">
+                        <div class="summary-header">
+                            <h3>Booking Summary</h3>
+                            <i class='bx bx-calendar-check'></i>
+                        </div>
+                        
+                        <div class="summary-details" id="summaryDetails">
+                            <div class="summary-item">
+                                <span class="label">Meeting Type:</span>
+                                <span class="value" id="summaryMeetingType">Free Consultation</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Date:</span>
+                                <span class="value" id="summaryDate">Select a date</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Time:</span>
+                                <span class="value" id="summaryTime">Select a time</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Duration:</span>
+                                <span class="value" id="summaryDuration">30 minutes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <label for="visitorName">Full Name *</label>
+                                <input type="text" id="visitorName" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="visitorEmail">Email Address *</label>
+                                <input type="email" id="visitorEmail" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="visitorPhone">Phone Number</label>
+                                <input type="tel" id="visitorPhone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="meetingNotes">Meeting Notes</label>
+                                <textarea id="meetingNotes" placeholder="Brief description of what you'd like to discuss" rows="3"></textarea>
+                            </div>
+                            
+                            <button class="book-meeting-btn" id="bookMeetingBtn" disabled>
+                                <i class='bx bx-calendar-plus'></i>
+                                Schedule Meeting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section class="engineering-solutions" data-aos="fade-up" data-aos-duration="1500">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Our Global Presence</h2>
             <p>We serve clients worldwide with our expert AI and data solutions. Find our offices or reach out to our global team.</p>
@@ -322,6 +472,322 @@
                 }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
                 observer.observe(stat);
             });
+        });
+    </script>
+    
+    <!-- Calendar Booking JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calendar functionality
+            let currentDate = new Date();
+            let selectedDate = null;
+            let selectedTime = null;
+            let selectedMeetingType = 'consultation';
+            
+            const meetingTypes = {
+                consultation: { name: 'Free Consultation', duration: '30 minutes' },
+                project: { name: 'Project Discussion', duration: '60 minutes' },
+                technical: { name: 'Technical Review', duration: '45 minutes' }
+            };
+            
+            // Initialize calendar
+            function initCalendar() {
+                updateCalendar();
+                updateSummary();
+                
+                // Event listeners
+                document.getElementById('prevMonth').addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    updateCalendar();
+                });
+                
+                document.getElementById('nextMonth').addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    updateCalendar();
+                });
+                
+                // Meeting type selection
+                document.querySelectorAll('input[name="meetingType"]').forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        selectedMeetingType = this.value;
+                        updateSummary();
+                    });
+                });
+                
+                // Time slot selection
+                document.querySelectorAll('.time-slot').forEach(slot => {
+                    slot.addEventListener('click', function() {
+                        if (!this.classList.contains('disabled')) {
+                            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                            this.classList.add('selected');
+                            selectedTime = this.getAttribute('data-time');
+                            updateSummary();
+                            checkFormValidity();
+                        }
+                    });
+                });
+                
+                // Form validation
+                document.getElementById('visitorName').addEventListener('input', checkFormValidity);
+                document.getElementById('visitorEmail').addEventListener('input', checkFormValidity);
+                
+                // Booking button
+                document.getElementById('bookMeetingBtn').addEventListener('click', handleBooking);
+            }
+            
+            function updateCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                
+                // Update month display
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                  'July', 'August', 'September', 'October', 'November', 'December'];
+                document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+                
+                // Generate calendar days
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const startDate = new Date(firstDay);
+                startDate.setDate(startDate.getDate() - firstDay.getDay());
+                
+                const calendarDays = document.getElementById('calendarDays');
+                calendarDays.innerHTML = '';
+                
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                for (let i = 0; i < 42; i++) {
+                    const date = new Date(startDate);
+                    date.setDate(startDate.getDate() + i);
+                    
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    dayElement.textContent = date.getDate();
+                    
+                    // Check if date is in current month
+                    if (date.getMonth() !== month) {
+                        dayElement.classList.add('disabled');
+                    } else {
+                        // Check if date is today
+                        if (date.getTime() === today.getTime()) {
+                            dayElement.classList.add('today');
+                        }
+                        
+                        // Check if date is in the past
+                        if (date < today) {
+                            dayElement.classList.add('disabled');
+                        } else {
+                            // Add click event for valid dates
+                            dayElement.addEventListener('click', () => {
+                                document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                                dayElement.classList.add('selected');
+                                selectedDate = date;
+                                updateSummary();
+                                checkFormValidity();
+                            });
+                        }
+                    }
+                    
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+            
+            function updateSummary() {
+                document.getElementById('summaryMeetingType').textContent = meetingTypes[selectedMeetingType].name;
+                document.getElementById('summaryDuration').textContent = meetingTypes[selectedMeetingType].duration;
+                
+                if (selectedDate) {
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    document.getElementById('summaryDate').textContent = selectedDate.toLocaleDateString('en-US', options);
+                } else {
+                    document.getElementById('summaryDate').textContent = 'Select a date';
+                }
+                
+                if (selectedTime) {
+                    const time = new Date(`2000-01-01T${selectedTime}:00`);
+                    document.getElementById('summaryTime').textContent = time.toLocaleTimeString('en-US', { 
+                        hour: 'numeric', 
+                        minute: '2-digit',
+                        hour12: true 
+                    });
+                } else {
+                    document.getElementById('summaryTime').textContent = 'Select a time';
+                }
+            }
+            
+            function checkFormValidity() {
+                const name = document.getElementById('visitorName').value.trim();
+                const email = document.getElementById('visitorEmail').value.trim();
+                const bookBtn = document.getElementById('bookMeetingBtn');
+                
+                if (name && email && selectedDate && selectedTime) {
+                    bookBtn.disabled = false;
+                } else {
+                    bookBtn.disabled = true;
+                }
+            }
+            
+            function handleBooking() {
+                const name = document.getElementById('visitorName').value.trim();
+                const email = document.getElementById('visitorEmail').value.trim();
+                const phone = document.getElementById('visitorPhone').value.trim();
+                const notes = document.getElementById('meetingNotes').value.trim();
+                
+                // Create booking data object
+                const bookingData = {
+                    meetingType: selectedMeetingType,
+                    meetingName: meetingTypes[selectedMeetingType].name,
+                    duration: meetingTypes[selectedMeetingType].duration,
+                    date: selectedDate.toISOString().split('T')[0],
+                    time: selectedTime,
+                    visitorName: name,
+                    visitorEmail: email,
+                    visitorPhone: phone,
+                    meetingNotes: notes,
+                    timezone: 'Pakistan Standard Time (PST)'
+                };
+                
+                // Show success message (replace with actual backend integration)
+                showBookingSuccess(bookingData);
+            }
+            
+            function showBookingSuccess(bookingData) {
+                // Create success modal
+                const modal = document.createElement('div');
+                modal.className = 'booking-success-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <i class='bx bx-check-circle'></i>
+                            <h3>Meeting Scheduled Successfully!</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>Your meeting has been scheduled for:</p>
+                            <div class="meeting-details">
+                                <div class="detail-item">
+                                    <strong>Date:</strong> ${new Date(bookingData.date).toLocaleDateString('en-US', { 
+                                        weekday: 'long', 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric' 
+                                    })}
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Time:</strong> ${new Date(`2000-01-01T${bookingData.time}:00`).toLocaleTimeString('en-US', { 
+                                        hour: 'numeric', 
+                                        minute: '2-digit',
+                                        hour12: true 
+                                    })} PST
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Type:</strong> ${bookingData.meetingName}
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Duration:</strong> ${bookingData.duration}
+                                </div>
+                            </div>
+                            <p class="email-notice">You will receive a confirmation email with meeting details and video call link shortly.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="modal-btn" onclick="this.closest('.booking-success-modal').remove()">Close</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Add modal styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    .booking-success-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        backdrop-filter: blur(5px);
+                    }
+                    .modal-content {
+                        background: rgba(10, 25, 47, 0.95);
+                        border: 1px solid rgba(114, 161, 222, 0.3);
+                        border-radius: 15px;
+                        padding: 30px;
+                        max-width: 500px;
+                        width: 90%;
+                        text-align: center;
+                        backdrop-filter: blur(10px);
+                    }
+                    .modal-header i {
+                        font-size: 60px;
+                        color: #4CAF50;
+                        margin-bottom: 20px;
+                    }
+                    .modal-header h3 {
+                        color: #ffffff;
+                        margin: 0 0 20px 0;
+                        font-size: 1.5rem;
+                    }
+                    .modal-body p {
+                        color: #e0e0e0;
+                        margin-bottom: 20px;
+                    }
+                    .meeting-details {
+                        background: rgba(114, 161, 222, 0.1);
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin: 20px 0;
+                        text-align: left;
+                    }
+                    .detail-item {
+                        color: #ffffff;
+                        margin-bottom: 10px;
+                        font-size: 0.95rem;
+                    }
+                    .detail-item:last-child {
+                        margin-bottom: 0;
+                    }
+                    .email-notice {
+                        color: #72a1de !important;
+                        font-style: italic;
+                        font-size: 0.9rem;
+                    }
+                    .modal-btn {
+                        background: linear-gradient(45deg, #72a1de, #4682b4);
+                        border: none;
+                        color: #000;
+                        padding: 12px 30px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                    }
+                    .modal-btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(114, 161, 222, 0.3);
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                document.body.appendChild(modal);
+                
+                // Reset form
+                document.getElementById('visitorName').value = '';
+                document.getElementById('visitorEmail').value = '';
+                document.getElementById('visitorPhone').value = '';
+                document.getElementById('meetingNotes').value = '';
+                selectedDate = null;
+                selectedTime = null;
+                document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                updateSummary();
+                checkFormValidity();
+            }
+            
+            // Initialize the calendar
+            initCalendar();
         });
     </script>
 </body>
