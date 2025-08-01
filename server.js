@@ -108,6 +108,10 @@ app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
+}).on('error', (error) => {
+    console.error('❌ Server failed to start:', error);
+    process.exit(1);
 });
 
 module.exports = app; 
