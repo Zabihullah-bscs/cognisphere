@@ -1,4 +1,4 @@
-const sqlite3 = require('sqlite3').verbose();
+const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
@@ -12,68 +12,68 @@ if (!fs.existsSync(dbDir)) {
 }
 
 // Create database connection
-const db = new sqlite3.Database(dbPath);
+const db = new Database(dbPath);
 
 // Initialize database tables
 async function initializeDatabase() {
-    return new Promise((resolve, reject) => {
-        db.serialize(() => {
-            // Create bookings table
-            db.run(`
-                CREATE TABLE IF NOT EXISTS bookings (
-                    id TEXT PRIMARY KEY,
-                    meeting_type TEXT NOT NULL,
-                    meeting_name TEXT NOT NULL,
-                    duration INTEGER NOT NULL,
-                    date TEXT NOT NULL,
-                    time TEXT NOT NULL,
-                    start_date_time TEXT NOT NULL,
-                    end_date_time TEXT NOT NULL,
-                    visitor_name TEXT NOT NULL,
-                    visitor_email TEXT NOT NULL,
-                    visitor_phone TEXT,
-                    meeting_notes TEXT,
-                    timezone TEXT NOT NULL,
-                    status TEXT DEFAULT 'confirmed',
-                    created_at TEXT NOT NULL,
-                    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-                )
-            `);
+    try {
+        // Create bookings table
+        db.exec(`
+            CREATE TABLE IF NOT EXISTS bookings (
+                id TEXT PRIMARY KEY,
+                meeting_type TEXT NOT NULL,
+                meeting_name TEXT NOT NULL,
+                duration INTEGER NOT NULL,
+                date TEXT NOT NULL,
+                time TEXT NOT NULL,
+                start_date_time TEXT NOT NULL,
+                end_date_time TEXT NOT NULL,
+                visitor_name TEXT NOT NULL,
+                visitor_email TEXT NOT NULL,
+                visitor_phone TEXT,
+                meeting_notes TEXT,
+                timezone TEXT NOT NULL,
+                status TEXT DEFAULT 'confirmed',
+                created_at TEXT NOT NULL,
+                updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
 
-            // Create contact_inquiries table
-            db.run(`
-                CREATE TABLE IF NOT EXISTS contact_inquiries (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL,
-                    email TEXT NOT NULL,
-                    phone TEXT,
-                    subject TEXT NOT NULL,
-                    message TEXT NOT NULL,
-                    company TEXT,
-                    service TEXT,
-                    status TEXT DEFAULT 'new',
-                    admin_notes TEXT,
-                    created_at TEXT NOT NULL,
-                    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-                )
-            `);
+        // Create contact_inquiries table
+        db.exec(`
+            CREATE TABLE IF NOT EXISTS contact_inquiries (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                phone TEXT,
+                subject TEXT NOT NULL,
+                message TEXT NOT NULL,
+                company TEXT,
+                service TEXT,
+                status TEXT DEFAULT 'new',
+                admin_notes TEXT,
+                created_at TEXT NOT NULL,
+                updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
 
-            // Create indexes for better performance
-            db.run('CREATE INDEX IF NOT EXISTS idx_bookings_date ON bookings(date)');
-            db.run('CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status)');
-            db.run('CREATE INDEX IF NOT EXISTS idx_bookings_email ON bookings(visitor_email)');
-            db.run('CREATE INDEX IF NOT EXISTS idx_inquiries_status ON contact_inquiries(status)');
-            db.run('CREATE INDEX IF NOT EXISTS idx_inquiries_created_at ON contact_inquiries(created_at)');
+        // Create indexes for better performance
+        db.exec('CREATE INDEX IF NOT EXISTS idx_bookings_date ON bookings(date)');
+        db.exec('CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status)');
+        db.exec('CREATE INDEX IF NOT EXISTS idx_bookings_email ON bookings(visitor_email)');
+        db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_status ON contact_inquiries(status)');
+        db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_created_at ON contact_inquiries(created_at)');
 
-            console.log('✅ Database initialized successfully');
-            resolve();
-        });
-    });
+        console.log('✅ Database initialized successfully');
+    } catch (error) {
+        console.error('❌ Database initialization failed:', error);
+        throw error;
+    }
 }
 
 // Booking operations
 async function createBooking(booking) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = `
             INSERT INTO bookings (
                 id, meeting_type, meeting_name, duration, date, time,
@@ -89,88 +89,78 @@ async function createBooking(booking) {
             booking.meetingNotes, booking.timezone, booking.status, booking.createdAt
         ];
 
-        db.run(query, params, function(err) {
-            if (err) {
-                console.error('Error creating booking:', err);
-                reject(err);
-            } else {
-                console.log('Booking created with ID:', booking.id);
-                resolve(booking.id);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        stmt.run(params);
+        
+        console.log('Booking created with ID:', booking.id);
+        return booking.id;
+    } catch (error) {
+        console.error('Error creating booking:', error);
+        throw error;
+    }
 }
 
 async function getBookingsByDate(date) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'SELECT * FROM bookings WHERE date = ? AND status != "cancelled" ORDER BY time';
-        
-        db.all(query, [date], (err, rows) => {
-            if (err) {
-                console.error('Error fetching bookings by date:', err);
-                reject(err);
-            } else {
-                resolve(rows || []);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const rows = stmt.all(date);
+        return rows || [];
+    } catch (error) {
+        console.error('Error fetching bookings by date:', error);
+        throw error;
+    }
 }
 
 async function getBookingById(bookingId) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'SELECT * FROM bookings WHERE id = ?';
-        
-        db.get(query, [bookingId], (err, row) => {
-            if (err) {
-                console.error('Error fetching booking by ID:', err);
-                reject(err);
-            } else {
-                resolve(row || null);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const row = stmt.get(bookingId);
+        return row || null;
+    } catch (error) {
+        console.error('Error fetching booking by ID:', error);
+        throw error;
+    }
 }
 
 async function checkAvailability(date, time, duration = 30) {
-    return new Promise((resolve, reject) => {
+    try {
         // Get all bookings for the date that are not cancelled
         const query = 'SELECT time, duration FROM bookings WHERE date = ? AND status != "cancelled"';
+        const stmt = db.prepare(query);
+        const rows = stmt.all(date);
         
-        db.all(query, [date], (err, rows) => {
-            if (err) {
-                console.error('Error checking availability:', err);
-                reject(err);
-            } else {
-                // Convert time to minutes for easier comparison
-                const requestedTimeMinutes = parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]);
-                const requestedEndMinutes = requestedTimeMinutes + duration;
-                
-                // Check for conflicts with existing bookings
-                for (const booking of rows) {
-                    const bookingTimeMinutes = parseInt(booking.time.split(':')[0]) * 60 + parseInt(booking.time.split(':')[1]);
-                    const bookingEndMinutes = bookingTimeMinutes + booking.duration;
-                    
-                    // Check if the requested booking conflicts with this existing booking
-                    // A conflict occurs if:
-                    // 1. Requested start time is during an existing booking, OR
-                    // 2. Requested end time is during an existing booking, OR
-                    // 3. Requested booking completely contains an existing booking
-                    if ((requestedTimeMinutes >= bookingTimeMinutes && requestedTimeMinutes < bookingEndMinutes) ||
-                        (requestedEndMinutes > bookingTimeMinutes && requestedEndMinutes <= bookingEndMinutes) ||
-                        (requestedTimeMinutes <= bookingTimeMinutes && requestedEndMinutes >= bookingEndMinutes)) {
-                        resolve(false); // Conflict found
-                        return;
-                    }
-                }
-                
-                resolve(true); // No conflicts found
+        // Convert time to minutes for easier comparison
+        const requestedTimeMinutes = parseInt(time.split(':')[0]) * 60 + parseInt(time.split(':')[1]);
+        const requestedEndMinutes = requestedTimeMinutes + duration;
+        
+        // Check for conflicts with existing bookings
+        for (const booking of rows) {
+            const bookingTimeMinutes = parseInt(booking.time.split(':')[0]) * 60 + parseInt(booking.time.split(':')[1]);
+            const bookingEndMinutes = bookingTimeMinutes + booking.duration;
+            
+            // Check if the requested booking conflicts with this existing booking
+            // A conflict occurs if:
+            // 1. Requested start time is during an existing booking, OR
+            // 2. Requested end time is during an existing booking, OR
+            // 3. Requested booking completely contains an existing booking
+            if ((requestedTimeMinutes >= bookingTimeMinutes && requestedTimeMinutes < bookingEndMinutes) ||
+                (requestedEndMinutes > bookingTimeMinutes && requestedEndMinutes <= bookingEndMinutes) ||
+                (requestedTimeMinutes <= bookingTimeMinutes && requestedEndMinutes >= bookingEndMinutes)) {
+                return false; // Conflict found
             }
-        });
-    });
+        }
+        
+        return true; // No conflicts found
+    } catch (error) {
+        console.error('Error checking availability:', error);
+        throw error;
+    }
 }
 
 async function getAllBookings(page = 1, limit = 20, filters = {}) {
-    return new Promise((resolve, reject) => {
+    try {
         let query = 'SELECT * FROM bookings WHERE 1=1';
         const params = [];
         const conditions = [];
@@ -208,66 +198,54 @@ async function getAllBookings(page = 1, limit = 20, filters = {}) {
             countQuery += ' AND ' + conditions.join(' AND ');
         }
 
-        db.get(countQuery, params.slice(0, -2), (err, countRow) => {
-            if (err) {
-                console.error('Error getting booking count:', err);
-                reject(err);
-                return;
-            }
+        const countStmt = db.prepare(countQuery);
+        const countRow = countStmt.get(params.slice(0, -2));
 
-            db.all(query, params, (err, rows) => {
-                if (err) {
-                    console.error('Error fetching all bookings:', err);
-                    reject(err);
-                } else {
-                    resolve({
-                        data: rows || [],
-                        pagination: {
-                            page,
-                            limit,
-                            total: countRow.total,
-                            totalPages: Math.ceil(countRow.total / limit)
-                        }
-                    });
-                }
-            });
-        });
-    });
+        const stmt = db.prepare(query);
+        const rows = stmt.all(params);
+
+        return {
+            data: rows || [],
+            pagination: {
+                page,
+                limit,
+                total: countRow.total,
+                totalPages: Math.ceil(countRow.total / limit)
+            }
+        };
+    } catch (error) {
+        console.error('Error fetching all bookings:', error);
+        throw error;
+    }
 }
 
 async function updateBookingStatus(bookingId, status) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'UPDATE bookings SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?';
-        
-        db.run(query, [status, bookingId], function(err) {
-            if (err) {
-                console.error('Error updating booking status:', err);
-                reject(err);
-            } else {
-                resolve(this.changes > 0);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const result = stmt.run(status, bookingId);
+        return result.changes > 0;
+    } catch (error) {
+        console.error('Error updating booking status:', error);
+        throw error;
+    }
 }
 
 async function cancelBooking(bookingId, reason = null) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'UPDATE bookings SET status = "cancelled", updated_at = CURRENT_TIMESTAMP WHERE id = ?';
-        
-        db.run(query, [bookingId], function(err) {
-            if (err) {
-                console.error('Error cancelling booking:', err);
-                reject(err);
-            } else {
-                resolve(this.changes > 0);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const result = stmt.run(bookingId);
+        return result.changes > 0;
+    } catch (error) {
+        console.error('Error cancelling booking:', error);
+        throw error;
+    }
 }
 
 // Contact inquiry operations
 async function saveContactInquiry(inquiry) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = `
             INSERT INTO contact_inquiries (
                 name, email, phone, subject, message, company, service, status, created_at
@@ -279,20 +257,19 @@ async function saveContactInquiry(inquiry) {
             inquiry.message, inquiry.company, inquiry.service, inquiry.status, inquiry.createdAt
         ];
 
-        db.run(query, params, function(err) {
-            if (err) {
-                console.error('Error saving contact inquiry:', err);
-                reject(err);
-            } else {
-                console.log('Contact inquiry saved with ID:', this.lastID);
-                resolve(this.lastID);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const result = stmt.run(params);
+        
+        console.log('Contact inquiry saved with ID:', result.lastInsertRowid);
+        return result.lastInsertRowid;
+    } catch (error) {
+        console.error('Error saving contact inquiry:', error);
+        throw error;
+    }
 }
 
 async function getAllContactInquiries(page = 1, limit = 20, filters = {}) {
-    return new Promise((resolve, reject) => {
+    try {
         let query = 'SELECT * FROM contact_inquiries WHERE 1=1';
         const params = [];
         const conditions = [];
@@ -330,66 +307,54 @@ async function getAllContactInquiries(page = 1, limit = 20, filters = {}) {
             countQuery += ' AND ' + conditions.join(' AND ');
         }
 
-        db.get(countQuery, params.slice(0, -2), (err, countRow) => {
-            if (err) {
-                console.error('Error getting inquiry count:', err);
-                reject(err);
-                return;
-            }
+        const countStmt = db.prepare(countQuery);
+        const countRow = countStmt.get(params.slice(0, -2));
 
-            db.all(query, params, (err, rows) => {
-                if (err) {
-                    console.error('Error fetching all inquiries:', err);
-                    reject(err);
-                } else {
-                    resolve({
-                        data: rows || [],
-                        pagination: {
-                            page,
-                            limit,
-                            total: countRow.total,
-                            totalPages: Math.ceil(countRow.total / limit)
-                        }
-                    });
-                }
-            });
-        });
-    });
+        const stmt = db.prepare(query);
+        const rows = stmt.all(params);
+
+        return {
+            data: rows || [],
+            pagination: {
+                page,
+                limit,
+                total: countRow.total,
+                totalPages: Math.ceil(countRow.total / limit)
+            }
+        };
+    } catch (error) {
+        console.error('Error fetching all inquiries:', error);
+        throw error;
+    }
 }
 
 async function getContactInquiryById(inquiryId) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'SELECT * FROM contact_inquiries WHERE id = ?';
-        
-        db.get(query, [inquiryId], (err, row) => {
-            if (err) {
-                console.error('Error fetching inquiry by ID:', err);
-                reject(err);
-            } else {
-                resolve(row || null);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const row = stmt.get(inquiryId);
+        return row || null;
+    } catch (error) {
+        console.error('Error fetching inquiry by ID:', error);
+        throw error;
+    }
 }
 
 async function updateInquiryStatus(inquiryId, status, notes = null) {
-    return new Promise((resolve, reject) => {
+    try {
         const query = 'UPDATE contact_inquiries SET status = ?, admin_notes = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?';
-        
-        db.run(query, [status, notes, inquiryId], function(err) {
-            if (err) {
-                console.error('Error updating inquiry status:', err);
-                reject(err);
-            } else {
-                resolve(this.changes > 0);
-            }
-        });
-    });
+        const stmt = db.prepare(query);
+        const result = stmt.run(status, notes, inquiryId);
+        return result.changes > 0;
+    } catch (error) {
+        console.error('Error updating inquiry status:', error);
+        throw error;
+    }
 }
 
 // Dashboard statistics
 async function getDashboardStats() {
-    return new Promise((resolve, reject) => {
+    try {
         const queries = {
             totalBookings: 'SELECT COUNT(*) as count FROM bookings',
             confirmedBookings: 'SELECT COUNT(*) as count FROM bookings WHERE status = "confirmed"',
@@ -402,35 +367,33 @@ async function getDashboardStats() {
         };
 
         const stats = {};
-        let completedQueries = 0;
-        const totalQueries = Object.keys(queries).length;
 
         Object.keys(queries).forEach(key => {
-            db.get(queries[key], (err, row) => {
-                if (err) {
-                    console.error(`Error getting ${key} stats:`, err);
-                } else {
-                    stats[key] = row.count;
-                }
-                
-                completedQueries++;
-                if (completedQueries === totalQueries) {
-                    resolve(stats);
-                }
-            });
+            try {
+                const stmt = db.prepare(queries[key]);
+                const row = stmt.get();
+                stats[key] = row.count;
+            } catch (error) {
+                console.error(`Error getting ${key} stats:`, error);
+                stats[key] = 0;
+            }
         });
-    });
+
+        return stats;
+    } catch (error) {
+        console.error('Error getting dashboard stats:', error);
+        throw error;
+    }
 }
 
 // Close database connection
 function closeDatabase() {
-    db.close((err) => {
-        if (err) {
-            console.error('Error closing database:', err);
-        } else {
-            console.log('Database connection closed');
-        }
-    });
+    try {
+        db.close();
+        console.log('Database connection closed');
+    } catch (error) {
+        console.error('Error closing database:', error);
+    }
 }
 
 // Initialize database on module load
