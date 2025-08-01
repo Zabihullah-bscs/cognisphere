@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Meeting Confirmed - Cognisphere</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header { 
+            background: linear-gradient(135deg, #72a1de, #4682b4); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content { 
+            padding: 30px 20px; 
+            background: #ffffff; 
+        }
+        .meeting-details { 
+            background: #f8f9fa; 
+            padding: 25px; 
+            margin: 25px 0; 
+            border-left: 5px solid #72a1de; 
+            border-radius: 8px;
+        }
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .detail-item strong {
+            min-width: 120px;
+            color: #2c3e50;
+        }
+        .meeting-link {
+            background: #72a1de;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .meeting-link:hover {
+            background: #4682b4;
+        }
+        .footer { 
+            text-align: center; 
+            padding: 30px 20px; 
+            color: #666; 
+            font-size: 14px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .timezone-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .contact-info {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌐 Cognisphere</div>
+            <h1>Meeting Confirmed!</h1>
+            <p>Your consultation has been successfully scheduled</p>
+        </div>
+        
+        <div class="content">
+            <p>Dear <strong>{{visitorName}}</strong>,</p>
+            
+            <p>Thank you for choosing Cognisphere! Your meeting has been confirmed and we're excited to discuss your AI and data needs.</p>
+            
+            <div class="meeting-details">
+                <h3 style="margin-top: 0; color: #2c3e50;">📅 Meeting Details</h3>
+                
+                <div class="detail-item">
+                    <strong>Meeting Type:</strong>
+                    <span>{{meetingName}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Date:</strong>
+                    <span>{{date}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Time:</strong>
+                    <span>{{time}} (Pakistan Standard Time)</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Duration:</strong>
+                    <span>{{duration}} minutes</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Meeting Link:</strong>
+                    <a href="{{meetingLink}}" class="meeting-link">🔗 Join Meeting</a>
+                </div>
+            </div>
+            
+            <div class="timezone-note">
+                <strong>⏰ Timezone Note:</strong> All times are in Pakistan Standard Time (PST). Please adjust for your local timezone.
+            </div>
+            
+            <div class="contact-info">
+                <h4 style="margin-top: 0;">📞 Need to Reschedule?</h4>
+                <p>If you need to reschedule or cancel your meeting, please contact us at least 24 hours in advance:</p>
+                                 <p><strong>Email:</strong> admin@cogni-sphere.com<br>
+                 <strong>Phone:</strong> +92-XXX-XXXXXXX</p>
+            </div>
+            
+            <h3>What to Expect:</h3>
+            <ul>
+                <li>We'll discuss your current challenges and goals</li>
+                <li>Explore potential AI and data solutions</li>
+                <li>Provide actionable recommendations</li>
+                <li>Answer any questions you may have</li>
+            </ul>
+            
+            <p>We look forward to meeting with you and helping you achieve your digital transformation goals!</p>
+            
+            <p>Best regards,<br>
+            <strong>The Cognisphere Team</strong></p>
+        </div>
+        
+                 <div class="footer">
+             <p><strong>Cognisphere</strong> - AI & Data Solutions</p>
+             <p>admin@cogni-sphere.com | +92-XXX-XXXXXXX</p>
+             <p>Pakistan | <a href="https://cogni-sphere.com" style="color: #72a1de;">cogni-sphere.com</a></p>
+         </div>
+    </div>
+</body>
+</html> 

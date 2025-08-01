@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>New Meeting Booking - Cognisphere</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header { 
+            background: linear-gradient(135deg, #28a745, #20c997); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content { 
+            padding: 30px 20px; 
+            background: #ffffff; 
+        }
+        .booking-details { 
+            background: #f8f9fa; 
+            padding: 25px; 
+            margin: 25px 0; 
+            border-left: 5px solid #28a745; 
+            border-radius: 8px;
+        }
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .detail-item strong {
+            min-width: 140px;
+            color: #2c3e50;
+        }
+        .action-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        .footer { 
+            text-align: center; 
+            padding: 30px 20px; 
+            color: #666; 
+            font-size: 14px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .priority-badge {
+            background: #dc3545;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .notes-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌐 Cognisphere</div>
+            <h1>New Meeting Booking</h1>
+            <p>A new consultation has been scheduled</p>
+        </div>
+        
+        <div class="content">
+            <div class="priority-badge">🔔 NEW BOOKING</div>
+            
+            <p>A new meeting has been booked through the website. Please review the details below:</p>
+            
+            <div class="booking-details">
+                <h3 style="margin-top: 0; color: #2c3e50;">📋 Booking Information</h3>
+                
+                <div class="detail-item">
+                    <strong>Visitor Name:</strong>
+                    <span>{{visitorName}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Email Address:</strong>
+                    <span>{{visitorEmail}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Phone Number:</strong>
+                    <span>{{visitorPhone}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Meeting Type:</strong>
+                    <span>{{meetingName}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Date:</strong>
+                    <span>{{date}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Time:</strong>
+                    <span>{{time}} (Pakistan Standard Time)</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Duration:</strong>
+                    <span>{{duration}} minutes</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Meeting Link:</strong>
+                    <span>{{meetingLink}}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <strong>Booking ID:</strong>
+                    <span>{{bookingId}}</span>
+                </div>
+            </div>
+            
+            <div class="notes-section" style="display: {{meetingNotes ? 'block' : 'none'}};">
+                <h4 style="margin-top: 0;">📝 Additional Notes:</h4>
+                <p>{{meetingNotes}}</p>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="{{meetingLink}}" class="btn btn-primary">🔗 Join Meeting</a>
+                <a href="mailto:{{visitorEmail}}" class="btn btn-success">📧 Contact Visitor</a>
+            </div>
+            
+            <h3>Next Steps:</h3>
+            <ol>
+                <li>Add this meeting to your calendar</li>
+                <li>Prepare for the consultation based on the meeting type</li>
+                <li>Send a follow-up email if needed</li>
+                <li>Join the meeting 5 minutes before the scheduled time</li>
+            </ol>
+            
+            <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="margin-top: 0;">💡 Meeting Preparation Tips:</h4>
+                <ul>
+                    <li>Review the visitor's notes and requirements</li>
+                    <li>Prepare relevant case studies or examples</li>
+                    <li>Have your camera and microphone ready</li>
+                    <li>Keep the meeting link handy</li>
+                </ul>
+            </div>
+        </div>
+        
+                 <div class="footer">
+             <p><strong>Cognisphere</strong> - AI & Data Solutions</p>
+             <p>admin@cogni-sphere.com | +92-XXX-XXXXXXX</p>
+             <p>Pakistan | <a href="https://cogni-sphere.com" style="color: #28a745;">cogni-sphere.com</a></p>
+         </div>
+    </div>
+</body>
+</html> 
