@@ -6,7 +6,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Import routes
 const bookingRoutes = require('./routes/booking');
@@ -109,6 +109,8 @@ app.listen(PORT, () => {
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
+    console.log(`🔧 Railway PORT env: ${process.env.PORT || 'not set'}`);
+    console.log(`🔧 Process env keys: ${Object.keys(process.env).filter(key => key.includes('PORT')).join(', ')}`);
 }).on('error', (error) => {
     console.error('❌ Server failed to start:', error);
     process.exit(1);
