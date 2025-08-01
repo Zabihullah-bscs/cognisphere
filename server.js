@@ -13,6 +13,9 @@ const bookingRoutes = require('./routes/booking');
 const contactRoutes = require('./routes/contact');
 const adminRoutes = require('./routes/admin');
 
+// Initialize database
+const { initializeDatabase } = require('./services/databaseService');
+
 // Security middleware
 app.use(helmet({
     contentSecurityPolicy: {
@@ -62,12 +65,24 @@ app.get('/api/health', (req, res) => {
     res.json({ 
         status: 'OK', 
         timestamp: new Date().toISOString(),
-        uptime: process.uptime()
+        uptime: process.uptime(),
+        port: PORT,
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
+
+// Simple root endpoint for testing
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Cognisphere Backend API',
+        status: 'running',
+        timestamp: new Date().toISOString(),
+        port: PORT
     });
 });
 
 // Serve HTML files
-app.get('/', (req, res) => {
+app.get('/index.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
@@ -104,13 +119,21 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
     console.log(`🔧 Railway PORT env: ${process.env.PORT || 'not set'}`);
     console.log(`🔧 Process env keys: ${Object.keys(process.env).filter(key => key.includes('PORT')).join(', ')}`);
+    
+    try {
+        await initializeDatabase();
+        console.log('✅ Database initialized successfully');
+    } catch (error) {
+        console.error('❌ Database initialization failed:', error);
+        // Don't exit, let the server continue without database
+    }
 }).on('error', (error) => {
     console.error('❌ Server failed to start:', error);
     process.exit(1);
