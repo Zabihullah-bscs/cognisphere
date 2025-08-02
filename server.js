@@ -52,43 +52,25 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, '.')));
-
-// API routes
-app.use('/api/booking', bookingRoutes);
-app.use('/api/contact', contactRoutes);
-app.use('/api/admin', adminRoutes);
-
-// Health check endpoint
+// Health check endpoint (must be before other routes for Railway)
 app.get('/api/health', (req, res) => {
     res.json({ 
         status: 'OK', 
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
         port: PORT,
-        environment: process.env.NODE_ENV || 'development'
+        environment: process.env.NODE_ENV || 'development',
+        message: 'Server is healthy and running!'
     });
 });
+
+// API routes
+app.use('/api/booking', bookingRoutes);
+app.use('/api/contact', contactRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Serve static files (frontend)
 app.use(express.static(path.join(__dirname, '.')));
-
-// API routes
-app.use('/api/booking', bookingRoutes);
-app.use('/api/contact', contactRoutes);
-app.use('/api/admin', adminRoutes);
-
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-    res.json({ 
-        status: 'OK', 
-        timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
-        port: PORT,
-        environment: process.env.NODE_ENV || 'development'
-    });
-});
 
 // Serve the main page
 app.get('/', (req, res) => {
@@ -127,25 +109,46 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start server
-app.listen(PORT, async () => {
+// Start server immediately (don't wait for database)
+const server = app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
     console.log(`🔧 Railway PORT env: ${process.env.PORT || 'not set'}`);
     console.log(`🔧 Process env keys: ${Object.keys(process.env).filter(key => key.includes('PORT')).join(', ')}`);
+    console.log(`✅ Health check available at: http://localhost:${PORT}/api/health`);
     
-    try {
-        await initializeDatabase();
-        console.log('✅ Database initialized successfully');
-    } catch (error) {
-        console.error('❌ Database initialization failed:', error);
-        // Don't exit, let the server continue without database
-    }
+    // Initialize database in background (non-blocking)
+    setTimeout(async () => {
+        try {
+            await initializeDatabase();
+            console.log('✅ Database initialized successfully');
+        } catch (error) {
+            console.error('❌ Database initialization failed:', error);
+            console.log('⚠️  Server will continue without database functionality');
+        }
+    }, 1000);
 }).on('error', (error) => {
     console.error('❌ Server failed to start:', error);
     process.exit(1);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+    console.log('🛑 Received SIGTERM, shutting down gracefully...');
+    server.close(() => {
+        console.log('✅ Server closed');
+        process.exit(0);
+    });
+});
+
+process.on('SIGINT', () => {
+    console.log('🛑 Received SIGINT, shutting down gracefully...');
+    server.close(() => {
+        console.log('✅ Server closed');
+        process.exit(0);
+    });
 });
 
 module.exports = app; 
