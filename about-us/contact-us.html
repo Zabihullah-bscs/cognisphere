@@ -653,8 +653,8 @@
                     
                     console.log('Sending booking data:', bookingData);
                     
-                    // Send booking request to backend
-                    const response = await fetch('https://cognisphere-production.up.railway.app/api/booking/create', {
+                                         // Send booking request to backend
+                     const response = await fetch('/api/booking/create', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

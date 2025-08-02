@@ -71,18 +71,27 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Simple root endpoint for testing
-app.get('/', (req, res) => {
+// Serve static files (frontend)
+app.use(express.static(path.join(__dirname, '.')));
+
+// API routes
+app.use('/api/booking', bookingRoutes);
+app.use('/api/contact', contactRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
     res.json({ 
-        message: 'Cognisphere Backend API',
-        status: 'running',
+        status: 'OK', 
         timestamp: new Date().toISOString(),
-        port: PORT
+        uptime: process.uptime(),
+        port: PORT,
+        environment: process.env.NODE_ENV || 'development'
     });
 });
 
-// Serve HTML files
-app.get('/index.html', (req, res) => {
+// Serve the main page
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
