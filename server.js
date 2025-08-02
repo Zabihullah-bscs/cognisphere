@@ -43,8 +43,8 @@ app.use('/api/', limiter);
 // CORS configuration
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://cogni-sphere.com', 'https://www.cogni-sphere.com']
-        : ['http://localhost:3000', 'http://127.0.0.1:3000'],
+        ? process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['https://cogni-sphere.com']
+        : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'],
     credentials: true
 }));
 
@@ -52,15 +52,14 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Health check endpoint (must be before other routes for Railway)
+// Health check endpoint
 app.get('/api/health', (req, res) => {
     res.json({ 
         status: 'OK', 
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
         port: PORT,
-        environment: process.env.NODE_ENV || 'development',
-        message: 'Server is healthy and running!'
+        environment: process.env.NODE_ENV || 'development'
     });
 });
 
@@ -109,17 +108,15 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start server immediately (don't wait for database)
+// Start server
 const server = app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
-    console.log(`🔧 Railway PORT env: ${process.env.PORT || 'not set'}`);
-    console.log(`🔧 Process env keys: ${Object.keys(process.env).filter(key => key.includes('PORT')).join(', ')}`);
     console.log(`✅ Health check available at: http://localhost:${PORT}/api/health`);
     
-    // Initialize database in background (non-blocking)
+    // Initialize database in background
     setTimeout(async () => {
         try {
             await initializeDatabase();
