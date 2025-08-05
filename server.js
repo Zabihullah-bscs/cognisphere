@@ -127,8 +127,8 @@ const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`✅ Simple health check at: http://localhost:${PORT}/health`);
     console.log(`🌐 Server ready for Railway healthcheck`);
     
-    // Initialize database in background (non-blocking)
-    setImmediate(async () => {
+    // Initialize database in background (non-blocking) - delay to ensure server is ready
+    setTimeout(async () => {
         try {
             console.log('🔄 Initializing database...');
             await initializeDatabase();
@@ -137,7 +137,7 @@ const server = app.listen(PORT, '0.0.0.0', () => {
             console.error('❌ Database initialization failed:', error);
             console.log('⚠️  Server will continue without database functionality');
         }
-    });
+    }, 5000); // 5 second delay to ensure Railway healthcheck can reach the server
 }).on('error', (error) => {
     console.error('❌ Server failed to start:', error);
     process.exit(1);
