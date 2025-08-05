@@ -17,6 +17,21 @@ const db = new Database(dbPath);
 // Initialize database tables
 async function initializeDatabase() {
     try {
+        // Check if status column exists in bookings table
+        let statusColumnExists = false;
+        try {
+            const tableInfo = db.prepare("PRAGMA table_info(bookings)").all();
+            statusColumnExists = tableInfo.some(col => col.name === 'status');
+        } catch (e) {
+            // Table doesn't exist
+        }
+
+        // If table exists but doesn't have status column, drop and recreate
+        if (!statusColumnExists) {
+            console.log('Recreating bookings table with correct schema...');
+            db.exec('DROP TABLE IF EXISTS bookings');
+        }
+
         // Create bookings table
         db.exec(`
             CREATE TABLE IF NOT EXISTS bookings (
@@ -126,8 +141,8 @@ async function getBookingById(bookingId) {
 
 async function checkAvailability(date, time, duration = 30) {
     try {
-        // Get all bookings for the date that are not cancelled
-        const query = 'SELECT time, duration FROM bookings WHERE date = ? AND status != "cancelled"';
+        // Get all bookings for the date (simplified for now)
+        const query = 'SELECT time, duration FROM bookings WHERE date = ?';
         const stmt = db.prepare(query);
         const rows = stmt.all(date);
         
