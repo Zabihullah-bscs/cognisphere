@@ -52,7 +52,7 @@ const requiredEnvVars = [
     'PORT=3000',
     'SMTP_HOST=smtp.zoho.com',
     'SMTP_USER=admin@cogni-sphere.com',
-    'ALLOWED_ORIGINS=https://cogni-sphere.com'
+    'ALLOWED_ORIGINS=https://cognisphere-production.up.railway.app'
 ];
 
 requiredEnvVars.forEach(envVar => {
@@ -84,9 +84,9 @@ console.log('\n🎯 Railway Deployment Checklist:');
 console.log('1. ✅ Repository pushed to GitHub');
 console.log('2. 🔄 Create Railway project from GitHub repo');
 console.log('3. 🔧 Add environment variables in Railway dashboard');
-console.log('4. 🌐 Add custom domain: cogni-sphere.com');
-console.log('5. 🔗 Configure DNS records at your domain registrar');
-console.log('6. 🧪 Test deployment at https://cogni-sphere.com');
+console.log('4. 🧪 Test with Railway default domain first');
+console.log('5. 🌐 Add custom domain later (optional)');
+console.log('6. 🔗 Configure DNS records at your domain registrar');
 console.log('7. 📧 Test booking functionality');
 console.log('8. 🗑️  Unpublish from GitHub Pages');
 

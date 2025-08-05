@@ -1,7 +1,7 @@
 # 🚀 Railway Full-Stack Deployment Guide
 
 ## Overview
-This guide will help you deploy both frontend and backend on Railway with your custom domain `cogni-sphere.com`.
+This guide will help you deploy both frontend and backend on Railway. We'll start with Railway's default domain to verify everything works, then add your custom domain `cogni-sphere.com` later.
 
 ## Prerequisites
 1. Railway account (free tier available)
@@ -21,8 +21,10 @@ SMTP_PORT=587
 SMTP_USER=admin@cogni-sphere.com
 SMTP_PASS=6EubGLUDuCZy
 ADMIN_EMAIL=admin@cogni-sphere.com
-ALLOWED_ORIGINS=https://cogni-sphere.com
+ALLOWED_ORIGINS=https://cognisphere-production.up.railway.app
 ```
+
+**Note:** We'll update `ALLOWED_ORIGINS` to your custom domain after confirming everything works.
 
 ### 1.2 Commit and Push Changes
 ```bash
@@ -49,9 +51,22 @@ git push
 2. The `railway.json` configuration will be used
 3. Wait for the build to complete
 
-## Step 3: Custom Domain Setup
+## Step 3: Test with Railway Default Domain
 
-### 3.1 Add Custom Domain
+### 3.1 Get Your Railway URL
+1. After deployment, Railway will provide a default URL
+2. It will look like: `https://cognisphere-production.up.railway.app`
+3. Test your application at this URL first
+
+### 3.2 Verify Functionality
+1. Visit your Railway URL
+2. Navigate to the contact page
+3. Test the booking functionality
+4. Verify emails are sent correctly
+
+## Step 4: Custom Domain Setup (Optional - After Testing)
+
+### 4.1 Add Custom Domain
 1. Go to your Railway project
 2. Click on your deployed service
 3. Go to "Settings" → "Domains"
@@ -76,27 +91,34 @@ If you prefer to keep DNS at your registrar:
 ### 3.3 SSL Certificate
 Railway automatically provides SSL certificates for custom domains.
 
-## Step 4: Verify Deployment
+## Step 5: Verify Deployment
 
-### 4.1 Test Health Endpoint
+### 5.1 Test Health Endpoint
 ```bash
-curl https://cogni-sphere.com/api/health
+curl https://cognisphere-production.up.railway.app/api/health
 ```
 
-### 4.2 Test Booking Functionality
-1. Visit `https://cogni-sphere.com/about-us/contact-us.html`
+### 5.2 Test Booking Functionality
+1. Visit `https://cognisphere-production.up.railway.app/about-us/contact-us.html`
 2. Try scheduling a meeting
 3. Verify emails are sent
 
-## Step 5: Unpublish from GitHub Pages
+### 5.3 Update for Custom Domain (After Testing)
+Once everything works with the Railway domain:
+1. Update `ALLOWED_ORIGINS` to `https://cogni-sphere.com`
+2. Add your custom domain in Railway
+3. Update DNS records
+4. Test at `https://cogni-sphere.com`
 
-### 5.1 Remove GitHub Pages
+## Step 6: Unpublish from GitHub Pages
+
+### 6.1 Remove GitHub Pages
 1. Go to your GitHub repository
 2. Settings → Pages
 3. Change source to "None"
 4. Save
 
-### 5.2 Remove CNAME File
+### 6.2 Remove CNAME File
 ```bash
 git rm CNAME
 git commit -m "Remove CNAME for Railway deployment"
@@ -149,9 +171,10 @@ git push
 
 ## Next Steps
 1. Deploy to Railway
-2. Configure custom domain
-3. Test all functionality
-4. Unpublish from GitHub Pages
-5. Monitor performance
+2. Test with Railway's default domain
+3. Verify all functionality works
+4. Add custom domain (optional)
+5. Unpublish from GitHub Pages
+6. Monitor performance
 
-Your website will be fully functional at `https://cogni-sphere.com` with both frontend and backend running on Railway! 🎉 
+Your website will be fully functional at Railway's default URL with both frontend and backend running! 🎉 
