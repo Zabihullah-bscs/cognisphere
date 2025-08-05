@@ -52,15 +52,22 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Health check endpoint
+// Health check endpoint - must be simple and fast
 app.get('/api/health', (req, res) => {
-    res.json({ 
+    console.log('🔍 Health check requested at /api/health');
+    res.status(200).json({ 
         status: 'OK', 
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
         port: PORT,
         environment: process.env.NODE_ENV || 'development'
     });
+});
+
+// Simple health check for Railway
+app.get('/health', (req, res) => {
+    console.log('🔍 Railway health check requested at /health');
+    res.status(200).send('OK');
 });
 
 // API routes
@@ -109,23 +116,28 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const server = app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+console.log(`🚀 Starting server on port ${PORT}...`);
+console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+
+const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`✅ Server running on port ${PORT}`);
     console.log(`📧 Admin email: ${process.env.ADMIN_EMAIL || 'admin@cogni-sphere.com'}`);
-    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database path: ${process.env.DB_PATH || './data/cognisphere.db'}`);
     console.log(`✅ Health check available at: http://localhost:${PORT}/api/health`);
+    console.log(`✅ Simple health check at: http://localhost:${PORT}/health`);
+    console.log(`🌐 Server ready for Railway healthcheck`);
     
-    // Initialize database in background
-    setTimeout(async () => {
+    // Initialize database in background (non-blocking)
+    setImmediate(async () => {
         try {
+            console.log('🔄 Initializing database...');
             await initializeDatabase();
             console.log('✅ Database initialized successfully');
         } catch (error) {
             console.error('❌ Database initialization failed:', error);
             console.log('⚠️  Server will continue without database functionality');
         }
-    }, 1000);
+    });
 }).on('error', (error) => {
     console.error('❌ Server failed to start:', error);
     process.exit(1);
