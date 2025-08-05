@@ -396,10 +396,10 @@ function closeDatabase() {
     }
 }
 
-// Initialize database on module load
-initializeDatabase().catch(console.error);
+// Database initialization is now controlled by server.js
 
 module.exports = {
+    initializeDatabase,
     createBooking,
     getBookingsByDate,
     getBookingById,
