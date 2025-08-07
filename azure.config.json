@@ -1,0 +1,31 @@
+{
+    "platform": {
+        "apiVersion": "2018-06-01",
+        "kind": "app",
+        "sku": {
+            "name": "B1",
+            "tier": "Basic",
+            "size": "B1",
+            "family": "B",
+            "capacity": 1
+        }
+    },
+    "properties": {
+        "name": "cognisphere",
+        "hostNames": [
+            "cognisphere.azurewebsites.net"
+        ],
+        "enabledHostNames": [
+            "cognisphere.azurewebsites.net",
+            "cognisphere.scm.azurewebsites.net"
+        ],
+        "hostNameSslStates": [
+            {
+                "name": "cognisphere.azurewebsites.net",
+                "sslState": "Disabled",
+                "hostType": "Standard"
+            }
+        ],
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'cognisphere-plan')]"
+    }
+}
