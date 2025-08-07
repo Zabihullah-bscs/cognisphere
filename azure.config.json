@@ -1,0 +1,15 @@
+{
+    "name": "cognisphere",
+    "platform": "Node",
+    "webHosting": {
+        "kind": "app",
+        "sku": {
+            "name": "F1",
+            "tier": "Free"
+        }
+    },
+    "deployment": {
+        "source": "GitHub",
+        "branch": "main"
+    }
+}
