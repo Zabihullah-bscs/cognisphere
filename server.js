@@ -8,6 +8,8 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+console.log(`Starting server with PORT=${PORT}`);
+
 // Import routes
 const bookingRoutes = require('./routes/booking');
 const contactRoutes = require('./routes/contact');
@@ -160,4 +162,9 @@ process.on('SIGINT', () => {
     });
 });
 
-module.exports = app; 
+// Start the server
+const server = app.listen(PORT, () => {
+    console.log(`🚀 Server is running on port ${PORT}`);
+});
+
+module.exports = app;
