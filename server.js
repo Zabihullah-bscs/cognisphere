@@ -163,8 +163,31 @@ process.on('SIGINT', () => {
 });
 
 // Start the server
-const server = app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
+const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
+}).on('error', (err) => {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+});
+
+// Handle errors
+server.on('error', (error) => {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    switch (error.code) {
+        case 'EACCES':
+            console.error(`Port ${PORT} requires elevated privileges`);
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(`Port ${PORT} is already in use`);
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
 });
 
 module.exports = app;
