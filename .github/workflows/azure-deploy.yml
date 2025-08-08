@@ -57,3 +57,4 @@ jobs:
           app-name: 'cogni-sphere-webapp'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
+          clean: true
