@@ -6,8 +6,6 @@ const path = require('path');
 require('dotenv').config();
 
 // Check required environment variables
-const checkRequiredEnvVars = require('./check-env');
-checkRequiredEnvVars();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
