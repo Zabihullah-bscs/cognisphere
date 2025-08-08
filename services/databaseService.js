@@ -3,16 +3,32 @@ const path = require('path');
 const fs = require('fs');
 
 // Database configuration
-const dbPath = path.join(__dirname, '..', 'data', 'cognisphere.db');
+const dbPath = process.env.DB_PATH 
+    ? path.resolve(process.env.DB_PATH)
+    : path.join(__dirname, '..', 'data', 'cognisphere.db');
 const dbDir = path.dirname(dbPath);
 
+console.log(`Initializing database at: ${dbPath}`);
+
 // Ensure data directory exists
-if (!fs.existsSync(dbDir)) {
-    fs.mkdirSync(dbDir, { recursive: true });
+try {
+    if (!fs.existsSync(dbDir)) {
+        fs.mkdirSync(dbDir, { recursive: true });
+        console.log(`Created database directory: ${dbDir}`);
+    }
+} catch (err) {
+    console.error(`Failed to create database directory: ${err.message}`);
+    throw err;
 }
 
 // Create database connection
-const db = new Database(dbPath);
+try {
+    const db = new Database(dbPath);
+    console.log('Successfully connected to database');
+} catch (err) {
+    console.error(`Failed to connect to database: ${err.message}`);
+    throw err;
+}
 
 // Initialize database tables
 async function initializeDatabase() {

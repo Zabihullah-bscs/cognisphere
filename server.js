@@ -5,6 +5,10 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 require('dotenv').config();
 
+// Check required environment variables
+const checkRequiredEnvVars = require('./check-env');
+checkRequiredEnvVars();
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -163,20 +167,15 @@ process.on('SIGINT', () => {
 });
 
 // Start the server
-const server = app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
 }).on('error', (err) => {
-    console.error('Failed to start server:', err);
-    process.exit(1);
-});
-
-// Handle errors
-server.on('error', (error) => {
-    if (error.syscall !== 'listen') {
-        throw error;
+    if (err.syscall !== 'listen') {
+        console.error('Failed to start server:', err);
+        process.exit(1);
     }
 
-    switch (error.code) {
+    switch (err.code) {
         case 'EACCES':
             console.error(`Port ${PORT} requires elevated privileges`);
             process.exit(1);
@@ -186,7 +185,8 @@ server.on('error', (error) => {
             process.exit(1);
             break;
         default:
-            throw error;
+            console.error('Failed to start server:', err);
+            process.exit(1);
     }
 });
 
