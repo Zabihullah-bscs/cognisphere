@@ -22,8 +22,9 @@ try {
 }
 
 // Create database connection
+let db;
 try {
-    const db = new Database(dbPath);
+    db = new Database(dbPath);
     console.log('Successfully connected to database');
 } catch (err) {
     console.error(`Failed to connect to database: ${err.message}`);
