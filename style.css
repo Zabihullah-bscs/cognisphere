@@ -2226,103 +2226,22 @@ header {
     transform: rotate(45deg);
 }
 
-/* Light Button Effect for Send Now Button - Matching Book Meeting Button */
-.light-button button.bt {
-    position: relative;
-    height: auto;
-    display: flex;
-    align-items: center;
-    outline: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.light-button button.bt .button-holder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    width: auto;
+.send-now-button {
+    color: white;
     padding: 12px 25px;
-    background-color: #2200493d;
     border-radius: 50px;
     border: 1px solid #72a1de81;
-    color: #72a1de;
-    font-weight: normal;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    outline: #72a1de81 2px solid;
-    outline-offset: 20;
-    box-shadow: 0 0 5px #72a1de81;
-}
-
-.light-button button.bt .light-holder {
-    position: absolute;
-    height: 150px;
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.light-button button.bt .light-holder .dot {
-    position: absolute;
-    top: 0;
-    width: 10px;
-    height: 10px;
     background-color: #2200493d;
-    border-radius: 10px;
-    z-index: 2;
+    box-shadow: 0 0 5px #72a1de81;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
-.light-button button.bt .light-holder .light {
-    position: absolute;
-    top: 0;
-    width: 150px;
-    height: 150px;
-    clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
-    background: transparent;
-}
-
-.light-button button.bt:hover .button-holder {
+.send-now-button:hover {
     background-color: #72a1de;
     color: black;
     box-shadow: 0 0 10px #72a1de;
-    outline: #72a1de 2px solid;
-    outline-offset: 2px;
-}
-
-.light-button button.bt:hover .light-holder .light {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        180deg,
-        #72a1de 0%,
-        rgba(255, 255, 255, 0) 75%,
-        rgba(255, 255, 255, 0) 100%
-    );
-}
-
-/* Responsive adjustments for light button */
-@media screen and (max-width: 768px) {
-    .light-button button.bt {
-        height: auto;
-    }
-    
-    .light-button button.bt .button-holder {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .light-button button.bt .light-holder {
-        height: 120px;
-        width: 80px;
-    }
-    
-    .light-button button.bt .light-holder .light {
-        width: 120px;
-        height: 120px;
-    }
 }
 
 /* Responsive adjustments for contact section */

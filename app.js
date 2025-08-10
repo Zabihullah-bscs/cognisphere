@@ -172,3 +172,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactUsButton = document.getElementById('contactUsButton');
+    if (contactUsButton) {
+        contactUsButton.addEventListener('click', () => {
+            window.location.href = 'about-us/contact-us.html';
+        });
+    }
+
+    const bookMeetingButton = document.querySelector('.book-meeting-button');
+    if (bookMeetingButton) {
+        bookMeetingButton.addEventListener('click', () => {
+            window.location.href = 'about-us/contact-us.html#calendar-booking-section';
+        });
+    }
+});
