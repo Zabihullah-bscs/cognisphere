@@ -56,6 +56,13 @@ header {
     box-shadow: none;
     z-index: 999;
     flex-wrap: nowrap;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+header.scrolled {
+    background-color: rgba(10, 25, 47, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
+}
 }
 
 .left {

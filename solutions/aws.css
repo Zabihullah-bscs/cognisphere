@@ -56,6 +56,11 @@
     max-width: 650px;
 }
 
+header.scrolled {
+    background: rgba(10, 25, 47, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 .strategic-edge-content .section-title {
     font-size: 2.4rem;
     font-weight: 700;
@@ -296,4 +301,22 @@
     to {
         background-position: 200%;
     }
-} 
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 70px;
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    z-index: 999;
+    flex-wrap: nowrap;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}

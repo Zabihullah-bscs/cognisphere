@@ -384,5 +384,18 @@
     <script>
       AOS.init();
     </script>
+<script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const heroSection = document.querySelector('.hero');
+            const heroHeight = heroSection.offsetHeight;
+
+            if (window.scrollY > heroHeight - header.offsetHeight) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

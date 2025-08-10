@@ -56,6 +56,7 @@ header {
     box-shadow: none;
     z-index: 999;
     flex-wrap: nowrap;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 
 .left {
