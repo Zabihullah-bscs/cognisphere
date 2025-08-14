@@ -566,12 +566,16 @@ header ul li {
     line-height: 1.3;
 }
 
+.strategic-edge-content .section-title {
+    text-align: left;
+}
+
 .strategic-edge-content p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #e0e0e0;
     margin: 0 0 35px;
-    text-align: justify;
+    text-align: left;
 }
 
 .strategic-edge-video {

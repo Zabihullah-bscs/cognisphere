@@ -696,11 +696,13 @@ header ul li {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(114, 161, 222, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Added shadow for modern look */
 }
 
 .strategic-edge-content {
     flex: 1.2;
     max-width: 650px;
+    padding-right: 20px; /* Added padding for better spacing */
 }
 
 .strategic-edge-content .section-title {
@@ -709,6 +711,7 @@ header ul li {
     text-align: left;
     margin-bottom: 25px;
     line-height: 1.3;
+    color: #72a1dea2; /* Ensure consistent gradient or color */
 }
 
 .strategic-edge-content p {
@@ -791,6 +794,7 @@ header ul li {
 
     .strategic-edge-content {
         max-width: 100%;
+        padding-right: 0; /* Remove padding on smaller screens */
     }
 
     .strategic-edge-content .section-title {
