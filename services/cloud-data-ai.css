@@ -1,5 +1,85 @@
 /* Basic styles for cloud-data-ai.html */
 
+/* === OPTIMIZED RESPONSIVE DESIGN SYSTEM === */
+/* This ensures background videos show on ALL devices and responsive design is consistent */
+
+/* ALL DEVICES - VIDEOS ALWAYS SHOW */
+.back-vid,
+.blackhole-box video,
+.main-hero-video-box video {
+    display: block !important;
+}
+
+/* UNIVERSAL MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+    /* Grid and Flexbox optimizations */
+    .container, .grid-container, .flex-container {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    /* Typography adjustments */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    p, .text-content {
+        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Dropdown and navigation */
+    .dropdown-menu, .sidebar-menu {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Buttons and interactive elements */
+    .btn, .cta-button, .service-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 20px !important;
+    }
+    
+    /* Images and media */
+    img, video {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+    }
+}
+
+/* MEDIUM SCREENS/TABLETS OPTIMIZATION */
+@media (max-width: 1024px) {
+    .container {
+        gap: 40px !important;
+        padding: 0 20px !important;
+    }
+    
+    .hero, .section {
+        padding: 40px 20px !important;
+    }
+}
+
+/* ACCESSIBILITY IMPROVEMENTS */
+@media (prefers-contrast: high) {
+    .btn, .cta-button {
+        border: 2px solid #fff !important;
+        background: #000 !important;
+        color: #fff !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* Import Google Fonts if needed */
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
 
@@ -930,5 +1010,678 @@ header ul li {
     
     .cda-card {
         padding: 25px;
+    }
+}
+
+/* ================================================ */
+/* === RESPONSIVE DESIGN FOR CLOUD, DATA & AI PAGE === */
+/* ================================================ */
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(114, 161, 222, 0.3);
+}
+
+.menu-icon i {
+    font-size: 24px;
+    color: #72a1de;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding: 80px 30px 30px;
+    box-sizing: border-box;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: rgba(114, 161, 222, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(114, 161, 222, 0.3);
+}
+
+.close-icon i {
+    font-size: 24px;
+    color: #72a1de;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 0;
+    display: block;
+    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #72a1de;
+}
+
+.sidebar-dropdown {
+    position: relative;
+}
+
+.sidebar-submenu {
+    display: none;
+    padding-left: 20px;
+    margin-top: 10px;
+    border-left: 2px solid rgba(114, 161, 222, 0.3);
+}
+
+.sidebar-dropdown.active .sidebar-submenu {
+    display: block;
+}
+
+.sidebar-submenu li {
+    margin: 8px 0;
+}
+
+.sidebar-submenu a {
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: none;
+    color: #ccc;
+}
+
+.sidebar-submenu a:hover {
+    color: #72a1de;
+}
+
+.social-sidebar {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-sidebar a {
+    color: #72a1de;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-sidebar a:hover {
+    color: white;
+}
+
+/* Mobile-first responsive approach */
+@media (max-width: 1200px) {
+    .container {
+        gap: 60px;
+    }
+    
+    .hero {
+        height: 65vh;
+        padding-top: 80px;
+    }
+    
+    .hero-info {
+        width: 85%;
+        max-width: 800px;
+    }
+    
+    .strategic-edge {
+        width: 90%;
+        gap: 40px;
+    }
+    
+    .stats-section {
+        width: 90%;
+        gap: 30px;
+    }
+    
+    .custom-data-solutions {
+        width: 90%;
+    }
+    
+    .cda-solutions {
+        width: 90%;
+    }
+    
+    .workflow-section {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        gap: 50px;
+    }
+    
+    .hero {
+        height: 60vh;
+        padding-top: 70px;
+    }
+    
+    .hero-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-info p {
+        font-size: 1.1rem;
+    }
+    
+    .strategic-edge {
+        width: 85%;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .strategic-edge-video img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .stats-section {
+        width: 85%;
+        gap: 25px;
+    }
+    
+    .stat {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .custom-data-solutions {
+        width: 85%;
+    }
+    
+    .solutions-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .cda-solutions {
+        width: 85%;
+    }
+    
+    .cda-cards-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .workflow-section {
+        width: 85%;
+    }
+    
+    .workflow-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Show mobile menu icon */
+    .menu-icon {
+        display: block;
+    }
+    
+    /* Hide desktop navigation */
+    .logo-bar-buttons {
+        display: none;
+    }
+    
+    .box-icons {
+        display: none;
+    }
+    
+    .container {
+        gap: 40px;
+    }
+    
+    .hero {
+        height: 50vh;
+        padding-top: 60px;
+    }
+    
+    .hero-info {
+        width: 90%;
+        margin-top: 40px;
+    }
+    
+    .hero-info h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-info p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 16px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .strategic-edge {
+        width: 90%;
+        gap: 25px;
+    }
+    
+    .strategic-edge h2 {
+        font-size: 1.8rem;
+    }
+    
+    .strategic-edge p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .stats-section {
+        width: 90%;
+        gap: 20px;
+    }
+    
+    .stat {
+        padding: 20px;
+    }
+    
+    .stat-circle-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .progress-circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .custom-data-solutions {
+        width: 90%;
+    }
+    
+    .custom-data-solutions h1 {
+        font-size: 1.8rem;
+    }
+    
+    .data-services-list h3,
+    .adaptation-list .adaptation-item {
+        font-size: 1.1rem;
+    }
+    
+    .data-services-model {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .center-circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .cda-solutions {
+        width: 90%;
+    }
+    
+    .cda-solutions h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cda-cards-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .cda-card {
+        padding: 20px;
+    }
+    
+    .workflow-section {
+        width: 90%;
+        padding: 40px 15px;
+    }
+    
+    .workflow-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .workflow-steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .step {
+        padding: 20px;
+    }
+    
+    /* Fix background video effects for mobile */
+    .back-vid {
+        opacity: 0.3;
+        mix-blend-mode: normal;
+    }
+    
+    /* Ensure proper backdrop filters on mobile */
+    .strategic-edge,
+    .custom-data-solutions,
+    .cda-solutions,
+    .workflow-section {
+        backdrop-filter: blur(10px);
+        background: rgba(10, 25, 47, 0.8);
+    }
+    
+    /* Fix blurriness by reducing complex shadows and effects */
+    .cda-card,
+    .step,
+    .stat {
+        backdrop-filter: blur(5px);
+        background: rgba(10, 25, 47, 0.9);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 30px;
+    }
+    
+    .hero {
+        height: 45vh;
+        padding-top: 50px;
+    }
+    
+    .hero-info {
+        width: 95%;
+        margin-top: 30px;
+    }
+    
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-info p {
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .strategic-edge {
+        width: 95%;
+        gap: 20px;
+    }
+    
+    .strategic-edge h2 {
+        font-size: 1.6rem;
+    }
+    
+    .strategic-edge p {
+        font-size: 0.95rem;
+    }
+    
+    .stats-section {
+        width: 95%;
+        gap: 15px;
+    }
+    
+    .stat {
+        padding: 15px;
+    }
+    
+    .stat-circle-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .progress-circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .custom-data-solutions {
+        width: 95%;
+    }
+    
+    .custom-data-solutions h1 {
+        font-size: 1.6rem;
+    }
+    
+    .data-services-model {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .center-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .data-point {
+        font-size: 0.9rem;
+    }
+    
+    .cda-solutions {
+        width: 95%;
+    }
+    
+    .cda-solutions h2 {
+        font-size: 1.6rem;
+    }
+    
+    .workflow-section {
+        width: 95%;
+        padding: 30px 10px;
+    }
+    
+    .workflow-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .step {
+        padding: 15px;
+    }
+    
+    .step h3 {
+        font-size: 1.1rem;
+    }
+    
+    .step p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .cta-button,
+    .learn-more-link,
+    .cda-card a {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar ul li a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .close-icon {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .cda-card,
+    .step,
+    .stat {
+        border: 2px solid #72a1de;
+    }
+    
+    .cta-button {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hero,
+    .strategic-edge,
+    .custom-data-solutions,
+    .cda-solutions,
+    .workflow-section {
+        animation: none;
+        transition: none;
+    }
+    
+    .cda-card:hover,
+    .step:hover {
+        transform: none;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 60vh;
+        padding-top: 80px;
+    }
+    
+    .hero-info {
+        margin-top: 20px;
+    }
+    
+    .stats-section {
+        gap: 15px;
+    }
+    
+    .stat-circle-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .progress-circle {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    /* Optimize AOS animations for mobile */
+    [data-aos] {
+        animation-duration: 800ms !important;
+        animation-delay: 0ms !important;
+    }
+    
+    /* Ensure proper text readability */
+    .section-title,
+    .hero-info h1,
+    .strategic-edge h2,
+    .custom-data-solutions h1,
+    .cda-solutions h2,
+    .workflow-section h2 {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Optimize background effects for mobile performance */
+    .back-vid {
+        transform: scale(1.2);
+        filter: brightness(0.4) contrast(1.2);
+    }
+    
+    /* Ensure proper contrast for mobile */
+    .cda-card,
+    .step,
+    .stat {
+        color: #f0f0f0;
+        background: rgba(10, 25, 47, 0.95);
+    }
+    
+    .cda-card h3,
+    .step h3,
+    .stat p {
+        color: white;
+    }
+    
+    /* Fix specific cloud data AI elements */
+    .data-services-model {
+        transform: scale(0.9);
+    }
+    
+    .data-point {
+        font-size: 0.85rem;
+    }
+    
+    .training-text,
+    .adaptation-text {
+        font-size: 0.9rem;
+    }
+    
+    .gen-ai-text,
+    .model-text {
+        font-size: 0.8rem;
+    }
+    
+    /* Optimize feature lists for mobile */
+    .feature-list {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .feature-list li {
+        margin-bottom: 8px;
+    }
+    
+    /* Ensure proper spacing for workflow steps */
+    .workflow-section .step {
+        margin-bottom: 15px;
+    }
+    
+    .workflow-section .step:last-child {
+        margin-bottom: 0;
     }
 }

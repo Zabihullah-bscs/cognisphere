@@ -41,7 +41,7 @@
                 </li>
                 <li>
                     <a href="#">Solutions</a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu solutions-dropdown">
                         <div class="dropdown-column">
                             <h4>All Solutions</h4>
                             <a href="../solutions/artificial-intelligence.html">AI & Machine Learning</a>
@@ -286,19 +286,182 @@
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta-section" style="text-align: center; padding: 80px 20px; background-color: rgba(10, 25, 47, 0.6); border-radius: 15px; margin-top: 50px;">
             <h2 class="section-title autoDisplay" style="color: #72a1dea2;">Ready to Transform Your Business with AWS?</h2>
-            <p>Let's discuss how our AWS expertise can help you achieve your cloud transformation goals.</p>
+            <p style="color: lightgray; max-width: 600px; margin: 20px auto 30px; line-height: 1.6;">Let's discuss how our AWS expertise can help you achieve your cloud transformation goals.</p>
             <a href="../index.html#contact-us" class="cta-button">Schedule Your AWS Consultation</a>
         </section>
 
-        <!-- ... existing footer code ... -->
+        <footer class="site-footer">
+            <div class="footer-main">
+                <div class="footer-column about">
+                    <div class="left">
+                        <img src="../images/logo.png" alt="logo" style="width: 70px;">
+                        <h2 style="font-size: 1.2rem; margin-left: -10px;"><span style="color: #72a1dea2;">COGNI</span>SPHERE</h2>
+                    </div>
+                    <p class="footer-about-text">We are an outsourced AI services provider for businesses. Get in touch with us today!</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+                        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    </div>
+                </div>
+                <div class="footer-column links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">AI Automation</a></li>
+                        <li><a href="#">Machine Learning Models</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">Predictive Analysis</a></li>
+                        <li><a href="#">Natural Language Processing</a></li>
+                        <li><a href="#">Computer Vision</a></li>
+                        <li><a href="#">AI Chatbots</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Work</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column contact">
+                    <h4>Contact Us</h4>
+                    <p><i class='bx bxs-map'></i> <span>Block - D PIA Housing Society,<br>Lahore Punjab PAKISTAN</span></p>
+                    <p><i class='bx bxs-phone'></i> <span>+92 306-8952115</span></p>
+                    <p><i class='bx bxs-envelope'></i> <span>info@cogni-sphere.com</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>CogniSphere is a trading name of FutureTech AI Ltd, a company registered in Cyberspace (Company No. 10101010)</p>
+            </div>
+        </footer>
     </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar">
+        <div class="close-icon">
+            <i class='bx bx-x'></i>
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="sidebar-dropdown">
+                <a href="#">Services</a>
+                <ul class="sidebar-submenu">
+                    <li><a href="../services/data-services.html">Data Services</a></li>
+                    <li><a href="../services/data-engineering.html">Data Engineering</a></li>
+                    <li><a href="../services/cloud-data-ai.html">Cloud, Data & AI</a></li>
+                    <li><a href="../services/data-strategy.html">Data Strategy</a></li>
+                    <li><a href="../services/data-privacy-security.html">Data Privacy & Security</a></li>
+                </ul>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="#">Solutions</a>
+                <ul class="sidebar-submenu">
+                    <li><a href="artificial-intelligence.html">AI & Machine Learning</a></li>
+                    <li><a href="microsoft-azure.html">Cloud & Infrastructure</a></li>
+                    <li><a href="business-intelligence.html">Data & Analytics</a></li>
+                    <li><a href="generative-ai-llms.html">Generative AI & LLMs</a></li>
+                    <li><a href="ai-powered-automation.html">AI-Powered Automation</a></li>
+                </ul>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="#">About Us</a>
+                <ul class="sidebar-submenu">
+                    <li><a href="../about-us/careers.html">Careers</a></li>
+                    <li><a href="../about-us/our-work.html">Our Work</a></li>
+                    <li><a href="../about-us/contact-us.html">Contact Us</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="social-sidebar">
+            <a href="#"><i class='bx bxl-youtube'></i></a>
+            <a href="#"><i class='bx bxl-github'></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+        </div>
+    </div>
+
     <script src="../app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
     <script src="../header-scroll.js"></script>
+
+    <!-- Mobile Menu Functionality -->
+    <script>
+        // Mobile menu functionality
+        const menuIcon = document.querySelector('.menu-icon');
+        const sidebar = document.querySelector('.sidebar');
+        const closeIcon = document.querySelector('.close-icon');
+        const body = document.body;
+        
+        if (menuIcon) {
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                toggleBodyScroll(true);
+            });
+        }
+        
+        if (closeIcon) {
+            closeIcon.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            });
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (sidebar && !sidebar.contains(e.target) && !menuIcon.contains(e.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        });
+        
+        // Close sidebar with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        });
+        
+        // Sidebar dropdown functionality
+        const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
+        
+        sidebarDropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const submenu = dropdown.querySelector('.sidebar-submenu');
+            
+            if (link && submenu) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    submenu.classList.toggle('active');
+                });
+            }
+        });
+        
+        function toggleBodyScroll(disable) {
+            if (disable) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+        
+        // Handle resize events
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        }
+        
+        window.addEventListener('resize', handleResize);
+    </script>
 </body>
 </html>

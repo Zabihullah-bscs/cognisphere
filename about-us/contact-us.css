@@ -64,10 +64,13 @@
     text-align: center;
     border-radius: 15px;
     padding: 30px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .stat {
     flex: 1;
+    min-width: 280px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -89,8 +92,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 260px;
-    height: 260px;
+    width: 100%;
+    height: 100%;
 }
 
 .progress-bg, .progress-fg {
@@ -99,6 +102,19 @@
 
 .progress-fg {
     transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* Responsive stroke width for mobile */
+@media (max-width: 768px) {
+    .progress-bg, .progress-fg {
+        stroke-width: 8;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bg, .progress-fg {
+        stroke-width: 6;
+    }
 }
 
 .counter {
@@ -802,6 +818,74 @@
 @media screen and (max-width: 1200px) {
     .solutions-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .stats-section {
+        width: 90%;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .solution-card {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .solution-card {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .solution-card i {
+        align-self: center;
+        margin-bottom: 15px;
+    }
+    
+    .solution-card .learn-more-link {
+        align-self: center;
+    }
+}
+
+/* Additional responsive improvements for stats section */
+@media screen and (max-width: 600px) {
+    .stats-section {
+        width: 100%;
+        padding: 15px 5px;
+        margin: 20px auto;
+    }
+    
+    .stat {
+        padding: 10px 5px;
+    }
+    
+    .circle {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .counter h2 {
+        font-size: 1.3em;
+    }
+    
+    .stat p {
+        font-size: 0.8em;
+        margin-top: 8px;
+        padding: 0 5px;
     }
 }
 
@@ -859,9 +943,23 @@
     .stats-section {
         flex-direction: column;
         gap: 30px;
+        width: 95%;
+        padding: 20px 0;
     }
     .stat {
         width: 100%;
+        min-width: auto;
+    }
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+    .counter h2 {
+        font-size: 1.6em;
+    }
+    .stat p {
+        font-size: 0.9em;
+        margin-top: 15px;
     }
     .hero {
         height: auto;
@@ -961,3 +1059,618 @@
         font-size: 0.8rem;
     }
 }
+
+/* ================================================ */
+/* === RESPONSIVE DESIGN FOR CONTACT PAGE === */
+/* ================================================ */
+
+/* Mobile-first responsive approach */
+@media (max-width: 1200px) {
+    .stats-section {
+        width: 90%;
+        gap: 20px;
+    }
+    
+    .contact-hero {
+        padding: 60px 30px;
+        gap: 40px;
+    }
+    
+    .contact-hero-content {
+        max-width: 100%;
+    }
+    
+    .contact-hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .contact-methods {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .contact-form-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        height: 60vh;
+        padding: 0 15px;
+    }
+    
+    .hero-info {
+        width: 95%;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 2.5rem;
+        margin-top: 60px !important;
+    }
+    
+    .hero-info p {
+        font-size: 1.1rem;
+        margin: 15px auto 25px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        width: 95%;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        padding: 15px;
+        min-width: auto;
+    }
+    
+    .circle {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .counter h2 {
+        font-size: 1.8em;
+    }
+    
+    .contact-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    
+    .contact-hero-content {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    
+    .contact-hero-image {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-hero-image img {
+        max-width: 80%;
+        height: auto;
+    }
+    
+    .contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .contact-form-container {
+        max-width: 95%;
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+        padding: 0 10px;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 2rem;
+        margin-top: 50px !important;
+    }
+    
+    .hero-info p {
+        font-size: 1rem;
+        margin: 12px auto 20px;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+        max-width: 250px;
+    }
+    
+    .stats-section {
+        width: 100%;
+        padding: 20px 10px;
+        margin: 30px auto;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .stat {
+        padding: 10px;
+        min-width: auto;
+    }
+    
+    .circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .counter h2 {
+        font-size: 1.8rem;
+    }
+    
+    .stat p {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+    
+    .contact-hero {
+        padding: 30px 15px;
+    }
+    
+    .contact-hero-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact-hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .contact-hero-image img {
+        max-width: 90%;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-method {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .contact-method i {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact-method h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-method p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form-container {
+        padding: 25px 15px;
+    }
+    
+    .contact-form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .contact-form p {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        font-size: 14px;
+    }
+    
+    .submit-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .section-description {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 45vh;
+        padding: 0 8px;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 1.8rem;
+        margin-top: 40px !important;
+    }
+    
+    .hero-info p {
+        font-size: 0.9rem;
+        margin: 10px auto 15px;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 13px;
+        max-width: 200px;
+    }
+    
+    .stats-section {
+        padding: 15px 5px;
+        margin: 20px auto;
+        width: 98%;
+        gap: 20px;
+    }
+    
+    .stat {
+        padding: 8px;
+    }
+    
+    .circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .counter h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stat p {
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+    
+    .contact-hero {
+        padding: 20px 10px;
+    }
+    
+    .contact-hero-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact-hero-image img {
+        max-width: 95%;
+    }
+    
+    .contact-method {
+        padding: 20px 15px;
+    }
+    
+    .contact-method i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-method h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .contact-method p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-form-container {
+        padding: 20px 10px;
+    }
+    
+    .contact-form h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-form p {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+    
+    .submit-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .section-description {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .cta-button,
+    .submit-button,
+    .learn-more-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .contact-method {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .contact-method:active {
+        transform: scale(0.98);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .cta-button,
+    .submit-button,
+    .learn-more-link {
+        border: 2px solid #72a1de;
+        background-color: #72a1de;
+        color: #000;
+    }
+    
+    .contact-method {
+        border: 2px solid #72a1de;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hero-info h1.gradient {
+        animation: none;
+    }
+    
+    .contact-method {
+        transition: none;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 70vh;
+    }
+    
+    .hero-info h1.gradient {
+        margin-top: 30px !important;
+    }
+    
+    .stats-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .stat {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 180px;
+    }
+    
+    .circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .counter h2 {
+        font-size: 1.4em;
+    }
+    
+    .contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Form-specific mobile improvements */
+@media (max-width: 768px) {
+    .checkbox-group {
+        text-align: left;
+    }
+    
+    .checkbox-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .file-upload-group {
+        text-align: center;
+    }
+    
+    .file-upload-button {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .file-requirements {
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #c5c5c5;
+    }
+}
+
+/* Calendar booking section mobile optimization */
+@media (max-width: 768px) {
+    .calendar-booking-section {
+        padding: 30px 15px;
+        margin: 40px auto;
+    }
+    
+    .calendar-booking-section h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .calendar-booking-section p {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .calendar-sidebar {
+        order: 1;
+        padding: 20px;
+    }
+    
+    .calendar-main {
+        order: 2;
+        padding: 20px;
+    }
+    
+    .booking-summary {
+        order: 3;
+        padding: 20px;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .time-slot {
+        padding: 10px 6px;
+        font-size: 0.85rem;
+    }
+    
+    .meeting-type-options {
+        gap: 10px;
+    }
+    
+    .option-content {
+        padding: 12px;
+    }
+    
+    .option-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .option-content p {
+        font-size: 0.8rem;
+    }
+    
+    .calendar-embed {
+        width: 100%;
+        height: 600px;
+        border: none;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-booking-section {
+        padding: 20px 10px;
+    }
+    
+    .calendar-booking-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .calendar-booking-section p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .calendar-embed {
+        height: 500px;
+    }
+}
+
+/* ================================================ */
+/* === END RESPONSIVE DESIGN FOR CONTACT PAGE === */
+/* ================================================ */

@@ -584,3 +584,631 @@ header ul li {
         flex: 0 1 100% !important;
     }
 }
+
+/* ================================================ */
+/* === RESPONSIVE DESIGN FOR AI-POWERED CONTACT CENTER PAGE === */
+/* ================================================ */
+
+/* Mobile menu icon - hidden by default */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    background: rgba(10, 25, 47, 0.8);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(114, 161, 222, 0.3);
+}
+
+.menu-icon i {
+    font-size: 1.5rem;
+    color: #72a1dea2;
+}
+
+/* Mobile-first responsive approach */
+@media (max-width: 768px) {
+    /* Show mobile menu icon */
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Hide desktop navigation */
+    .logo-bar-buttons {
+        display: none;
+    }
+
+    /* Mobile menu styles */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 25, 47, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar.active {
+        right: 0;
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: #72a1dea2;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .sidebar ul li {
+        margin: 20px 0;
+    }
+
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        display: block;
+        padding: 15px;
+    }
+
+    .sidebar ul li a:hover {
+        color: #72a1dea2;
+    }
+
+    .sidebar-dropdown {
+        position: relative;
+    }
+
+    .sidebar-submenu {
+        display: none;
+        background: rgba(114, 161, 222, 0.1);
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .sidebar-dropdown.active .sidebar-submenu {
+        display: block;
+    }
+
+    .sidebar-submenu li {
+        margin: 10px 0;
+    }
+
+    .sidebar-submenu li a {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .social-sidebar {
+        position: absolute;
+        bottom: 30px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .social-sidebar a {
+        color: #72a1dea2;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .social-sidebar a:hover {
+        color: white;
+    }
+
+    /* Hero section responsive */
+    .hero {
+        padding: 40px 20px;
+        text-align: center;
+        height: auto !important;
+        min-height: 60vh;
+    }
+
+    .hero-info h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-info p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* Stats section responsive */
+    .stats-section {
+        padding: 40px 20px;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .stat {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .stat-circle-wrapper {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+    }
+
+    .progress-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .stat p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Strategic edge section responsive */
+    .strategic-edge {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .strategic-edge-content {
+        max-width: 100%;
+    }
+
+    .strategic-edge-content .section-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .strategic-edge-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .strategic-edge-video {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .strategic-edge-video img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Contact center solutions section responsive */
+    .contact-center-solutions {
+        padding: 40px 20px;
+    }
+
+    .contact-center-solutions .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .solution-card {
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .solution-card i {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .solution-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .solution-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Why choose us section responsive */
+    .why-choose-us {
+        padding: 40px 20px;
+    }
+
+    .why-choose-us .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .reasons-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .reason {
+        padding: 25px;
+        text-align: center;
+    }
+
+    .reason i {
+        font-size: 3rem !important;
+        margin-bottom: 20px;
+    }
+
+    .reason h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .reason p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* CTA section responsive */
+    .cta-section {
+        padding: 60px 20px;
+        margin: 40px 20px;
+    }
+
+    .cta-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    /* Footer responsive */
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-column {
+        padding: 0 20px;
+    }
+
+    .footer-column h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .footer-column ul li {
+        margin: 10px 0;
+    }
+
+    .footer-column ul li a {
+        font-size: 0.95rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.9rem;
+        padding: 20px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-info h1 {
+        font-size: 3rem;
+    }
+
+    .hero-info p {
+        font-size: 1.2rem;
+    }
+
+    .strategic-edge {
+        padding: 40px;
+        gap: 50px;
+    }
+
+    .strategic-edge-content .section-title {
+        font-size: 2.5rem;
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .reasons-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Large screen responsive */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .hero-info h1 {
+        font-size: 3.5rem;
+    }
+
+    .strategic-edge {
+        padding: 50px;
+        gap: 60px;
+    }
+
+    .strategic-edge-content .section-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 15px;
+        min-height: 50vh;
+    }
+
+    .hero-info h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-info p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .stats-section {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .stat-circle-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .progress-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .strategic-edge {
+        padding: 25px 15px;
+        gap: 20px;
+    }
+
+    .strategic-edge-content .section-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-center-solutions,
+    .why-choose-us {
+        padding: 30px 15px;
+    }
+
+    .contact-center-solutions .section-title,
+    .why-choose-us .section-title {
+        font-size: 1.8rem;
+    }
+
+    .solutions-grid {
+        gap: 20px;
+    }
+
+    .solution-card {
+        padding: 20px;
+    }
+
+    .reasons-container {
+        gap: 20px;
+    }
+
+    .reason {
+        padding: 20px;
+    }
+
+    .menu-icon {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .menu-icon i {
+        font-size: 1.3rem;
+    }
+
+    .sidebar ul li a {
+        font-size: 1.3rem;
+        padding: 12px;
+    }
+
+    .sidebar-submenu li a {
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    .cta-button,
+    .solution-card,
+    .reason {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .sidebar ul li a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .strategic-edge,
+    .solution-card,
+    .reason {
+        border: 2px solid #72a1dea2;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .strategic-edge-video img,
+    .cta-button,
+    .solution-card {
+        transition: none;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 50vh;
+        padding: 20px;
+    }
+
+    .hero-info h1 {
+        font-size: 2rem;
+    }
+
+    .hero-info p {
+        font-size: 1rem;
+    }
+
+    .strategic-edge {
+        padding: 20px;
+        gap: 20px;
+    }
+}
+
+/* Fix background video effects for mobile */
+@media (max-width: 768px) {
+    /* Ensure background video covers full screen on mobile */
+    .back-vid {
+        opacity: 0.4;
+        mix-blend-mode: normal;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* Ensure proper backdrop filters on mobile */
+    .strategic-edge,
+    .contact-center-solutions,
+    .why-choose-us,
+    .cta-section {
+        backdrop-filter: blur(8px);
+        background: rgba(10, 25, 47, 0.85);
+        border: 1px solid rgba(114, 161, 222, 0.2);
+    }
+
+    /* Fix blurriness by reducing complex shadows and effects */
+    .solution-card,
+    .reason {
+        backdrop-filter: blur(6px);
+        background: rgba(10, 25, 47, 0.9);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(114, 161, 222, 0.15);
+    }
+
+    /* Optimize AOS animations for mobile */
+    [data-aos] {
+        animation-duration: 0.8s !important;
+        animation-delay: 0s !important;
+    }
+
+    /* Enhanced mobile contrast */
+    .section-title,
+    .solution-card h3,
+    .reason h3 {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .solution-card p,
+    .reason p {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Ensure container takes full width on mobile */
+    .container {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Fix any overflow issues */
+    body {
+        overflow-x: hidden;
+        width: 100vw;
+    }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+    .back-vid {
+        opacity: 0.5;
+    }
+
+    .strategic-edge,
+    .contact-center-solutions,
+    .why-choose-us,
+    .cta-section {
+        backdrop-filter: blur(6px);
+        background: rgba(10, 25, 47, 0.9);
+    }
+
+    .solution-card,
+    .reason {
+        backdrop-filter: blur(4px);
+        background: rgba(10, 25, 47, 0.95);
+    }
+}

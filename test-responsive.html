@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Test - Careers Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .screen-size {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .responsive-info {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .breakpoint {
+            background: #28a745;
+            color: white;
+            padding: 8px;
+            border-radius: 3px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .feature-list {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+        .feature-list ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Careers Page Responsive Design Test</h1>
+        
+        <div class="screen-size" id="screen-size">
+            Current Screen Size: <span id="dimensions"></span>
+        </div>
+        
+        <div class="responsive-info">
+            <h3>Responsive Breakpoints Implemented:</h3>
+            <div class="breakpoint">Mobile First (Default)</div>
+            <div class="breakpoint">600px+ (Small tablets)</div>
+            <div class="breakpoint">768px+ (Tablets)</div>
+            <div class="breakpoint">1024px+ (Large tablets)</div>
+            <div class="breakpoint">1200px+ (Desktops)</div>
+            <div class="breakpoint">1400px+ (Large desktops)</div>
+        </div>
+        
+        <div class="feature-list">
+            <h3>Key Responsive Features:</h3>
+            <ul>
+                <li><strong>Mobile-First Design:</strong> All styles start from mobile and scale up</li>
+                <li><strong>Fluid Typography:</strong> Uses clamp() for responsive font sizes</li>
+                <li><strong>Flexible Grids:</strong> CSS Grid that adapts to screen size</li>
+                <li><strong>Touch-Friendly:</strong> Minimum 44px touch targets on mobile</li>
+                <li><strong>Flexible Spacing:</strong> Uses clamp() for responsive padding/margins</li>
+                <li><strong>Image Scaling:</strong> Images scale proportionally across devices</li>
+                <li><strong>Accessibility:</strong> Focus states and high contrast support</li>
+                <li><strong>Performance:</strong> Optimized animations and transitions</li>
+            </ul>
+        </div>
+        
+        <div class="responsive-info">
+            <h3>Testing Instructions:</h3>
+            <ol>
+                <li>Open the careers page in your browser</li>
+                <li>Resize the browser window to test different screen sizes</li>
+                <li>Use browser dev tools to simulate mobile devices</li>
+                <li>Test on actual mobile devices if possible</li>
+                <li>Verify all content is readable and accessible</li>
+                <li>Check that buttons and links are properly sized</li>
+                <li>Ensure smooth transitions between breakpoints</li>
+            </ol>
+        </div>
+        
+        <div class="feature-list">
+            <h3>What Was Fixed:</h3>
+            <ul>
+                <li>✅ Mobile-first responsive design approach</li>
+                <li>✅ Fluid typography using clamp() functions</li>
+                <li>✅ Responsive grid layouts for all sections</li>
+                <li>✅ Touch-friendly button sizes (44px minimum)</li>
+                <li>✅ Proper spacing and padding for all screen sizes</li>
+                <li>✅ Optimized timeline layout for mobile</li>
+                <li>✅ Responsive stats section with flexible circles</li>
+                <li>✅ Accessible focus states and keyboard navigation</li>
+                <li>✅ High contrast mode support</li>
+                <li>✅ Reduced motion support for accessibility</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function updateScreenSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const dimensions = document.getElementById('dimensions');
+            
+            let size = '';
+            if (width < 600) {
+                size = 'Mobile (< 600px)';
+            } else if (width < 768) {
+                size = 'Small Tablet (600px - 767px)';
+            } else if (width < 1024) {
+                size = 'Tablet (768px - 1023px)';
+            } else if (width < 1200) {
+                size = 'Small Desktop (1024px - 1199px)';
+            } else if (width < 1400) {
+                size = 'Desktop (1200px - 1399px)';
+            } else {
+                size = 'Large Desktop (1400px+)';
+            }
+            
+            dimensions.textContent = `${width} × ${height} - ${size}`;
+        }
+        
+        // Update on load and resize
+        updateScreenSize();
+        window.addEventListener('resize', updateScreenSize);
+    </script>
+</body>
+</html>
+
+
+

@@ -64,10 +64,13 @@
     text-align: center;
     border-radius: 15px;
     padding: 30px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .stat {
     flex: 1;
+    min-width: 280px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -89,8 +92,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 260px;
-    height: 260px;
+    width: 100%;
+    height: 100%;
 }
 
 .progress-bg, .progress-fg {
@@ -99,6 +102,19 @@
 
 .progress-fg {
     transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* Responsive stroke width for mobile */
+@media (max-width: 768px) {
+    .progress-bg, .progress-fg {
+        stroke-width: 8;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bg, .progress-fg {
+        stroke-width: 6;
+    }
 }
 
 .counter {
@@ -382,9 +398,23 @@
     .stats-section {
         flex-direction: column;
         gap: 30px;
+        width: 95%;
+        padding: 20px 0;
     }
     .stat {
         width: 100%;
+        min-width: auto;
+    }
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+    .counter h2 {
+        font-size: 1.6em;
+    }
+    .stat p {
+        font-size: 0.9em;
+        margin-top: 15px;
     }
     .hero {
         height: auto;
@@ -873,6 +903,34 @@
     }
 }
 
+/* Additional responsive improvements for stats section */
+@media screen and (max-width: 600px) {
+    .stats-section {
+        width: 100%;
+        padding: 15px 5px;
+        margin: 20px auto;
+    }
+    
+    .stat {
+        padding: 10px 5px;
+    }
+    
+    .circle {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .counter h2 {
+        font-size: 1.3em;
+    }
+    
+    .stat p {
+        font-size: 0.8em;
+        margin-top: 8px;
+        padding: 0 5px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .strategic-edge {
         flex-direction: column;
@@ -943,3 +1001,687 @@
         background-position: 200%;
     }
 }
+
+/* ================================================ */
+/* === RESPONSIVE DESIGN FOR OUR WORK PAGE === */
+/* ================================================ */
+
+/* Mobile-first responsive approach */
+@media (max-width: 1200px) {
+    .stats-section {
+        width: 90%;
+        gap: 20px;
+    }
+    
+    .work-hero {
+        padding: 60px 30px;
+        gap: 40px;
+    }
+    
+    .work-hero-content {
+        max-width: 100%;
+    }
+    
+    .work-hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .work-categories {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        height: 60vh;
+        padding: 0 15px;
+    }
+    
+    .hero-info {
+        width: 95%;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 2.5rem;
+        margin-top: 60px !important;
+    }
+    
+    .hero-info p {
+        font-size: 1.1rem;
+        margin: 15px auto 25px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        width: 95%;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        padding: 15px;
+        min-width: auto;
+    }
+    
+    .circle {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .counter h2 {
+        font-size: 1.8em;
+    }
+}
+    
+    .work-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    
+    .work-hero-content {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    
+    .work-hero-image {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .work-hero-image img {
+        max-width: 80%;
+        height: auto;
+    }
+    
+    .work-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+        padding: 0 10px;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 2rem;
+        margin-top: 50px !important;
+    }
+    
+    .hero-info p {
+        font-size: 1rem;
+        margin: 12px auto 20px;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+        max-width: 250px;
+    }
+    
+    .stats-section {
+        width: 100%;
+        padding: 20px 10px;
+        margin: 30px auto;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .stat {
+        padding: 10px;
+        min-width: auto;
+    }
+    
+    .circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .counter h2 {
+        font-size: 1.8rem;
+    }
+    
+    .stat p {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+    
+    .work-hero {
+        padding: 30px 15px;
+    }
+    
+    .work-hero-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .work-hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .work-hero-image img {
+        max-width: 90%;
+    }
+    
+    .work-categories {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .work-category {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .work-category i {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .work-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .work-category p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .portfolio-item {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .portfolio-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .portfolio-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .portfolio-item p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        padding: 25px 20px;
+        text-align: center;
+    }
+    
+    .testimonial-card .quote {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    
+    .testimonial-card .author {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .testimonial-card .position {
+        font-size: 0.8rem;
+        color: #c5c5c5;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .section-description {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 45vh;
+        padding: 0 8px;
+    }
+    
+    .hero-info h1.gradient {
+        font-size: 1.8rem;
+        margin-top: 40px !important;
+    }
+    
+    .hero-info p {
+        font-size: 0.9rem;
+        margin: 10px auto 15px;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 13px;
+        max-width: 200px;
+    }
+    
+    .stats-section {
+        padding: 15px 5px;
+        margin: 20px auto;
+        width: 98%;
+        gap: 20px;
+    }
+    
+    .stat {
+        padding: 8px;
+    }
+    
+    .circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .counter h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stat p {
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+    
+    .work-hero {
+        padding: 20px 10px;
+    }
+    
+    .work-hero-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .work-hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .work-hero-image img {
+        max-width: 95%;
+    }
+    
+    .work-category {
+        padding: 20px 15px;
+    }
+    
+    .work-category i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .work-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .work-category p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .portfolio-item {
+        padding: 20px 15px;
+    }
+    
+    .portfolio-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .portfolio-item p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-card {
+        padding: 20px 15px;
+    }
+    
+    .testimonial-card .quote {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-card .author {
+        font-size: 0.85rem;
+    }
+    
+    .testimonial-card .position {
+        font-size: 0.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .section-description {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .cta-button,
+    .learn-more-link,
+    .view-project-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .work-category,
+    .portfolio-item,
+    .testimonial-card {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .work-category:active,
+    .portfolio-item:active,
+    .testimonial-card:active {
+        transform: scale(0.98);
+    }
+    
+    .portfolio-item img {
+        transition: transform 0.2s ease;
+    }
+    
+    .portfolio-item:active img {
+        transform: scale(0.95);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .cta-button,
+    .learn-more-link,
+    .view-project-btn {
+        border: 2px solid #72a1de;
+        background-color: #72a1de;
+        color: #000;
+    }
+    
+    .work-category,
+    .portfolio-item,
+    .testimonial-card {
+        border: 2px solid #72a1de;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hero-info h1.gradient {
+        animation: none;
+    }
+    
+    .work-category,
+    .portfolio-item,
+    .testimonial-card {
+        transition: none;
+    }
+    
+    .portfolio-item img {
+        transition: none;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 70vh;
+    }
+    
+    .hero-info h1.gradient {
+        margin-top: 30px !important;
+    }
+    
+    .stats-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .stat {
+        flex: 1 1 calc(50% - 15px);
+        min-width: 180px;
+    }
+    
+    .circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .counter h2 {
+        font-size: 1.4em;
+    }
+    
+    .work-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Portfolio-specific mobile improvements */
+@media (max-width: 768px) {
+    .portfolio-filters {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .portfolio-item .tags {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .portfolio-item .tag {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .portfolio-item .view-project-btn {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Testimonials mobile optimization */
+@media (max-width: 768px) {
+    .testimonial-card .quote {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .testimonial-card .author-info {
+        margin-top: 15px;
+    }
+    
+    .testimonial-card .company-logo {
+        max-width: 60px;
+        height: auto;
+        margin: 0 auto 10px;
+    }
+}
+
+/* Case studies section mobile optimization */
+@media (max-width: 768px) {
+    .case-studies-section {
+        padding: 30px 15px;
+    }
+    
+    .case-studies-section h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .case-studies-section p {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    .case-study-card {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .case-study-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .case-study-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .case-study-card .metrics {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .metric {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .metric .number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #72a1de;
+    }
+    
+    .metric .label {
+        font-size: 0.8rem;
+        color: #c5c5c5;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-studies-section {
+        padding: 20px 10px;
+    }
+    
+    .case-studies-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .case-studies-section p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .case-study-card {
+        padding: 20px 15px;
+    }
+    
+    .case-study-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .case-study-card p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .case-study-card .metrics {
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .metric {
+        padding: 12px;
+    }
+    
+    .metric .number {
+        font-size: 1.3rem;
+    }
+    
+    .metric .label {
+        font-size: 0.75rem;
+    }
+}
+
+/* ================================================ */
+/* === END RESPONSIVE DESIGN FOR OUR WORK PAGE === */
+/* ================================================ */

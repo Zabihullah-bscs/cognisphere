@@ -95,6 +95,51 @@
             </div>
         </header>
 
+        <div class="menu-icon">
+            <i class='bx bx-menu'></i>
+        </div>
+
+        <div class="sidebar">
+            <div class="close-icon">
+                <i class='bx bx-x'></i>
+            </div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li class="sidebar-dropdown">
+                    <a href="#">Services</a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="data-services.html">Data Services</a></li>
+                        <li><a href="data-engineering.html">Data Engineering</a></li>
+                        <li><a href="cloud-data-ai.html">Cloud, Data & AI</a></li>
+                        <li><a href="data-strategy.html">Data Strategy</a></li>
+                        <li><a href="data-privacy-security.html">Data Privacy & Security</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-dropdown">
+                    <a href="#">Solutions</a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="../solutions/artificial-intelligence.html">AI & Machine Learning</a></li>
+                        <li><a href="../solutions/microsoft-azure.html">Cloud & Infrastructure</a></li>
+                        <li><a href="../solutions/business-intelligence.html">Data & Analytics</a></li>
+                        <li><a href="../solutions/generative-ai-llms.html">Generative AI & LLMs</a></li>
+                        <li><a href="../solutions/ai-powered-automation.html">AI-Powered Automation</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="../about-us/careers.html">Careers</a></li>
+                        <li><a href="../about-us/our-work.html">Our Work</a></li>
+                        <li><a href="../about-us/contact-us.html">Contact Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="social-sidebar">
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+                <a href="#"><i class='bx bxl-github'></i></a>
+                <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+            </div>
+        </div>
 
         <br>
         <br>
@@ -126,7 +171,7 @@
         <section class="stats-section" data-aos="fade-up" data-aos-duration="1500">
             <div class="stat">
                 <div class="circle stat-circle-wrapper" data-percentage="90">
-                    <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
+                    <svg class="progress-circle" viewBox="0 0 260 260" preserveAspectRatio="xMidYMid meet">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
                         <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="753.984" transform="rotate(-90 130 130)" />
                     </svg>
@@ -136,7 +181,7 @@
             </div>
             <div class="stat">
                 <div class="circle stat-circle-wrapper" data-percentage="60">
-                    <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
+                    <svg class="progress-circle" viewBox="0 0 260 260" preserveAspectRatio="xMidYMid meet">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
                         <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="753.984" transform="rotate(-90 130 130)" />
                     </svg>
@@ -146,7 +191,7 @@
             </div>
             <div class="stat">
                 <div class="circle stat-circle-wrapper" data-percentage="70">
-                    <svg class="progress-circle" width="260" height="260" viewBox="0 0 260 260">
+                    <svg class="progress-circle" viewBox="0 0 260 260" preserveAspectRatio="xMidYMid meet">
                         <circle class="progress-bg" cx="130" cy="130" r="120" stroke="#333" stroke-width="10" fill="none" />
                         <circle class="progress-fg" cx="130" cy="130" r="120" stroke="#72a1dea2" stroke-width="10" fill="none" stroke-dasharray="753.984" stroke-dashoffset="753.984" transform="rotate(-90 130 130)" />
                     </svg>
@@ -411,6 +456,79 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+
+    <!-- Mobile Menu Functionality -->
+    <script>
+        // Mobile menu functionality
+        const menuIcon = document.querySelector('.menu-icon');
+        const sidebar = document.querySelector('.sidebar');
+        const closeIcon = document.querySelector('.close-icon');
+        const body = document.body;
+        
+        if (menuIcon) {
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                toggleBodyScroll(true);
+            });
+        }
+        
+        if (closeIcon) {
+            closeIcon.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            });
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (sidebar && !sidebar.contains(e.target) && !menuIcon.contains(e.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        });
+        
+        // Close sidebar with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        });
+        
+        // Sidebar dropdown functionality
+        const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
+        
+        sidebarDropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const submenu = dropdown.querySelector('.sidebar-submenu');
+            
+            if (link && submenu) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    submenu.classList.toggle('active');
+                });
+            }
+        });
+        
+        function toggleBodyScroll(disable) {
+            if (disable) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+        
+        // Handle resize events
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        }
+        
+        window.addEventListener('resize', handleResize);
     </script>
 </body>
 </html>

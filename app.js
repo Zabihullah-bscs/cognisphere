@@ -1,4 +1,149 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced mobile functionality and responsive features
+    
+    // Touch gesture support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Hero slider touch gestures
+    const heroSlider = document.querySelector('.hero-slider');
+    if (heroSlider) {
+        heroSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        heroSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextSlide();
+            } else {
+                // Swipe right - previous slide
+                prevSlide();
+            }
+        }
+    }
+    
+    // Mobile menu enhancements
+    const menuIcon = document.querySelector('.menu-icon');
+    const sidebar = document.querySelector('.sidebar');
+    const closeIcon = document.querySelector('.close-icon');
+    const body = document.body;
+    
+    // Prevent body scroll when sidebar is open
+    function toggleBodyScroll(disable) {
+        if (disable) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    }
+    
+    // Enhanced menu toggle with body scroll control
+    if (menuIcon) {
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            toggleBodyScroll(true);
+        });
+    }
+    
+    if (closeIcon) {
+        closeIcon.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        });
+    }
+    
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (sidebar && !sidebar.contains(e.target) && !menuIcon.contains(e.target) && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        }
+    });
+    
+    // Close sidebar on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        }
+    });
+    
+    // Enhanced sidebar dropdown functionality
+    const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
+    
+    sidebarDropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        const submenu = dropdown.querySelector('.sidebar-submenu');
+        
+        if (link && submenu) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                submenu.classList.toggle('active');
+            });
+        }
+    });
+    
+    // Responsive navigation - hide dropdowns on mobile
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            // On mobile, ensure dropdowns are properly handled
+            document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        } else {
+            // On desktop, restore dropdown functionality
+            document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+                dropdown.style.display = '';
+            });
+        }
+    }
+    
+    // Initial call and resize listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    // Mobile-optimized carousel for services
+    const servicesTrack = document.querySelector('.services-track');
+    if (servicesTrack && window.innerWidth <= 768) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        servicesTrack.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - servicesTrack.offsetLeft;
+            scrollLeft = servicesTrack.scrollLeft;
+        });
+        
+        servicesTrack.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        servicesTrack.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        servicesTrack.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - servicesTrack.offsetLeft;
+            const walk = (x - startX) * 2;
+            servicesTrack.scrollLeft = scrollLeft - walk;
+        });
+    }
+    
     // Intersection Observer for animating circular progress bars
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -73,11 +218,43 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
     }
 
-    nextArrow.addEventListener('click', nextSlide);
-    prevArrow.addEventListener('click', prevSlide);
+    if (nextArrow && prevArrow) {
+        nextArrow.addEventListener('click', nextSlide);
+        prevArrow.addEventListener('click', prevSlide);
+    }
 
-    // Auto-play the slider
-    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    // Auto-play the slider (only on desktop)
+    if (window.innerWidth > 768) {
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+    
+    // Pause auto-play on mobile to save battery
+    let autoPlayInterval;
+    
+    function startAutoPlay() {
+        if (window.innerWidth > 768) {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+    }
+    
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+    
+    // Start auto-play initially
+    startAutoPlay();
+    
+    // Handle orientation change
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            handleResize();
+            // Restart auto-play after orientation change
+            stopAutoPlay();
+            startAutoPlay();
+        }, 500);
+    });
 });
 
 // Animate the custom AI solutions section on scroll

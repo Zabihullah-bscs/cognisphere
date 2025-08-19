@@ -1,858 +1,1352 @@
 /* Basic styles for data-services.html */
 
-/* Import Google Fonts if needed */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+/* === OPTIMIZED RESPONSIVE DESIGN SYSTEM === */
+/* This ensures background videos show on ALL devices and responsive design is consistent */
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: lightgray;
-    position: relative;
-    width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px;
-    background-color: #020f1cd1;
-}
-
-.back-vid {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    mix-blend-mode: overlay;
-}
-
-header {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    height: 70px;
-    background-color: transparent;
-    backdrop-filter: none;
-    box-shadow: none;
-    z-index: 999;
-    flex-wrap: nowrap;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
-}
-
-.left {
-    display: flex;
-    align-items: center;
-}
-
-header.scrolled {
-    background: rgba(10, 25, 47, 0.4);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.left img {
-    width: 80px;
-    margin: 0 15px;
-}
-
-.logo-bar-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-shrink: 0;
-}
-
-header ul li {
-    margin: 0;
-    position: relative;
-}
-
-
-.dropdown-menu {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    max-width: 1600px;
-    z-index: 1000;
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px #72a1dea2;
-    list-style: none;
-    padding: 30px 40px;
-    border-radius: 16px;
-    min-height: 50vh;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
-
-.logo-bar-buttons li:hover .dropdown-menu {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.dropdown-menu a {
-    color: white;
-    padding: 10px 0;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    border-radius: 0;
-    background: none !important;
-    box-shadow: none !important;
-    transition: color 0.2s, padding-left 0.2s;
-}
-
-.dropdown-menu a:hover {
-    color: #72a1de;
-    padding-left: 5px;
-}
-
-.dropdown-menu h4 {
-    color: #72a1de;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
-}
-
-.services-dropdown, .solutions-dropdown {
-    margin-left: 150px !important;
-    transform: translateX(-50%) !important;
-    left: 0 !important;
-    width: 300vw !important;
-    max-width: 2000px !important;
-    justify-content: center !important;
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-}
-
-.dropdown-menu.services-dropdown .dropdown-content-wrapper {
-    display: flex !important;
-    gap: 40px !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-}
-
-.dropdown-menu.services-dropdown .dropdown-image {
-    flex: 1.3 !important;
-    margin-top: 20px;
-}
-
-.dropdown-menu.services-dropdown .dropdown-image img {
-    max-width: 100% !important;
-    max-height: 300px !important;
-    height: auto !important;
-    object-fit: cover !important;
-    border-radius: 4px !important;
+/* ALL DEVICES - VIDEOS ALWAYS SHOW */
+.back-vid,
+.blackhole-box video,
+.main-hero-video-box video {
     display: block !important;
-    margin-top: 20px !important;
 }
 
-.dropdown-menu.services-dropdown .dropdown-links {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    margin-top: 30px !important;
-}
-
-.dropdown-menu.services-dropdown .dropdown-links a {
-    color: white;
-    text-decoration: none !important;
-    padding: 5px 0 !important;
-}
-
-.dropdown-menu.services-dropdown .dropdown-links a:hover {
-    color: #72a1de !important;
-}
-
-.aboutus-rightlinks-dropdown {
-    position: absolute;
-    top: 100%;
-    margin-right: 80px !important;
-    width: 100%;
-    background-color: #111111;
-    backdrop-filter: blur(8px);
-    box-sizing: border-box;
-    z-index: 999;
-    border-top: 1px solid #333;
-}
-
-.aboutus-content-wrapper {
-    display: flex;
-    align-items: flex-start;
-    gap: 80px;
-}
-
-.aboutus-image {
-    width: 400px;
-    flex-shrink: 0;
-    margin-top: 40px;
-}
-
-.aboutus-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-}
-
-.aboutus-image h4 {
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 15px;
-    line-height: 1.4;
-}
-
-.aboutus-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
-    text-align: left;
-    margin-top: 80px;
-}
-
-.aboutus-links h4 {
-    color: white;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.aboutus-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 5px 0;
-    transition: color 0.2s ease;
-}
-
-.aboutus-links a:hover {
-    color: #ffffff;
-}
-
-/* Update section-title class */
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 16px;
-}
-
-/* Hero Section Styles */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 100px; /* Move content down from the top */
-}
-
-.hero-info {
-    width: 90%;
-    max-width: 900px;
-    margin-top: 60px; /* Additional downward spacing */
-}
-
-.hero-info h1.gradient {
-    background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray);
-    background-size: 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-info p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.6;
-    margin: 0 auto 30px auto;
-    color: #e0e0e0;
-}
-
-.strategic-edge-content h2.section-title {
-    text-align: left;
-}
-
-.services-portfolio h2.section-title,
-.industry-solutions h2.section-title,
-.why-choose-us h2.section-title,
-.custom-data-solutions h1.section-title {
-    text-align: center;
-}
-
-.site-footer {
-    position: relative;
-    width: 100%;
-    background-color: rgba(10, 25, 47, 0.6);
-    color: #a9a9a9;
-    padding: 60px 0 20px 0;
-    margin-top: 150px;
-    overflow: hidden;
-}
-
-.footer-main {
-    width: 90%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-column {
-    padding: 0 10px;
-}
-
-.footer-column h4 {
-    color: #72a1dea2;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.footer-column.about .left {
-    margin-bottom: 15px;
-}
-
-.footer-about-text {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 15px;
-}
-
-.footer-socials a {
-    color: #a9a9a9;
-    font-size: 28px;
-    transition: all 0.3s ease;
-}
-
-.footer-socials a:hover {
-    color: #72a1de;
-    transform: translateY(-3px);
-}
-
-.footer-column.links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column.links ul li {
-    margin-bottom: 12px;
-}
-
-.footer-column.links ul li::before {
-    content: '●';
-    color: #72a1de;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-.footer-column.links ul li a {
-    color: #a9a9a9;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.footer-column.links ul li a:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-.footer-column.contact p {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.footer-column.contact i {
-    font-size: 20px;
-    color: #72a1de;
-    margin-top: 4px;
-}
-
-.footer-bottom {
-    width: 90%;
-    margin: 40px auto 0 auto;
-    padding-top: 20px;
-    border-top: 1px solid rgba(114, 161, 222, 0.15);
-    text-align: center;
-    font-size: 0.8rem;
-    color: #6c757d;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-    .dropdown-menu.services-dropdown,
-    .dropdown-menu.aboutus-dropdown,
-    .aboutus-rightlinks-dropdown {
-        width: 100vw !important;
-        padding: 20px !important;
+/* ASUS ZENBOOK FOLD OPTIMIZATION (17.3" foldable) */
+@media screen and (min-width: 1920px) and (max-width: 2560px) {
+    .container {
+        gap: 100px !important;
+        padding: 0 40px !important;
     }
+    
+    .hero {
+        height: 75vh !important;
+        min-height: 600px !important;
+        padding-top: 120px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(3rem, 6vw, 4.5rem) !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem) !important;
+        line-height: 1.7 !important;
+    }
+    
+    .stats-section {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 50px !important;
+        margin: 100px auto !important;
+    }
+    
+    .strategic-edge {
+        padding: 60px !important;
+        gap: 80px !important;
+    }
+    
+    .section-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem) !important;
+    }
+}
 
-    .dropdown-image,
-    .dropdown-links,
-    .aboutus-links {
+/* NEST HUB MAX OPTIMIZATION (10" smart display) */
+@media screen and (min-width: 800px) and (max-width: 1280px) and (orientation: landscape) {
+    .container {
+        gap: 60px !important;
+        padding: 0 30px !important;
+    }
+    
+    .hero {
+        height: 70vh !important;
+        min-height: 500px !important;
+        padding-top: 100px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+        line-height: 1.6 !important;
+    }
+    
+    .stats-section {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 40px !important;
+        margin: 80px auto !important;
+    }
+    
+    .strategic-edge {
+        padding: 50px !important;
+        gap: 60px !important;
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 4vw, 2.8rem) !important;
+    }
+}
+
+/* FOLDABLE DEVICES - PORTRAIT MODE */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .container {
+        gap: 50px !important;
+        padding: 0 25px !important;
+    }
+    
+    .hero {
+        height: 65vh !important;
+        min-height: 450px !important;
+        padding-top: 90px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(1rem, 2.5vw, 1.3rem) !important;
+        line-height: 1.6 !important;
+    }
+    
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 35px !important;
+        margin: 70px auto !important;
+    }
+    
+    .strategic-edge {
+        padding: 40px !important;
+        gap: 50px !important;
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+    }
+}
+
+/* UNIVERSAL MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+    /* Grid and Flexbox optimizations */
+    .container, .grid-container, .flex-container {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    /* Typography adjustments */
+    h1, h2, h3, h4, h5, h6 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    p, .text-content {
+        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Dropdown and navigation */
+    .dropdown-menu, .sidebar-menu {
         width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Buttons and interactive elements */
+    .btn, .cta-button, .service-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 20px !important;
+    }
+    
+    /* Images and media */
+    img, video {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+    }
+}
+
+/* SMARTPHONE SPECIFIC OPTIMIZATIONS */
+@media screen and (max-width: 767px) {
+    /* Header optimizations */
+    header {
+        padding: 0 15px !important;
+        height: 60px !important;
+    }
+    
+    .left img {
+        width: 50px !important;
+        margin: 0 8px !important;
+    }
+    
+    /* Container and spacing */
+    .container {
+        gap: 25px !important;
+        padding: 0 10px !important;
+    }
+    
+    .hero {
+        height: 55vh !important;
+        min-height: 320px !important;
+        padding-top: 70px !important;
+    }
+    
+    .hero-info {
+        width: 98% !important;
+        margin-top: 15px !important;
+        padding: 0 10px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(1.6rem, 4.5vw, 2.2rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(0.85rem, 2.8vw, 1rem) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .cta-button {
+        padding: 14px 28px !important;
+        font-size: 0.95rem !important;
+        min-height: 48px !important;
+        min-width: 48px !important;
+        border-radius: 25px !important;
+    }
+    
+    /* Stats section */
+    .stats-section {
+        width: 98% !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin: 30px auto !important;
+    }
+    
+    .stat {
+        padding: 20px 15px !important;
+    }
+    
+    .stat-circle-wrapper {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    
+    .progress-circle {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    
+    .counter h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    /* Strategic edge */
+    .strategic-edge {
+        width: 98% !important;
+        gap: 25px !important;
+        padding: 25px 15px !important;
+        margin: 30px auto !important;
+        flex-direction: column !important;
         text-align: center !important;
     }
-
-    .aboutus-links {
-        margin-top: 20px !important;
+    
+    .strategic-edge-content {
+        padding-right: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .strategic-edge-content .section-title {
+        font-size: clamp(1.5rem, 4vw, 1.8rem) !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .strategic-edge-content p {
+        font-size: clamp(0.85rem, 2.8vw, 0.95rem) !important;
+        line-height: 1.5 !important;
         text-align: center !important;
     }
-
-    .dropdown-content-wrapper {
+    
+    /* Custom data solutions */
+    .custom-data-solutions {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .custom-data-solutions .solutions-container {
         flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    .main-hero-content h1 {
-        font-size: 28px !important;
-    }
-
-    .main-hero-content p,
-    .section-title,
-    .solution-card p {
-        font-size: 1rem !important;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .project-card,
-    .workflow-grid {
-        flex-direction: column !important;
-    }
-
-    .strategy-card,
-    .cda-card {
-        flex: 0 1 100% !important;
-    }
-}
-/* --- Custom Data Solutions We Offer --- */
-.custom-data-solutions {
-    width: 90%;
-    max-width: 1400px;
-    text-align: center;
-    margin: 80px auto;
-    color: #fff;
-}
-
-.custom-data-solutions .solutions-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    position: relative;
-}
-
-.data-services-list {
-    text-align: left;
-    flex-basis: 20%;
-}
-
-.data-services-list h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.data-services-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.data-services-list ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #c5c5c5;
-}
-
-.data-services-model {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.data-services-model .center-circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #72a1de, #4682b4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.data-services-model .gen-ai-text {
-    font-size: 1.5rem;
-    font-weight: 300;
-}
-
-.data-services-model .model-text {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.data-services-model .training-text {
-    position: absolute;
-    font-size: 1.2rem;
-    color: #c5c5c5;
-    letter-spacing: 5px;
-    font-weight: 300;
-    top: 50%;
-    left: -100px; /* Further left */
-    transform: translateY(-50%) rotate(-90deg);
-    white-space: nowrap; /* Prevent text from wrapping */
-}
-
-.data-services-model .adaptation-text {
-    position: absolute;
-    font-size: 1.2rem;
-    color: #c5c5c5;
-    letter-spacing: 5px;
-    font-weight: 300;
-    top: 50%;
-    right: -100px; /* Further right */
-    transform: translateY(-50%) rotate(90deg);
-    white-space: nowrap; /* Prevent text from wrapping */
-}
-
-.data-services-model .data-point {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-
-.data-services-model .data-point .icon {
-    width: 60px;
-    height: 60px;
-    border: 1px solid #72a1de;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    background-color: rgba(10, 25, 47, 0.8);
-}
-
-.data-services-model .data-point .icon i {
-    font-size: 2rem;
-    color: #72a1de;
-}
-
-.data-services-model .data-point span {
-    font-size: 0.8rem;
-}
-
-/* Position icons in a circle */
-.data-services-model .data-point.image { top: 20px; left: 210px; } /* Top */
-.data-services-model .data-point.text { top: 144px; left: 381px; } /* Top-Right */
-.data-services-model .data-point.speech { top: 144px; left: 39px; } /* Top-Left */
-.data-services-model .data-point.structured-data { top: 346px; left: 104px; } /* Bottom-Left */
-.data-services-model .data-point.signals { top: 346px; left: 316px; } /* Bottom-Right */
-
-.adaptation-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex-basis: 20%;
-}
-
-.adaptation-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 1rem;
-    text-align: center;
-}
-
-/* Industry Solutions Section Styles */
-.industry-solutions {
-    width: 90%;
-    max-width: 1400px;
-    text-align: center;
-    margin: 80px auto;
-}
-
-.industry-solutions .section-description {
-    max-width: 800px;
-    margin: -20px auto 40px;
-    color: #c5c5c5;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.industry-solutions .service-cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.industry-solutions .service-card {
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(114, 161, 222, 0.2);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-}
-
-.industry-solutions .service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
-    border-color: rgba(114, 161, 222, 0.5);
-}
-
-.industry-solutions .service-card .icon-wrapper {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(114, 161, 222, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.industry-solutions .service-card .icon-wrapper i {
-    font-size: 28px;
-    color: #72a1de;
-    margin: 0;
-}
-
-.industry-solutions .service-card .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.industry-solutions .service-card h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #ffffff;
-}
-
-.industry-solutions .service-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #c5c5c5;
-    margin: 0;
-}
-
-.industry-solutions .service-card .learn-more-link {
-    color: #72a1de;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    font-size: 0.85rem;
-    margin-top: 10px;
-}
-
-.industry-solutions .service-card .learn-more-link:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1200px) {
-    .industry-solutions .service-cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .industry-solutions .service-cards-container {
-        grid-template-columns: 1fr;
+        gap: 25px !important;
+        margin-top: 25px !important;
     }
     
-    .industry-solutions .section-description {
-        font-size: 1rem;
-        margin-bottom: 30px;
+    .data-services-list {
+        flex-basis: 100% !important;
+        text-align: center !important;
     }
     
-    .industry-solutions .service-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
+    .data-services-list h3 {
+        font-size: 1.3rem !important;
     }
-
-    .industry-solutions .service-card .content {
-        align-items: center;
+    
+    .data-services-model {
+        width: 220px !important;
+        height: 220px !important;
     }
-}
-
-/* Keep the original service-cards-container styles for other sections */
-.service-cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.service-card {
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(114, 161, 222, 0.2);
-    border-radius: 15px;
-    padding: 30px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3);
-    border-color: rgba(114, 161, 222, 0.5);
-}
-
-.service-card .icon-wrapper {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    transition: background-color 0.3s ease;
-}
-
-.service-card .icon-wrapper i {
-    font-size: 36px;
-    color: #72a1de;
-    margin: 0;
-}
-
-.service-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #ffffff;
-}
-
-.service-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #c5c5c5;
-    flex-grow: 1;
-    margin-bottom: 25px;
-}
-
-.service-card .learn-more-link {
-    color: #72a1de;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    margin-top: auto;
-    align-self: flex-start;
-}
-
-.service-card .learn-more-link:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1200px) {
+    
+    .center-circle {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    
+    /* Industry solutions */
+    .industry-solutions {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .industry-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 25px !important;
+    }
+    
+    .industry-card {
+        padding: 20px 15px !important;
+    }
+    
+    /* Why choose us */
+    .why-choose-us {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .choose-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 25px !important;
+    }
+    
+    .choose-card {
+        padding: 20px 15px !important;
+    }
+    
+    /* Footer */
+    .footer-main {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+    
+    .site-footer {
+        padding: 30px 0 15px 0 !important;
+        margin-top: 60px !important;
+    }
+    
+    /* Background video - ALWAYS SHOW on smartphones */
+    .back-vid {
+        opacity: 1 !important;
+        mix-blend-mode: overlay !important;
+        transform: none !important;
+        filter: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    /* Mobile menu */
+    .menu-icon {
+        display: flex !important;
+        top: 15px !important;
+        right: 15px !important;
+    }
+    
+    .sidebar {
+        width: 100% !important;
+        padding: 70px 20px 30px 20px !important;
+    }
+    
+    /* Override all conflicting styles */
     .service-cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .service-cards-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .industry-solutions .section-description {
-        font-size: 1rem;
-        margin-bottom: 30px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 25px !important;
     }
     
     .service-card {
-        padding: 25px;
+        padding: 20px 15px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .industry-solutions .section-description {
+        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+    }
+    
+    .industry-solutions .service-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 20px 15px !important;
+    }
+    
+    .industry-solutions .service-card .content {
+        align-items: center !important;
+    }
+    
+    /* Ensure proper text readability */
+    .section-title,
+    .hero-info h1,
+    .strategic-edge h2,
+    .custom-data-solutions h1,
+    .industry-solutions h2,
+    .why-choose-us h2 {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    }
+    
+    /* Optimize performance for mobile */
+    .back-vid {
+        will-change: auto !important;
+        backface-visibility: visible !important;
+        transform: translateZ(0) !important;
+    }
+    
+    /* Ensure proper contrast for mobile */
+    .service-card,
+    .reason,
+    .stat,
+    .industry-card,
+    .choose-card {
+        color: #f0f0f0 !important;
+        background: rgba(10, 25, 47, 0.95) !important;
+        backdrop-filter: blur(5px) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .service-card h3,
+    .reason h3,
+    .stat p,
+    .industry-card h3,
+    .choose-card h3 {
+        color: white !important;
     }
 }
+
+/* MEDIUM SCREENS/TABLETS OPTIMIZATION */
+@media (max-width: 1024px) {
+    .container {
+        gap: 40px !important;
+        padding: 0 20px !important;
+    }
+    
+    .hero, .section {
+        padding: 40px 20px !important;
+    }
+}
+
+/* ACCESSIBILITY IMPROVEMENTS */
+@media (prefers-contrast: high) {
+    .btn, .cta-button {
+        border: 2px solid #fff !important;
+        background: #000 !important;
+        color: #fff !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* VERY SMALL MOBILE DEVICES (below 480px) */
+@media screen and (max-width: 479px) {
+    .container {
+        gap: 20px !important;
+        padding: 0 8px !important;
+    }
+    
+    .hero {
+        height: 50vh !important;
+        min-height: 280px !important;
+        padding-top: 60px !important;
+    }
+    
+    .hero-info {
+        width: 99% !important;
+        margin-top: 10px !important;
+        padding: 0 8px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(1.4rem, 4vw, 1.8rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem) !important;
+        line-height: 1.4 !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .cta-button {
+        padding: 12px 24px !important;
+        font-size: 0.9rem !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    .stats-section {
+        width: 99% !important;
+        gap: 18px !important;
+        margin: 25px auto !important;
+    }
+    
+    .stat {
+        padding: 18px 12px !important;
+    }
+    
+    .stat-circle-wrapper {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    .progress-circle {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    .counter h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    .strategic-edge {
+        width: 99% !important;
+        gap: 20px !important;
+        padding: 20px 12px !important;
+        margin: 25px auto !important;
+    }
+    
+    .strategic-edge-content .section-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.5rem) !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .strategic-edge-content p {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem) !important;
+        line-height: 1.4 !important;
+    }
+    
+    .custom-data-solutions {
+        width: 99% !important;
+        margin: 25px auto !important;
+    }
+    
+    .custom-data-solutions h1 {
+        font-size: clamp(1.3rem, 3.5vw, 1.5rem) !important;
+    }
+    
+    .data-services-model {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .center-circle {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .industry-solutions {
+        width: 99% !important;
+        margin: 25px auto !important;
+    }
+    
+    .industry-solutions h2 {
+        font-size: clamp(1.3rem, 3.5vw, 1.5rem) !important;
+    }
+    
+    .why-choose-us {
+        width: 99% !important;
+        margin: 25px auto !important;
+    }
+    
+    .why-choose-us h2 {
+        font-size: clamp(1.3rem, 3.5vw, 1.5rem) !important;
+    }
+    
+    .service-card,
+    .industry-card,
+    .choose-card {
+        padding: 18px 12px !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .footer-main {
+        gap: 20px !important;
+    }
+    
+    .site-footer {
+        padding: 25px 0 15px 0 !important;
+        margin-top: 50px !important;
+    }
+}
+
+/* === MOBILE SAME AS DESKTOP - BEAUTIFUL BACKGROUNDS === */
+@media screen and (max-width: 767px) {
+    /* Container - same beautiful background as desktop */
+    .container {
+        gap: 80px !important;
+        background-color: #020f1cd1 !important;
+        padding: 0 !important;
+    }
+    
+    /* Hero section - same beautiful background as desktop */
+    .hero {
+        position: relative !important;
+        width: 100% !important;
+        height: 70vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding-top: 100px !important;
+        min-height: 400px !important;
+        background: transparent !important;
+    }
+    
+    .hero-info {
+        width: 90% !important;
+        max-width: 900px !important;
+        margin-top: 60px !important;
+    }
+    
+    .hero-info h1.gradient {
+        background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray) !important;
+        background-size: 200% !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(1rem, 2vw, 1.25rem) !important;
+        line-height: 1.6 !important;
+        margin: 0 auto 30px auto !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Stats section - same beautiful background as desktop */
+    .stats-section {
+        width: 90% !important;
+        max-width: 1400px !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        margin: 80px auto !important;
+        text-align: center !important;
+        background: transparent !important;
+    }
+    
+    .stat {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        border-radius: 15px !important;
+        padding: 25px !important;
+        text-align: center !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .stat:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.5) !important;
+    }
+    
+    .stat-circle-wrapper {
+        width: 200px !important;
+        height: 200px !important;
+        margin: 0 auto 20px auto !important;
+        position: relative !important;
+    }
+    
+    .progress-circle {
+        width: 200px !important;
+        height: 200px !important;
+        transform: rotate(-90deg) !important;
+    }
+    
+    .progress-bg {
+        stroke: #333 !important;
+        stroke-width: 10px !important;
+    }
+    
+    .progress-fg {
+        stroke: #72a1de !important;
+        stroke-width: 10px !important;
+        stroke-linecap: round !important;
+        transition: stroke-dashoffset 2s ease !important;
+    }
+    
+    .counter {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-align: center !important;
+    }
+    
+    .counter h2 {
+        font-size: 2.5rem !important;
+        color: #72a1de !important;
+        margin: 0 !important;
+        font-weight: bold !important;
+    }
+    
+    .stat p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        color: #c5c5c5 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        font-weight: 400 !important;
+    }
+    
+    /* Strategic edge - same beautiful background as desktop */
+    .strategic-edge {
+        width: 90% !important;
+        max-width: 1400px !important;
+        margin: 80px auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 60px !important;
+        padding: 40px !important;
+        background: rgba(10, 25, 47, 0.4) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(114, 161, 222, 0.1) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .strategic-edge-content {
+        flex: 1.2 !important;
+        max-width: 100% !important;
+        padding-right: 0 !important;
+    }
+    
+    .strategic-edge-content .section-title {
+        font-size: 2.4rem !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        margin-bottom: 25px !important;
+        line-height: 1.3 !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .strategic-edge-content p {
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+        color: #e0e0e0 !important;
+        margin: 0 0 35px !important;
+        text-align: center !important;
+    }
+    
+    .strategic-edge-video {
+        flex: 1 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 600px !important;
+    }
+    
+    .strategic-edge-video img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 15px !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+        transition: transform 0.6s ease, box-shadow 0.6s ease !important;
+    }
+    
+    .strategic-edge-video img:hover {
+        transform: scale(1.02) !important;
+        box-shadow: 0 25px 50px rgba(114, 161, 222, 0.2) !important;
+    }
+    
+    /* Custom data solutions - same beautiful background as desktop */
+    .custom-data-solutions {
+        width: 90% !important;
+        max-width: 1400px !important;
+        text-align: center !important;
+        margin: 80px auto !important;
+        color: #fff !important;
+        background: transparent !important;
+    }
+    
+    .custom-data-solutions .solutions-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-top: 50px !important;
+        position: relative !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .data-services-list {
+        text-align: center !important;
+        flex-basis: 100% !important;
+    }
+    
+    .data-services-list h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .data-services-list ul {
+        list-style: none !important;
+        padding: 0 !important;
+    }
+    
+    .data-services-list ul li {
+        margin-bottom: 10px !important;
+        font-size: 1rem !important;
+        color: #c5c5c5 !important;
+    }
+    
+    .data-services-model {
+        position: relative !important;
+        width: 300px !important;
+        height: 300px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto !important;
+    }
+    
+    .data-services-model .center-circle {
+        width: 120px !important;
+        height: 120px !important;
+        border-radius: 50% !important;
+        background: linear-gradient(135deg, #72a1de, #4682b4) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        color: #000 !important;
+        text-align: center !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+    
+    .data-services-model .gen-ai-text {
+        font-size: 1.2rem !important;
+        font-weight: 300 !important;
+    }
+    
+    .data-services-model .model-text {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+    }
+    
+    .data-services-model .training-text {
+        position: absolute !important;
+        font-size: 1rem !important;
+        color: #c5c5c5 !important;
+        letter-spacing: 3px !important;
+        font-weight: 300 !important;
+        top: 50% !important;
+        left: -80px !important;
+        transform: translateY(-50%) rotate(-90deg) !important;
+        white-space: nowrap !important;
+    }
+    
+    .data-services-model .adaptation-text {
+        position: absolute !important;
+        font-size: 1rem !important;
+        color: #c5c5c5 !important;
+        letter-spacing: 3px !important;
+        font-weight: 300 !important;
+        top: 50% !important;
+        right: -80px !important;
+        transform: translateY(-50%) rotate(90deg) !important;
+        white-space: nowrap !important;
+    }
+    
+    .data-services-model .data-point {
+        position: absolute !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        color: #fff !important;
+    }
+    
+    .data-services-model .data-point .icon {
+        width: 50px !important;
+        height: 50px !important;
+        border: 1px solid #72a1de !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-bottom: 8px !important;
+        background-color: rgba(10, 25, 47, 0.8) !important;
+    }
+    
+    .data-services-model .data-point .icon i {
+        font-size: 1.5rem !important;
+        color: #72a1de !important;
+    }
+    
+    .data-services-model .data-point span {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Position icons in a circle for mobile */
+    .data-services-model .data-point.image { top: 15px; left: 150px; }
+    .data-services-model .data-point.text { top: 100px; left: 250px; }
+    .data-services-model .data-point.speech { top: 100px; left: 30px; }
+    .data-services-model .data-point.structured-data { top: 200px; left: 70px; }
+    .data-services-model .data-point.signals { top: 200px; left: 200px; }
+    
+    .adaptation-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        flex-basis: 100% !important;
+    }
+    
+    .adaptation-item {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
+    
+    /* Industry solutions - same beautiful background as desktop */
+    .industry-solutions {
+        width: 90% !important;
+        max-width: 1400px !important;
+        text-align: center !important;
+        margin: 80px auto !important;
+        background: transparent !important;
+    }
+    
+    .industry-solutions .section-description {
+        max-width: 800px !important;
+        margin: -20px auto 40px !important;
+        color: #c5c5c5 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .industry-solutions .service-cards-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        margin-top: 40px !important;
+    }
+    
+    .industry-solutions .service-card {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        border-radius: 15px !important;
+        padding: 25px !important;
+        text-align: center !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .industry-solutions .service-card:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.5) !important;
+    }
+    
+    .industry-solutions .service-card .icon-wrapper {
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(114, 161, 222, 0.1) !important;
+        transition: background-color 0.3s ease !important;
+    }
+    
+    .industry-solutions .service-card .icon-wrapper i {
+        font-size: 28px !important;
+        color: #72a1de !important;
+        margin: 0 !important;
+    }
+    
+    .industry-solutions .service-card .content {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: center !important;
+    }
+    
+    .industry-solutions .service-card h3 {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+        color: #ffffff !important;
+    }
+    
+    .industry-solutions .service-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        color: #c5c5c5 !important;
+        margin: 0 !important;
+    }
+    
+    .industry-solutions .service-card .learn-more-link {
+        color: #72a1de !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        transition: all 0.3s ease !important;
+        font-size: 0.85rem !important;
+        margin-top: 10px !important;
+    }
+    
+    .industry-solutions .service-card .learn-more-link:hover {
+        color: #fff !important;
+        padding-left: 5px !important;
+    }
+    
+    /* Service cards - same beautiful background as desktop */
+    .service-cards-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        margin-top: 40px !important;
+    }
+    
+    .service-card {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        border-radius: 15px !important;
+        padding: 30px !important;
+        text-align: center !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.5) !important;
+    }
+    
+    .service-card .icon-wrapper {
+        width: 70px !important;
+        height: 70px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 25px !important;
+        transition: background-color 0.3s ease !important;
+        background: rgba(114, 161, 222, 0.1) !important;
+    }
+    
+    .service-card .icon-wrapper i {
+        font-size: 36px !important;
+        color: #72a1de !important;
+        margin: 0 !important;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+        color: #ffffff !important;
+    }
+    
+    .service-card p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #c5c5c5 !important;
+        flex-grow: 1 !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .service-card .learn-more-link {
+        color: #72a1de !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        transition: all 0.3s ease !important;
+        margin-top: auto !important;
+        align-self: center !important;
+    }
+    
+    .service-card .learn-more-link:hover {
+        color: #fff !important;
+        padding-left: 5px !important;
+    }
+    
+    /* Why choose us section - same beautiful background as desktop */
+    .why-choose-us {
+        width: 90% !important;
+        max-width: 1400px !important;
+        text-align: center !important;
+        margin: 80px auto !important;
+        background: transparent !important;
+    }
+    
+    .reasons-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        margin-top: 40px !important;
+    }
+    
+    .reason {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        border-radius: 15px !important;
+        padding: 30px !important;
+        text-align: center !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .reason:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: 0 12px 25px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.5) !important;
+    }
+    
+    .reason i {
+        font-size: 50px !important;
+        color: #72a1de !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .reason h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px !important;
+        color: #ffffff !important;
+    }
+    
+    .reason p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #c5c5c5 !important;
+        margin: 0 !important;
+    }
+    
+    /* Footer - same beautiful background as desktop */
+    .site-footer {
+        position: relative !important;
+        width: 100% !important;
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        color: #a9a9a9 !important;
+        padding: 60px 0 20px 0 !important;
+        margin-top: 150px !important;
+        overflow: hidden !important;
+    }
+    
+    .footer-main {
+        width: 90% !important;
+        margin: 0 auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+    
+    .footer-column {
+        padding: 0 10px !important;
+    }
+    
+    .footer-column h4 {
+        color: #72a1dea2 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 25px !important;
+        font-weight: bold !important;
+        text-transform: uppercase !important;
+    }
+    
+    .footer-column.about .left {
+        margin-bottom: 15px !important;
+    }
+    
+    .footer-about-text {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .footer-socials {
+        display: flex !important;
+        gap: 15px !important;
+    }
+    
+    .footer-socials a {
+        color: #a9a9a9 !important;
+        font-size: 28px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .footer-socials a:hover {
+        color: #72a1de !important;
+        transform: translateY(-3px) !important;
+    }
+    
+    .footer-column.links ul {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .footer-column.links ul li {
+        margin-bottom: 12px !important;
+    }
+    
+    .footer-column.links ul li::before {
+        content: '●' !important;
+        color: #72a1de !important;
+        font-weight: bold !important;
+        display: inline-block !important;
+        width: 1em !important;
+        margin-left: -1em !important;
+    }
+    
+    .footer-column.links ul li a {
+        color: #a9a9a9 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .footer-column.links ul li a:hover {
+        color: #fff !important;
+        padding-left: 5px !important;
+    }
+    
+    .footer-column.contact p {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.5 !important;
+    }
+    
+    .footer-column.contact i {
+        font-size: 20px !important;
+        color: #72a1de !important;
+        margin-top: 4px !important;
+    }
+    
+    .footer-bottom {
+        width: 90% !important;
+        margin: 40px auto 0 auto !important;
+        padding-top: 20px !important;
+        border-top: 1px solid rgba(114, 161, 222, 0.15) !important;
+        text-align: center !important;
+        font-size: 0.8rem !important;
+        color: #6c757d !important;
+    }
+    
+    /* Background video - ALWAYS SHOW on smartphones with same effect as desktop */
+    .back-vid {
+        opacity: 1 !important;
+        mix-blend-mode: overlay !important;
+        transform: none !important;
+        filter: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        position: fixed !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        z-index: -1 !important;
+    }
+    
+    /* Mobile menu */
+    .menu-icon {
+        display: flex !important;
+        top: 15px !important;
+        right: 15px !important;
+        background: rgba(10, 25, 47, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        border: 1px solid rgba(114, 161, 222, 0.3) !important;
+    }
+    
+    .sidebar {
+        width: 100% !important;
+        padding: 70px 20px 30px 20px !important;
+        background: rgba(10, 25, 47, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    /* Section titles - same beautiful gradient as desktop */
+    .section-title {
+        font-size: 2.2rem !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+        background: linear-gradient(to right, gray, darkgray, #72a1dea2, white, darkgray, gray) !important;
+        background-size: 200% !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .strategic-edge-content h2.section-title {
+        text-align: center !important;
+    }
+    
+    .services-portfolio h2.section-title,
+    .industry-solutions h2.section-title,
+    .why-choose-us h2.section-title,
+    .custom-data-solutions h1.section-title {
+        text-align: center !important;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .service-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile styles handled by universal mobile optimizations above */
 
 .strategic-edge {
     width: 90%;
@@ -999,5 +1493,717 @@ header ul li {
     .strategic-edge .cta-button {
         padding: 12px 25px;
         font-size: 1rem;
+    }
+}
+
+/* ================================================ */
+/* === RESPONSIVE DESIGN FOR DATA SERVICES PAGE === */
+/* ================================================ */
+
+/* Mobile Menu Styles */
+.menu-icon {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(114, 161, 222, 0.3);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon i {
+    font-size: 24px;
+    color: #72a1de;
+}
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding: 80px 30px 30px;
+    box-sizing: border-box;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: rgba(114, 161, 222, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(114, 161, 222, 0.3);
+}
+
+.close-icon i {
+    font-size: 24px;
+    color: #72a1de;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 0;
+    display: block;
+    border-bottom: 1px solid rgba(114, 161, 222, 0.2);
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #72a1de;
+}
+
+.sidebar-dropdown {
+    position: relative;
+}
+
+.sidebar-submenu {
+    display: none;
+    padding-left: 20px;
+    margin-top: 10px;
+    border-left: 2px solid rgba(114, 161, 222, 0.3);
+}
+
+.sidebar-dropdown.active .sidebar-submenu {
+    display: block;
+}
+
+.sidebar-submenu li {
+    margin: 8px 0;
+}
+
+.sidebar-submenu a {
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: none;
+    color: #ccc;
+}
+
+.sidebar-submenu a:hover {
+    color: #72a1de;
+}
+
+.social-sidebar {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-sidebar a {
+    color: #72a1de;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-sidebar a:hover {
+    color: white;
+}
+
+/* Mobile-first responsive approach */
+@media (max-width: 1200px) {
+    .container {
+        gap: 60px;
+    }
+    
+    .hero {
+        height: 65vh;
+        padding-top: 80px;
+    }
+    
+    .hero-info {
+        width: 85%;
+        max-width: 800px;
+    }
+    
+    .stats-section {
+        width: 90%;
+        gap: 30px;
+    }
+    
+    .strategic-edge {
+        width: 90%;
+        gap: 40px;
+    }
+    
+    .services-portfolio {
+        width: 90%;
+    }
+    
+    .custom-data-solutions {
+        width: 90%;
+    }
+    
+    .industry-solutions {
+        width: 90%;
+    }
+    
+    .why-choose-us {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        gap: 50px;
+    }
+    
+    .hero {
+        height: 60vh;
+        padding-top: 70px;
+    }
+    
+    .hero-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-info p {
+        font-size: 1.1rem;
+    }
+    
+    .stats-section {
+        width: 85%;
+        gap: 25px;
+    }
+    
+    .stat {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .strategic-edge {
+        width: 85%;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .strategic-edge-video img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .services-portfolio {
+        width: 85%;
+    }
+    
+    .service-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .custom-data-solutions {
+        width: 85%;
+    }
+    
+    .solutions-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .industry-solutions {
+        width: 85%;
+    }
+    
+    .why-choose-us {
+        width: 85%;
+    }
+    
+    .reasons-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Show mobile menu icon */
+    .menu-icon {
+        display: flex !important;
+    }
+    
+    /* Hide desktop navigation */
+    .logo-bar-buttons {
+        display: none !important;
+    }
+    
+    .box-icons {
+        display: none !important;
+    }
+    
+    .container {
+        gap: 30px !important;
+        padding: 0 15px !important;
+    }
+    
+    .hero {
+        height: 60vh !important;
+        min-height: 350px !important;
+        padding-top: 80px !important;
+    }
+    
+    .hero-info {
+        width: 95% !important;
+        margin-top: 20px !important;
+        padding: 0 15px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+        line-height: 1.6 !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .cta-button {
+        padding: 15px 30px !important;
+        font-size: 1rem !important;
+        min-height: 48px !important;
+        min-width: 48px !important;
+        width: auto !important;
+        display: inline-block !important;
+    }
+    
+    .stats-section {
+        width: 95% !important;
+        gap: 25px !important;
+        margin: 40px auto !important;
+    }
+    
+    .stat {
+        padding: 25px 20px !important;
+    }
+    
+    .stat-circle-wrapper {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .progress-circle {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .strategic-edge {
+        width: 95% !important;
+        gap: 30px !important;
+        padding: 30px 20px !important;
+        margin: 40px auto !important;
+    }
+    
+    .strategic-edge h2 {
+        font-size: clamp(1.6rem, 4vw, 2rem) !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .strategic-edge p {
+        font-size: clamp(0.9rem, 3vw, 1rem) !important;
+        line-height: 1.6 !important;
+    }
+    
+    .services-portfolio {
+        width: 95% !important;
+    }
+    
+    .service-cards-container {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        margin-top: 30px !important;
+    }
+    
+    .service-card {
+        padding: 25px 20px !important;
+    }
+    
+    .custom-data-solutions {
+        width: 95% !important;
+        margin: 40px auto !important;
+    }
+    
+    .custom-data-solutions h1 {
+        font-size: clamp(1.6rem, 4vw, 1.8rem) !important;
+    }
+    
+    .data-services-list h3,
+    .adaptation-list .adaptation-item {
+        font-size: 1.1rem !important;
+    }
+    
+    .data-services-model {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    .center-circle {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .industry-solutions {
+        width: 95% !important;
+        margin: 40px auto !important;
+    }
+    
+    .industry-solutions h2 {
+        font-size: clamp(1.6rem, 4vw, 1.8rem) !important;
+    }
+    
+    .why-choose-us {
+        width: 95% !important;
+        margin: 40px auto !important;
+    }
+    
+    .why-choose-us h2 {
+        font-size: clamp(1.6rem, 4vw, 1.8rem) !important;
+    }
+    
+    .reasons-container {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        margin-top: 30px !important;
+    }
+    
+    .reason {
+        padding: 25px 20px !important;
+        text-align: center !important;
+    }
+    
+    .reason i {
+        font-size: 40px !important;
+    }
+    
+    /* Background video - ALWAYS SHOW on mobile */
+    .back-vid {
+        opacity: 1 !important;
+        mix-blend-mode: overlay !important;
+        transform: none !important;
+        filter: none !important;
+    }
+    
+    /* Ensure proper backdrop filters on mobile */
+    .strategic-edge,
+    .services-portfolio,
+    .custom-data-solutions,
+    .industry-solutions,
+    .why-choose-us {
+        backdrop-filter: blur(10px) !important;
+        background: rgba(10, 25, 47, 0.8) !important;
+    }
+    
+    /* Fix blurriness by reducing complex shadows and effects */
+    .service-card,
+    .reason,
+    .stat {
+        backdrop-filter: blur(5px) !important;
+        background: rgba(10, 25, 47, 0.9) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 25px !important;
+        padding: 0 10px !important;
+    }
+    
+    .hero {
+        height: 50vh !important;
+        min-height: 300px !important;
+        padding-top: 70px !important;
+    }
+    
+    .hero-info {
+        width: 98% !important;
+        margin-top: 15px !important;
+        padding: 0 10px !important;
+    }
+    
+    .hero-info h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .hero-info p {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .cta-button {
+        padding: 12px 25px !important;
+        font-size: 0.9rem !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    .stats-section {
+        width: 98% !important;
+        gap: 20px !important;
+        margin: 30px auto !important;
+    }
+    
+    .stat {
+        padding: 20px 15px !important;
+    }
+    
+    .stat-circle-wrapper {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .progress-circle {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .strategic-edge {
+        width: 98% !important;
+        gap: 25px !important;
+        padding: 25px 15px !important;
+        margin: 30px auto !important;
+    }
+    
+    .strategic-edge h2 {
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem) !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .strategic-edge p {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem) !important;
+        line-height: 1.5 !important;
+    }
+    
+    .services-portfolio {
+        width: 98% !important;
+    }
+    
+    .service-card {
+        padding: 20px 15px !important;
+    }
+    
+    .custom-data-solutions {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .custom-data-solutions h1 {
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem) !important;
+    }
+    
+    .data-services-model {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    
+    .center-circle {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .data-point {
+        font-size: 0.8rem !important;
+    }
+    
+    .industry-solutions {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .industry-solutions h2 {
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem) !important;
+    }
+    
+    .why-choose-us {
+        width: 98% !important;
+        margin: 30px auto !important;
+    }
+    
+    .why-choose-us h2 {
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem) !important;
+    }
+    
+    .reason {
+        padding: 20px 15px !important;
+    }
+    
+    .reason i {
+        font-size: 35px !important;
+    }
+    
+    .reason h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .reason p {
+        font-size: 0.85rem !important;
+    }
+    
+    /* Background video - ALWAYS SHOW on small mobile */
+    .back-vid {
+        opacity: 1 !important;
+        mix-blend-mode: overlay !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .cta-button,
+    .learn-more-link,
+    .service-card a {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar ul li a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .close-icon {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .service-card,
+    .reason,
+    .stat {
+        border: 2px solid #72a1de;
+    }
+    
+    .cta-button {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hero,
+    .strategic-edge,
+    .services-portfolio,
+    .custom-data-solutions,
+    .industry-solutions,
+    .why-choose-us {
+        animation: none;
+        transition: none;
+    }
+    
+    .service-card:hover {
+        transform: none;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 60vh;
+        padding-top: 80px;
+    }
+    
+    .hero-info {
+        margin-top: 20px;
+    }
+    
+    .stats-section {
+        gap: 15px;
+    }
+    
+    .stat-circle-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .progress-circle {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    /* Optimize AOS animations for mobile */
+    [data-aos] {
+        animation-duration: 800ms !important;
+        animation-delay: 0ms !important;
+    }
+    
+    /* Ensure proper text readability */
+    .section-title,
+    .hero-info h1,
+    .strategic-edge h2,
+    .custom-data-solutions h1,
+    .industry-solutions h2,
+    .why-choose-us h2 {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Optimize background effects for mobile performance */
+    .back-vid {
+        transform: scale(1.2);
+        filter: brightness(0.4) contrast(1.2);
+    }
+    
+    /* Ensure proper contrast for mobile */
+    .service-card,
+    .reason,
+    .stat {
+        color: #f0f0f0;
+        background: rgba(10, 25, 47, 0.95);
+    }
+    
+    .service-card h3,
+    .reason h3,
+    .stat p {
+        color: white;
     }
 }
