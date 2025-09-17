@@ -1,5 +1,19 @@
 /* AWS Page Specific Styles */
 
+/* Background Video */
+.back-vid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -9,7 +23,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 120px 20px 0 20px;
 }
 
 .hero-info {
@@ -46,7 +60,7 @@
     gap: 60px;
     padding: 40px;
     background: rgba(10, 25, 47, 0.4);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none !important;
     border-radius: 20px;
     border: 1px solid rgba(114, 161, 222, 0.1);
 }
@@ -58,7 +72,7 @@
 
 header.scrolled {
     background: rgba(10, 25, 47, 0.4);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 .strategic-edge-content .section-title {
@@ -112,7 +126,7 @@ header.scrolled {
 
 .solution-card {
     background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
+    backdrop-filter: none !important;
     border: 1px solid rgba(114, 161, 222, 0.2);
     border-radius: 15px;
     padding: 30px;
@@ -159,13 +173,14 @@ header.scrolled {
 }
 
 .reason {
-    background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(114, 161, 222, 0.2);
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
     border-radius: 15px;
     padding: 30px;
     text-align: center;
     transition: transform 0.3s ease;
+    box-shadow: none !important;
 }
 
 .reason:hover {
@@ -194,11 +209,27 @@ header.scrolled {
 .cta-section {
     text-align: center;
     padding: 80px 20px;
-    background-color: rgba(10, 25, 47, 0.6);
+    background-color: transparent !important;
     border-radius: 15px;
     margin: 80px auto;
     width: 90%;
     max-width: 1400px;
+}
+
+/* Remove gradient/blue and blur from section headings on AWS page */
+.strategic-edge .section-title,
+.strategy-solutions h2.section-title,
+.workflow-section h2.section-title,
+.why-choose-us h2.section-title,
+.custom-ai-solutions h1.section-title,
+.cta-section h2.section-title {
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    filter: none !important;
 }
 
 .cta-section p {
@@ -331,7 +362,7 @@ header {
 
 /* Mobile menu icon - hidden by default */
 .menu-icon {
-    display: none;
+    display: none; /* hidden on desktop */
     position: fixed;
     top: 20px;
     right: 20px;
@@ -341,10 +372,9 @@ header {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none !important;
     border: 1px solid rgba(114, 161, 222, 0.3);
 }
 
@@ -373,7 +403,7 @@ header {
         width: 100%;
         height: 100vh;
         background: rgba(10, 25, 47, 0.95);
-        backdrop-filter: blur(20px);
+        backdrop-filter: none !important;
         z-index: 1000;
         transition: right 0.3s ease;
         display: flex;
@@ -878,8 +908,9 @@ header {
 @media (max-width: 768px) {
     /* Ensure background video covers full screen on mobile */
     .back-vid {
-        opacity: 0.4;
-        mix-blend-mode: normal;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
@@ -896,18 +927,18 @@ header {
     .why-choose-us,
     .cta-section,
     .workflow-section {
-        backdrop-filter: blur(8px);
-        background: rgba(10, 25, 47, 0.85);
-        border: 1px solid rgba(114, 161, 222, 0.2);
+        backdrop-filter: none !important;
+        background: transparent !important;
+        border: none !important;
     }
 
     /* Fix blurriness by reducing complex shadows and effects */
     .solution-card,
     .reason {
-        backdrop-filter: blur(6px);
-        background: rgba(10, 25, 47, 0.9);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(114, 161, 222, 0.15);
+        backdrop-filter: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
     }
 
     /* Optimize AOS animations for mobile */
@@ -920,12 +951,12 @@ header {
     .section-title,
     .solution-card h3,
     .reason h3 {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: none !important;
     }
 
     .solution-card p,
     .reason p {
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        text-shadow: none !important;
     }
 
     /* Ensure container takes full width on mobile */
@@ -946,7 +977,9 @@ header {
 /* Additional fixes for very small screens */
 @media (max-width: 480px) {
     .back-vid {
-        opacity: 0.5;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
     }
 
     .strategic-edge,
@@ -954,13 +987,13 @@ header {
     .why-choose-us,
     .cta-section,
     .workflow-section {
-        backdrop-filter: blur(6px);
-        background: rgba(10, 25, 47, 0.9);
+        backdrop-filter: none !important;
+        background: transparent !important;
     }
 
     .solution-card,
     .reason {
-        backdrop-filter: blur(4px);
-        background: rgba(10, 25, 47, 0.95);
+        backdrop-filter: none !important;
+        background: transparent !important;
     }
 }

@@ -32,13 +32,18 @@ html {
     background-color: #020f1cd1;
 }
 
+/* Background Video */
 .back-vid {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
-    mix-blend-mode: overlay;
-    background-color: #020f1cd1;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
 }
 
 header {
@@ -86,7 +91,7 @@ header ul li {
 }
 
 
-.dropdown-menu {
+.dropdown-menu:not(.solutions-dropdown) {
     display: none;
     opacity: 0;
     visibility: hidden;
@@ -117,7 +122,7 @@ header ul li {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.dropdown-menu a {
+.dropdown-menu:not(.solutions-dropdown) a {
     color: white;
     padding: 10px 0;
     text-decoration: none;
@@ -129,12 +134,12 @@ header ul li {
     transition: color 0.2s, padding-left 0.2s;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu:not(.solutions-dropdown) a:hover {
     color: #72a1de;
     padding-left: 5px;
 }
 
-.dropdown-menu h4 {
+.dropdown-menu:not(.solutions-dropdown) h4 {
     color: #72a1de;
     text-transform: uppercase;
     font-size: 14px;
@@ -144,7 +149,7 @@ header ul li {
     border-bottom: 1px solid rgba(114, 161, 222, 0.2);
 }
 
-.services-dropdown, .solutions-dropdown {
+.services-dropdown {
     margin-left: 150px !important;
     transform: translateX(-50%) !important;
     left: 0 !important;
@@ -560,7 +565,7 @@ header ul li {
 
 /* Mobile menu icon - hidden by default */
 .menu-icon {
-    display: none;
+    display: none; /* hidden on desktop */
     position: fixed;
     top: 20px;
     right: 20px;
@@ -570,10 +575,9 @@ header ul li {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none !important;
     border: 1px solid rgba(114, 161, 222, 0.3);
 }
 
@@ -1098,8 +1102,9 @@ header ul li {
 @media (max-width: 768px) {
     /* Ensure background video covers full screen on mobile */
     .back-vid {
-        opacity: 0.4;
-        mix-blend-mode: normal;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
@@ -1165,7 +1170,9 @@ header ul li {
 /* Additional fixes for very small screens */
 @media (max-width: 480px) {
     .back-vid {
-        opacity: 0.5;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
     }
 
     .strategic-edge,

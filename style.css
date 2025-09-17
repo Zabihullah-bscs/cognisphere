@@ -103,7 +103,7 @@ header.scrolled {
         gap: 15px;
     }
     
-    .box-icons p {
+    .box-icons a {
         width: 25px;
         height: 25px;
         font-size: 16px;
@@ -211,6 +211,10 @@ header.scrolled {
         backdrop-filter: blur(10px) !important;
         border: 1px solid rgba(114, 161, 222, 0.3) !important;
         cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+        user-select: none !important;
     }
     
     .menu-icon i {
@@ -230,54 +234,30 @@ header.scrolled {
     
     .sidebar {
         position: fixed;
-        right: 0;
         top: 0;
+        right: -100%;
         width: 100%;
         height: 100vh;
         background-color: rgba(10, 25, 47, 0.95);
         backdrop-filter: blur(15px);
         z-index: 9999;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
+        transition: right 0.3s ease;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
         padding: 80px 30px 30px;
         overflow-y: auto;
-        /* Better mobile sidebar styling */
         border-left: 3px solid rgba(114, 161, 222, 0.3);
-        /* Better mobile sidebar transitions */
-        transition: all 0.3s ease;
-        /* Better mobile sidebar effects */
-        position: relative;
-        overflow: hidden;
-        /* Better mobile sidebar animations */
-        animation: fadeIn 0.3s ease;
-    }
-    
-    .sidebar.active {
-        transform: translateX(0);
-        /* Better mobile sidebar active state */
-        border-left-color: rgba(114, 161, 222, 0.6);
-        /* Better mobile sidebar active transitions */
-        transition: all 0.3s ease;
-        /* Better mobile sidebar active effects */
-        position: relative;
-        overflow: hidden;
-        /* Better mobile sidebar active animations */
-        animation: fadeIn 0.3s ease;
-    }
-    
-    /* Ensure proper mobile menu positioning */
-    .sidebar {
-        right: -100%;
-        transition: right 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
     
     .sidebar.active {
         right: 0;
-        transform: none;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .close-icon {
@@ -414,18 +394,7 @@ header.scrolled {
         animation: fadeIn 0.3s ease;
     }
     
-    .sidebar-dropdown.active > a::after {
-        transform: rotate(180deg);
-        /* Better mobile dropdown active arrow styling */
-        color: #72a1de;
-        /* Better mobile dropdown active arrow transitions */
-        transition: all 0.3s ease;
-        /* Better mobile dropdown active arrow effects */
-        position: relative;
-        overflow: hidden;
-        /* Better mobile dropdown active arrow animations */
-        animation: fadeIn 0.3s ease;
-    }
+    .sidebar-dropdown.active > a::after { transform: rotate(180deg); }
     
     .sidebar-submenu {
         max-height: 0;
@@ -434,30 +403,14 @@ header.scrolled {
         background-color: rgba(255, 255, 255, 0.05);
         margin: 0 0 0 20px;
         border-radius: 8px;
-        /* Better mobile submenu styling */
         border-left: 2px solid rgba(114, 161, 222, 0.3);
         padding-left: 15px;
-        /* Better mobile submenu transitions */
-        transition: all 0.3s ease;
-        /* Better mobile submenu effects */
         position: relative;
-        overflow: hidden;
-        /* Better mobile submenu animations */
-        animation: fadeIn 0.3s ease;
     }
     
     .sidebar-submenu.active {
-        max-height: 300px;
-        /* Better mobile submenu active state */
-        background-color: rgba(114, 161, 222, 0.1);
+        background-color: rgba(114, 161, 222, 0.08);
         border-left-color: rgba(114, 161, 222, 0.6);
-        /* Better mobile submenu active transitions */
-        transition: all 0.3s ease;
-        /* Better mobile submenu active effects */
-        position: relative;
-        overflow: hidden;
-        /* Better mobile submenu active animations */
-        animation: fadeIn 0.3s ease;
     }
     
     .sidebar-submenu li {
@@ -475,22 +428,15 @@ header.scrolled {
     }
     
     .sidebar-submenu a {
-        padding: 15px 20px;
+        padding: 12px 12px;
         font-size: 16px;
         color: #c5c5c5;
-        /* Ensure proper touch target size */
         min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* Android-specific optimizations */
+        display: block;
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
         user-select: none;
-        /* Better mobile submenu link transitions */
-        transition: all 0.3s ease;
-        /* Better mobile submenu link animations */
-        animation: fadeIn 0.3s ease;
+        transition: all 0.2s ease;
     }
     
     .sidebar-submenu a:hover {
@@ -1579,6 +1525,54 @@ header.scrolled {
     object-fit: cover;
 }
 
+/* iPad Mini, iPad Air, iPad Pro, Surface Pro 7 - Background Video Fix */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .back-vid {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        z-index: -1 !important;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+}
+
+/* iPad Pro (1024px - 1366px) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+    .back-vid {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        z-index: -1 !important;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+}
+
+/* Surface Pro 7 and similar devices */
+@media screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {
+    .back-vid {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        z-index: -1 !important;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+}
+
 /* Samsung Galaxy Z Fold 5 - Unfolded (Tablet Mode) */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .main-hero {
@@ -1817,9 +1811,15 @@ html{
 
 .back-vid{
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
 }
 
 header{
@@ -1918,9 +1918,10 @@ font-size: 20px;
     display: flex;
     gap: 20px;
     visibility: visible; /* Ensure icons are always visible */
+    margin-right: 70px; /* Leave space so third icon doesn't sit under the menu button */
 }
 
-.box-icons p{
+.box-icons a{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1932,9 +1933,11 @@ font-size: 20px;
     cursor: pointer;
     transition: 0.5s;
     margin: 0;
+    text-decoration: none;
+    color: inherit;
 }
 
-.box-icons p:hover{
+.box-icons a:hover{
     background-color: #72a1de;
     color: black;
     box-shadow: 0 0 15px #72a1de;
@@ -2040,12 +2043,25 @@ font-size: 20px;
 
 /* Show dropdown on hover */
 .logo-bar-buttons > li:hover > .dropdown-menu {
-    max-height: 60vh;
-    opacity: 1;
-    visibility: visible;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    height: auto;
+    max-height: 60vh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    height: auto !important;
+    display: flex !important;
+    z-index: 1001 !important;
+}
+
+/* Specific fix for About Us dropdown */
+.logo-bar-buttons > li:hover > .dropdown-menu.aboutus-dropdown {
+    max-height: 60vh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    z-index: 1001 !important;
+    position: absolute !important;
+    top: 100% !important;
 }
 
 
@@ -2289,6 +2305,9 @@ font-size: 20px;
     max-width: 1200px !important;
     justify-content: center !important;
     transition: all 0.3s ease !important;
+    z-index: 1001 !important;
+    position: absolute !important;
+    top: 100% !important;
 }
 
 /* Layout: side-by-side image and links for About Us */
@@ -4303,28 +4322,12 @@ header {
     font-size: 35px;
     cursor: pointer;
     display: none;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
-.sidebar{
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 70%;
-    width: 0%;
-    background-color: #000000b8;
-    z-index: 999;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.479);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    border-bottom-left-radius: 100%;
-}
-
-.close-icon{
-    font-size: 50px;
-    color: lightgray;
-    padding-left: 10px;
-    cursor: pointer;
-}
+/* Removed duplicate sidebar CSS - using the main mobile sidebar definition above */
 
 .sidebar ul{
     padding-left: 20px;
@@ -4554,6 +4557,9 @@ header {
 
     .menu-icon{
         display: inline;
+        transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     .blackhole-box video {
@@ -7304,27 +7310,7 @@ header {
 }
 
 /* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: rgba(10, 25, 47, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 80px 20px 20px;
-    transition: right 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar.active {
-    right: 0;
-}
-
-.close-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+/* Removed duplicate sidebar CSS - using the main mobile sidebar definition above */
     font-size: 30px;
     cursor: pointer;
     color: #fff;
@@ -8470,3 +8456,19 @@ RESPONSIVE DESIGN OPTIMIZATION SUMMARY:
 - Performance optimizations
 - Accessibility improvements
 */
+
+@media (min-width: 769px) {
+    .sidebar {
+        display: none !important;
+        visibility: hidden !important;
+        right: -100% !important;
+    }
+    .sidebar.active {
+        display: none !important;
+        visibility: hidden !important;
+        right: -100% !important;
+    }
+    .close-icon {
+        display: none !important;
+    }
+}

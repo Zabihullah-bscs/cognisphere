@@ -1,0 +1,97 @@
+/* ================================================ */
+/* === BUSINESS INTELLIGENCE BLUR REMOVAL FIXES === */
+/* ================================================ */
+
+/* Fix blur for "Our Business Intelligence Service Pillars" section */
+.workflow-section {
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+.workflow-section .section-title {
+    backdrop-filter: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+.workflow-section .solution-card {
+    backdrop-filter: none !important;
+    filter: none !important;
+    background-color: rgba(10, 25, 47, 0.8) !important;
+}
+
+.workflow-section .solution-card * {
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+/* Fix blur for "Empowering Every Department with Data" section */
+.workflow-section .solutions-grid .solution-card {
+    backdrop-filter: none !important;
+    filter: none !important;
+    background-color: rgba(10, 25, 47, 0.8) !important;
+}
+
+.workflow-section .solutions-grid .solution-card * {
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+/* Responsive blur removal for mobile devices */
+@media (max-width: 768px) {
+    .workflow-section { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .section-title { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+        text-shadow: none !important; 
+    }
+    .workflow-section .solution-card { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solution-card * { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solutions-grid .solution-card { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solutions-grid .solution-card * { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+}
+
+@media (max-width: 480px) {
+    .workflow-section { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .section-title { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+        text-shadow: none !important; 
+    }
+    .workflow-section .solution-card { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solution-card * { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solutions-grid .solution-card { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+    .workflow-section .solutions-grid .solution-card * { 
+        backdrop-filter: none !important; 
+        filter: none !important; 
+    }
+}
+
+

@@ -60,10 +60,10 @@
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin: 50px auto;
+    margin: 60px auto;
     text-align: center;
     border-radius: 15px;
-    padding: 30px 0;
+    padding: 36px 0;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -78,8 +78,8 @@
 }
 
 .circle {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -129,14 +129,14 @@
 }
 
 .counter h2 {
-    font-size: 2em;
+    font-size: 2.2em;
     color: #72a1de;
     margin: 0;
     font-weight: bold;
 }
 
 .stat p {
-    font-size: 1em;
+    font-size: 1.05em;
     color: lightgray;
     line-height: 1.5;
     padding: 0 10px;
@@ -147,12 +147,12 @@
 .strategic-edge {
     width: 90%;
     max-width: 1400px;
-    margin: 80px auto;
+    margin: 90px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    padding: 40px;
+    padding: 48px;
     background: rgba(10, 25, 47, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -165,7 +165,7 @@
 }
 
 .strategic-edge-content .section-title {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 700;
     text-align: left;
     margin-bottom: 25px;
@@ -173,7 +173,7 @@
 }
 
 .strategic-edge-content p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.8;
     color: #e0e0e0;
     margin: 0 0 35px;
@@ -183,7 +183,7 @@
 .contact-highlights {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 28px;
     margin-bottom: 35px;
 }
 
@@ -191,7 +191,7 @@
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    padding: 20px;
+    padding: 22px;
     background: rgba(114, 161, 222, 0.1);
     border-radius: 12px;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -203,9 +203,9 @@
 }
 
 .highlight-item i {
-    font-size: 24px;
+    font-size: 26px;
     color: #72a1de;
-    padding: 12px;
+    padding: 13px;
     background: rgba(114, 161, 222, 0.1);
     border-radius: 50%;
 }
@@ -286,7 +286,7 @@
 
 .engineering-solutions > p {
     max-width: 800px;
-    margin: -20px auto 40px auto;
+    margin: -10px auto 44px auto;
     color: #c5c5c5;
     line-height: 1.7;
 }
@@ -294,15 +294,16 @@
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .solution-card {
     background-color: rgba(10, 25, 47, 0.6);
-    backdrop-filter: blur(5px);
+    backdrop-filter: none !important;
+    filter: none !important;
     border: 1px solid rgba(114, 161, 222, 0.2);
     border-radius: 15px;
-    padding: 25px;
+    padding: 32px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -316,24 +317,24 @@
 }
 
 .solution-card i {
-    font-size: 40px;
+    font-size: 46px;
     color: #72a1de;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     align-self: flex-start;
 }
 
 .solution-card h3 {
     color: #fff;
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
 }
 
 .solution-card p {
     color: #c5c5c5;
-    line-height: 1.6;
-    font-size: 0.9rem;
+    line-height: 1.75;
+    font-size: 1rem;
     flex-grow: 1;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .solution-card .learn-more-link {
@@ -355,14 +356,56 @@
 
 /* Workflow Section (FAQ) */
 .workflow-section {
-    padding: 80px 20px;
+    padding: 90px 24px;
     text-align: center;
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+/* FAQ Section Cards - Equal height styling */
+.workflow-section .solution-card {
+    /* Equal height for all FAQ cards - exact same size */
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.workflow-section .solution-card h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 15px !important;
+    line-height: 1.4 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+.workflow-section .solution-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    color: #c5c5c5 !important;
+    margin-bottom: 0 !important;
+    flex-grow: 1 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 .workflow-section .section-title {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     color: #2c3e50;
     margin-bottom: 60px;
+    backdrop-filter: none !important;
+    filter: none !important;
+    text-shadow: none !important;
 }
 
 .contact-info h2.section-title,
@@ -391,8 +434,8 @@
 .calendar-booking-section {
     width: 95%;
     max-width: 1400px;
-    margin: 80px auto;
-    padding: 40px;
+    margin: 90px auto;
+    padding: 48px;
     background: rgba(10, 25, 47, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -405,7 +448,7 @@
 }
 
 .calendar-header h2 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 15px;
     background: linear-gradient(to right, #ffffff, #72a1dea2, #ffffff);
@@ -417,7 +460,7 @@
 }
 
 .calendar-header p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #e0e0e0;
     max-width: 600px;
     margin: 0 auto;
@@ -427,7 +470,7 @@
 .booking-wrapper {
     display: grid;
     grid-template-columns: 300px 1fr 350px;
-    gap: 30px;
+    gap: 34px;
     align-items: start;
 }
 
@@ -435,7 +478,7 @@
 .calendar-sidebar {
     background: rgba(114, 161, 222, 0.05);
     border-radius: 15px;
-    padding: 25px;
+    padding: 28px;
     border: 1px solid rgba(114, 161, 222, 0.1);
 }
 
@@ -530,7 +573,7 @@
 .calendar-main {
     background: rgba(114, 161, 222, 0.05);
     border-radius: 15px;
-    padding: 25px;
+    padding: 28px;
     border: 1px solid rgba(114, 161, 222, 0.1);
 }
 
@@ -650,7 +693,7 @@
     background: rgba(114, 161, 222, 0.05);
     border: 1px solid rgba(114, 161, 222, 0.2);
     color: #e0e0e0;
-    padding: 12px 8px;
+    padding: 13px 9px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -681,7 +724,7 @@
 .booking-summary {
     background: rgba(114, 161, 222, 0.05);
     border-radius: 15px;
-    padding: 25px;
+    padding: 28px;
     border: 1px solid rgba(114, 161, 222, 0.1);
 }
 
@@ -814,6 +857,161 @@
     font-size: 18px;
 }
 
+/* Booking Success Modal Styles */
+.booking-success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.booking-success-modal .modal-content {
+    background: rgba(10, 25, 47, 0.95);
+    border: 1px solid rgba(114, 161, 222, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.booking-success-modal .success-icon {
+    font-size: 60px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.booking-success-modal h2 {
+    color: #72a1de;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.booking-success-modal .booking-details {
+    background: rgba(114, 161, 222, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.booking-success-modal .booking-details p {
+    color: white;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.booking-success-modal .confirmation-text {
+    color: #c5c5c5;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.booking-success-modal .modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.booking-success-modal .close-modal-btn,
+.booking-success-modal .view-calendar-btn {
+    background: rgba(114, 161, 222, 0.2);
+    border: 1px solid rgba(114, 161, 222, 0.3);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.booking-success-modal .close-modal-btn:hover,
+.booking-success-modal .view-calendar-btn:hover {
+    background: rgba(114, 161, 222, 0.3);
+    border-color: rgba(114, 161, 222, 0.5);
+    transform: translateY(-2px);
+}
+
+.booking-success-modal .view-calendar-btn {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.booking-success-modal .view-calendar-btn:hover {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: rgba(76, 175, 80, 0.5);
+}
+
+/* Booking Error Modal Styles */
+.booking-error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.booking-error-modal .modal-content {
+    background: rgba(10, 25, 47, 0.95);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.booking-error-modal .error-icon {
+    font-size: 60px;
+    color: #f44336;
+    margin-bottom: 20px;
+}
+
+.booking-error-modal h2 {
+    color: #f44336;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.booking-error-modal p {
+    color: #c5c5c5;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.booking-error-modal .close-modal-btn {
+    background: rgba(244, 67, 54, 0.2);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.booking-error-modal .close-modal-btn:hover {
+    background: rgba(244, 67, 54, 0.3);
+    border-color: rgba(244, 67, 54, 0.5);
+    transform: translateY(-2px);
+}
+
 /* Responsive styles */
 @media screen and (max-width: 1200px) {
     .solutions-grid {
@@ -830,30 +1028,36 @@
 @media screen and (max-width: 992px) {
     .solutions-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 22px;
+        justify-items: center;
     }
     
     .solution-card {
-        padding: 20px;
+        padding: 24px;
+        width: clamp(240px, 44vw, 340px);
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 768px) {
     .solutions-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 22px;
         max-width: 500px;
         margin: 0 auto;
+        justify-items: center;
     }
     
     .solution-card {
-        padding: 25px 20px;
+        padding: 26px 22px;
+        width: clamp(220px, 90vw, 320px);
+        margin: 0 auto;
         text-align: center;
     }
     
     .solution-card i {
         align-self: center;
-        margin-bottom: 15px;
+        margin-bottom: 18px;
     }
     
     .solution-card .learn-more-link {
@@ -976,6 +1180,35 @@
     }
     .workflow-section .section-title {
         font-size: 2rem;
+        backdrop-filter: none !important;
+        filter: none !important;
+        text-shadow: none !important;
+    }
+    
+    .workflow-section {
+        backdrop-filter: none !important;
+        filter: none !important;
+    }
+    
+    .workflow-section .solution-card {
+        backdrop-filter: none !important;
+        filter: none !important;
+        height: 180px !important;
+        min-height: 180px !important;
+        max-height: 180px !important;
+        width: 100% !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .workflow-section .solution-card p {
+        font-size: 0.9rem !important;
     }
     .strategic-edge {
         width: 95%;
@@ -1456,6 +1689,26 @@
         font-size: 0.9rem;
         margin-bottom: 25px;
     }
+    
+    /* FAQ Cards Mobile */
+    .workflow-section .solution-card {
+        height: 160px !important;
+        min-height: 160px !important;
+        max-height: 160px !important;
+        width: 100% !important;
+        padding: 18px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .workflow-section .solution-card p {
+        font-size: 0.85rem !important;
+    }
 }
 
 /* Touch-friendly improvements for mobile */
@@ -1674,3 +1927,208 @@
 /* ================================================ */
 /* === END RESPONSIVE DESIGN FOR CONTACT PAGE === */
 /* ================================================ */
+
+/* ================================================ */
+/* === SCHEDULE A MEETING SECTION RESPONSIVE === */
+/* ================================================ */
+
+/* iPad Air, iPad Pro, Surface Pro 7 - Schedule a Meeting Section Fix */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .calendar-booking-section {
+        width: 95% !important;
+        padding: 30px 20px !important;
+        margin: 40px auto !important;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .calendar-header p {
+        font-size: 1rem !important;
+        text-align: center !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .booking-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+    
+    .calendar-sidebar {
+        order: 1 !important;
+        padding: 20px !important;
+    }
+    
+    .calendar-main {
+        order: 2 !important;
+        padding: 20px !important;
+    }
+    
+    .booking-summary {
+        order: 3 !important;
+        padding: 20px !important;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .time-slot {
+        padding: 12px 8px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .meeting-type-options {
+        gap: 12px !important;
+    }
+    
+    .option-content {
+        padding: 15px !important;
+    }
+    
+    .option-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    .option-content p {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* iPad Pro (1024px - 1366px) */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+    .calendar-booking-section {
+        width: 95% !important;
+        padding: 35px 25px !important;
+        margin: 50px auto !important;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2.2rem !important;
+        text-align: center !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .calendar-header p {
+        font-size: 1.1rem !important;
+        text-align: center !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .booking-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .calendar-sidebar {
+        order: 1 !important;
+        padding: 25px !important;
+    }
+    
+    .calendar-main {
+        order: 2 !important;
+        padding: 25px !important;
+    }
+    
+    .booking-summary {
+        order: 3 !important;
+        padding: 25px !important;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 12px !important;
+    }
+    
+    .time-slot {
+        padding: 14px 10px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .meeting-type-options {
+        gap: 15px !important;
+    }
+    
+    .option-content {
+        padding: 18px !important;
+    }
+    
+    .option-content h4 {
+        font-size: 1.05rem !important;
+    }
+    
+    .option-content p {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Surface Pro 7 and similar devices */
+@media screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {
+    .calendar-booking-section {
+        width: 95% !important;
+        padding: 30px 20px !important;
+        margin: 40px auto !important;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .calendar-header p {
+        font-size: 1rem !important;
+        text-align: center !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .booking-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+    
+    .calendar-sidebar {
+        order: 1 !important;
+        padding: 20px !important;
+    }
+    
+    .calendar-main {
+        order: 2 !important;
+        padding: 20px !important;
+    }
+    
+    .booking-summary {
+        order: 3 !important;
+        padding: 20px !important;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .time-slot {
+        padding: 12px 8px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .meeting-type-options {
+        gap: 12px !important;
+    }
+    
+    .option-content {
+        padding: 15px !important;
+    }
+    
+    .option-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    .option-content p {
+        font-size: 0.85rem !important;
+    }
+}

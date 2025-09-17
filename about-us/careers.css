@@ -206,7 +206,7 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding: 40px 20px;
+    padding: 30px 20px;
     background: var(--bg-dark);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -222,7 +222,7 @@
 .strategic-edge-content .section-title {
     font-size: clamp(1.8rem, 4vw, 2.4rem);
     font-weight: 700;
-    margin-bottom: 25px;
+    margin: 10px 0 20px 0;
     line-height: 1.3;
     color: var(--text-white);
 }
@@ -741,7 +741,7 @@
     }
     
     .solutions-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
     
@@ -877,7 +877,7 @@
     }
     
     .solutions-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 35px;
     }
     
@@ -939,7 +939,7 @@
     }
     
     .solutions-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 40px;
     }
     

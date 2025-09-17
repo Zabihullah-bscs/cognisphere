@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Enhanced mobile functionality and responsive features
+    // Normalize header right-side icons across all pages to match homepage
+    try {
+        const headerIconBars = document.querySelectorAll('header .box-icons');
+        headerIconBars.forEach(iconBar => {
+            // If the icon bar uses <p><i ...></i></p> (non-link), replace with homepage anchors
+            const hasParagraphIcons = iconBar.querySelector('p i');
+            const hasAnchors = iconBar.querySelector('a i');
+            if (hasParagraphIcons && !hasAnchors) {
+                iconBar.innerHTML = ""
+                    + "<a href=\"tel:+923068952115\"><i class='bx bxs-phone'></i></a>"
+                    + "<a href=\"https://github.com/cognisphere\" target=\"_blank\"><i class='bx bxl-github'></i></a>"
+                    + "<a href=\"https://linkedin.com/company/cognisphere\" target=\"_blank\"><i class='bx bxl-linkedin-square'></i></a>";
+            }
+        });
+    } catch (_) {}
     
     // Touch gesture support for mobile
     let touchStartX = 0;
@@ -33,67 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Mobile menu enhancements
-    const menuIcon = document.querySelector('.menu-icon');
-    const sidebar = document.querySelector('.sidebar');
-    const closeIcon = document.querySelector('.close-icon');
-    const body = document.body;
-    
-    // Prevent body scroll when sidebar is open
-    function toggleBodyScroll(disable) {
-        if (disable) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = '';
-        }
-    }
-    
-    // Enhanced menu toggle with body scroll control
-    if (menuIcon) {
-        menuIcon.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            toggleBodyScroll(true);
-        });
-    }
-    
-    if (closeIcon) {
-        closeIcon.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            toggleBodyScroll(false);
-        });
-    }
-    
-    // Close sidebar when clicking outside
-    document.addEventListener('click', (e) => {
-        if (sidebar && !sidebar.contains(e.target) && !menuIcon.contains(e.target) && sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
-            toggleBodyScroll(false);
-        }
-    });
-    
-    // Close sidebar on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
-            toggleBodyScroll(false);
-        }
-    });
-    
-    // Enhanced sidebar dropdown functionality
-    const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
-    
-    sidebarDropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        const submenu = dropdown.querySelector('.sidebar-submenu');
-        
-        if (link && submenu) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-                submenu.classList.toggle('active');
-            });
-        }
-    });
+    // Mobile menu functionality moved to bottom of file for better organization
     
     // Responsive navigation - hide dropdowns on mobile
     function handleResize() {
@@ -293,42 +248,238 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// Menu Toggle
-const menuIcon = document.querySelector('.menu-icon');
-const sidebar = document.querySelector('.sidebar');
-const closeIcon = document.querySelector('.close-icon');
+// Enhanced Mobile Menu Toggle (Improved version)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.querySelector('.menu-icon');
+    const sidebar = document.querySelector('.sidebar');
+    const closeIcon = document.querySelector('.close-icon');
+    const body = document.body;
 
-menuIcon.addEventListener('click', () => {
-    sidebar.classList.add('active');
-});
-
-closeIcon.addEventListener('click', () => {
-    sidebar.classList.remove('active');
-});
-
-// Sidebar Dropdown Toggle
-const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
-
-sidebarDropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
-        const submenu = dropdown.querySelector('.sidebar-submenu');
-        submenu.classList.toggle('active');
-    });
-});
-
-// Close sidebar when clicking outside
-document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !menuIcon.contains(e.target) && sidebar.classList.contains('active')) {
-        sidebar.classList.remove('active');
+    // Ensure mobile sidebar contains full, standardized lists
+    function getPathPrefix() {
+        try {
+            const path = window.location.pathname.replace(/\\\\/g, '/');
+            const marker = '/cognisphere/';
+            const markerIndex = path.lastIndexOf(marker);
+            const relative = markerIndex >= 0 ? path.substring(markerIndex + marker.length) : path;
+            const depth = (relative.match(/\//g) || []).length; // number of slashes after project root
+            return depth >= 1 ? '../' : '';
+        } catch (_) {
+            return '';
+        }
     }
+
+    function standardizeMobileSidebar() {
+        const prefix = getPathPrefix();
+        const dropdowns = Array.from(document.querySelectorAll('.sidebar-dropdown'));
+
+        const findDropdown = (label) => dropdowns.find(d => {
+            const a = d.querySelector('a');
+            return a && a.textContent.trim().toLowerCase().includes(label);
+        });
+
+        const servicesDropdown = findDropdown('services');
+        const solutionsDropdown = findDropdown('solutions');
+        const aboutDropdown = findDropdown('about us');
+
+        if (servicesDropdown) {
+            const ul = servicesDropdown.querySelector('.sidebar-submenu');
+            if (ul) {
+                ul.innerHTML = `
+                    <li><a href="${prefix}services/data-services.html">Data Services</a></li>
+                    <li><a href="${prefix}services/data-engineering.html">Data Engineering</a></li>
+                    <li><a href="${prefix}services/cloud-data-ai.html">Cloud, Data & AI</a></li>
+                    <li><a href="${prefix}services/data-strategy.html">Data Strategy</a></li>
+                    <li><a href="${prefix}services/data-privacy-security.html">Data Privacy & Security</a></li>
+                `;
+            }
+        }
+
+        if (solutionsDropdown) {
+            const ul = solutionsDropdown.querySelector('.sidebar-submenu');
+            if (ul) {
+                ul.innerHTML = `
+                    <li><a href="${prefix}solutions/artificial-intelligence.html">Artificial Intelligence</a></li>
+                    <li><a href="${prefix}solutions/advanced-analytics.html">Advanced Analytics</a></li>
+                    <li><a href="${prefix}solutions/business-intelligence.html">Business Intelligence</a></li>
+                    <li><a href="${prefix}solutions/ai-powered-automation.html">AI-Powered Automation</a></li>
+                    <li><a href="${prefix}solutions/ai-powered-contact-center.html">AI-Powered Contact Center</a></li>
+                    <li><a href="${prefix}solutions/generative-ai-llms.html">Generative AI & LLMs</a></li>
+                    <li><a href="${prefix}solutions/aws.html">Amazon Web Services (AWS)</a></li>
+                    <li><a href="${prefix}solutions/microsoft-azure.html">Microsoft Azure</a></li>
+                    <li><a href="${prefix}solutions/google-cloud-platform.html">Google Cloud Platform</a></li>
+                    <li><a href="${prefix}solutions/iot-edge-analytics.html">IoT & Edge Analytics</a></li>
+                `;
+            }
+        }
+
+        if (aboutDropdown) {
+            const ul = aboutDropdown.querySelector('.sidebar-submenu');
+            if (ul) {
+                ul.innerHTML = `
+                    <li><a href="${prefix}about-us/careers.html">Careers</a></li>
+                    <li><a href="${prefix}about-us/our-work.html">Our Work</a></li>
+                    <li><a href="${prefix}about-us/contact-us.html">Contact Us</a></li>
+                `;
+            }
+        }
+    }
+
+    // Build standardized menus before wiring events
+    standardizeMobileSidebar();
+    
+    // Prevent body scroll when sidebar is open
+    function toggleBodyScroll(disable) {
+        if (disable) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    }
+    
+    // Enhanced menu toggle with body scroll control
+    if (menuIcon) {
+        // Remove any existing event listeners to prevent conflicts
+        menuIcon.replaceWith(menuIcon.cloneNode(true));
+        const newMenuIcon = document.querySelector('.menu-icon');
+        
+        newMenuIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Menu icon clicked'); // Debug log
+            if (sidebar) {
+                console.log('Sidebar found, adding active class');
+                sidebar.classList.add('active');
+                console.log('Sidebar classes after adding active:', sidebar.className);
+                toggleBodyScroll(true);
+            } else {
+                console.log('Sidebar not found!');
+            }
+        });
+    } else {
+        console.log('Menu icon not found'); // Debug log
+    }
+    
+    if (closeIcon) {
+        // Remove any existing event listeners to prevent conflicts
+        closeIcon.replaceWith(closeIcon.cloneNode(true));
+        const newCloseIcon = document.querySelector('.close-icon');
+        
+        newCloseIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Close icon clicked'); // Debug log
+            if (sidebar) {
+                sidebar.classList.remove('active');
+                toggleBodyScroll(false);
+            }
+        });
+    } else {
+        console.log('Close icon not found'); // Debug log
+    }
+    
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (sidebar && !sidebar.contains(e.target) && !menuIcon?.contains(e.target) && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        }
+    });
+    
+    // Close sidebar on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        }
+    });
+    
+    // Enhanced sidebar dropdown functionality (mobile accordion)
+    const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
+    
+    function setSubmenuHeight(submenu, isOpen) {
+        if (!submenu) return;
+        if (isOpen) {
+            submenu.classList.add('active');
+            submenu.style.maxHeight = submenu.scrollHeight + 'px';
+        } else {
+            submenu.style.maxHeight = '0px';
+            submenu.classList.remove('active');
+        }
+    }
+    
+    sidebarDropdowns.forEach(currentDropdown => {
+        const link = currentDropdown.querySelector('a');
+        const submenu = currentDropdown.querySelector('.sidebar-submenu');
+        
+        if (link && submenu) {
+            // Initialize collapsed state
+            setSubmenuHeight(submenu, false);
+            
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other open dropdowns (accordion behavior)
+                sidebarDropdowns.forEach(other => {
+                    if (other !== currentDropdown) {
+                        other.classList.remove('active');
+                        const otherSubmenu = other.querySelector('.sidebar-submenu');
+                        setSubmenuHeight(otherSubmenu, false);
+                    }
+                });
+                
+                const willOpen = !currentDropdown.classList.contains('active');
+                currentDropdown.classList.toggle('active', willOpen);
+                setSubmenuHeight(submenu, willOpen);
+            });
+        }
+    });
+    
+    // Handle resize events - close menu on desktop
+    function handleResize() {
+        if (window.innerWidth > 768 && sidebar && sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggleBodyScroll(false);
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
 });
 
 // Header scroll effect is now handled by header-scroll.js
 
 
+// Function to ensure dropdown functionality works on all pages
+function ensureDropdownFunctionality() {
+    const dropdownItems = document.querySelectorAll('.logo-bar-buttons > li');
+    
+    dropdownItems.forEach(item => {
+        const dropdown = item.querySelector('.dropdown-menu');
+        if (dropdown) {
+            // Add mouseenter event
+            item.addEventListener('mouseenter', () => {
+                dropdown.style.maxHeight = '60vh';
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.display = 'flex';
+                dropdown.style.zIndex = '1001';
+            });
+            
+            // Add mouseleave event
+            item.addEventListener('mouseleave', () => {
+                dropdown.style.maxHeight = '0';
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+            });
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure dropdown functionality works
+    ensureDropdownFunctionality();
+    
     const contactUsButton = document.getElementById('contactUsButton');
     if (contactUsButton) {
         contactUsButton.addEventListener('click', () => {

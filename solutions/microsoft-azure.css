@@ -32,13 +32,18 @@ html {
     background-color: #020f1cd1;
 }
 
+/* Background Video */
 .back-vid {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -1;
-    mix-blend-mode: overlay;
-    background-color: #020f1cd1;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
 }
 
 header {
@@ -85,7 +90,7 @@ header ul li {
 }
 
 
-.dropdown-menu {
+.dropdown-menu:not(.solutions-dropdown) {
     display: none;
     opacity: 0;
     visibility: hidden;
@@ -116,7 +121,7 @@ header ul li {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.dropdown-menu a {
+.dropdown-menu:not(.solutions-dropdown) a {
     color: white;
     padding: 10px 0;
     text-decoration: none;
@@ -128,12 +133,12 @@ header ul li {
     transition: color 0.2s, padding-left 0.2s;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu:not(.solutions-dropdown) a:hover {
     color: #72a1de;
     padding-left: 5px;
 }
 
-.dropdown-menu h4 {
+.dropdown-menu:not(.solutions-dropdown) h4 {
     color: #72a1de;
     text-transform: uppercase;
     font-size: 14px;
@@ -143,7 +148,7 @@ header ul li {
     border-bottom: 1px solid rgba(114, 161, 222, 0.2);
 }
 
-.services-dropdown, .solutions-dropdown {
+.services-dropdown {
     margin-left: 150px !important;
     transform: translateX(-50%) !important;
     left: 0 !important;
@@ -457,6 +462,58 @@ header ul li {
     color: #6c757d;
 }
 
+/* Remove gradient/blue and any blur/shadow from specific section headings */
+.workflow-section h2.section-title,
+.why-choose-us h2.section-title,
+.cta-section h2.section-title {
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    filter: none !important;
+}
+
+/* CTA section layout and spacing to match screenshot */
+.cta-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding: 80px 20px;
+    background-color: rgba(10, 25, 47, 0.6);
+    border: 1px solid rgba(114, 161, 222, 0.15);
+    border-radius: 15px;
+}
+
+.cta-section h2.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+    margin-bottom: 18px !important;
+}
+
+.cta-section p {
+    margin: 20px auto 30px auto !important;
+    max-width: 640px !important;
+}
+
+@media (max-width: 768px) {
+    .cta-section {
+        width: 95%;
+        padding: 60px 20px;
+        margin: 40px auto 0 auto;
+    }
+    .cta-section h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+    }
+}
+
+/* Make last section background fully transparent */
+.cta-section {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .dropdown-menu.services-dropdown,
@@ -624,7 +681,7 @@ header ul li {
 
 /* Mobile menu icon - hidden by default */
 .menu-icon {
-    display: none;
+    display: none; /* hidden on desktop */
     position: fixed;
     top: 20px;
     right: 20px;
@@ -634,10 +691,9 @@ header ul li {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none !important;
     border: 1px solid rgba(114, 161, 222, 0.3);
 }
 
@@ -649,9 +705,7 @@ header ul li {
 /* Mobile-first responsive approach */
 @media (max-width: 768px) {
     /* Show mobile menu icon */
-    .menu-icon {
-        display: flex;
-    }
+    .menu-icon { display: flex; }
 
     /* Hide desktop navigation */
     .logo-bar-buttons {
@@ -1161,8 +1215,9 @@ header ul li {
 @media (max-width: 768px) {
     /* Ensure background video covers full screen on mobile */
     .back-vid {
-        opacity: 0.4;
-        mix-blend-mode: normal;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
@@ -1228,7 +1283,9 @@ header ul li {
 /* Additional fixes for very small screens */
 @media (max-width: 480px) {
     .back-vid {
-        opacity: 0.5;
+        opacity: 1 !important;
+        filter: none !important;
+        mix-blend-mode: normal !important;
     }
 
     .strategic-edge,

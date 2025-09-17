@@ -1,0 +1,610 @@
+/* ================================================ */
+/* === ARTIFICIAL INTELLIGENCE MOBILE RESPONSIVE === */
+/* ================================================ */
+
+/* Tablet Devices (768px - 1023px) - 2 cards per row */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* AI-Powered Solutions section */
+    .tailored-solutions {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 50px auto !important;
+        padding: 40px 20px !important;
+    }
+    
+    .tailored-solutions h2.section-title {
+        font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+        margin-bottom: 30px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .tailored-solutions .solutions-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .tailored-solutions .solution-card {
+        background-color: rgba(10, 25, 47, 0.8) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 20px 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    
+    .tailored-solutions .solution-card:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .tailored-solutions .solution-card i {
+        font-size: clamp(2.5rem, 6vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+    
+    .tailored-solutions .solution-card h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+        margin-bottom: 8px !important;
+        font-weight: 600 !important;
+    }
+    
+    .tailored-solutions .solution-card p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* AI Solutions for Every Industry section */
+    .workflow-section {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 50px auto !important;
+        padding: 40px 20px !important;
+        background: #0a192f !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+        margin-bottom: 30px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .workflow-section .solutions-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .workflow-section .solution-card {
+        background-color: rgba(10, 25, 47, 0.8) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 20px 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    
+    .workflow-section .solution-card:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .workflow-section .solution-card i {
+        font-size: clamp(2.5rem, 6vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+        margin-bottom: 8px !important;
+        font-weight: 600 !important;
+    }
+    
+    .workflow-section .solution-card p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* The CogniSphere AI Partnership section */
+    .why-choose-us {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 50px auto !important;
+        padding: 40px 20px !important;
+    }
+    
+    .why-choose-us h2.section-title {
+        font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+        margin-bottom: 30px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .why-choose-us .reasons-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .why-choose-us .reason {
+        background: transparent !important;
+        padding: 20px 15px !important;
+        text-align: center !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    
+    .why-choose-us .reason i {
+        font-size: clamp(2.5rem, 6vw, 3rem) !important;
+        color: #72a1de !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+    }
+    
+    .why-choose-us .reason h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+        margin-bottom: 10px !important;
+        font-weight: 600 !important;
+    }
+    
+    .why-choose-us .reason p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Mobile Devices (320px - 767px) - 1 card per row */
+@media (max-width: 767px) {
+    /* AI-Powered Solutions section */
+    .tailored-solutions {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 40px auto !important;
+        padding: 30px 15px !important;
+    }
+    
+    .tailored-solutions h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .tailored-solutions .solutions-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .tailored-solutions .solution-card {
+        background-color: rgba(10, 25, 47, 0.8) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 20px 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+    
+    .tailored-solutions .solution-card:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .tailored-solutions .solution-card i {
+        font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+    
+    .tailored-solutions .solution-card h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        margin-bottom: 8px !important;
+        font-weight: 600 !important;
+    }
+    
+    .tailored-solutions .solution-card p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 3vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* AI Solutions for Every Industry section */
+    .workflow-section {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 40px auto !important;
+        padding: 30px 15px !important;
+        background: #0a192f !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .workflow-section .solutions-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .workflow-section .solution-card {
+        background-color: rgba(10, 25, 47, 0.8) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 20px 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+    
+    .workflow-section .solution-card:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .workflow-section .solution-card i {
+        font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        margin-bottom: 8px !important;
+        font-weight: 600 !important;
+    }
+    
+    .workflow-section .solution-card p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 3vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* The CogniSphere AI Partnership section */
+    .why-choose-us {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 40px auto !important;
+        padding: 30px 15px !important;
+    }
+    
+    .why-choose-us h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .why-choose-us .reasons-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .why-choose-us .reason {
+        background: transparent !important;
+        padding: 20px 15px !important;
+        text-align: center !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+    
+    .why-choose-us .reason i {
+        font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        color: #72a1de !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+    }
+    
+    .why-choose-us .reason h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        margin-bottom: 10px !important;
+        font-weight: 600 !important;
+    }
+    
+    .why-choose-us .reason p {
+        color: #c5c5c5 !important;
+        line-height: 1.4 !important;
+        font-size: clamp(0.85rem, 3vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+    /* AI-Powered Solutions section */
+    .tailored-solutions {
+        width: 98% !important;
+        margin: 35px auto !important;
+        padding: 25px 10px !important;
+    }
+    
+    .tailored-solutions h2.section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .tailored-solutions .solutions-grid {
+        gap: 18px !important;
+    }
+    
+    .tailored-solutions .solution-card {
+        padding: 18px 12px !important;
+        border-radius: 12px !important;
+    }
+    
+    .tailored-solutions .solution-card i {
+        font-size: clamp(2rem, 7vw, 2.5rem) !important;
+        margin-right: 12px !important;
+    }
+    
+    .tailored-solutions .solution-card h3 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .tailored-solutions .solution-card p {
+        font-size: clamp(0.75rem, 3.5vw, 0.9rem) !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* AI Solutions for Every Industry section */
+    .workflow-section {
+        width: 98% !important;
+        margin: 35px auto !important;
+        padding: 25px 10px !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .workflow-section .solutions-grid {
+        gap: 18px !important;
+    }
+    
+    .workflow-section .solution-card {
+        padding: 18px 12px !important;
+        border-radius: 12px !important;
+    }
+    
+    .workflow-section .solution-card i {
+        font-size: clamp(2rem, 7vw, 2.5rem) !important;
+        margin-right: 12px !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .workflow-section .solution-card p {
+        font-size: clamp(0.75rem, 3.5vw, 0.9rem) !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* The CogniSphere AI Partnership section */
+    .why-choose-us {
+        width: 98% !important;
+        margin: 35px auto !important;
+        padding: 25px 10px !important;
+    }
+    
+    .why-choose-us h2.section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .why-choose-us .reasons-container {
+        gap: 18px !important;
+    }
+    
+    .why-choose-us .reason {
+        padding: 18px 12px !important;
+    }
+    
+    .why-choose-us .reason i {
+        font-size: clamp(2rem, 7vw, 2.5rem) !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .why-choose-us .reason h3 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .why-choose-us .reason p {
+        font-size: clamp(0.75rem, 3.5vw, 0.9rem) !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* iPhone SE and smaller devices (320px - 375px) */
+@media (max-width: 375px) {
+    /* AI-Powered Solutions section */
+    .tailored-solutions {
+        width: 100% !important;
+        margin: 30px auto !important;
+        padding: 20px 8px !important;
+    }
+    
+    .tailored-solutions h2.section-title {
+        font-size: clamp(1.2rem, 7vw, 1.6rem) !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .tailored-solutions .solutions-grid {
+        gap: 15px !important;
+    }
+    
+    .tailored-solutions .solution-card {
+        padding: 15px 10px !important;
+        border-radius: 10px !important;
+    }
+    
+    .tailored-solutions .solution-card i {
+        font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+        margin-right: 10px !important;
+    }
+    
+    .tailored-solutions .solution-card h3 {
+        font-size: clamp(0.9rem, 5vw, 1.1rem) !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .tailored-solutions .solution-card p {
+        font-size: clamp(0.7rem, 4vw, 0.85rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* AI Solutions for Every Industry section */
+    .workflow-section {
+        width: 100% !important;
+        margin: 30px auto !important;
+        padding: 20px 8px !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.2rem, 7vw, 1.6rem) !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .workflow-section .solutions-grid {
+        gap: 15px !important;
+    }
+    
+    .workflow-section .solution-card {
+        padding: 15px 10px !important;
+        border-radius: 10px !important;
+    }
+    
+    .workflow-section .solution-card i {
+        font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+        margin-right: 10px !important;
+    }
+    
+    .workflow-section .solution-card h3 {
+        font-size: clamp(0.9rem, 5vw, 1.1rem) !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .workflow-section .solution-card p {
+        font-size: clamp(0.7rem, 4vw, 0.85rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* The CogniSphere AI Partnership section */
+    .why-choose-us {
+        width: 100% !important;
+        margin: 30px auto !important;
+        padding: 20px 8px !important;
+    }
+    
+    .why-choose-us h2.section-title {
+        font-size: clamp(1.2rem, 7vw, 1.6rem) !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .why-choose-us .reasons-container {
+        gap: 15px !important;
+    }
+    
+    .why-choose-us .reason {
+        padding: 15px 10px !important;
+    }
+    
+    .why-choose-us .reason i {
+        font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .why-choose-us .reason h3 {
+        font-size: clamp(0.9rem, 5vw, 1.1rem) !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .why-choose-us .reason p {
+        font-size: clamp(0.7rem, 4vw, 0.85rem) !important;
+        line-height: 1.2 !important;
+    }
+}
+
+

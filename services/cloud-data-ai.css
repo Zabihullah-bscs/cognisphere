@@ -10,47 +10,6 @@
     display: block !important;
 }
 
-/* UNIVERSAL MOBILE OPTIMIZATIONS */
-@media (max-width: 768px) {
-    /* Grid and Flexbox optimizations */
-    .container, .grid-container, .flex-container {
-        grid-template-columns: 1fr !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-    
-    /* Typography adjustments */
-    h1, h2, h3, h4, h5, h6 {
-        font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
-        line-height: 1.2 !important;
-    }
-    
-    p, .text-content {
-        font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
-        line-height: 1.6 !important;
-    }
-    
-    /* Dropdown and navigation */
-    .dropdown-menu, .sidebar-menu {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    /* Buttons and interactive elements */
-    .btn, .cta-button, .service-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 12px 20px !important;
-    }
-    
-    /* Images and media */
-    img, video {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: cover !important;
-    }
-}
-
 /* MEDIUM SCREENS/TABLETS OPTIMIZATION */
 @media (max-width: 1024px) {
     .container {
@@ -113,12 +72,15 @@ html {
 }
 
 .back-vid {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    mix-blend-mode: overlay;
-    background-color: #020f1cd1; /* Dark layer for consistency with Home page */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: -1 !important;
+    opacity: 1 !important;
+    filter: none !important;
 }
 
 header {
@@ -171,7 +133,7 @@ header ul li {
     position: relative;
 }
 
-.dropdown-menu {
+.dropdown-menu:not(.solutions-dropdown) {
     display: none;
     opacity: 0;
     visibility: hidden;
@@ -202,7 +164,7 @@ header ul li {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.dropdown-menu a {
+.dropdown-menu:not(.solutions-dropdown) a {
     color: white;
     padding: 10px 0;
     text-decoration: none;
@@ -214,12 +176,12 @@ header ul li {
     transition: color 0.2s, padding-left 0.2s;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu:not(.solutions-dropdown) a:hover {
     color: #72a1de;
     padding-left: 5px;
 }
 
-.dropdown-menu h4 {
+.dropdown-menu:not(.solutions-dropdown) h4 {
     color: #72a1de;
     text-transform: uppercase;
     font-size: 14px;
@@ -229,7 +191,7 @@ header ul li {
     border-bottom: 1px solid rgba(114, 161, 222, 0.2);
 }
 
-.services-dropdown, .solutions-dropdown {
+.services-dropdown {
     margin-left: 150px !important;
     transform: translateX(-50%) !important;
     left: 0 !important;
@@ -704,6 +666,7 @@ header ul li {
     flex-direction: column;
     align-items: center;
     color: #fff;
+    z-index: 3;
 }
 
 .data-services-model .data-point .icon {
@@ -1304,6 +1267,16 @@ header ul li {
     .strategic-edge {
         width: 90%;
         gap: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .strategic-edge-content .section-title {
+        text-align: center;
+    }
+    
+    .strategic-edge-content p {
+        text-align: center;
     }
     
     .strategic-edge h2 {
@@ -1318,15 +1291,21 @@ header ul li {
     .stats-section {
         width: 90%;
         gap: 20px;
+        flex-direction: column;
+        align-items: center;
     }
     
     .stat {
         padding: 20px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
     }
     
     .stat-circle-wrapper {
         width: 200px;
         height: 200px;
+        margin: 0 auto 15px;
     }
     
     .progress-circle {
@@ -1342,12 +1321,37 @@ header ul li {
         font-size: 1.8rem;
     }
     
-    .data-services-list h3,
-    .adaptation-list .adaptation-item {
-        font-size: 1.1rem;
+    .solutions-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .data-services-list {
+        order: 1;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .data-services-list ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+    }
+    
+    .data-services-list ul li {
+        background: rgba(114, 161, 222, 0.1);
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid rgba(114, 161, 222, 0.2);
+        text-align: center;
     }
     
     .data-services-model {
+        order: 2;
         width: 280px;
         height: 280px;
     }
@@ -1355,6 +1359,23 @@ header ul li {
     .center-circle {
         width: 120px;
         height: 120px;
+    }
+    
+    .adaptation-list {
+        order: 3;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
+    }
+    
+    .adaptation-item {
+        background: rgba(114, 161, 222, 0.1);
+        padding: 10px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        text-align: center;
+        border: 1px solid rgba(114, 161, 222, 0.2);
     }
     
     .cda-solutions {
@@ -1391,30 +1412,20 @@ header ul li {
     .step {
         padding: 20px;
     }
-    
-    /* Fix background video effects for mobile */
-    .back-vid {
-        opacity: 0.3;
-        mix-blend-mode: normal;
-    }
-    
-    /* Ensure proper backdrop filters on mobile */
-    .strategic-edge,
-    .custom-data-solutions,
-    .cda-solutions,
-    .workflow-section {
-        backdrop-filter: blur(10px);
-        background: rgba(10, 25, 47, 0.8);
-    }
-    
-    /* Fix blurriness by reducing complex shadows and effects */
-    .cda-card,
-    .step,
-    .stat {
-        backdrop-filter: blur(5px);
-        background: rgba(10, 25, 47, 0.9);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
+
+    /* Mobile diagram fixes without affecting desktop */
+    .data-services-model { position: relative; }
+    .data-services-model .center-circle { width: 140px; height: 140px; }
+    .data-services-model .gen-ai-text { font-size: 1rem; }
+    .data-services-model .model-text { font-size: 1.2rem; }
+    .data-services-model .data-point { transform: translate(-50%, -50%); }
+    .data-services-model .data-point.image { top: 12%; left: 50%; }
+    .data-services-model .data-point.text { top: 34%; left: 84%; }
+    .data-services-model .data-point.speech { top: 34%; left: 16%; }
+    .data-services-model .data-point.structured-data { top: 82%; left: 26%; }
+    .data-services-model .data-point.signals { top: 82%; left: 74%; }
+    .data-services-model .training-text,
+    .data-services-model .adaptation-text { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -1477,6 +1488,15 @@ header ul li {
         height: 180px;
     }
     
+    .counter h2 {
+        font-size: 1.4rem;
+    }
+    
+    .stat p {
+        font-size: 0.85rem;
+        padding: 0 5px;
+    }
+    
     .custom-data-solutions {
         width: 95%;
     }
@@ -1485,18 +1505,46 @@ header ul li {
         font-size: 1.6rem;
     }
     
+    .data-services-list ul {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .data-services-list ul li {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
     .data-services-model {
-        width: 250px;
-        height: 250px;
+        width: 240px;
+        height: 240px;
     }
     
     .center-circle {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
     
-    .data-point {
-        font-size: 0.9rem;
+    .data-point .icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .data-point.image { top: 5px; left: 100px; }
+    .data-point.text { top: 65px; left: 170px; }
+    .data-point.speech { top: 65px; left: 20px; }
+    .data-point.structured-data { top: 170px; left: 40px; }
+    .data-point.signals { top: 170px; left: 150px; }
+    
+    .adaptation-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .adaptation-item {
+        padding: 8px 10px;
+        font-size: 0.8rem;
     }
     
     .cda-solutions {
@@ -1505,6 +1553,10 @@ header ul li {
     
     .cda-solutions h2 {
         font-size: 1.6rem;
+    }
+    
+    .cda-card {
+        padding: 15px 12px;
     }
     
     .workflow-section {
@@ -1519,13 +1571,71 @@ header ul li {
     .step {
         padding: 15px;
     }
-    
-    .step h3 {
-        font-size: 1.1rem;
+
+    /* Small mobile diagram fine-tuning */
+    .data-services-model { position: relative; }
+    .data-services-model .center-circle { width: 110px; height: 110px; }
+    .data-services-model .data-point { transform: translate(-50%, -50%); }
+    .data-services-model .data-point.image { top: 14%; left: 50%; }
+    .data-services-model .data-point.text { top: 36%; left: 86%; }
+    .data-services-model .data-point.speech { top: 36%; left: 14%; }
+    .data-services-model .data-point.structured-data { top: 84%; left: 28%; }
+    .data-services-model .data-point.signals { top: 84%; left: 72%; }
+    .data-services-model .data-point .icon { width: 32px; height: 32px; }
+    .data-services-model .data-point .icon i { font-size: 0.95rem; }
+    .data-services-model .data-point span { font-size: 0.6rem; }
+    .data-services-model .training-text,
+    .data-services-model .adaptation-text { display: none; }
+}
+
+/* Extra small devices (320px and below) */
+@media (max-width: 320px) {
+    .hero-info h1 {
+        font-size: 1.8rem;
     }
     
-    .step p {
+    .hero-info p {
         font-size: 0.9rem;
+    }
+    
+    .data-services-model {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .center-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .data-point .icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .data-point.image { top: 3px; left: 85px; }
+    .data-point.text { top: 55px; left: 145px; }
+    .data-point.speech { top: 55px; left: 15px; }
+    .data-point.structured-data { top: 145px; left: 30px; }
+    .data-point.signals { top: 145px; left: 125px; }
+    
+    .adaptation-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-circle-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .progress-circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .counter h2 {
+        font-size: 1.2rem;
     }
 }
 
@@ -1539,6 +1649,7 @@ header ul li {
         display: flex;
         align-items: center;
         justify-content: center;
+        touch-action: manipulation;
     }
     
     .sidebar ul li a {
@@ -1550,6 +1661,30 @@ header ul li {
     .close-icon {
         min-height: 44px;
         min-width: 44px;
+    }
+    
+    /* Enhanced footer responsiveness */
+    .site-footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-main {
+        width: 95%;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .footer-column.about {
+        order: 1;
+    }
+    
+    .footer-column.links {
+        order: 2;
+    }
+    
+    .footer-column.contact {
+        order: 3;
     }
 }
 
@@ -1583,6 +1718,224 @@ header ul li {
     }
 }
 
+
+/* ================================================ */
+/* === CLOUD DATA AI WORKFLOW MOBILE RESPONSIVE === */
+/* ================================================ */
+
+/* Tablet Devices (768px - 1023px) - 2 cards per row */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .workflow-section {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 50px auto !important;
+        padding: 40px 20px !important;
+        background: #0a192f !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+        margin-bottom: 30px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .workflow-steps {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .step {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(8px) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 25px 20px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+    
+    .step:hover {
+        transform: translateY(-4px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .step i {
+        font-size: clamp(2.5rem, 6vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+    }
+    
+    .step h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 3vw, 1.3rem) !important;
+        margin-bottom: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    .step p {
+        color: #c5c5c5 !important;
+        line-height: 1.5 !important;
+        font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Mobile Devices (320px - 767px) - 1 card per row */
+@media (max-width: 767px) {
+    .workflow-section {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 40px auto !important;
+        padding: 30px 15px !important;
+        background: #0a192f !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2rem) !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        color: #72a1dea2 !important;
+    }
+    
+    .workflow-steps {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .step {
+        background-color: rgba(10, 25, 47, 0.6) !important;
+        backdrop-filter: blur(8px) !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(114, 161, 222, 0.2) !important;
+        padding: 25px 20px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        text-align: left !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+    
+    .step:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 6px 20px rgba(114, 161, 222, 0.3) !important;
+        border-color: rgba(114, 161, 222, 0.4) !important;
+    }
+    
+    .step i {
+        font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        color: #72a1dea2 !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+    }
+    
+    .step h3 {
+        color: #ffffff !important;
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        margin-bottom: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    .step p {
+        color: #c5c5c5 !important;
+        line-height: 1.5 !important;
+        font-size: clamp(0.85rem, 3vw, 1rem) !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+    .workflow-section {
+        width: 98% !important;
+        margin: 35px auto !important;
+        padding: 25px 10px !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .workflow-steps {
+        gap: 18px !important;
+    }
+    
+    .step {
+        padding: 20px 15px !important;
+        border-radius: 12px !important;
+    }
+    
+    .step i {
+        font-size: clamp(2rem, 7vw, 2.5rem) !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .step h3 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .step p {
+        font-size: clamp(0.75rem, 3.5vw, 0.9rem) !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* iPhone SE and smaller devices (320px - 375px) */
+@media (max-width: 375px) {
+    .workflow-section {
+        width: 100% !important;
+        margin: 30px auto !important;
+        padding: 20px 8px !important;
+    }
+    
+    .workflow-section h2.section-title {
+        font-size: clamp(1.2rem, 7vw, 1.6rem) !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .workflow-steps {
+        gap: 15px !important;
+    }
+    
+    .step {
+        padding: 18px 12px !important;
+        border-radius: 10px !important;
+    }
+    
+    .step i {
+        font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .step h3 {
+        font-size: clamp(0.9rem, 5vw, 1.1rem) !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .step p {
+        font-size: clamp(0.7rem, 4vw, 0.85rem) !important;
+        line-height: 1.3 !important;
+    }
+}
+
 /* Landscape orientation adjustments */
 @media (max-width: 768px) and (orientation: landscape) {
     .hero {
@@ -1607,81 +1960,11 @@ header ul li {
         width: 150px;
         height: 150px;
     }
+    
+    /* Ensure video clarity in landscape */
+    .back-vid {
+        opacity: 1 !important;
+        filter: none !important;
+    }
 }
 
-/* Additional mobile optimizations */
-@media (max-width: 768px) {
-    /* Optimize AOS animations for mobile */
-    [data-aos] {
-        animation-duration: 800ms !important;
-        animation-delay: 0ms !important;
-    }
-    
-    /* Ensure proper text readability */
-    .section-title,
-    .hero-info h1,
-    .strategic-edge h2,
-    .custom-data-solutions h1,
-    .cda-solutions h2,
-    .workflow-section h2 {
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    }
-    
-    /* Optimize background effects for mobile performance */
-    .back-vid {
-        transform: scale(1.2);
-        filter: brightness(0.4) contrast(1.2);
-    }
-    
-    /* Ensure proper contrast for mobile */
-    .cda-card,
-    .step,
-    .stat {
-        color: #f0f0f0;
-        background: rgba(10, 25, 47, 0.95);
-    }
-    
-    .cda-card h3,
-    .step h3,
-    .stat p {
-        color: white;
-    }
-    
-    /* Fix specific cloud data AI elements */
-    .data-services-model {
-        transform: scale(0.9);
-    }
-    
-    .data-point {
-        font-size: 0.85rem;
-    }
-    
-    .training-text,
-    .adaptation-text {
-        font-size: 0.9rem;
-    }
-    
-    .gen-ai-text,
-    .model-text {
-        font-size: 0.8rem;
-    }
-    
-    /* Optimize feature lists for mobile */
-    .feature-list {
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    
-    .feature-list li {
-        margin-bottom: 8px;
-    }
-    
-    /* Ensure proper spacing for workflow steps */
-    .workflow-section .step {
-        margin-bottom: 15px;
-    }
-    
-    .workflow-section .step:last-child {
-        margin-bottom: 0;
-    }
-}

@@ -360,12 +360,22 @@
 .workflow-section {
     padding: 80px 20px;
     text-align: center;
+    backdrop-filter: none !important;
+    filter: none !important;
 }
 
 .workflow-section .section-title {
     font-size: 2.5rem;
     color: #2c3e50;
     margin-bottom: 60px;
+    backdrop-filter: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+.workflow-section .solution-card {
+    backdrop-filter: none !important;
+    filter: none !important;
 }
 
 /* Responsive styles */
@@ -431,6 +441,19 @@
     }
     .workflow-section .section-title {
         font-size: 2rem;
+        backdrop-filter: none !important;
+        filter: none !important;
+        text-shadow: none !important;
+    }
+    
+    .workflow-section {
+        backdrop-filter: none !important;
+        filter: none !important;
+    }
+    
+    .workflow-section .solution-card {
+        backdrop-filter: none !important;
+        filter: none !important;
     }
 }
 
