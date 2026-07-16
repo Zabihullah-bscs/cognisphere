@@ -695,64 +695,26 @@
                         meetingNotes: notes
                     };
                     
-                    console.log('Sending booking data:', bookingData);
+                    console.log('Saving booking locally:', bookingData);
                     
-                    // Try to send booking to backend API first
-                    try {
-                        const response = await fetch('/api/booking/create', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(bookingData)
-                        });
-                        
-                        if (response.ok) {
-                            const result = await response.json();
-                            // Show success message with real booking data
-                            showBookingSuccess(result.booking);
-                        } else {
-                            // If API fails, fallback to localStorage
-                            console.log('API failed, using localStorage fallback');
-                            const fallbackBooking = {
-                                ...bookingData,
-                                id: Date.now(),
-                                timestamp: new Date().toISOString(),
-                                status: 'confirmed',
-                                meetingName: meetingTypes[bookingData.meetingType].name,
-                                duration: meetingTypes[bookingData.meetingType].duration,
-                                timezone: 'Pakistan Standard Time (PST)'
-                            };
-                            
-                            // Store in localStorage
-                            const bookings = JSON.parse(localStorage.getItem('meetings') || '[]');
-                            bookings.push(fallbackBooking);
-                            localStorage.setItem('meetings', JSON.stringify(bookings));
-                            
-                            // Show success message
-                            showBookingSuccess(fallbackBooking);
-                        }
-                    } catch (apiError) {
-                        console.log('API not available, using localStorage fallback:', apiError);
-                        // Fallback to localStorage if API is not available
-                        const fallbackBooking = {
-                            ...bookingData,
-                            id: Date.now(),
-                            timestamp: new Date().toISOString(),
-                            status: 'confirmed',
-                            meetingName: meetingTypes[bookingData.meetingType].name,
-                            duration: meetingTypes[bookingData.meetingType].duration,
-                            timezone: 'Pakistan Standard Time (PST)'
-                        };
-                        
-                        // Store in localStorage
-                        const bookings = JSON.parse(localStorage.getItem('meetings') || '[]');
-                        bookings.push(fallbackBooking);
-                        localStorage.setItem('meetings', JSON.stringify(bookings));
-                        
-                        // Show success message
-                        showBookingSuccess(fallbackBooking);
-                    }
+                    // Save booking to localStorage (works offline with GitHub Pages)
+                    const fallbackBooking = {
+                        ...bookingData,
+                        id: Date.now(),
+                        timestamp: new Date().toISOString(),
+                        status: 'confirmed',
+                        meetingName: meetingTypes[bookingData.meetingType].name,
+                        duration: meetingTypes[bookingData.meetingType].duration,
+                        timezone: 'Pakistan Standard Time (PST)'
+                    };
+                    
+                    // Store in localStorage
+                    const bookings = JSON.parse(localStorage.getItem('meetings') || '[]');
+                    bookings.push(fallbackBooking);
+                    localStorage.setItem('meetings', JSON.stringify(bookings));
+                    
+                    // Show success message
+                    showBookingSuccess(fallbackBooking);
                 } catch (error) {
                     console.error('Error creating booking:', error);
                     showBookingError('Network error. Please try again.');
